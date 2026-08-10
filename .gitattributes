@@ -1,0 +1,11 @@
+# Normalize line endings
+*.md text eol=lf
+*.base text eol=lf
+*.txt text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary

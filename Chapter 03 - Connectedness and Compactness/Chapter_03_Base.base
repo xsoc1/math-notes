@@ -1,0 +1,27 @@
+﻿filters:
+  and:
+    - 'file.ext == "md"'
+    - 'file.hasTag("topology/munkres/chapter3")'
+    - 'file.name != "00_Chapter_03_Overview"'
+
+properties:
+  file.name:
+    displayName: "Section"
+  file.mtime:
+    displayName: "Modified"
+  file.tags:
+    displayName: "Tags"
+
+views:
+  - type: table
+    name: "Chapter 3 All Sections"
+    order:
+      - file.name
+      - file.mtime
+      - file.tags
+
+  - type: cards
+    name: "Section Cards"
+    order:
+      - file.name
+      - file.tags

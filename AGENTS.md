@@ -1,4 +1,4 @@
-﻿﻿﻿# AGENTS.md 鈥?鎷撴墤瀛?Munkres 瀛︿範绗旇椤圭洰
+﻿﻿﻿﻿﻿# AGENTS.md 鈥?鎷撴墤瀛?Munkres 瀛︿範绗旇椤圭洰
 
 ## 椤圭洰姒傝堪
 
@@ -11,17 +11,19 @@ F:\Obsidian Storage\数学\拓扑学Mumkres\
 ├── README.md
 ├── 变分法/
 │   └── 变分法基本引理.md
-├── Chapter 01 - Set Theory and Logic/
-│   ├── 00_Chapter_01_Overview.md
-│   └── ...
-├── Chapter 02 - Topological Spaces and Continuous Functions/
-│   ├── 00_Chapter_02_Overview.md
-│   ├── 12_Topological_Spaces.md
-│   ├── 13_Basis_for_a_Topology.md
-│   ├── ...
-│   ├── 22_The_Quotient_Topology.md
-│   └── Chapter_02_Base.base
-├── Chapter 03 - Connectedness and Compactness/
+├── 拓扑学 Munkres/
+│   ├── Chapter 01 - Set Theory and Logic/
+│   │   ├── 00_Chapter_01_Overview.md
+│   │   └── ...
+│   ├── Chapter 02 - Topological Spaces and Continuous Functions/
+│   │   ├── 00_Chapter_02_Overview.md
+│   │   ├── 12_Topological_Spaces.md
+│   │   ├── 13_Basis_for_a_Topology.md
+│   │   ├── ...
+│   │   ├── 22_The_Quotient_Topology.md
+│   │   └── Chapter_02_Base.base
+│   ├── Chapter 03 - Connectedness and Compactness/
+│   │   └── ...
 │   └── ...
 └── ...
 
@@ -110,3 +112,4 @@ aliases:
 | 2026-07-28 | 参考香蕉空间讲义增强核心章节的直觉理解：补充拓扑公理动机（§12）、基的直观（§13）、序拓扑本质（§14）、子空间拓扑相对化思想（§16）、开闭对偶性（§17）、连续性三种刻画直觉（§18）、商拓扑粘合艺术（§22）、连通性两种思考方式（§23）、紧性三个等价角度（§26）、可数性条件统一（§30）、分离性公理层级（§31）、Urysohn引理分层构造直觉（§33）、度量化嵌入策略（§34）、Tychonoff定理惊奇性与AC等价（§37）、Baire纲定理可数→存在模式（§48） |
 | 2026-08-10 | 将本目录全部笔记同步至 GitHub 仓库 xsoc1/math-notes（main 分支）：初始化 git、合并远端已有内容、提交 46 个笔记文件并推送，commit aac9d24 |
 | 2026-08-10 | 整理仓库：重写 README.md（结构导航+章节一览）、添加 .gitattributes（行尾规范化）与 .gitignore（忽略 .obsidian/.trash）、将变分法基本引理.md 移入 变分法/ 文件夹、修复 AGENTS.md 目录树乱码 |
+| 2026-08-10 | 将全部 Chapter 01–08 移入 拓扑学 Munkres/ 文件夹，更新 README 与 AGENTS.md 目录结构（Chapter 间 wikilink 经核查保持有效） |

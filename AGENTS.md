@@ -7,7 +7,7 @@
 ## 目录结构
 
 ```
-F:\Obsidian Storage\数学\拓扑学Mumkres\
+F:\Obsidian Storage\数学\math-notes\
 ├── AGENTS.md                           ← 本文件
 ├── README.md
 ├── 变分法/
@@ -118,6 +118,7 @@ aliases:
 ## 对话记录
 
 - 2026-08-12：用户指派负责管理本仓库笔记并同步云端仓库 `xsoc1/math-notes`；确认本地与远端一致，修复 AGENTS.md 重复 BOM 与中文乱码，补充工作方法与对话记录
+- 2026-08-12：整理文件夹结构，将本地仓库目录由 `拓扑学Mumkres` 重命名为 `math-notes`，与云端仓库保持一致
 
 ## 变更日志
 
@@ -141,3 +142,4 @@ aliases:
 | 2026-08-10 | 整理仓库：重写 README.md（结构导航+章节一览）、添加 .gitattributes（行尾规范化）与 .gitignore（忽略 .obsidian/.trash）、将变分法基本引理.md 移入 变分法/ 文件夹、修复 AGENTS.md 目录树乱码 |
 | 2026-08-10 | 将全部 Chapter 01–08 移入 拓扑学 Munkres/ 文件夹，更新 README 与 AGENTS.md 目录结构（Chapter 间 wikilink 经核查保持有效） |
 | 2026-08-12 | 接手维护并完成首次同步：`git fetch` 确认本地 `master` 与远端 `main` 一致（HEAD `c3703c7`）；修复 AGENTS.md 重复 BOM 与中文乱码，新增工作方法/对话记录 |
+| 2026-08-12 | 整理文件夹结构：本地仓库目录重命名为 `math-notes`，与云端仓库结构一致；更新 AGENTS.md 目录路径并追加维护记录 |

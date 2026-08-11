@@ -1,9 +1,10 @@
-﻿﻿﻿﻿﻿# AGENTS.md 鈥?鎷撴墤瀛?Munkres 瀛︿範绗旇椤圭洰
+# AGENTS.md - 拓扑学 Munkres 学习笔记项目
 
-## 椤圭洰姒傝堪
+## 项目概述
 
-鏈」鐩槸鍩轰簬 **James R. Munkres銆奣opology銆?2nd Edition)** 鐨?Obsidian 瀛︿範绗旇锛屼娇鐢ㄤ弗璋ㄧ殑鏁板璇█璁板綍瀹氫箟銆佸畾鐞嗐€佽瘉鏄庡拰渚嬮瑙ｆ瀽銆?
-## 鐩綍缁撴瀯
+本项目是基于 **James R. Munkres《Topology》(2nd Edition)** 的 Obsidian 学习笔记，使用严谨的数学语言记录定义、定理、证明和例题解析。
+
+## 目录结构
 
 ```
 F:\Obsidian Storage\数学\拓扑学Mumkres\
@@ -26,18 +27,20 @@ F:\Obsidian Storage\数学\拓扑学Mumkres\
 │   │   └── ...
 │   └── ...
 └── ...
+```
 
-## 鏂囦欢鍛藉悕瑙勮寖
+## 文件命名规范
 
-- 姣忕珷寤虹珛鐙珛鏂囦欢澶癸細`Chapter XX - English Title/`
-- 绔犺妭鎬昏锛歚00_Chapter_XX_Overview.md`
-- 鍚勮妭绗旇锛歚XX_Section_Name.md`锛圶X 涓哄師涔﹁妭鍙凤紝涓や綅鏁板瓧锛?- Base 绠＄悊鏂囦欢锛歚Chapter_XX_Base.base`
+- 每章建立独立文件夹：`Chapter XX - English Title/`
+- 章节总览：`00_Chapter_XX_Overview.md`
+- 各节笔记：`XX_Section_Name.md`（XX 为原书节号，两位数字）
+- Base 管理文件：`Chapter_XX_Base.base`
 
-## 姣忚妭绗旇缁撴瀯妯℃澘
+## 每节笔记结构模板
 
 ```markdown
 ---
-title: "搂XX 鏍囬"
+title: "§XX 标题"
 date: YYYY-MM-DD
 tags:
   - topology/munkres/chapterX
@@ -47,60 +50,84 @@ aliases:
   - "XX_English_Name"
 ---
 
-# 搂XX Title
+# §XX Title
 
-> [!abstract] 鏍稿績闂
+> [!abstract] 核心问题
 
-## XX.1 瀹氫箟锛坈allout `[!note]`锛?
-## XX.2 瀹氱悊锛坈allout `[!note]`锛岄檮璇佹槑锛?
-## XX.3 渚嬪瓙锛坈allout `[!example]`锛?
-## XX.4 涔犻瑙ｆ瀽锛坈allout `[!question]`锛屽紩鐢ㄥ師涔︿範棰樼紪鍙凤級
+## XX.1 定义（callout `[!note]`）
+## XX.2 定理（callout `[!note]`，附证明）
+## XX.3 例子（callout `[!example]`）
+## XX.4 习题解析（callout `[!question]`，引用原书习题编号）
 
-## 鐩稿叧閾炬帴锛圵ikilink锛?```
+## 相关链接（Wikilink）
+```
 
-## 鏁板鍐呭瑙勫垯
+## 数学内容规则
 
-1. **瀹氫箟蹇呴』绮剧‘** 鈥斺€?浣跨敤 `[!note]` callout锛岀粰鍑轰弗鏍兼暟瀛﹁〃杩?2. **瀹氱悊蹇呴』闄勮瘉鏄?* 鈥斺€?鍦?callout 澶栫嫭绔嬫钀藉啓鍑哄畬鏁磋瘉鏄庯紝浠?$\square$ 缁撳熬
-3. **渚嬮浣跨敤鍘熶功涔犻** 鈥斺€?浣跨敤 `[!question]` callout锛屾敞鏄庝範棰樼紪鍙凤紝缁欏嚭瀹屾暣瑙ｇ瓟
-4. **绗﹀彿涓€鑷存€?*锛?   - 寮€闆嗘棌锛?\mathcal{T}$锛屽熀锛?\mathcal{B}$锛屽瓙鍩猴細$\mathcal{S}$
-   - 闂寘锛?\overline{A}$锛屽唴閮細$\operatorname{Int}(A)$
-   - 鏋侀檺鐐归泦锛?A'$
-   - 鍚岃儦锛?\cong$
-5. **LaTeX 瑙勮寖**锛氳鍐呭叕寮?`$...$`锛岃闂村叕寮?`$$...$$`锛屽榻愮敤 `\begin{aligned}`
+1. **定义必须精确** —— 使用 `[!note]` callout，给出严格数学表述
+2. **定理必须附证明** —— 在 callout 外独立段落写出完整证明，以 `$\square$` 结尾
+3. **例题使用原书习题** —— 使用 `[!question]` callout，注明习题编号，给出完整解答
+4. **符号一致性**：
+   - 开集族：`$\mathcal{T}$`，基：`$\mathcal{B}$`，子基：`$\mathcal{S}$`
+   - 闭包：`$\overline{A}$`，内部：`$\operatorname{Int}(A)$`
+   - 极限点集：`$A'$`
+   - 同胚：`$\cong$`
+5. **LaTeX 规范**：行内公式 `$...$`，行间公式 `$$...$$`，对齐用 `\begin{aligned}`
 
-## Obsidian 鐗瑰畾瑙勮寖
+## Obsidian 特定规范
 
-- 鍐呴儴閾炬帴浣跨敤 `[[Note Name|Display Text]]` 鏍煎紡
-- 瀹氱悊/瀹氫箟閿氱偣锛氬湪 callout 鏍囬鍚庢坊鍔?`^theorem-XX-Y` 鍧楀紩鐢紙濡?`^theorem-18-1`锛?- 宓屽叆鍏朵粬绗旇鏃朵娇鐢?`![[Note Name]]`
-- 寮鸿皟閲嶇偣浣跨敤 `>[!important]` callout
-- 鎻愮ず鎶€宸т娇鐢?`>[!tip]` callout
-- Base 鏂囦欢杩囨护浼樺厛浣跨敤 `file.hasTag()` 鑰岄潪璺緞鍖归厤锛岄伩鍏嶈法骞冲彴璺緞闂
+- 内部链接使用 `[[Note Name|Display Text]]` 格式
+- 定理/定义锚点：在 callout 标题后添加 `^theorem-XX-Y` 块引用（如 `^theorem-18-1`）
+- 嵌入其他笔记时使用 `![[Note Name]]`
+- 强调重点使用 `>[!important]` callout
+- 提示技巧使用 `>[!tip]` callout
+- Base 文件过滤优先使用 `file.hasTag()` 而非路径匹配，避免跨平台路径问题
 
-## 浠ｇ爜瑙勫垯锛堥€傜敤浜庨」鐩腑浠讳綍浠ｇ爜鐗囨锛?
-1. 鎵€鏈夊ぇ鎷彿鍗曠嫭鍗犱竴琛?2. `while`/`for`/`if`/`switch` 涓?`(` 涔嬮棿涓嶅緱鏈夌┖鏍?3. 澶氳瘝缁勫嚱鏁板悕鐢?snake_case锛歚insert_sort()`
-4. 澶氳瘝缁勫彉閲忓悕鐢?PascalCase锛歚NewData`
-5. `main()` 鏈€鍚庝笁琛岋細`cout << endl;` 鈫?`system("pause");` 鈫?`return 0;`
-6. 娉ㄩ噴蹇呴』绠€娲侊紝浠呬繚鐣欏繀瑕佽В閲?7. 鍙厑璁镐娇鐢ㄨ嫳鏂囨爣鐐圭鍙?8. 鎵€鏈変唬鐮佸潡浣跨敤 **tab 缂╄繘**锛堜笉鏄┖鏍硷級
+## 代码规则（适用于项目中任何代码片段）
 
-## 鏂囦欢缂栫爜
+1. 所有大括号单独占一行
+2. `while`/`for`/`if`/`switch` 与 `(` 之间不得有空格
+3. 多词组函数名用 snake_case：`insert_sort()`
+4. 多词组变量名用 PascalCase：`NewData`
+5. `main()` 最后三行：`cout << endl;` → `system("pause");` → `return 0;`
+6. 注释必须简洁，仅保留必要解释
+7. 只允许使用英文标点符号
+8. 所有代码块使用 **tab 缩进**（不是空格）
 
-- 鎵€鏈?`.md` 鏂囦欢浣跨敤 **UTF-8** 缂栫爜
-- 鎵€鏈?`.base` 鏂囦欢浣跨敤 **UTF-8** 缂栫爜锛圷AML 鏍煎紡锛?
-## 缁存姢鍘熷垯
+## 文件编码
 
-- 淇敼绗旇鏃跺敖閲忎繚鎸佷笌宸插畾缁撴瀯涓€鑷?- 鏂板涔犻瑙ｆ瀽蹇呴』寮曠敤鍘熶功涔犻缂栧彿
-- 瓒呴摼鎺ョ綉缁滀繚鎸佸弻鍚戯紙琚摼鎺ョ殑绗旇搴斿惈鏈夎繑鍥為摼鎺ワ級
-- 姣忔鏂板鍐呭鍚庢洿鏂板搴旂珷鑺傜殑 `.base` 鏂囦欢
-- 濡傜瑪璁伴棿瀛樺湪閫昏緫渚濊禆锛屽湪绔犺妭鎬昏涓洿鏂?Mermaid 渚濊禆鍥?- **姣忔鍙樻洿鍚庡繀椤诲悓姝ユ洿鏂版湰 AGENTS.md**锛屽湪鍙樻洿鏃ュ織涓拷鍔犳潯鐩苟绠€杩板伐浣滃唴瀹?
-## 鍙樻洿鏃ュ織
+- 所有 `.md` 文件使用 **UTF-8** 编码
+- 所有 `.base` 文件使用 **UTF-8** 编码（YAML 格式）
 
-| 鏃ユ湡 | 鍙樻洿鍐呭 |
+## 维护原则
+
+- 修改笔记时尽量保持与已定结构一致
+- 新增习题解析必须引用原书习题编号
+- 超链接网络保持双向（被链接的笔记应含有返回链接）
+- 每次新增内容后更新对应章节的 `.base` 文件
+- 如笔记间存在逻辑依赖，在章节总览中更新 Mermaid 依赖图
+- **每次变更后必须同步更新本 AGENTS.md**，在变更日志中追加条目并简述工作内容
+
+## 工作方法
+
+- 每次维护前先执行 `git fetch origin` 并检查 `git status --short --branch`
+- 本地分支 `master` 跟踪远端 `main`，以 `origin/main` 为同步基准
+- 修改笔记或维护文件后，更新本文件变更日志，提交并推送至 `xsoc1/math-notes`
+- 不将 Obsidian 配置（`.obsidian`、`.trash`）纳入版本控制
+
+## 对话记录
+
+- 2026-08-12：用户指派负责管理本仓库笔记并同步云端仓库 `xsoc1/math-notes`；确认本地与远端一致，修复 AGENTS.md 重复 BOM 与中文乱码，补充工作方法与对话记录
+
+## 变更日志
+
+| 日期 | 变更内容 |
 |------|----------|
-| 2026-07-08 | 鍒濆鍖栭」鐩紝鍒涘缓 AGENTS.md |
-| 2026-07-08 | 鐢熸垚 Chapter 2 鍏ㄩ儴 11 鑺傜瑪璁帮紙搂12鈥撀?2锛夛紝鍚畾涔?瀹氱悊/璇佹槑/涔犻瑙ｆ瀽 |
-| 2026-07-08 | 鍒涘缓 Chapter 2 鐨?Obsidian Base 绠＄悊鏂囦欢锛屼慨姝ｈ繃婊よ娉曪紙tag 鏇夸唬璺緞鍖归厤锛?|
-| 2026-07-08 | 鏂板鍙樻洿鏃ュ織鍜岀淮鎶よ嚜鏇存柊瑙勫垯 |
-| 2026-07-08 | 鏂板 Chapter 1 绠€鏄庣瑪璁帮紙搂1鈥撀?1锛夛紝瑕嗙洊闆嗗悎璁恒€佸嚱鏁般€佸叧绯汇€佸熀鏁般€侀€夋嫨鍏悊銆乑orn 寮曠悊 |
+| 2026-07-08 | 初始化项目，创建 AGENTS.md |
+| 2026-07-08 | 生成 Chapter 2 全部 11 节笔记（§12–§22），含定义/定理/证明/习题解析 |
+| 2026-07-08 | 创建 Chapter 2 的 Obsidian Base 管理文件，修正过滤语法（tag 替代路径匹配） |
+| 2026-07-08 | 新增变更日志和维护自更新规则 |
+| 2026-07-08 | 新增 Chapter 1 简明笔记（§1–§11），覆盖集合论、函数、关系、基数、选择公理、Zorn 引理 |
 | 2026-07-08 | 生成 Chapter 3 全部 7 节笔记（§23–§29），含连通性/紧致性定义定理证明，融入大量课后习题解析（每节 5–8 题），含 Heine-Borel、介值定理、极值定理、管引理、单点紧化等 |
 | 2026-07-23 | 为 §12 Lemma 12.2 补全证明 |
 | 2026-07-26 | 补全所有缺证明的引理/定理：Lemma 16.2, Lemma 16.3, Theorem 17.4, Theorem 21.4, Theorem 25.4 |
@@ -113,3 +140,4 @@ aliases:
 | 2026-08-10 | 将本目录全部笔记同步至 GitHub 仓库 xsoc1/math-notes（main 分支）：初始化 git、合并远端已有内容、提交 46 个笔记文件并推送，commit aac9d24 |
 | 2026-08-10 | 整理仓库：重写 README.md（结构导航+章节一览）、添加 .gitattributes（行尾规范化）与 .gitignore（忽略 .obsidian/.trash）、将变分法基本引理.md 移入 变分法/ 文件夹、修复 AGENTS.md 目录树乱码 |
 | 2026-08-10 | 将全部 Chapter 01–08 移入 拓扑学 Munkres/ 文件夹，更新 README 与 AGENTS.md 目录结构（Chapter 间 wikilink 经核查保持有效） |
+| 2026-08-12 | 接手维护并完成首次同步：`git fetch` 确认本地 `master` 与远端 `main` 一致（HEAD `c3703c7`）；修复 AGENTS.md 重复 BOM 与中文乱码，新增工作方法/对话记录 |

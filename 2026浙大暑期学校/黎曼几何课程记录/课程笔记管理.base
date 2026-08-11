@@ -1,0 +1,28 @@
+    - file.inFolder("2026浙大暑期学校/黎曼几何课程记录")
+formulas:
+  size_kb: (file.size / 1024).round(1)
+properties:
+  file.name:
+    displayName: 笔记名称
+  tags:
+    displayName: 标签
+  formula.size_kb:
+    displayName: 大小 (KB)
+  file.mtime:
+    displayName: 最后修改
+views:
+  - type: table
+    name: 全部笔记（表格）
+    order:
+      - file.name
+      - tags
+      - formula.size_kb
+      - file.mtime
+    summaries:
+      formula.size_kb: Sum
+  - type: cards
+    name: 全部笔记（卡片）
+    order:
+      - file.name
+      - tags
+      - formula.size_kb

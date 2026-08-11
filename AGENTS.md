@@ -1,42 +1,45 @@
-# AGENTS.md - 拓扑学 Munkres 学习笔记项目
+# AGENTS.md - 数学笔记仓库（math-notes）
 
 ## 项目概述
 
-本项目是基于 **James R. Munkres《Topology》(2nd Edition)** 的 Obsidian 学习笔记，使用严谨的数学语言记录定义、定理、证明和例题解析。
+本仓库是本地 Obsidian 数学笔记仓库 `F:\Obsidian Storage\数学` 的 GitHub 镜像，用于整理、编排数学笔记，在 README 中如实登记笔记情况，并与云端仓库 [xsoc1/math-notes](https://github.com/xsoc1/math-notes) 同步。子目录中独立的 AGENTS.md 由对应 agent 维护，本仓库不修改。
 
 ## 目录结构
 
 ```
-F:\Obsidian Storage\数学\math-notes\
-├── AGENTS.md                           ← 本文件
+F:\Obsidian Storage\数学\
+├── AGENTS.md
 ├── README.md
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
 │   ├── Chapter 01 - Set Theory and Logic/
-│   │   ├── 00_Chapter_01_Overview.md
-│   │   └── ...
 │   ├── Chapter 02 - Topological Spaces and Continuous Functions/
-│   │   ├── 00_Chapter_02_Overview.md
-│   │   ├── 12_Topological_Spaces.md
-│   │   ├── 13_Basis_for_a_Topology.md
-│   │   ├── ...
-│   │   ├── 22_The_Quotient_Topology.md
-│   │   └── Chapter_02_Base.base
 │   ├── Chapter 03 - Connectedness and Compactness/
-│   │   └── ...
-│   └── ...
-└── ...
+│   ├── Chapter 04 - Countability and Separation Axioms/
+│   ├── Chapter 05 - The Tychonoff Theorem/
+│   ├── Chapter 06 - Metrization Theorems and Paracompactness/
+│   ├── Chapter 07 - Complete Metric Spaces and Function Spaces/
+│   └── Chapter 08 - Baire Spaces and Dimension Theory/
+├── 2026浙大暑期学校/
+│   ├── 代数几何课程记录/
+│   └── 黎曼几何课程记录/
+├── 代数几何初步/
+│   └── Undergraduate Algebraic Geometry/
+├── SL边值问题研究入门计划.md
+└── 未命名.base
 ```
 
-## 文件命名规范
+## 拓扑学 Munkres 笔记规则
+
+### 文件命名规范
 
 - 每章建立独立文件夹：`Chapter XX - English Title/`
 - 章节总览：`00_Chapter_XX_Overview.md`
 - 各节笔记：`XX_Section_Name.md`（XX 为原书节号，两位数字）
 - Base 管理文件：`Chapter_XX_Base.base`
 
-## 每节笔记结构模板
+### 每节笔记结构模板
 
 ```markdown
 ---
@@ -62,7 +65,7 @@ aliases:
 ## 相关链接（Wikilink）
 ```
 
-## 数学内容规则
+### 数学内容规则
 
 1. **定义必须精确** —— 使用 `[!note]` callout，给出严格数学表述
 2. **定理必须附证明** —— 在 callout 外独立段落写出完整证明，以 `$\square$` 结尾
@@ -74,7 +77,7 @@ aliases:
    - 同胚：`$\cong$`
 5. **LaTeX 规范**：行内公式 `$...$`，行间公式 `$$...$$`，对齐用 `\begin{aligned}`
 
-## Obsidian 特定规范
+### Obsidian 特定规范
 
 - 内部链接使用 `[[Note Name|Display Text]]` 格式
 - 定理/定义锚点：在 callout 标题后添加 `^theorem-XX-Y` 块引用（如 `^theorem-18-1`）
@@ -83,7 +86,7 @@ aliases:
 - 提示技巧使用 `>[!tip]` callout
 - Base 文件过滤优先使用 `file.hasTag()` 而非路径匹配，避免跨平台路径问题
 
-## 代码规则（适用于项目中任何代码片段）
+## 代码规则
 
 1. 所有大括号单独占一行
 2. `while`/`for`/`if`/`switch` 与 `(` 之间不得有空格
@@ -99,6 +102,11 @@ aliases:
 - 所有 `.md` 文件使用 **UTF-8** 编码
 - 所有 `.base` 文件使用 **UTF-8** 编码（YAML 格式）
 
+## 维护边界
+
+- 子目录中的 AGENTS.md 由对应子项目 agent 维护，本仓库不修改。
+- 本仓库只负责整理、编排笔记，登记 README，并同步 GitHub。
+
 ## 维护原则
 
 - 修改笔记时尽量保持与已定结构一致
@@ -106,19 +114,22 @@ aliases:
 - 超链接网络保持双向（被链接的笔记应含有返回链接）
 - 每次新增内容后更新对应章节的 `.base` 文件
 - 如笔记间存在逻辑依赖，在章节总览中更新 Mermaid 依赖图
+- 新增或调整笔记后同步更新 README 登记表
 - **每次变更后必须同步更新本 AGENTS.md**，在变更日志中追加条目并简述工作内容
 
 ## 工作方法
 
 - 每次维护前先执行 `git fetch origin` 并检查 `git status --short --branch`
-- 本地分支 `master` 跟踪远端 `main`，以 `origin/main` 为同步基准
-- 修改笔记或维护文件后，更新本文件变更日志，提交并推送至 `xsoc1/math-notes`
+- 本地仓库根目录为 `F:\Obsidian Storage\数学`，分支 `master` 跟踪远端 `main`
+- 如实登记笔记情况到 README，不编造文件数量和内容
+- 修改笔记或维护文件后，更新 AGENTS.md 与 README，提交并推送至 `xsoc1/math-notes`
 - 不将 Obsidian 配置（`.obsidian`、`.trash`）纳入版本控制
 
 ## 对话记录
 
 - 2026-08-12：用户指派负责管理本仓库笔记并同步云端仓库 `xsoc1/math-notes`；确认本地与远端一致，修复 AGENTS.md 重复 BOM 与中文乱码，补充工作方法与对话记录
 - 2026-08-12：整理文件夹结构，将本地仓库目录由 `拓扑学Mumkres` 重命名为 `math-notes`，与云端仓库保持一致
+- 2026-08-12：将 git 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入全部数学笔记子项目，更新 README 笔记登记表
 
 ## 变更日志
 
@@ -143,3 +154,4 @@ aliases:
 | 2026-08-10 | 将全部 Chapter 01–08 移入 拓扑学 Munkres/ 文件夹，更新 README 与 AGENTS.md 目录结构（Chapter 间 wikilink 经核查保持有效） |
 | 2026-08-12 | 接手维护并完成首次同步：`git fetch` 确认本地 `master` 与远端 `main` 一致（HEAD `c3703c7`）；修复 AGENTS.md 重复 BOM 与中文乱码，新增工作方法/对话记录 |
 | 2026-08-12 | 整理文件夹结构：本地仓库目录重命名为 `math-notes`，与云端仓库结构一致；更新 AGENTS.md 目录路径并追加维护记录 |
+| 2026-08-12 | 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入 `2026浙大暑期学校`、`代数几何初步`、`SL边值问题研究入门计划.md`、`未命名.base`；README 登记全部笔记情况 |

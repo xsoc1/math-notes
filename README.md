@@ -1,48 +1,65 @@
 # Math Notes
 
-个人数学学习笔记，使用 Obsidian 管理，内容以中文为主。
+个人数学学习笔记仓库，使用 Obsidian 管理，内容以中文为主。本地仓库根目录为 `F:\Obsidian Storage\数学`，与 GitHub 仓库 [xsoc1/math-notes](https://github.com/xsoc1/math-notes) 保持同步。
 
-## 仓库结构
+## 目录结构
 
 ```
 math-notes/
 ├── README.md
-├── AGENTS.md                    # Codex 工作维护文件
+├── AGENTS.md
 ├── 变分法/
 │   └── 变分法基本引理.md
-└── 拓扑学 Munkres/
-    ├── Chapter 01 - Set Theory and Logic/
-    ├── Chapter 02 - Topological Spaces and Continuous Functions/
-    ├── Chapter 03 - Connectedness and Compactness/
-    ├── Chapter 04 - Countability and Separation Axioms/
-    ├── Chapter 05 - The Tychonoff Theorem/
-    ├── Chapter 06 - Metrization Theorems and Paracompactness/
-    ├── Chapter 07 - Complete Metric Spaces and Function Spaces/
-    └── Chapter 08 - Baire Spaces and Dimension Theory/
+├── 拓扑学 Munkres/
+│   ├── Chapter 01 - Set Theory and Logic/
+│   ├── Chapter 02 - Topological Spaces and Continuous Functions/
+│   ├── Chapter 03 - Connectedness and Compactness/
+│   ├── Chapter 04 - Countability and Separation Axioms/
+│   ├── Chapter 05 - The Tychonoff Theorem/
+│   ├── Chapter 06 - Metrization Theorems and Paracompactness/
+│   ├── Chapter 07 - Complete Metric Spaces and Function Spaces/
+│   └── Chapter 08 - Baire Spaces and Dimension Theory/
+├── 2026浙大暑期学校/
+│   ├── 代数几何课程记录/
+│   └── 黎曼几何课程记录/
+├── 代数几何初步/
+│   └── Undergraduate Algebraic Geometry/
+├── SL边值问题研究入门计划.md
+└── 未命名.base
 ```
+
+## 笔记登记
+
+| 位置 | 内容 | 文件数 |
+|---|---|---|
+| 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
+| 变分法/ | 变分法基本引理 | 1 md |
+| SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
+| 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录与作业 | 21 md + 1 base + 367 jpg |
+| 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 367 jpg |
+| 2026浙大暑期学校/黎曼几何课程记录/ | 黎曼流形与曲率、单值化、高斯-博内等笔记与作业 | 14 md + 1 base |
+| 代数几何初步/ | Undergraduate Algebraic Geometry 原书笔记 | 2 md + 367 jpg |
+| 未命名.base | Obsidian 表格视图 | 1 base |
+
+注：`2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/` 与 `代数几何初步/Undergraduate Algebraic Geometry/` 当前是同一份内容的两个副本。
 
 ## 拓扑学（Munkres, *Topology*, 2nd Edition）
 
-基于 James R. Munkres《拓扑学》（第 2 版）的完整学习笔记，覆盖**代数拓扑之前**的全部章节：
-
 | 章节 | 内容 | 笔记数 |
-|------|------|--------|
+|---|---|---|
 | Chapter 1 | Set Theory and Logic（集合论与逻辑） | 1 |
-| Chapter 2 | Topological Spaces and Continuous Functions（拓扑空间与连续函数） | 11 |
-| Chapter 3 | Connectedness and Compactness（连通性与紧致性） | 7 |
-| Chapter 4 | Countability and Separation Axioms（可数性与分离性公理） | 7 |
-| Chapter 5 | The Tychonoff Theorem（Tychonoff 定理） | 1 |
-| Chapter 6 | Metrization Theorems and Paracompactness（度量化定理与仿紧性） | 3 |
-| Chapter 7 | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 4 |
-| Chapter 8 | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 2 |
+| Chapter 2 | Topological Spaces and Continuous Functions（拓扑空间与连续函数） | 12 |
+| Chapter 3 | Connectedness and Compactness（连通性与紧致性） | 8 |
+| Chapter 4 | Countability and Separation Axioms（可数性与分离性公理） | 8 |
+| Chapter 5 | The Tychonoff Theorem（Tychonoff 定理） | 2 |
+| Chapter 6 | Metrization Theorems and Paracompactness（度量化定理与仿紧性） | 4 |
+| Chapter 7 | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 5 |
+| Chapter 8 | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 3 |
+| 合计 | | 43 md + 2 base |
 
-每节笔记包含：定义/定理（`[!note]` callout）、完整证明（以 `$\square$` 结尾）、多个例子（`[!example]`）、课后习题解析（`[!question]`，6–8 题/节）、相关链接（Wikilink）。
+## 维护说明
 
-## 其他笔记
-
-- [[变分法/变分法基本引理|变分法基本引理]]：变分法核心引理（`$f\in L^1(E)$`，`$\int_E fg=0\Rightarrow f=0$ a.e.）的三种条件证明
-
-## 使用说明
-
-- 本仓库为 Obsidian Vault 中的子目录，建议用 [Obsidian](https://obsidian.md) 打开 `F:\Obsidian Storage` 使用（含 callout、Wikilink、LaTeX 渲染）。
-- 直接浏览 GitHub 时，`.md` 文件中的 callout 与 Wikilink 可能无法完整渲染，建议本地使用 Obsidian。
+- 子目录中独立的 AGENTS.md 由对应子项目 agent 维护，本仓库不修改。
+- 新增或调整笔记后，同步更新本 README 的笔记登记表并推送云端。
+- Obsidian 配置（`.obsidian/`）与 `.trash/` 不入库。
+- 建议用 [Obsidian](https://obsidian.md) 打开 `F:\Obsidian Storage\数学` 使用；GitHub 上 callout 与 Wikilink 可能无法完整渲染。

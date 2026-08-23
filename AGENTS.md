@@ -26,7 +26,20 @@ F:\Obsidian Storage\数学\
 │   └── 黎曼几何课程记录/
 ├── 代数几何初步/
 │   └── Undergraduate Algebraic Geometry/
-├── SL边值问题研究入门计划.md
+├── .claude/
+│   └── skills/                    # obsidian-skills 技能包
+├── SL谱理论/
+│   ├── SL边值问题研究入门计划.md
+│   └── 讲义/
+│       ├── 00_SL谱理论讲义总览.md
+│       ├── 01_杆的弯曲问题与Euler-Bernoulli梁.md
+│       ├── 02_正则Sturm-Liouville问题.md
+│       ├── 03_Liouville标准形.md
+│       ├── 04_Pruefer变换与特征值存在性.md
+│       ├── 05_Sturm比较定理与零点交错.md
+│       ├── 06_特征函数正交性与广义Fourier级数.md
+│       ├── 附录_手写笔记页面索引.md
+│       └── images/
 └── 未命名.base
 ```
 
@@ -130,6 +143,7 @@ aliases:
 - 2026-08-12：用户指派负责管理本仓库笔记并同步云端仓库 `xsoc1/math-notes`；确认本地与远端一致，修复 AGENTS.md 重复 BOM 与中文乱码，补充工作方法与对话记录
 - 2026-08-12：整理文件夹结构，将本地仓库目录由 `拓扑学Mumkres` 重命名为 `math-notes`，与云端仓库保持一致
 - 2026-08-12：将 git 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入全部数学笔记子项目，更新 README 笔记登记表
+- 2026-08-23：安装 obsidian-skills 到 `.claude/skills/`；新增 `SL谱理论/` 目录并移入入门计划；将 LaTeX SL 谱理论讲义转为 Obsidian Markdown（7 篇笔记 + 11 张手写图片），更新 README 登记。
 
 ## 变更日志
 
@@ -155,3 +169,4 @@ aliases:
 | 2026-08-12 | 接手维护并完成首次同步：`git fetch` 确认本地 `master` 与远端 `main` 一致（HEAD `c3703c7`）；修复 AGENTS.md 重复 BOM 与中文乱码，新增工作方法/对话记录 |
 | 2026-08-12 | 整理文件夹结构：本地仓库目录重命名为 `math-notes`，与云端仓库结构一致；更新 AGENTS.md 目录路径并追加维护记录 |
 | 2026-08-12 | 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入 `2026浙大暑期学校`、`代数几何初步`、`SL边值问题研究入门计划.md`、`未命名.base`；README 登记全部笔记情况 |
+| 2026-08-23 | 安装 obsidian-skills 技能包；新建 `SL谱理论/`（入门口级计划 + 讲义 7 篇 + 手写图片 11 张）；README/AGENTS 结构登记同步更新 |

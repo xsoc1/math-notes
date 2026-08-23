@@ -8,6 +8,7 @@
 math-notes/
 ├── README.md
 ├── AGENTS.md
+├── .claude/skills/                # obsidian-skills 技能包
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
@@ -24,7 +25,18 @@ math-notes/
 │   └── 黎曼几何课程记录/
 ├── 代数几何初步/
 │   └── Undergraduate Algebraic Geometry/
-├── SL边值问题研究入门计划.md
+├── SL谱理论/
+│   ├── SL边值问题研究入门计划.md
+│   └── 讲义/
+│       ├── 00_SL谱理论讲义总览.md
+│       ├── 01_杆的弯曲问题与Euler-Bernoulli梁.md
+│       ├── 02_正则Sturm-Liouville问题.md
+│       ├── 03_Liouville标准形.md
+│       ├── 04_Pruefer变换与特征值存在性.md
+│       ├── 05_Sturm比较定理与零点交错.md
+│       ├── 06_特征函数正交性与广义Fourier级数.md
+│       ├── 附录_手写笔记页面索引.md
+│       └── images/
 └── 未命名.base
 ```
 
@@ -34,7 +46,8 @@ math-notes/
 |---|---|---|
 | 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
 | 变分法/ | 变分法基本引理 | 1 md |
-| SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
+| SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
+| SL谱理论/讲义/ | SL 谱理论讲义（7 md + 11 图片） | 7 md + 11 images |
 | 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录与作业 | 21 md + 1 base + 367 jpg |
 | 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 367 jpg |
 | 2026浙大暑期学校/黎曼几何课程记录/ | 黎曼流形与曲率、单值化、高斯-博内等笔记与作业 | 14 md + 1 base |
@@ -56,6 +69,20 @@ math-notes/
 | Chapter 7 | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 5 |
 | Chapter 8 | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 3 |
 | 合计 | | 43 md + 2 base |
+
+## SL 谱理论
+
+- [[SL谱理论/SL边值问题研究入门计划|SL 边值问题研究入门计划]]
+- [[SL谱理论/讲义/00_SL谱理论讲义总览|SL 谱理论讲义]]
+
+## 插件与技能
+
+- 已安装 [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) 到 `.claude/skills/`，包含：
+  - `obsidian-markdown`：Obsidian Flavored Markdown 编写规范
+  - `obsidian-bases`：Obsidian Bases 语法
+  - `json-canvas`：JSON Canvas
+  - `obsidian-cli`：Obsidian CLI
+  - `defuddle`：网页清理为 Markdown
 
 ## 维护说明
 

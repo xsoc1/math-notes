@@ -8,7 +8,6 @@
 math-notes/
 ├── README.md
 ├── AGENTS.md
-├── .claude/skills/                # obsidian-skills 技能包
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
@@ -77,12 +76,14 @@ math-notes/
 
 ## 插件与技能
 
-- 已安装 [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) 到 `.claude/skills/`，包含：
-  - `obsidian-markdown`：Obsidian Flavored Markdown 编写规范
-  - `obsidian-bases`：Obsidian Bases 语法
-  - `json-canvas`：JSON Canvas
-  - `obsidian-cli`：Obsidian CLI
-  - `defuddle`：网页清理为 Markdown
+[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) 已安装到 DSH Agent 技能目录
+`C:\Users\HuangZY\.dsh\skills\`，不在本 Obsidian 仓库内。包含：
+
+- `obsidian-markdown`：Obsidian Flavored Markdown 编写规范
+- `obsidian-bases`：Obsidian Bases 语法
+- `json-canvas`：JSON Canvas
+- `obsidian-cli`：Obsidian CLI
+- `defuddle`：网页清理为 Markdown
 
 ## 维护说明
 

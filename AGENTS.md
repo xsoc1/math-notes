@@ -10,6 +10,7 @@
 F:\Obsidian Storage\数学\
 ├── AGENTS.md
 ├── README.md
+├── Obsidian技能与Agent调用指南.md
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
@@ -142,6 +143,7 @@ aliases:
 - 2026-08-12：整理文件夹结构，将本地仓库目录由 `拓扑学Mumkres` 重命名为 `math-notes`，与云端仓库保持一致
 - 2026-08-12：将 git 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入全部数学笔记子项目，更新 README 笔记登记表
 - 2026-08-23：安装 obsidian-skills 到 DSH 技能目录 `C:\Users\HuangZY\.dsh\skills\`；新增 `SL谱理论/` 目录并移入入门计划；将 LaTeX SL 谱理论讲义转为 Obsidian Markdown（7 篇笔记 + 11 张手写图片），更新 README 登记。
+- 2026-08-25：梳理网络与本地 Obsidian Agent Skills 生态；新增《Obsidian技能与Agent调用指南.md》，全面总结 `kepano/obsidian-skills` 规范（CLI、Markdown、Bases、Canvas、Defuddle）、多环境安装配置、CLI 常用与调试命令、REST API / MCP / Memory 进阶生态；同步更新 README.md 与 AGENTS.md 并推送到云端仓库。
 
 ## 变更日志
 
@@ -168,3 +170,4 @@ aliases:
 | 2026-08-12 | 整理文件夹结构：本地仓库目录重命名为 `math-notes`，与云端仓库结构一致；更新 AGENTS.md 目录路径并追加维护记录 |
 | 2026-08-12 | 仓库根目录提升至 `F:\Obsidian Storage\数学`，纳入 `2026浙大暑期学校`、`代数几何初步`、`SL边值问题研究入门计划.md`、`未命名.base`；README 登记全部笔记情况 |
 | 2026-08-23 | obsidian-skills 技能包安装到 DSH 技能目录；新建 `SL谱理论/`（入门计划 + 讲义 7 篇 + 手写图片 11 张）；README/AGENTS 结构登记同步更新 |
+| 2026-08-25 | 新增《Obsidian技能与Agent调用指南.md》，系统总结 kepano/obsidian-skills 规范、安装配置与 Agent 协作生态；同步更新 README.md 与 AGENTS.md |

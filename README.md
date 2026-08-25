@@ -8,6 +8,7 @@
 math-notes/
 ├── README.md
 ├── AGENTS.md
+├── Obsidian技能与Agent调用指南.md
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
@@ -43,6 +44,7 @@ math-notes/
 
 | 位置 | 内容 | 文件数 |
 |---|---|---|
+| Obsidian技能与Agent调用指南.md | Obsidian Skills 规范、安装配置与 Agent CLI / REST / MCP 调用指南 | 1 md |
 | 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
 | 变分法/ | 变分法基本引理 | 1 md |
 | SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
@@ -76,14 +78,22 @@ math-notes/
 
 ## 插件与技能
 
-[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) 已安装到 DSH Agent 技能目录
-`C:\Users\HuangZY\.dsh\skills\`，不在本 Obsidian 仓库内。包含：
+详细的技能说明、安装方法与 Agent 调用示例参见库内文档：
+👉 **[[Obsidian技能与Agent调用指南|Obsidian 技能与 Agent 调用指南]]**
 
-- `obsidian-markdown`：Obsidian Flavored Markdown 编写规范
-- `obsidian-bases`：Obsidian Bases 语法
-- `json-canvas`：JSON Canvas
-- `obsidian-cli`：Obsidian CLI
-- `defuddle`：网页清理为 Markdown
+1. **官方 Agent 技能套件（[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)）**：
+   - 已部署至 DSH / Agent 技能目录 `C:\Users\HuangZY\.dsh\skills\`
+   - `obsidian-cli`：通过 Obsidian 官方 CLI 实现笔记读取、创建、追加、搜索与插件重载
+   - `obsidian-markdown`：规范 Frontmatter、Wikilinks 双链、Callouts、LaTeX 公式与嵌入语法
+   - `obsidian-bases`：`.base` 数据库视图（表格/卡片/列表/地图）、公式过滤与计算
+   - `json-canvas`：`.canvas` 无限白板与思维导图（节点、连线与布局）
+   - `defuddle`：网页内容提取与 token 压缩
+2. **安装与调用方式**：
+   - 自动添加：`npx skills add https://github.com/kepano/obsidian-skills`
+   - CLI 注册：Obsidian 桌面端（v1.12.4+）→ 设置 → 通用 → 开启 CLI 并点击注册
+3. **扩展生态**：
+   - 本地 REST API：`obsidian-local-rest-api`（HTTPS 端口 27124）
+   - 协议集成：Model Context Protocol (MCP) 与 `obsidian-agent-memory-skills`
 
 ## 维护说明
 

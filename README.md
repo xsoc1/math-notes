@@ -9,6 +9,10 @@ math-notes/
 ├── README.md
 ├── AGENTS.md
 ├── Obsidian技能与Agent调用指南.md
+├── 常微分方程/
+│   └── 常微分方程复习指南.md
+├── 实变函数/
+│   └── 实变函数简明教程重点与数学思想.md
 ├── 变分法/
 │   └── 变分法基本引理.md
 ├── 拓扑学 Munkres/
@@ -45,6 +49,8 @@ math-notes/
 | 位置 | 内容 | 文件数 |
 |---|---|---|
 | Obsidian技能与Agent调用指南.md | Obsidian Skills 规范、安装配置与 Agent CLI / REST / MCP 调用指南 | 1 md |
+| 常微分方程/ | 本科常微分方程重点、求解方法、存在唯一性与方程组复习指南 | 1 md |
+| 实变函数/ | 邓东皋《实变函数简明教程》重点、知识脉络与数学思想 | 1 md |
 | 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
 | 变分法/ | 变分法基本引理 | 1 md |
 | SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |

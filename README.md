@@ -95,7 +95,7 @@ math-notes/
 
 1. **官方 Agent 技能套件（[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)）**：
    - 已部署至 DSH / Agent 技能目录 `C:\Users\HuangZY\.dsh\skills\`
-   - `obsidian-cli`：通过 Obsidian 官方 CLI 实现笔记读取、创建、追加、搜索与插件重载
+   - `obsidian-cli`：通过 Obsidian 官方 CLI 实现笔记读取、创建、追加、搜索与插件重载；截至 2026-08-28，本机已启用并注册 CLI
    - `obsidian-markdown`：规范 Frontmatter、Wikilinks 双链、Callouts、LaTeX 公式与嵌入语法
    - `obsidian-bases`：`.base` 数据库视图（表格/卡片/列表/地图）、公式过滤与计算
    - `json-canvas`：`.canvas` 无限白板与思维导图（节点、连线与布局）

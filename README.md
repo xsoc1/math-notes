@@ -116,4 +116,5 @@ math-notes/
 - 新增或调整笔记后，同步更新本 README 的笔记登记表并推送云端。
 - Obsidian 配置（`.obsidian/`）与 `.trash/` 不入库。
 - 2026-08-28 已清理本地未跟踪的旧拼写拓扑目录、顶层变分法重复笔记和空白 Canvas，文件移至仓库外的可恢复备份目录。
+- 2026-08-28 已修正 `泛函分析/泛函分析讲义上册习题册.md` 中 1.1.2 的 LaTeX 反斜杠缺失问题，恢复 `\hat{x}`、`\in` 和 `\lim` 的正常渲染。
 - 建议用 [Obsidian](https://obsidian.md) 打开 `F:\Obsidian Storage\数学` 使用；GitHub 上 callout 与 Wikilink 可能无法完整渲染。

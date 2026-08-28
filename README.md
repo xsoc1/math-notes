@@ -112,4 +112,5 @@ math-notes/
 - 子目录中独立的 AGENTS.md 由对应子项目 agent 维护，本仓库不修改。
 - 新增或调整笔记后，同步更新本 README 的笔记登记表并推送云端。
 - Obsidian 配置（`.obsidian/`）与 `.trash/` 不入库。
+- 2026-08-28 已清理本地未跟踪的旧拼写拓扑目录、顶层变分法重复笔记和空白 Canvas，文件移至仓库外的可恢复备份目录。
 - 建议用 [Obsidian](https://obsidian.md) 打开 `F:\Obsidian Storage\数学` 使用；GitHub 上 callout 与 Wikilink 可能无法完整渲染。

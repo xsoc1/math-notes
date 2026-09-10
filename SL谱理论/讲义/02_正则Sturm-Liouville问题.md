@@ -80,3 +80,33 @@ $$
 > [!tip] 下一步
 > 一般变系数 SL 问题可以通过 [[03_Liouville标准形|Liouville 标准形]]
 > 化为 $y''+[\lambda+q(x)]y=0$。
+
+## 习题
+
+> [!question] 2.1
+> 验证 Dirichlet 问题 $-y''=\lambda y$，$y(0)=y(l)=0$ 的特征函数
+> $y_n(x)=\sin(n\pi x/l)$ 在 $[0,l]$ 上两两正交。
+
+> [!question] 2.2
+> 将边界条件 $y(a)\cos\alpha-y'(a)\sin\alpha=0$ 化为
+> $K y(a)-L y'(a)=0$ 的形式，并给出 $K,L$ 的一组取值。
+
+> [!question] 2.3
+> 写出 Robin 边界条件 $y'(0)=h y(0)$，$y(l)=0$ 对应的 $K,L,M,N$。
+
+> [!success]- 解答
+> **2.1** 对 $m\neq n$，
+> $$
+> \int_0^l \sin\frac{m\pi x}{l}\sin\frac{n\pi x}{l}\,dx
+> =\frac{l}{2}\delta_{mn}.
+> $$
+> 因此当 $m\neq n$ 时积分为零。
+>
+> **2.2** 取
+> $$
+> K=\cos\alpha,\qquad L=\sin\alpha,
+> $$
+> 则 $K y(a)-L y'(a)=0$ 与角度形式一致。
+>
+> **2.3** 在 $x=0$ 处 $y'(0)-h y(0)=0$，可取 $K=-h,\ L=-1$；
+> 在 $x=l$ 处 $y(l)=0$，可取 $M=1,\ N=0$。

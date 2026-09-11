@@ -16,6 +16,16 @@ math-notes/
 │   ├── 01_测度论基础与高等概率论上册习题集.md
 │   └── 02_测度论基础与高等概率论下册习题集.md
 ├── 泛函分析/
+│   ├── 01_度量空间及其完备化/
+│   │   ├── 00_专题总览.md
+│   │   ├── 01_度量空间基本概念.md
+│   │   ├── 02_序列收敛与连续性.md
+│   │   ├── 03_Cauchy序列与完备性.md
+│   │   ├── 04_闭子空间与完备性判别.md
+│   │   ├── 05_完备化的构造.md
+│   │   ├── 06_完备化的唯一性与泛性质.md
+│   │   ├── 07_典型完备化例子.md
+│   │   └── 01_度量空间及其完备化.base
 │   └── 泛函分析讲义上册习题册.md
 ├── 李代数/
 │   └── 03_当代数学园地1 Kac-Moody代数导引习题集.md
@@ -71,7 +81,7 @@ math-notes/
 | Obsidian技能与Agent调用指南.md | Obsidian Skills 规范、安装配置与 Agent CLI / REST / MCP 调用指南 | 1 md |
 | 高等代数/ | 蓝以中《高等代数简明教程》重点、几何代数主线与代数思想 | 1 md |
 | 高等概率论/ | 《测度论基础与高等概率论》上、下册共 763 道习题及总索引，含逐节目录，答案留空 | 3 md |
-| 泛函分析/ | 张恭庆、林源渠《泛函分析讲义（上册）》全部 208 道编号习题，含逐节目录，答案留空 | 1 md |
+| 泛函分析/ | 《泛函分析讲义（上册）》度量空间及其完备化专题笔记；另含全部 208 道编号习题册，含逐节目录，答案留空 | 8 md + 1 base + 1 习题册 md |
 | 李代数/ | 万哲先《Kac-Moody 代数导引》明确留给读者的 6 处练习，含逐节目录，答案留空 | 1 md |
 | 数学物理方程/ | 谷超豪、李大潜、陈恕行《数学物理方程（第3版）》179 道编号习题册；依据五份偏微分方程课件整理并按 Evans 框架扩充的 §1-§5 入门教材式课程笔记 | 7 md |
 | 常微分方程/ | 本科常微分方程重点、求解方法、存在唯一性与方程组复习指南 | 1 md |
@@ -80,13 +90,13 @@ math-notes/
 | 变分法/ | 变分法基本引理 | 1 md |
 | SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
 | SL谱理论/讲义/ | SL 谱理论讲义（10 md + 11 图片） | 10 md + 11 images |
-| 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录与作业 | 21 md + 1 base + 367 jpg |
-| 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 367 jpg |
+| 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录与作业 | 21 md + 1 base + 359 jpg |
+| 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 359 jpg |
 | 2026浙大暑期学校/黎曼几何课程记录/ | 黎曼流形与曲率、单值化、高斯-博内等笔记与作业 | 14 md + 1 base |
 | 代数几何初步/ | Undergraduate Algebraic Geometry 原书笔记 | 2 md + 367 jpg |
 | 未命名.base | Obsidian 表格视图 | 1 base |
 
-注：`2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/` 与 `代数几何初步/Undergraduate Algebraic Geometry/` 当前是同一份内容的两个副本。
+注：`2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/` 与 `代数几何初步/Undergraduate Algebraic Geometry/` 存在重复内容。已从暑期学校副本移除 8 个经 SHA-256 确认重复的 JPG, `代数几何初步/` 保留完整图像副本。
 
 ## 拓扑学（Munkres, *Topology*, 2nd Edition）
 
@@ -114,7 +124,7 @@ math-notes/
 
 1. **官方 Agent 技能套件（[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)）**：
    - 已部署至 DSH / Agent 技能目录 `C:\Users\HuangZY\.dsh\skills\`
-   - `obsidian-cli`：通过 Obsidian 官方 CLI 实现笔记读取、创建、追加、搜索与插件重载；截至 2026-08-28，本机已启用并注册 CLI
+   - `obsidian-cli`：通过 Obsidian 官方 CLI 实现笔记读取、创建、追加、搜索与插件重载；截至 2026-09-11, 本机 Obsidian 1.13.7, installer 1.13.7, CLI 已注册并可正常调用
    - `obsidian-markdown`：规范 Frontmatter、Wikilinks 双链、Callouts、LaTeX 公式与嵌入语法
    - `obsidian-bases`：`.base` 数据库视图（表格/卡片/列表/地图）、公式过滤与计算
    - `json-canvas`：`.canvas` 无限白板与思维导图（节点、连线与布局）
@@ -127,6 +137,9 @@ math-notes/
    - 协议集成：Model Context Protocol (MCP) 与 `obsidian-agent-memory-skills`
 
 ## 维护说明
+
+- 2026-09-11 已新增泛函分析/01_度量空间及其完备化/专题文件夹，编写度量空间、完备性和完备化理论笔记，暂不处理压缩映射，并与相关习题建立双向链接。
+- 2026-09-11 已清理暑期学校代数几何目录中的 8 个重复 JPG, 完整副本保留在代数几何初步目录中; NUL 残留移至仓库外可恢复备份。
 
 - 子目录中独立的 AGENTS.md 由对应子项目 agent 维护，本仓库不修改。
 - 新增或调整笔记后，同步更新本 README 的笔记登记表并推送云端。

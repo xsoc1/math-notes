@@ -1,0 +1,34 @@
+filters:
+  and:
+    - file.hasTag("functional-analysis")
+    - file.hasTag("metric-space-completion")
+    - 'file.ext == "md"'
+
+properties:
+  note_type:
+    displayName: "笔记类型"
+  source_section:
+    displayName: "原书对应"
+  status:
+    displayName: "状态"
+  exercise_range:
+    displayName: "习题范围"
+  file.mtime:
+    displayName: "修改时间"
+
+views:
+  - type: table
+    name: "专题笔记目录"
+    order:
+      - file.name
+      - note_type
+      - source_section
+      - exercise_range
+      - status
+      - file.mtime
+
+  - type: list
+    name: "按文件查看"
+    order:
+      - file.name
+      - source_section

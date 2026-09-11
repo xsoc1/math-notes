@@ -1,0 +1,39 @@
+filters:
+  and:
+    - file.hasTag("higher-probability")
+    - file.hasTag("theory-note")
+    - file.ext == "md"
+
+properties:
+  note_type:
+    displayName: 笔记类型
+  source_volume:
+    displayName: 来源册次
+  source_chapter:
+    displayName: 原书章节
+  status:
+    displayName: 状态
+  source_check:
+    displayName: 来源核验
+  exercise_range:
+    displayName: 习题范围
+  file.mtime:
+    displayName: 修改时间
+
+views:
+  - type: table
+    name: 高等概率论笔记目录
+    order:
+      - file.name
+      - note_type
+      - source_volume
+      - source_chapter
+      - status
+      - source_check
+      - exercise_range
+      - file.mtime
+  - type: list
+    name: 按文件查看
+    order:
+      - file.name
+      - source_chapter

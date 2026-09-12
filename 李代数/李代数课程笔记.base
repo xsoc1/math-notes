@@ -1,0 +1,39 @@
+filters:
+  and:
+    - 'file.inFolder("李代数")'
+    - 'file.hasTag("lie-algebra")'
+    - 'file.ext == "md"'
+
+properties:
+  note_type:
+    displayName: "笔记类型"
+  source_volume:
+    displayName: "资料来源"
+  source_chapter:
+    displayName: "章节"
+  status:
+    displayName: "状态"
+  source_check:
+    displayName: "来源核验"
+  exercise_range:
+    displayName: "作业或习题范围"
+  file.mtime:
+    displayName: "修改时间"
+
+views:
+  - type: table
+    name: "李代数课程与习题"
+    order:
+      - file.name
+      - note_type
+      - source_volume
+      - source_chapter
+      - status
+      - source_check
+      - exercise_range
+      - file.mtime
+  - type: list
+    name: "按文件查看"
+    order:
+      - file.name
+      - source_chapter

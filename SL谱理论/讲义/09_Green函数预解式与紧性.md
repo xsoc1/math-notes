@@ -19,6 +19,8 @@ enduring_understanding: "预解算子的紧性是正则 SL 问题离散谱与完
 essential_question: "为什么正则 SL 问题的逆算子可以用具有连续核的积分算子表示，从而必然是紧算子？"
 performance_evidence: "能独立构造分离边界条件下的 Green 函数，证明其对称性，并说明预解算子为 Hilbert–Schmidt 算子。"
 status: drafting
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\lectures\09_Green.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\lectures\09_Green.pdf'
 ---
 
 # 09 Green 函数、预解式与紧性

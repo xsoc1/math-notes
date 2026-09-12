@@ -73,6 +73,7 @@ math-notes/
 │   └── Undergraduate Algebraic Geometry/
 ├── SL谱理论/
 │   ├── SL边值问题研究入门计划.md
+│   ├── 讲义书写计划.md
 │   └── 讲义/
 │       ├── 00_SL谱理论讲义总览.md
 │       ├── 01_杆的弯曲问题与Euler-Bernoulli梁.md
@@ -100,6 +101,7 @@ math-notes/
 | 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
 | 变分法/ | 变分法基本引理 | 1 md |
 | SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
+| SL谱理论/讲义书写计划.md | SL 讲义系列课表、Gate 2 详细计划、写作模板与质量门 | 1 md |
 | SL谱理论/讲义/ | SL 谱理论讲义 | 9 md |
 | 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录、作业及跨课程总结 | 23 md + 1 base + 359 jpg |
 | 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 359 jpg |

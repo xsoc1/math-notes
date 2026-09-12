@@ -19,7 +19,7 @@ exercise_range: "1.2.2, 1.2.5"
 ## 3.1 Cauchy 序列
 
 > [!note] 定义 3.1 Cauchy 序列
-> 设 $(\mathcal X,\rho)$ 是度量空间。若序列 $\{x_n\}$ 满足对任意 $\varepsilon>0$, 存在 $N\in\mathbb N$, 使得当 $m,n\geq N$ 时
+> 设 $(\mathcal X,\rho)$ 是度量空间, $\{x_n\}\subseteq\mathcal X$. 若序列满足对任意 $\varepsilon>0$, 存在 $N\in\mathbb N$, 使得当 $m,n\geq N$ 时
 > $$
 > \rho(x_m,x_n)<\varepsilon,
 > $$
@@ -86,7 +86,7 @@ $$
 ## 3.3 近似基本序列推出收敛
 
 > [!note] 命题 3.2
-> 设 $(\mathcal X,\rho)$ 是完备度量空间。若序列 $\{x_n\}$ 满足: 对每个 $\varepsilon>0$, 存在 Cauchy 序列 $\{y_n\}$, 使
+> 设 $(\mathcal X,\rho)$ 是完备度量空间, $\{x_n\}\subseteq\mathcal X$. 若序列满足: 对每个 $\varepsilon>0$, 存在 Cauchy 序列 $\{y_n\}\subseteq\mathcal X$, 使
 > $$
 > \rho(x_n,y_n)<\varepsilon
 > \qquad(n=1,2,\ldots),
@@ -120,7 +120,7 @@ $$
 $$
 c\rho\leq d\leq C\rho
 $$
-其中 $c,C>0$, 则它们具有相同的 Cauchy 序列, 因而一个空间关于 $\rho$ 完备当且仅当关于 $d$ 完备。
+其中 $c,C>0$, 且不等式对所有 $x,y\in\mathcal X$ 成立, 则它们具有相同的 Cauchy 序列, 因而一个空间关于 $\rho$ 完备当且仅当关于 $d$ 完备。
 
 但仅仅具有相同的拓扑并不自动保证完备性相同。例如在 $\mathbb R$ 上, 通常距离 $\rho(x,y)=|x-y|$ 与
 $$

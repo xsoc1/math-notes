@@ -30,11 +30,10 @@ local: F:\tools\OpenMAIC
 - 技术栈：Next.js 16 + React 19 + TypeScript 5 + LangGraph 1.1
 - License：MIT
 - 依赖安装：已执行 `pnpm install --frozen-lockfile`，exit code 0，包含 `postinstall` 的 SDK 构建（dsl / generation / storage / importer / renderer / editor）
-- 尚未创建 `.env.local`，因此尚未启动服务；要真正生成课堂还需至少配置一个 LLM provider key
+- 已从 `.env.example` 复制出 `.env.local` 占位文件；尚未填写 API Key，也尚未启动服务
 
 > [!todo] 后续启动步骤
-> 1. 在 `F:\tools\OpenMAIC` 中执行 `cp .env.example .env.local`
-> 2. 至少填写一个 LLM API Key
+> 1. 编辑 `F:\tools\OpenMAIC\.env.local`，至少填写一个 LLM API Key
 > 3. `pnpm dev`
 > 4. 验证 `curl http://localhost:3000/api/health`
 

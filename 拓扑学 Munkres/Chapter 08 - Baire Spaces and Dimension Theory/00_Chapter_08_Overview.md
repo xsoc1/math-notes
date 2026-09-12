@@ -11,4 +11,4 @@ aliases: ["Chapter 8 Overview"]
 > Baire 纲定理断言完备度量空间中可数个稠密开集的交仍稠密——这是泛函分析中一致有界原理和开映射定理的基石。
 
 ## 相关链接
-- 上一章：[[../Chapter 07/00_Chapter_07_Overview|Chapter 7]]
+- 上一章：[[00_Chapter_07_Overview|Chapter 7]]

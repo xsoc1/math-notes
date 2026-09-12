@@ -87,5 +87,5 @@ aliases:
 ## 相关链接
 
 - 上一节：[[28_Limit_Point_Compactness|§28 Limit Point Compactness]]
-- 下一章：[[../Chapter 04/00_Chapter_04_Overview|Chapter 4: Countability and Separation Axioms]]
+- 下一章：[[00_Chapter_04_Overview|Chapter 4: Countability and Separation Axioms]]
 - 返回总览：[[00_Chapter_03_Overview|Chapter 3 Overview]]

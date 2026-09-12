@@ -76,5 +76,5 @@ aliases: ["Baire Spaces", "48_Baire_Spaces"]
 > 关于 Baire 纲定理在分析中的应用（无处可微连续函数的存在性、一致有界原理的拓扑证明等）。$\square$
 
 ## 相关链接
-- 上一章：[[../Chapter 07/46_Ascolis_Theorem|§46 Ascoli's Theorem]]
+- 上一章：[[46_Ascolis_Theorem|§46 Ascoli's Theorem]]
 - 返回总览：[[00_Chapter_08_Overview|Chapter 8 Overview]]

@@ -9,6 +9,8 @@ tags:
 aliases:
   - 杆的弯曲
   - Euler-Bernoulli 梁
+stage_type: lecture
+status: self-reviewed
 ---
 
 # 01 杆的弯曲问题与 Euler–Bernoulli 梁

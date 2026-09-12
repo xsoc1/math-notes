@@ -9,6 +9,10 @@ tags:
 aliases:
   - 正则 SL 问题
   - SL 边值问题
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[01_杆的弯曲问题与Euler-Bernoulli梁]]"
 ---
 
 # 02 正则 Sturm–Liouville 问题

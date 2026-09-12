@@ -10,6 +10,10 @@ aliases:
   - Prüfer 变换
   - Prüfer transformation
   - 相位方程
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[03_Liouville标准形]]"
 ---
 
 # 04 Prüfer 变换与特征值存在性

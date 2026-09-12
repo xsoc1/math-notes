@@ -11,6 +11,10 @@ aliases:
   - 自伴边界条件
   - SL 算子
   - Sturm-Liouville 算子
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[06_特征函数正交性与广义Fourier级数]]"
 ---
 
 # 07 自伴边界条件与 Hilbert 空间框架

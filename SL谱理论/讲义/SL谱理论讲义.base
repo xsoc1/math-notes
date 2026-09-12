@@ -1,0 +1,48 @@
+filters:
+  and:
+    - file.inFolder("SL谱理论/讲义")
+    - 'file.ext == "md"'
+
+formulas:
+  prereq_count: 'if(prerequisites, prerequisites.length, 0)'
+  status_icon: 'if(status == "published", "✅", if(status == "audited", "🔍", if(status == "self-reviewed", "📝", if(status == "drafting", "✍️", "⏳"))))'
+
+properties:
+  stage_type:
+    displayName: "类型"
+  status:
+    displayName: "状态"
+  prerequisites:
+    displayName: "前置"
+  formula.prereq_count:
+    displayName: "前置数"
+  formula.status_icon:
+    displayName: ""
+
+views:
+  - type: table
+    name: "全部讲次"
+    order:
+      - file.name
+      - stage_type
+      - status
+      - formula.status_icon
+      - formula.prereq_count
+
+  - type: table
+    name: "写作队列"
+    filters:
+      not:
+        - 'status == "published"'
+    order:
+      - file.name
+      - stage_type
+      - status
+      - prerequisites
+
+  - type: cards
+    name: "状态卡片"
+    order:
+      - file.name
+      - status
+      - stage_type

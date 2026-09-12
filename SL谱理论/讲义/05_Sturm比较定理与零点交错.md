@@ -11,6 +11,10 @@ aliases:
   - Sturm 比较定理
   - Sturm comparison theorem
   - 零点交错
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[04_Pruefer变换与特征值存在性]]"
 ---
 
 # 05 Sturm 比较定理与零点交错

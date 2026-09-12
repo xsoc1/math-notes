@@ -10,6 +10,10 @@ tags:
 aliases:
   - SL 特征函数正交性
   - 广义 Fourier 级数
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[05_Sturm比较定理与零点交错]]"
 ---
 
 # 06 特征函数正交性与广义 Fourier 级数

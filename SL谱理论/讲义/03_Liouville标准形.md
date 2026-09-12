@@ -9,6 +9,10 @@ tags:
 aliases:
   - Liouville 标准形
   - Liouville normal form
+stage_type: lecture
+status: self-reviewed
+prerequisites:
+  - "[[02_正则Sturm-Liouville问题]]"
 ---
 
 # 03 Liouville 标准形

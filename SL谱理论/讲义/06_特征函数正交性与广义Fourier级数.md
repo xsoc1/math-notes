@@ -41,6 +41,12 @@ prerequisites:
 > $$
 > 中讨论。$r>0$ 保证内积正定。
 
+> [!note] 物理来源：一维热传导
+> 热传导方程 $c\rho u_t=(ku_x)_x$ 分离变量 $u(x,t)=T(t)y(x)$ 后给出
+> $-(ky')'=\lambda c\rho y$，其中 $c\rho$ 就是权函数 $r$。
+> 解写成特征展开 $u=\sum_n c_ne^{-\lambda_nt}e_n(x)$；
+> 这直接说明为什么需要特征函数系的完备性。
+
 ## 同一特征值对应线性相关
 
 > [!lemma]

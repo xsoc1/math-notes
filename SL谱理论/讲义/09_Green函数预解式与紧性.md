@@ -366,6 +366,10 @@ Green 函数与紧预解式是后续几条线的公共入口：
 > - G. Teschl, *Ordinary Differential Equations and Dynamical Systems*, AMS.
 > - M. Reed, B. Simon, *Methods of Modern Mathematical Physics I*.
 
+## 本讲小结
+
+Green 函数给出预解算子的显式积分核；连续核使预解算子成为 Hilbert--Schmidt 算子，从而紧。
+
 ## 习题
 
 > [!question] 9.1

@@ -295,3 +295,4 @@ aliases:
 | 2026-09-13 | 梳理 SL 讲义逻辑结构并优化：00 增加逻辑结构图、模块表、图示索引与“本讲位置”导航；新增 7 张 SVG 图示（杆弯曲、Prüfer 圆、Sturm 交错、正交投影、Green 函数、离散谱、总逻辑图）并插入 01/04/05/06/09；LaTeX 重构为 preface+chapters（03/04 拆分，新增 05/06 自伴与变分章，Green/项目章顺延），加入对应 TikZ 图，整本 37 页 |
 | 2026-09-13 | 按要求清理讲义中的手写笔记阐述：删除 00 来源条目与书写计划中的手写附录说明；LaTeX 移除手写附录、更新前言与章节叙述，旧版手写整理与旧独立讲义移入 `archive/`，整本 PDF 36 页 |
 | 2026-09-13 | P0 样式与可读性优化：LaTeX 新增 `styles/sl-lecture.sty`（tcolorbox 定理/定义/例子/注统一配色、fancyhdr 页眉页脚、microtype），新增 `frontmatter/notation.tex` 符号表；Obsidian 新增 `符号表.md` 与 `styles/sl-lecture-callouts.css` 并启用 snippet；修复“第 10 讲”悬空引用；整本 40 页 |
+| 2026-09-13 | P1 结构与可读性优化：01–09 统一补“本讲目标/基本问题/本讲小结”，LaTeX 各章补 `chapterintro`/`chaptersummary`；新增 Rayleigh 极小极大 SVG 与 TikZ、离散谱 TikZ；单讲 09 存档移入 `archive/`；更新 README/计划；整本 40 页 |

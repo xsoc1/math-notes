@@ -24,6 +24,13 @@ prerequisites:
 > 模块 A：物理动机与经典框架。前置：[[01_杆的弯曲问题与Euler-Bernoulli梁]]；下一讲：[[03_Liouville标准形]]。
 
 
+> [!abstract] 本讲目标
+> 准确表述正则 SL 问题及其分离型边界条件，并看懂 Dirichlet 例子。
+
+> [!question] 基本问题
+> 正则 SL 问题由哪些数据组成，边界条件起什么作用？
+
+
 ## 方程
 
 给定 $p\in C^1[a,b]$，$p>0$，$q,r\in C[a,b]$，$r>0$，以及实数 $K,L,M,N$。
@@ -91,6 +98,10 @@ $$
 > [!tip] 下一步
 > 一般变系数 SL 问题可以通过 [[03_Liouville标准形|Liouville 标准形]]
 > 化为 $y''+[\lambda+q(x)]y=0$。
+
+## 本讲小结
+
+正则 SL 问题由系数 $p,q,r$、区间与分离边界条件确定；Dirichlet 例子给出最简谱结构。
 
 ## 习题
 

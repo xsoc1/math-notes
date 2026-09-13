@@ -167,6 +167,73 @@ $$
 > GKN 算子理论，见 Zettl §10.4（Theorem 10.4.3）。
 > 本讲义目前只证明分离型与实耦合型中的简单情形，分类定理作为引用结果使用。
 
+## 耦合边界条件：转移矩阵判据
+
+设 $\Phi(x,\lambda)$ 是基本解矩阵：它的两列分别是初值
+$$
+Y_1(a)=\begin{pmatrix}1\\0\end{pmatrix},
+\qquad
+Y_2(a)=\begin{pmatrix}0\\1\end{pmatrix}
+$$
+对应的解向量 $Y=(y,py')^T$。由 Liouville 公式，
+$$
+\det\Phi(x,\lambda)=1.
+$$
+
+> [!theorem] 实耦合边界的特征值判据
+> 设实耦合边界条件为 $Y(b)=KY(a)$，其中 $K\in SL_2(\mathbb R)$。
+> 则 $\lambda$ 是特征值，当且仅当
+> $$
+> \operatorname{tr}\bigl(K^{-1}\Phi(b,\lambda)\bigr)=2.
+> $$
+
+**证明** 由 $Y(b)=\Phi(b,\lambda)Y(a)$ 与 $Y(b)=KY(a)$ 得
+$$
+K^{-1}\Phi(b,\lambda)Y(a)=Y(a).
+$$
+非零解存在等价于 $1$ 是 $M:=K^{-1}\Phi(b,\lambda)$ 的特征值。又
+$$
+\det M=\det(K^{-1})\det\Phi=1.
+$$
+对二阶矩阵 $M$，$1$ 是特征值当且仅当
+$$
+0=\det(M-I)=\det M-\operatorname{tr}M+1
+=2-\operatorname{tr}M,
+$$
+即 $\operatorname{tr}M=2$。 $\square$
+
+> [!example] 周期与反周期问题
+> 取 $p=r=1$，$q=0$，$[0,\pi]$，方程 $-y''=\lambda y$。
+> 对 $\lambda=\mu^2>0$，
+> $$
+> \Phi(x,\lambda)=
+> \begin{pmatrix}
+> \cos\mu x & \dfrac{\sin\mu x}{\mu}\\[2mm]
+> -\mu\sin\mu x & \cos\mu x
+> \end{pmatrix},
+> \qquad
+> \operatorname{tr}\Phi(\pi,\lambda)=2\cos(\mu\pi).
+> $$
+> 对 $\lambda=0$，$\Phi(x,0)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$。
+>
+> - **周期条件** $Y(\pi)=Y(0)$，即 $K=I$。判据给出
+>   $\operatorname{tr}\Phi=2$，故 $\cos\mu\pi=1$，
+>   $\mu=2n$，$\lambda=4n^2$，$n=0,1,2,\dots$。
+>   $\lambda_0=0$ 单重；$n\ge1$ 时 $\cos2nx$ 与 $\sin2nx$ 都满足边界条件，
+>   特征值为二重。
+> - **反周期条件** $Y(\pi)=-Y(0)$，即 $K=-I$。判据给出
+>   $\operatorname{tr}(-\Phi)=2$，即 $\operatorname{tr}\Phi=-2$，
+>   故 $\cos\mu\pi=-1$，$\mu=2n+1$，$\lambda=(2n+1)^2$，
+>   $n=0,1,2,\dots$，全部为二重。
+>
+> 两组谱合起来恰为 $\{n^2:n=0,1,2,\dots\}$：
+> $n$ 为偶数时对应周期条件，$n$ 为奇数时对应反周期条件。
+
+> [!note] 重数对比
+> 分离型自伴边界的特征值必为单重；耦合边界条件可能出现二重特征值。
+> 周期与反周期例子中，除 $\lambda=0$ 外全部是二重特征值。
+> 这与 Zettl \S4.10 的重数定理一致。
+
 ## 对称性定理
 
 在带权 Hilbert 空间
@@ -309,6 +376,17 @@ Lagrange 恒等式与边界形式给出对称性；紧预解式蕴涵离散实�
 > 若 $p\equiv1$，$q\equiv0$，$r\equiv1$，$[a,b]=[0,\pi]$，
 > 直接写出 Dirichlet 问题的 Green 函数，并说明它是 Hilbert–Schmidt 核。
 
+> [!question] 7.5
+> 证明：分离型自伴边界条件下，正则 SL 问题的特征值是单重的。
+
+> [!question] 7.6
+> 对 $p=r=1$，$q=0$，$[0,\pi]$，写出基本解矩阵 $\Phi(x,\lambda)$，
+> 并用转移矩阵判据证明周期与反周期边界的特征值分别为
+> $4n^2$ 与 $(2n+1)^2$。
+
+> [!question] 7.7
+> 证明周期与反周期问题没有负特征值。
+
 > [!success]- 解答
 > **7.1** 直接求导：
 > $$
@@ -340,6 +418,49 @@ Lagrange 恒等式与边界形式给出对称性；紧预解式蕴涵离散实�
 > $$
 > 它在 $[0,\pi]^2$ 上连续，因此积分算子
 > $f\mapsto\int_0^\pi G(x,t)f(t)\,dt$ 是 Hilbert–Schmidt 算子。
+
+>
+> **7.5** 设 $u,v$ 是同一个特征值 $\lambda$ 的两个特征函数。左端分离条件
+> $$
+> K y(a)-L(py')(a)=0
+> $$
+> 的零点集是二维向量空间
+> $\{(y(a),(py')(a)):y\in\mathbb R^2\}$ 中的一条过原点的直线。
+> 因此 $u$ 与 $v$ 在 $a$ 处的向量成比例，从而
+> $$
+> W(a)=u(a)(pv')(a)-(pu')(a)v(a)=0.
+> $$
+> 但两个线性无关解的 Wronskian 处处非零，矛盾。因此特征函数空间是
+> 一维的，特征值单重。
+>
+> **7.6** 对 $-y''=\lambda y$，$\lambda=\mu^2>0$，基本解矩阵为
+> $$
+> \Phi(x,\lambda)=
+> \begin{pmatrix}
+> \cos\mu x & \sin\mu x/\mu\\
+> -\mu\sin\mu x & \cos\mu x
+> \end{pmatrix},
+> \qquad \operatorname{tr}\Phi(\pi)=2\cos\mu\pi.
+> $$
+> 周期：$\operatorname{tr}\Phi=2$ 给出 $\cos\mu\pi=1$，
+> 故 $\mu=2n$，$\lambda=4n^2$。反周期：
+> $\operatorname{tr}(-\Phi)=2$ 给出 $\operatorname{tr}\Phi=-2$，
+> 即 $\cos\mu\pi=-1$，故 $\mu=2n+1$，$\lambda=(2n+1)^2$。
+> $\lambda=0$ 时 $\Phi(\pi,0)=\begin{pmatrix}1&\pi\\0&1\end{pmatrix}$，
+> 迹为 $2$，对应周期的常数特征函数。
+>
+> **7.7** 对周期或反周期边界条件及实值 $y$，分部积分给出
+> $$
+> \int_0^\pi (-y'')y\,dx
+> =\int_0^\pi (y')^2\,dx-\bigl[y y'\bigr]_0^\pi
+> =\int_0^\pi (y')^2\,dx,
+> $$
+> 因为周期或反周期条件都使边界项 $[yy']_0^\pi=0$。
+> 若 $-y''=\lambda y$，则
+> $$
+> \lambda\int_0^\pi y^2\,dx=\int_0^\pi (y')^2\,dx\ge0.
+> $$
+> 非零特征函数给出 $\lambda\ge0$，故没有负特征值。
 
 > [!tip] 下一步
 > 有了 Hilbert 空间框架后，就可以用 [[08_特征值的变分刻画与单调性]]

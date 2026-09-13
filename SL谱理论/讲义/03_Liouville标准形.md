@@ -69,7 +69,90 @@ $$
 z''+\bigl[\lambda+Q(s)\bigr]z=0,
 $$
 
-其中 $Q(s)$ 是由原系数 $p,q,r$ 决定的新势函数。
+其显式公式如下。
+
+> [!theorem] Liouville 变换的显式公式
+> 设 $f(x)=\bigl(p(x)r(x)\bigr)^{1/4}$，
+> $$
+> s'(x)=\sqrt{\frac{r(x)}{p(x)}},
+> \qquad
+> F(s)=f(x(s)),
+> $$
+> 其中 $x(s)$ 是 $s(x)$ 的反函数。则
+> $$
+> z(s)=\bigl(p(x(s))r(x(s))\bigr)^{1/4}y(x(s))
+> $$
+> 把方程
+> $$
+> -(p y')'+q y=\lambda r y
+> $$
+> 化为
+> $$
+> z''+\bigl[\lambda+Q(s)\bigr]z=0,
+> \qquad
+> Q(s)=-\frac{q(x(s))}{r(x(s))}-\frac{F''(s)}{F(s)}.
+> $$
+
+**证明** 记 $f=(pr)^{1/4}$，$\theta=s'=\sqrt{r/p}$，$A=p f'/f^2$。
+由
+$$
+\frac{p}{f^2}=\frac{p}{\sqrt{pr}}=\sqrt{\frac pr}=\frac1\theta
+$$
+得 $A=f'/\theta$。写 $y=z(s)/f(x)$，计算
+$$
+p y'=f z_s-A z.
+$$
+对 $x$ 求导，利用 $A\theta=f'$，得
+$$
+(p y')'=f\theta\,z_{ss}-A'z.
+$$
+代入方程并除以 $-f\theta$，再用 $f^2\theta=r$，得到
+$$
+z_{ss}+\left[\lambda-\frac qr-\frac{A'}{f\theta}\right]z=0.
+$$
+最后，由 $A=f'/\theta$ 与 $F(s)=f(x(s))$，
+$$
+F_s=\frac{f'}{\theta}=A,
+\qquad
+F_{ss}=\frac{A'}{\theta},
+$$
+故
+$$
+\frac{F_{ss}}{F}=\frac{A'}{\theta f}=\frac{A'}{f\theta}.
+$$
+因此 $z''+[\lambda+Q(s)]z=0$，其中 $Q=-q/r-F''/F$。 $\square$
+
+> [!example] Bessel 型方程
+> 取 $p=1$，$r=x^2$，$q=0$，$x\in(0,1)$。则
+> $$
+> s=\frac{x^2}{2},
+> \qquad
+> F(s)=(2s)^{1/4},
+> \qquad
+> Q(s)=\frac{3}{16s^2}.
+> $$
+> 标准形为
+> $$
+> u''+\left[\lambda+\frac{3}{16s^2}\right]u=0.
+> $$
+> 势在 $s=0$ 处奇异，对应原方程的端点 $x=0$。
+
+> [!example] Legendre 方程
+> 取 $p=1-x^2$，$q=0$，$r=1$，$x\in(-1,1)$。则
+> $$
+> s=\arcsin x,
+> \qquad
+> F(s)=\sqrt{\cos s},
+> \qquad
+> Q(s)=\frac12+\frac14\tan^2 s.
+> $$
+> 标准形为
+> $$
+> u''+\left[\lambda+\frac12+\frac14\tan^2 s\right]u=0,
+> \qquad
+> s\in\left(-\frac\pi2,\frac\pi2\right).
+> $$
+> $s=\pm\pi/2$ 处势发散，对应 Legendre 方程在 $x=\pm1$ 的奇异端点。
 
 > [!note] 结论
 > 只需研究
@@ -103,6 +186,26 @@ $$
 > [!question] 3.3
 > 设 $p(x)=1$，$r(x)=x^2$，求自变量变换 $s=s(x)$。
 
+> [!question] 3.4
+> 利用 $A=f'/\theta$ 证明
+> $$
+> \frac{A'}{f\theta}=\frac{F''}{F},
+> $$
+> 其中 $F(s)=f(x(s))$。
+
+> [!question] 3.5
+> 对 $p=1$，$r=x^2$，$q=0$，$x\in(0,1)$，
+> 计算 $s(x)$、$F(s)$、$Q(s)$，并写出标准形。
+
+> [!question] 3.6
+> 对 Legendre 方程
+> $$
+> -\bigl((1-x^2)y'\bigr)'=\lambda y,
+> \qquad x\in(-1,1),
+> $$
+> 计算 $s(x)$、$F(s)$、$Q(s)$，并说明为什么变换后的势在
+> $s=\pm\pi/2$ 发散。
+
 > [!success]- 解答
 > **3.1**
 > $$
@@ -120,3 +223,57 @@ $$
 > c=\int_0^1 t\,dt=\frac12,
 > $$
 > 所以 $s(x)=x^2$。
+
+>
+> **3.4** 因为 $F_s=f'/\theta=A$，所以
+> $$
+> F_{ss}=\frac{dA}{ds}=\frac{A'}{\theta}.
+> $$
+> 又 $F=f$，故
+> $$
+> \frac{F_{ss}}{F}=\frac{A'}{\theta f}=\frac{A'}{f\theta}.
+> $$
+>
+> **3.5** 由 $s'(x)=x$ 得 $s=x^2/2$，$x=\sqrt{2s}$，
+> $$
+> F(s)=\bigl(x^2\bigr)^{1/4}=x^{1/2}=(2s)^{1/4}.
+> $$
+> 计算
+> $$
+> F'(s)=\frac14(2s)^{-3/4}\cdot2=\frac12(2s)^{-3/4},
+> $$
+> $$
+> F''(s)=-\frac38(2s)^{-7/4}\cdot2
+> =-\frac34(2s)^{-7/4}.
+> $$
+> 因此
+> $$
+> \frac{F''}{F}
+> =-\frac34(2s)^{-7/4}(2s)^{-1/4}
+> =-\frac34(2s)^{-2}
+> =-\frac{3}{16s^2},
+> $$
+> 故 $Q(s)=3/(16s^2)$，标准形为
+> $u''+[\lambda+3/(16s^2)]u=0$。
+>
+> **3.6** 由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$，
+> 所以 $x=\sin s$，$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$。
+> 记 $c=\cos s$，则
+> $$
+> F'=-\frac12\sin s\,c^{-1/2},
+> $$
+> $$
+> F''=-\frac12c^{1/2}-\frac14\sin^2s\,c^{-3/2}.
+> $$
+> 因此
+> $$
+> \frac{F''}{F}
+> =-\frac12\sec^2s-\frac14\tan^2s
+> =-\frac12-\frac14\tan^2s,
+> $$
+> 故
+> $$
+> Q(s)=\frac12+\frac14\tan^2s.
+> $$
+> 当 $s\to\pm\pi/2$ 时 $\tan^2s\to+\infty$，势发散；
+> 这正对应原方程在 $x=\pm1$ 处 $p=1-x^2$ 退化的奇异端点。

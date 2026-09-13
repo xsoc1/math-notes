@@ -299,6 +299,48 @@ $$
 > $$
 > 对应特征函数在 $L^2_r(a,b)$ 中构成完备正交系。
 
+> [!theorem] 正则自伴 SL 的有限实谱（Zettl \S4.12）
+> 设 $p>0$，$r>0$，$q\in L^1(a,b)$，边界条件自伴。则算子 $A$ 的谱恰由
+> 其特征值组成，并且：
+> 1. 全部特征值为实数；
+> 2. 特征值下方有界且没有有限聚点，可排列为
+>    $$
+>    \lambda_1<\lambda_2<\lambda_3<\cdots,
+>    \qquad \lambda_n\to+\infty;
+>    $$
+> 3. 每个特征值的重数有限；
+> 4. 对应特征函数在 $L^2_r(a,b)$ 中构成完备正交系。
+> 证明路线：Green 函数连续给出预解算子 $R_\lambda$ 的紧性与自伴性，
+> 再对紧自伴算子使用谱定理。奇异情形的谱性质总表见 Zettl \S10.12。
+
+> [!proposition] 预解算子与谱的对应
+> 设 $0\notin\sigma(A)$，$T=R_0=A^{-1}$。则
+> $$
+> Au=\lambda u
+> \qquad\Longleftrightarrow\qquad
+> Tu=\lambda^{-1}u.
+> $$
+> 因此 $A$ 的特征值恰为 $T$ 的非零特征值的倒数。由于紧自伴算子 $T$ 的
+> 非零特征值 $\mu_n$ 满足 $\mu_n\to0$，故 $A$ 的特征值满足
+> $|\lambda_n|\to+\infty$，从而没有有限聚点。
+
+**证明** 若 $Au=\lambda u$ 且 $u\neq0$，则 $\lambda\neq0$，且
+$$
+u=R_0Au=\lambda R_0u,
+$$
+故 $R_0u=\lambda^{-1}u$。反过来，若 $R_0u=\mu u$ 且 $\mu\neq0$，
+则 $u\in D(A)$ 且 $Au=R_0^{-1}u=\mu^{-1}u$。
+最后一段是紧自伴算子谱定理的标准结论：紧自伴算子的非零特征值
+只能以 $0$ 为聚点。 $\square$
+
+> [!remark] 伴随 Green 函数
+> 若把方程换成伴随方程并相应改变边界条件，伴随 Green 函数满足
+> $$
+> G^*(x,\xi)=\overline{G(\xi,x)}.
+> $$
+> 在自伴情形 $G^*=G$，即 $G(x,\xi)=G(\xi,x)$。
+> 一般构造与证明见 Zettl \S3.8（Theorem 3.8.3--3.8.4）。
+
 ![[fig_spectrum.svg|500]]
 
 *图 9.2：离散谱的示意。*
@@ -395,6 +437,22 @@ Green 函数给出预解算子的显式积分核；连续核使预解算子成�
 > [!question] 9.5
 > 解释为什么 $\lambda$ 是特征值时 Green 函数不存在。
 
+> [!question] 9.6
+> 取 $[a,b]=[0,1]$，$p=r=1$，$q=0$，边界条件
+> $$
+> y(0)=0,\qquad y(1)+y'(1)=0.
+> $$
+> 验证 $\lambda=0$ 不是特征值，并构造 Green 函数。
+
+> [!question] 9.7
+> 设 $T=R_0$ 是 $\lambda=0$ 不在谱时的预解算子。证明
+> $$
+> Au=\lambda u
+> \quad\Longleftrightarrow\quad
+> Tu=\lambda^{-1}u,
+> $$
+> 并说明紧自伴预解算子如何给出离散谱 $\lambda_n\to\infty$。
+
 > [!success]- 解答
 > **9.1** 当 $x\to\xi$ 时两个分支都趋于
 > $-\varphi(\xi)\psi(\xi)/(pW)$，故连续。跳量计算已在本节定理证明中给出：
@@ -466,3 +524,45 @@ Green 函数给出预解算子的显式积分核；连续核使预解算子成�
 > [!tip] 下一讲
 > 10 完备性与 Fourier 收敛 将使用本节的紧自伴预解算子，
 > 证明特征函数系在 $L^2_r$ 中的完备性。
+
+>
+> **9.6** 先看 $\lambda=0$。方程 $y''=0$ 的通解为 $y=Ax+B$。
+> 由 $y(0)=0$ 得 $B=0$；由
+> $$
+> y(1)+y'(1)=A+A=2A=0
+> $$
+> 得 $A=0$，所以 $\lambda=0$ 不是特征值，Green 函数存在。
+>
+> 左端基本解取 $\varphi(x)=x$；右端基本解取满足
+> $y(1)+y'(1)=0$ 的解。由通解 $y=Ax+B$ 及
+> $A+B+A=2A+B=0$，取 $A=1$、$B=-2$，得
+> $$
+> \psi(x)=x-2.
+> $$
+> Wronskian
+> $$
+> W=\varphi\psi'-\varphi'\psi
+> =x\cdot1-1\cdot(x-2)=2.
+> $$
+> 于是
+> $$
+> G(x,\xi)=
+> \begin{cases}
+> -\dfrac{\varphi(x)\psi(\xi)}{pW}
+> =\dfrac{x(2-\xi)}2, & x\le\xi,\\[2mm]
+> -\dfrac{\varphi(\xi)\psi(x)}{pW}
+> =\dfrac{\xi(2-x)}2, & x\ge\xi.
+> \end{cases}
+> $$
+> 它关于 $x=\xi$ 连续、对称，并满足两端边界条件。
+>
+> **9.7** 若 $Au=\lambda u$，$u\neq0$，则 $\lambda\neq0$，且
+> $$
+> u=R_0Au=\lambda R_0u,
+> $$
+> 故 $R_0u=\lambda^{-1}u$。反过来，若 $R_0u=\mu u$，$\mu\neq0$，
+> 则 $u\in D(A)$ 且 $Au=\mu^{-1}u$。
+> 由于 $R_0$ 紧自伴，其非零特征值 $\mu_n$ 满足 $\mu_n\to0$；
+> 对应 $\lambda_n=\mu_n^{-1}$ 满足 $|\lambda_n|\to\infty$。
+> 正则自伴 SL 算子还是下方有界的，因此 $\lambda_n\to+\infty$，
+> 并且每个特征值只有有限重数。

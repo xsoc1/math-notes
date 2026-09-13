@@ -396,6 +396,16 @@ $$
 > \sum_{n=1}^{\infty}\frac{1}{(2n-1)^2}=\frac{\pi^2}{8}.
 > $$
 
+> [!question] 6.8
+> 将 $f(x)=x(\pi-x)$ 在 $[0,\pi]$ 上展开为 Dirichlet 正弦级数
+> $$
+> f(x)=\sum_{n=1}^\infty b_n\sin(nx),
+> $$
+> 并用 Parseval 恒等式求
+> $$
+> \sum_{n=1}^\infty\frac1{n^6}.
+> $$
+
 > [!success]- 解答
 > **6.1** 特征值为 $\lambda_n=n^2$，$n=0,1,2,\dots$，
 > 特征函数为 $\cos(nx)$。对 $m\neq n$，
@@ -442,3 +452,51 @@ $$
 > =\frac{16}{\pi^2}\sum_{n\text{ 奇}}\frac1{n^2},
 > $$
 > 故 $\sum_{n\text{ 奇}}1/n^2=\pi^2/8$。
+
+>
+> **6.8** 系数为
+> $$
+> b_n=\frac2\pi\int_0^\pi(\pi x-x^2)\sin(nx)\,dx.
+> $$
+> 分部积分得
+> $$
+> \int_0^\pi x\sin(nx)\,dx=-\frac{\pi(-1)^n}{n},
+> $$
+> $$
+> \int_0^\pi x^2\sin(nx)\,dx
+> =-\frac{\pi^2(-1)^n}{n}+\frac{2}{n^3}\bigl((-1)^n-1\bigr).
+> $$
+> 因此
+> $$
+> b_n=\frac{4}{\pi n^3}\bigl(1-(-1)^n\bigr)
+> =\begin{cases}
+> \dfrac{8}{\pi n^3}, & n\text{ 为奇数},\\[2mm]
+> 0, & n\text{ 为偶数}.
+> \end{cases}
+> $$
+> Parseval 恒等式给出
+> $$
+> \int_0^\pi\bigl(x(\pi-x)\bigr)^2dx
+> =\sum_{n\text{ 奇}}\left(\frac{8}{\pi n^3}\right)^2\frac{\pi}{2}.
+> $$
+> 左端
+> $$
+> \int_0^\pi(\pi^2x^2-2\pi x^3+x^4)\,dx
+> =\frac{\pi^5}{30},
+> $$
+> 右端
+> $$
+> \frac{32}{\pi}\sum_{n\text{ 奇}}\frac1{n^6}.
+> $$
+> 故 $\sum_{n\text{ 奇}}1/n^6=\pi^6/960$。又
+> $$
+> \sum_{n=1}^\infty\frac1{n^6}
+> =\sum_{n\text{ 奇}}\frac1{n^6}
+> +\frac1{64}\sum_{n=1}^\infty\frac1{n^6},
+> $$
+> 从而
+> $$
+> \sum_{n=1}^\infty\frac1{n^6}
+> =\frac{64}{63}\cdot\frac{\pi^6}{960}
+> =\frac{\pi^6}{945}.
+> $$

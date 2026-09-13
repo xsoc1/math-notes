@@ -1,0 +1,43 @@
+/* SL 谱理论讲义 callout 配色，与 LaTeX sl-lecture.sty 对齐 */
+
+.callout {
+  border-radius: 8px;
+}
+
+/* 定义：蓝色 */
+.callout[data-callout="definition"] {
+  --callout-color: 45, 110, 200;
+  --callout-icon: lucide-book-open;
+}
+
+/* 定理：深红 */
+.callout[data-callout="theorem"] {
+  --callout-color: 170, 40, 60;
+  --callout-icon: lucide-sigma;
+}
+
+/* 引理、命题、推论：紫色 */
+.callout[data-callout="lemma"],
+.callout[data-callout="proposition"],
+.callout[data-callout="corollary"] {
+  --callout-color: 105, 70, 160;
+  --callout-icon: lucide-git-branch;
+}
+
+/* 例子：绿色 */
+.callout[data-callout="example"] {
+  --callout-color: 40, 140, 90;
+  --callout-icon: lucide-lightbulb;
+}
+
+/* 证明：灰色 */
+.callout[data-callout="proof"] {
+  --callout-color: 105, 105, 105;
+  --callout-icon: lucide-pen-tool;
+}
+
+/* 研究项目 / 开放问题 */
+.callout[data-callout="project"] {
+  --callout-color: 40, 90, 160;
+  --callout-icon: lucide-folder-open;
+}

@@ -117,6 +117,56 @@ $$
 >   写成准导数形式时把 $p$ 吸收进 $h_a,h_b$ 即可。
 > - **周期/反周期**：不属于分离型，但也是自伴边界条件。
 
+## 一般自伴边界条件的标准形
+
+分离型只是自伴边界条件的一类。设
+
+$$
+Y(x)=\begin{pmatrix}y(x)\\ (py')(x)\end{pmatrix},
+\qquad
+E=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+$$
+
+一般两点边界条件写成
+
+$$
+A Y(a)+B Y(b)=0,\qquad
+A,B\in M_2(\mathbb C),\qquad
+\operatorname{rank}(A:B)=2.
+$$
+
+它在 Lagrange 边界形式下自伴，当且仅当
+
+$$
+A E A^*=B E B^*.
+$$
+
+> [!theorem] 自伴边界条件的分类（引用 Zettl §4.2）
+> 在上述条件下，自伴边界条件恰分为互不重叠的三类：
+> 1. **分离型**：两端各给一个实线性条件，可参数化为
+>    $$
+>    \cos\alpha\,y(a)-\sin\alpha\,(py')(a)=0,
+>    \qquad
+>    \cos\beta\,y(b)-\sin\beta\,(py')(b)=0;
+>    $$
+> 2. **实耦合型**：$Y(b)=K Y(a)$，其中 $K\in SL_2(\mathbb R)$，即 $\det K=1$；
+> 3. **复耦合型**：$Y(b)=e^{i\gamma}K Y(a)$，其中
+>    $K\in SL_2(\mathbb R)$，$\gamma\in(-\pi,0)\cup(0,\pi)$。
+
+> [!example] 三类边界的典型例子
+> - 分离型：Dirichlet、Neumann、Robin；
+> - 实耦合型：周期条件 $Y(b)=Y(a)$（$K=I$）、
+>   反周期条件 $Y(b)=-Y(a)$（$K=-I$，仍有 $\det K=1$）；
+> - 复耦合型：带相位 $\gamma\neq0$ 的耦合条件，边界条件本质上是复值的。
+
+> [!note] 证明路线
+> 自伴性等价于边界形式对定义域中所有 $u,v$ 满足
+> $[u,v](b)-[u,v](a)=0$。把边界值写成 $Y$，即得矩阵条件
+> $A E A^*=B E B^*$；再由 $SL_2(\mathbb R)$ 的代数结构得到三类标准形。
+> 正则情形的完整证明见 Zettl §4.2（Lemma 4.2.1）；一般奇异情形的证明走
+> GKN 算子理论，见 Zettl §10.4（Theorem 10.4.3）。
+> 本讲义目前只证明分离型与实耦合型中的简单情形，分类定理作为引用结果使用。
+
 ## 对称性定理
 
 在带权 Hilbert 空间

@@ -10,12 +10,19 @@ aliases:
   - 正则 SL 问题
   - SL 边值问题
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\01_physics_to_sl.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 prerequisites:
   - "[[01_杆的弯曲问题与Euler-Bernoulli梁]]"
 ---
 
 # 02 正则 Sturm–Liouville 问题
+
+> [!info] 本讲位置
+> 模块 A：物理动机与经典框架。前置：[[01_杆的弯曲问题与Euler-Bernoulli梁]]；下一讲：[[03_Liouville标准形]]。
+
 
 ## 方程
 

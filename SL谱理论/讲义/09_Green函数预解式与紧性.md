@@ -18,13 +18,17 @@ prerequisites:
 enduring_understanding: "预解算子的紧性是正则 SL 问题离散谱与完备特征展开的分析根源。"
 essential_question: "为什么正则 SL 问题的逆算子可以用具有连续核的积分算子表示，从而必然是紧算子？"
 performance_evidence: "能独立构造分离边界条件下的 Green 函数，证明其对称性，并说明预解算子为 Hilbert–Schmidt 算子。"
-status: drafting
-latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\04_green.tex'
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\07_green.tex'
 latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
 latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
+status: drafting
 ---
 
 # 09 Green 函数、预解式与紧性
+
+> [!info] 本讲位置
+> 模块 D：预解式与谱结构。前置：[[07_自伴边界条件与Hilbert空间框架]]；下一讲：10 完备性与 Fourier 收敛（待写）。
+
 
 > [!abstract] 本节目标
 > 在 [[07_自伴边界条件与Hilbert空间框架]] 的 Hilbert 空间框架下，构造正则 SL 问题的
@@ -164,6 +168,10 @@ $$
 > \qquad\text{（分布意义）}.
 > $$
 
+![[fig_green.svg|520]]
+
+*图 9：Green 函数的典型分段形状。*
+
 **证明** 分四步。
 
 **(1) 远离对角线的方程。**
@@ -290,6 +298,10 @@ $$
 > \lambda_1<\lambda_2<\lambda_3<\cdots,\qquad \lambda_n\to+\infty,
 > $$
 > 对应特征函数在 $L^2_r(a,b)$ 中构成完备正交系。
+
+![[fig_spectrum.svg|500]]
+
+*图 9.2：离散谱的示意。*
 
 下一节 10 完备性与 Fourier 收敛 将用这个紧性证明特征展开的完备性。
 

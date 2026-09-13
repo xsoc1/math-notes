@@ -12,12 +12,19 @@ aliases:
   - Sturm comparison theorem
   - 零点交错
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\03_oscillation.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 prerequisites:
   - "[[04_Pruefer变换与特征值存在性]]"
 ---
 
 # 05 Sturm 比较定理与零点交错
+
+> [!info] 本讲位置
+> 模块 B：化简与振荡。前置：[[04_Pruefer变换与特征值存在性]]；下一讲：[[06_特征函数正交性与广义Fourier级数]]。
+
 
 ## 零点的简单性
 
@@ -48,6 +55,10 @@ $$
 > [!theorem] Sturm 比较定理
 > 设 $\varphi$ 是第一个方程的非零解，$x_1<x_2$ 是它的两个相邻零点。
 > 则第二个方程的任意非零解 $\psi$ 在 $[x_1,x_2]$ 内至少有一个零点。
+
+![[fig_sturm.svg|560]]
+
+*图 5：Sturm 比较定理中的零点交错。*
 
 **证明** 用反证法。不妨设 $\varphi>0$ 于 $(x_1,x_2)$，并设 $\psi$ 在
 $(x_1,x_2)$ 内没有零点，从而 $\psi>0$。定义 Wronskian

@@ -10,14 +10,25 @@ aliases:
   - 杆的弯曲
   - Euler-Bernoulli 梁
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\01_physics_to_sl.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 ---
 
 # 01 杆的弯曲问题与 Euler–Bernoulli 梁
 
+> [!info] 本讲位置
+> 模块 A：物理动机与经典框架。前置：[[00_SL谱理论讲义总览]]；下一讲：[[02_正则Sturm-Liouville问题]]。
+
+
 ## 物理设定
 
 一根杆，$x=0$ 处以轴承固定，$x=l$ 处以铰链固定，轴向受压力 $P$，考虑其弯曲状态。
+
+![[fig_beam.svg|520]]
+
+*图 1：轴向受压杆的弯曲模型。*
 
 ## 小挠度近似与曲率
 

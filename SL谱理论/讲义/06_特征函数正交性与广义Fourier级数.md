@@ -11,15 +11,19 @@ aliases:
   - SL 特征函数正交性
   - 广义 Fourier 级数
 stage_type: lecture
-status: self-reviewed
-latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\03_sturm_fourier.tex'
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\04_fourier.tex'
 latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
 latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
+status: self-reviewed
 prerequisites:
   - "[[05_Sturm比较定理与零点交错]]"
 ---
 
 # 06 特征函数正交性与广义 Fourier 级数
+
+> [!info] 本讲位置
+> 模块 C：正交展开与自伴框架。前置：[[05_Sturm比较定理与零点交错]]；下一讲：[[07_自伴边界条件与Hilbert空间框架]]。
+
 
 ## 同一特征值对应线性相关
 
@@ -166,6 +170,10 @@ $$
 > \left\|f-\sum_{n=0}^N d_ne_n\right\|_r,
 > $$
 > 等号成立当且仅当 $d_n=c_n$（$n=0,\dots,N$）。
+
+![[fig_projection.svg|460]]
+
+*图 6：$E_N$ 上的正交投影与最佳逼近。*
 
 **证明** 展开右边：
 

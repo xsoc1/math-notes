@@ -12,12 +12,19 @@ aliases:
   - SL 算子
   - Sturm-Liouville 算子
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\05_self_adjoint.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 prerequisites:
   - "[[06_特征函数正交性与广义Fourier级数]]"
 ---
 
 # 07 自伴边界条件与 Hilbert 空间框架
+
+> [!info] 本讲位置
+> 模块 C：正交展开与自伴框架。前置：[[06_特征函数正交性与广义Fourier级数]]；下一讲：[[08_特征值的变分刻画与单调性]]。
+
 
 > [!abstract] 本节目标
 > 把 SL 边值问题写成 Hilbert 空间中的自伴算子问题。核心结论是：

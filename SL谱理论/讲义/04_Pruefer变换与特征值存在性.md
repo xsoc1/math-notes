@@ -11,12 +11,19 @@ aliases:
   - Prüfer transformation
   - 相位方程
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\02_standard_prufer.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 prerequisites:
   - "[[03_Liouville标准形]]"
 ---
 
 # 04 Prüfer 变换与特征值存在性
+
+> [!info] 本讲位置
+> 模块 B：化简与振荡。前置：[[03_Liouville标准形]]；下一讲：[[05_Sturm比较定理与零点交错]]。
+
 
 ## 极坐标表示
 
@@ -40,6 +47,10 @@ $$
 $$
 \theta(x,\lambda)=\arctan\frac{\varphi(x,\lambda)}{\varphi'(x,\lambda)}.
 $$
+
+![[fig_prufer.svg|420]]
+
+*图 4：Prüfer 变换：$ (\varphi',\varphi) $ 的相位角 $\theta$ 与振幅 $\rho$。*
 
 ## 相位的微分方程
 

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" width="420" height="360">
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#333"/>
+</marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<line x1="60.0" y1="190.0" x2="360.0" y2="190.0" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="210.0" y1="340.0" x2="210.0" y2="40.0" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="365.0" y="212.0" font-family="serif" font-size="18" fill="#111" text-anchor="start" >φ′</text>
+<text x="222.0" y="35.0" font-family="serif" font-size="18" fill="#111" text-anchor="start" >φ</text>
+<circle cx="210" cy="190" r="110" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="5,5"/>
+<line x1="210.0" y1="190.0" x2="294.3" y2="119.3" stroke="#1f77b4" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="302.3" y="111.3" font-family="serif" font-size="18" fill="#1f77b4" text-anchor="start" >(φ′, φ)</text>
+<text x="266.9" y="161.3" font-family="serif" font-size="18" fill="#d62728" text-anchor="start" >θ</text>
+<polyline points="255.0,190.0 255.0,188.4 254.9,186.9 254.8,185.3 254.6,183.7 254.3,182.2 254.0,180.6 253.7,179.1 253.3,177.6 252.8,176.1 252.3,174.6 251.7,173.1 251.1,171.7 250.4,170.3 249.7,168.9 249.0,167.5 248.2,166.2 247.3,164.8 246.4,163.5 245.5,162.3 244.5,161.1" fill="none" stroke="#d62728" stroke-width="2"/>
+<text x="256.3" y="133.1" font-family="serif" font-size="18" fill="#1f77b4" text-anchor="start" >ρ</text>
+<text x="210.0" y="30.0" font-family="serif" font-size="18" fill="#111" text-anchor="middle" >Prüfer 变换：相位角 θ 与振幅 ρ</text>
+</svg>

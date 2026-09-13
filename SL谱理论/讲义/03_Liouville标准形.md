@@ -10,12 +10,19 @@ aliases:
   - Liouville 标准形
   - Liouville normal form
 stage_type: lecture
+latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\02_standard_prufer.tex'
+latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
+latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
 status: self-reviewed
 prerequisites:
   - "[[02_正则Sturm-Liouville问题]]"
 ---
 
 # 03 Liouville 标准形
+
+> [!info] 本讲位置
+> 模块 B：化简与振荡。前置：[[02_正则Sturm-Liouville问题]]；下一讲：[[04_Pruefer变换与特征值存在性]]。
+
 
 一般 SL 方程可以通过自变量与因变量的变换，化为更简单的“标准形”
 

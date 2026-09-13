@@ -146,7 +146,7 @@ $\pi/\sqrt{m}$。
 $$
 W=y_1'y_2-y_1y_2'.
 $$
-由 Liouville 公式，
+直接计算得 $W'+pW=0$，故
 $$
 W(x)=W(x_0)e^{-\int_{x_0}^x p(t)\,dt}\neq0,
 $$

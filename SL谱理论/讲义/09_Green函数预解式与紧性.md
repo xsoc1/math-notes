@@ -453,6 +453,10 @@ Green 函数给出预解算子的显式积分核；连续核使预解算子成�
 > $$
 > 并说明紧自伴预解算子如何给出离散谱 $\lambda_n\to\infty$。
 
+> [!question] 9.8
+> 对 $p\equiv1$，$q\equiv0$，$r\equiv1$，$[a,b]=[0,\pi]$，
+> 写出 Dirichlet 问题的 Green 函数，并说明它是 Hilbert–Schmidt 核。
+
 > [!success]- 解答
 > **9.1** 当 $x\to\xi$ 时两个分支都趋于
 > $-\varphi(\xi)\psi(\xi)/(pW)$，故连续。跳量计算已在本节定理证明中给出：
@@ -521,10 +525,6 @@ Green 函数给出预解算子的显式积分核；连续核使预解算子成�
 > 这时左端基本解与右端基本解线性相关，$W=0$，Green 函数公式中的分母为零，
 > 无法构造预解核；从算子角度看，$A-\lambda I$ 不是单射，逆算子不存在。
 
-> [!tip] 下一讲
-> 10 完备性与 Fourier 收敛 将使用本节的紧自伴预解算子，
-> 证明特征函数系在 $L^2_r$ 中的完备性。
-
 >
 > **9.6** 先看 $\lambda=0$。方程 $y''=0$ 的通解为 $y=Ax+B$。
 > 由 $y(0)=0$ 得 $B=0$；由
@@ -566,3 +566,19 @@ Green 函数给出预解算子的显式积分核；连续核使预解算子成�
 > 对应 $\lambda_n=\mu_n^{-1}$ 满足 $|\lambda_n|\to\infty$。
 > 正则自伴 SL 算子还是下方有界的，因此 $\lambda_n\to+\infty$，
 > 并且每个特征值只有有限重数。
+
+
+> **9.8** 对 $-y''=f$，$y(0)=y(\pi)=0$，Green 函数为
+> $$
+> G(x,t)=
+> \begin{cases}
+> \dfrac{x(\pi-t)}{\pi}, & 0\le x\le t\le\pi,\\[2mm]
+> \dfrac{t(\pi-x)}{\pi}, & 0\le t\le x\le\pi.
+> \end{cases}
+> $$
+> 它在 $[0,\pi]^2$ 上连续，因此积分算子
+> $f\mapsto\int_0^\pi G(x,t)f(t)\,dt$ 是 Hilbert–Schmidt 算子。
+
+> [!tip] 下一讲
+> 10 完备性与 Fourier 收敛 将使用本节的紧自伴预解算子，
+> 证明特征函数系在 $L^2_r$ 中的完备性。

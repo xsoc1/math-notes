@@ -145,7 +145,7 @@ $$
 ## 参考
 
 > [!info] 标准参考（Zettl）
-> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.1、Ch 4 §4.1：正则 SL 问题与自伴问题的标准框架。
+> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.1、Ch 4 §4.1：正则 SL 问题与边界条件的标准框架（自伴性在第 07 讲引入）。
 > - A. Zettl, Ch 1 §1.2–§1.5：一阶系统与标量方程解的存在唯一性、端点延拓，可作为建模后数学处理的基础。
 > - 完整章节映射见 [[Zettl参考映射]]。
 

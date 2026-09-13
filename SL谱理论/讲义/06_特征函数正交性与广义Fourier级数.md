@@ -22,7 +22,7 @@ prerequisites:
 # 06 特征函数正交性与广义 Fourier 级数
 
 > [!info] 本讲位置
-> 模块 C：正交展开与自伴框架。前置：[[05_Sturm比较定理与零点交错]]；下一讲：[[07_自伴边界条件与Hilbert空间框架]]。
+> 模块 C：正交展开与谱框架（自伴性见第 07 讲）。前置：[[05_Sturm比较定理与零点交错]]；下一讲：[[07_自伴边界条件与Hilbert空间框架]]。
 
 
 > [!abstract] 本讲目标
@@ -31,6 +31,15 @@ prerequisites:
 > [!question] 基本问题
 > 特征函数系在什么意义下可以表示任意函数？
 
+
+> [!note] 记号
+> 本讲在带权 Hilbert 空间
+> $$
+> L^2_r(a,b)=\left\{f:\int_a^b r|f|^2<\infty\right\},
+> \qquad
+> (f,g)_r=\int_a^b r f\overline{g}\,dx
+> $$
+> 中讨论。$r>0$ 保证内积正定。
 
 ## 同一特征值对应线性相关
 
@@ -53,7 +62,7 @@ $$
 $$
 
 即 $W(a)=0$。对二阶线性齐次方程，Wronskian 恒为零当且仅当两解线性相关。
-因此正则 SL 问题的每个特征值都是单重的。
+因此在分离型边界条件下，正则 SL 问题的每个特征值都是单重的（耦合边界条件可能出现二重特征值，见第 07 讲）。
 
 ## 不同特征值正交
 
@@ -80,7 +89,7 @@ $$
 =\frac{d}{dx}\Bigl[p\bigl(\varphi_n\varphi_m'-\varphi_n'\varphi_m\bigr)\Bigr].
 $$
 
-积分并利用分离型自伴边界条件，右端为零。因 $\lambda_n\neq\lambda_m$，
+积分并利用分离型边界条件，右端为零。因 $\lambda_n\neq\lambda_m$，
 故正交。
 
 记
@@ -247,15 +256,16 @@ Parseval 给出 $\|f\|_r=0$，故 $f=0$。 $\square$
 
 > [!theorem] 正则 SL 完备性定理
 > 设 $L y=-(p y')'+q y$，$p>0$，$q,r$ 连续，$r>0$，
-> 配以分离型自伴边界条件。则特征函数系 $\{\varphi_n\}$ 在 $L^2_r(a,b)$ 中完备。
+> 配以分离型边界条件。则特征函数系 $\{\varphi_n\}$ 在 $L^2_r(a,b)$ 中完备。
 > 等价地，$\{e_n\}$ 是 $L^2_r(a,b)$ 的完备正交规范系。
 
-**证明路线** 由 [[09_Green函数预解式与紧性]]，
-预解算子 $R_\lambda=(A-\lambda I)^{-1}$ 是紧自伴算子。
-紧自伴算子的谱定理给出 $L^2_r$ 的一组完备正交特征向量。
-取 $\lambda$ 不是特征值，则 $R_\lambda$ 的特征向量与 $A$ 的特征函数相同，
-特征值为 $(\lambda_n-\lambda)^{-1}$。
-因此 $A$ 的特征函数系完备。完整的谱定理证明将在后续章节给出。 $\square$
+> [!note] 证明路线（用到后续工具）
+> 完备性的标准算子证明分两步：
+> 第 07 讲建立自伴算子框架；第 09 讲构造 Green 函数并证明预解算子
+> $R_\lambda=(A-\lambda I)^{-1}$ 紧且自伴。随后用紧自伴算子的谱定理即可得到
+> $L^2_r$ 的完备正交特征系。
+> 本讲先用正交投影与 Parseval 恒等式给出形式展开与完备性的等价刻画；
+> 完整的谱定理证明见第 09--10 讲，也可参考 Zettl \S4.11--\S4.12。
 
 ### 逐点收敛与一致收敛
 
@@ -275,12 +285,23 @@ $L^2$ 收敛并不自动给出逐点收敛。下面陈述经典的正则 SL 展�
 > 在端点处，级数通常收敛到边界值的某种平均或延拓值，具体取决于边界条件。
 > 例如 Fourier 正弦级数在 $x=0,\pi$ 处收敛到 $0$。
 
-**证明思路** 用 Green 函数把部分和写成积分算子，并估计其核与 Dirichlet 核的差；
+**证明思路** 用一个积分核把部分和写成积分算子，并估计该核与三角核的差
+（核的显式构造见第 09 讲的 Green 函数）；
 再对逐段 $C^1$ 函数使用有界变差函数的 Fourier 收敛定理。完整证明可参见
 Titchmarsh, *Eigenfunction Expansions Associated with Second-Order Differential Equations*，
 或 Zettl, *Sturm--Liouville Theory*。
 
 ### 算子作用与逐项微分的 $L^2$ 版本
+
+下面用 $L^2_r$ 中的算子语言重述展开定理。记
+
+$$
+A y=\frac{1}{r}L y,
+\qquad
+D(A)=\left\{y\in C^2[a,b]:\ y\text{ 满足边界条件},\ Ly\in L^2_r(a,b)\right\}.
+$$
+
+$A$ 的自伴性将在第 07 讲讨论；这里只用特征方程与分部积分。
 
 > [!theorem] $L^2$ 展开与算子作用
 > 设 $f\in D(A)$，即 $f$ 满足边界条件且 $Lf\in L^2_r$。则
@@ -293,9 +314,16 @@ Titchmarsh, *Eigenfunction Expansions Associated with Second-Order Differential 
 > \|Af\|_r^2=\sum_{n=0}^{\infty}\lambda_n^2|c_n|^2<\infty .
 > $$
 
-**证明** 因为 $A$ 自伴且 $Ae_n=\lambda_ne_n$，
+**证明** 对 $f\in D(A)$，分部积分给出
 $$
-(Af,e_n)_r=(f,Ae_n)_r=\lambda_n(f,e_n)_r=\lambda_n c_n.
+(Af,e_n)_r=\int_a^b (Lf)e_n\,dx
+=\int_a^b f(Le_n)\,dx
++\bigl[p(f'e_n-fe_n')\bigr]_a^b.
+$$
+$f$ 与 $e_n$ 满足同一组分离型边界条件，故边界项为零。又
+$Le_n=\lambda_n r e_n$，因此
+$$
+(Af,e_n)_r=\lambda_n\int_a^b f e_n\,r\,dx=\lambda_n c_n.
 $$
 由 $\{e_n\}$ 完备，$Af$ 的广义 Fourier 级数就是
 $\sum \lambda_nc_ne_n$，且在 $L^2_r$ 中收敛到 $Af$。
@@ -354,7 +382,7 @@ $$
 
 ## 本讲小结
 
-分离自伴边界条件使特征函数正交；完备性等价于 Parseval 与 $L^2$ 展开。
+分离型边界条件使边界项消失，从而特征函数正交；完备性等价于 Parseval 与 $L^2$ 展开。
 
 ## 习题
 

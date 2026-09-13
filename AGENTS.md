@@ -297,3 +297,4 @@ aliases:
 | 2026-09-13 | P0 样式与可读性优化：LaTeX 新增 `styles/sl-lecture.sty`（tcolorbox 定理/定义/例子/注统一配色、fancyhdr 页眉页脚、microtype），新增 `frontmatter/notation.tex` 符号表；Obsidian 新增 `符号表.md` 与 `styles/sl-lecture-callouts.css` 并启用 snippet；修复“第 10 讲”悬空引用；整本 40 页 |
 | 2026-09-13 | P1 结构与可读性优化：01–09 统一补“本讲目标/基本问题/本讲小结”，LaTeX 各章补 `chapterintro`/`chaptersummary`；新增 Rayleigh 极小极大 SVG 与 TikZ、离散谱 TikZ；单讲 09 存档移入 `archive/`；更新 README/计划；整本 40 页 |
 | 2026-09-13 | P2 索引与路线图优化：新增 Obsidian `术语索引.md`、`习题分类索引.md`、`项目文档映射表.md` 与 `21_右定算子与左定空间.md` 骨架；新增 `fig_hs_scale.svg`；LaTeX 新增 `frontmatter/index.tex`，第 8 章增加项目文档映射表与后续章节骨架（含左定空间尺度 TikZ 图）；整本 41 页 |
+| 2026-09-13 | 接入 Zettl《Sturm-Liouville Theory》作为讲义主参考：新增 `Zettl参考映射.md`（全书章节映射、讲次最小阅读集、可补强定理清单、引用规范与参考书分工）；01–09、21 补“标准参考（Zettl）”callout；LaTeX 每章新增“标准参考与延伸阅读”，新增 `backmatter/references.tex` 与章节对照表，整本 PDF 46 页；更新总览、书写计划与 LaTeX README |

@@ -132,6 +132,13 @@ $\pi/\sqrt{m}$。
 > Prüfer 相位方程 $\theta'=\cos^2\theta+[\lambda+q]\sin^2\theta$ 是
 > Sturm 比较定理的现代证明工具；两者共同构成 SL 振荡理论的核心。
 
+## 参考
+
+> [!info] 标准参考（Zettl）
+> - A. Zettl, *Sturm–Liouville Theory*, Ch 2 §2.6, Theorem 2.6.2–2.6.3：Sturm 分离定理与比较定理的完整陈述与证明。
+> - A. Zettl, Ch 4 §4.3、§4.6：结点计数与分离边界条件下的振荡刻画。
+> - 完整章节映射见 [[Zettl参考映射]]。
+
 ## 本讲小结
 
 Wronskian 与比较定理给出零点单调控制；零点交错说明不同解的振荡次序。

@@ -361,10 +361,13 @@ Green 函数与紧预解式是后续几条线的公共入口：
 - 项目文档 `SL_h2_completeness_proof.pdf`、`SL_hs_orthogonal_systems_proof.pdf`
   都默认正则 SL 问题的紧预解式。
 
-> [!info] 参考
-> - A. Zettl, *Sturm–Liouville Theory*, AMS, 2005.
+> [!info] 标准参考（Zettl）
+> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.8, Theorem 3.8.1–3.8.2：正则 Green 函数。
+> - A. Zettl, Ch 4 §4.11, Theorem 4.11.1：Green 核算子；Ch 4 §4.12：有限实谱。
+> - A. Zettl, Ch 10 §10.10, Theorem 10.10.1：奇异 Green 函数；§10.9：用正则问题逼近奇异问题。
 > - G. Teschl, *Ordinary Differential Equations and Dynamical Systems*, AMS.
 > - M. Reed, B. Simon, *Methods of Modern Mathematical Physics I*.
+> - 完整章节映射见 [[Zettl参考映射]]。
 
 ## 本讲小结
 

@@ -99,6 +99,13 @@ $$
 > 一般变系数 SL 问题可以通过 [[03_Liouville标准形|Liouville 标准形]]
 > 化为 $y''+[\lambda+q(x)]y=0$。
 
+## 参考
+
+> [!info] 标准参考（Zettl）
+> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.1、§3.4：正则两点边值问题的定义与问题空间。
+> - A. Zettl, Ch 4 §4.1–§4.2：正则自伴问题与边界条件标准形。
+> - 完整章节映射见 [[Zettl参考映射]]。
+
 ## 本讲小结
 
 正则 SL 问题由系数 $p,q,r$、区间与分离边界条件确定；Dirichlet 例子给出最简谱结构。

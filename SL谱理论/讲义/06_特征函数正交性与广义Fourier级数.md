@@ -344,6 +344,14 @@ $$
 > 以及特征值间距 $\lambda_{n+1}-\lambda_n$ 与比值 $\lambda_{n+1}/\lambda_n$ 的最优界。
 > 本节的完备性与 Parseval 是后续完备性章节和左定理论讨论的基础。
 
+## 参考
+
+> [!info] 标准参考（Zettl）
+> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.2–§3.3：特征值的超越方程刻画与 Fourier 方程。
+> - A. Zettl, Ch 4 §4.11–§4.12：Green 核算子与有限实谱，完备性讨论的算子入口。
+> - A. Zettl, Ch 16：展开定理与逐点收敛的文献路线。
+> - 完整章节映射见 [[Zettl参考映射]]。
+
 ## 本讲小结
 
 分离自伴边界条件使特征函数正交；完备性等价于 Parseval 与 $L^2$ 展开。

@@ -46,7 +46,8 @@ prerequisites:
 > $-(ky')'=\lambda c\rho y$，$c\rho$ 就是权函数 $r$。
 > 初始温度 $f=\sum c_ne_n$ 给出 $u=\sum c_ne^{-\lambda_nt}e_n(x)$：
 > 高模态衰减快、低模态衰减慢，长时间后只剩最小特征值的模态，
-> 衰减率就是谱隙；若 $f$ 与第一模态正交，则衰减由 $\lambda_2$ 控制。
+> 衰减率就是谱隙（相邻两个特征值之差）；若 $f$ 与第一模态正交，
+> 则衰减由 $\lambda_2$ 控制。
 > 对波动方程 $u_{tt}=c^2u_{xx}$，同一组 $e_n$ 给出振荡模态
 > $u=\sum(a_n\cos(\sqrt{\lambda_n}ct)+b_n\sin(\sqrt{\lambda_n}ct))e_n(x)$，
 > 特征值 $\lambda_n$ 对应频率平方；完备性保证任意初始波形都能这样分解。

@@ -122,7 +122,7 @@ $$
 $$
 因此 $z''+[\lambda+Q(s)]z=0$，其中 $Q=-q/r-F''/F$。 $\square$
 
-> [!example] Bessel 型方程
+> [!example] 例 2.1：Bessel 型方程
 > 取 $p=1$，$r=x^2$，$q=0$，$x\in(0,1)$。则
 > $$
 > s=\frac{x^2}{2},
@@ -133,11 +133,71 @@ $$
 > $$
 > 标准形为
 > $$
-> u''+\left[\lambda+\frac{3}{16s^2}\right]u=0.
+> z''+\left[\lambda+\frac{3}{16s^2}\right]z=0.
 > $$
 > 势在 $s=0$ 处奇异，对应原方程的端点 $x=0$。
 
-> [!example] Legendre 方程
+**物理意义** 原方程
+$$
+-y''=\lambda x^2y
+$$
+可以看作一根**变密度弦**的振动方程。设弦的张力为 $1$，单位长度密度为
+$\rho(x)=x^2$，横向位移为 $u(x,t)$，则
+$$
+\rho(x)u_{tt}=\bigl(Tu_x\bigr)_x
+\quad\Longrightarrow\quad
+x^2u_{tt}=u_{xx}.
+$$
+令 $u(x,t)=T(t)y(x)$ 分离时间变量，即得
+$-y''=\lambda x^2y$。
+密度在 $x=0$ 处退化为零，所以端点 $x=0$ 是奇异的：质量分布趋于零，
+振动在端点附近的行为需要单独分析。
+
+更一般地，若密度是幂函数 $r(x)=x^{2\alpha}$（$\alpha>-1$），
+则
+$$
+s=\frac{x^{\alpha+1}}{\alpha+1},
+\qquad
+Q(s)=\frac{\alpha(\alpha+2)}{4(\alpha+1)^2}\frac1{s^2}.
+$$
+当 $\alpha=1$ 时即为 $Q=3/(16s^2)$。这说明**变密度会产生逆平方势**
+（离心势垒），它是高维径向问题中反复出现的结构。
+
+**数学理解** 变换后的方程
+$$
+z''+\left[\lambda+\frac{3}{16s^2}\right]z=0
+$$
+在 $s=0$ 处有一个不可积的逆平方势。把它写成
+$$
+-z''+\frac{c}{s^2}z=\lambda z,
+\qquad
+c=-\frac{3}{16},
+$$
+则端点 $s=0$ 的端点分类为（完整定义见后续奇异 SL 理论）：
+$c<3/4$ 时是极限圆（limit-circle），
+$c\ge3/4$ 时是极限点（limit-point）。这里 $c=-3/16<3/4$，
+属于极限圆情形。因此这个例子**不能直接套用第 08 章的正则完备性定理**，
+它正是后续奇异 SL 理论（模块 3/4）的入口。
+
+**与 Bessel 函数的联系** 变换后的方程是 Bessel 方程（阶 $\nu=1/4$）
+的标准约化形式。事实上，Bessel 方程
+$$
+u''+\frac1t u'+\left(1-\frac{\nu^2}{t^2}\right)u=0
+$$
+作变换 $u(t)=t^{-1/2}v(t)$ 后化为
+$$
+v''+\left[1+\frac{1/4-\nu^2}{t^2}\right]v=0.
+$$
+取 $\nu=1/4$，再令 $t=\sqrt{\lambda}s$，就得到上面的变换后方程。
+因此原方程的解可以写成
+$$
+y(x)=\sqrt{x}\,J_{1/4}\!\left(\frac{\sqrt{\lambda}}2x^2\right)
+$$
+与第二类 Bessel 函数的线性组合。若在 $x=1$ 处给定边界条件、
+在 $x=0$ 处要求解有界，就得到一个奇异 SL 特征值问题；
+特征函数由 $J_{1/4}$ 给出，正交性权重为 $x^2$。
+
+> [!example] 例 2.2：Legendre 方程
 > 取 $p=1-x^2$，$q=0$，$r=1$，$x\in(-1,1)$。则
 > $$
 > s=\arcsin x,
@@ -148,11 +208,81 @@ $$
 > $$
 > 标准形为
 > $$
-> u''+\left[\lambda+\frac12+\frac14\tan^2 s\right]u=0,
+> z''+\left[\lambda+\frac12+\frac14\tan^2 s\right]z=0,
 > \qquad
 > s\in\left(-\frac\pi2,\frac\pi2\right).
 > $$
 > $s=\pm\pi/2$ 处势发散，对应 Legendre 方程在 $x=\pm1$ 的奇异端点。
+
+**物理意义** Legendre 方程
+$$
+-\bigl((1-x^2)y'\bigr)'=\lambda y
+$$
+是 Laplace 方程在球坐标下分离变量得到的**角向方程**。
+取 $x=\cos\theta$，其中 $\theta$ 是球坐标的极角，则角向本征方程为
+$$
+\frac1{\sin\theta}\frac{d}{d\theta}
+\left(\sin\theta\frac{dY}{d\theta}\right)
++\lambda Y=0,
+$$
+令 $x=\cos\theta$ 即化为 Legendre 方程。此时
+$$
+\lambda=n(n+1),\qquad n=0,1,2,\dots,
+$$
+特征函数是 Legendre 多项式 $P_n(\cos\theta)$。它们对应球面调和函数、
+角动量量子数、静电场与引力场的多极展开，以及氢原子角向方程。
+一维问题中参数 $n$ 的物理含义是角动量大小，而 $2n+1$ 重简并
+来自磁量子数。
+
+**数学理解** 变换后
+$$
+Q(s)=\frac12+\frac14\tan^2 s.
+$$
+当 $s\to\pm\pi/2$ 时，令 $u=\pi/2\mp s$，则
+$\tan s\sim1/u$，所以
+$$
+Q(s)\sim\frac1{4u^2}.
+$$
+方程在端点附近化为
+$$
+-z''-\frac{1}{4u^2}z=\lambda z,
+$$
+即 $c=-1/4<3/4$，端点同样属于**极限圆**情形（完整定义见后续奇异 SL 理论）。
+Legendre 方程的两个端点 $x=\pm1$ 都是奇异端点，且两个线性无关解
+在端点附近都平方可积：一个趋于常数，另一个具有对数发散
+（Legendre 函数 $Q_n$）。Legendre 多项式 $P_n$ 正是被
+“两端有界”这一要求选出的解。
+
+变换后的特征函数可以写成
+$$
+z_n(s)=\sqrt{\cos s}\,P_n(\sin s),
+\qquad
+\lambda_n=n(n+1).
+$$
+这说明 Legendre 多项式正是变换后奇异 SL 问题的特征函数；
+Legendre 展开
+$$
+f(x)\sim\sum_{n=0}^{\infty}c_nP_n(x)
+$$
+在 $L^2(-1,1)$ 中完备，但它的完备性**不能由第 08 章的正则理论
+直接覆盖**，需要奇异自伴扩张与 Friedrichs 扩张等工具
+（模块 3/4）。这也是 Legendre 方程在 SL 理论中的典型地位：
+它是最经典的“正则理论之外”的完备正交系。
+
+**与其他特殊函数的联系** 将权函数换成 $(1-x)^\alpha(1+x)^\beta$
+就得到 Jacobi 多项式；Legendre 多项式是其特例。更高维球面上的
+角向问题则给出 Gegenbauer 多项式。它们与 Bessel 函数一起构成
+数学物理中最重要的几族正交多项式。
+
+> [!note] 两个例子的共同结构
+> Bessel 型方程与 Legendre 方程都来自物理分离变量：
+> 前者是变密度弦/高维径向问题，后者是球面角向问题。
+>  Liouville 变换后，两者都在奇异端点产生**逆平方势**（离心势垒）：
+> Bessel 型方程在 $x=0$ 属于极限圆（$x=1$ 为正则端点），
+> Legendre 方程在 $x=\pm1$ 两端都属于极限圆。
+> 特征函数分别由 Bessel 函数 $J_{1/4}$ 与 Legendre 多项式 $P_n$ 给出。
+> 它们说明正则理论之外还有一大类由奇异端点产生的完备正交系，
+> 这正是模块 3/4 的研究对象。
 
 > [!note] 结论
 > 只需研究
@@ -254,7 +384,7 @@ $$
 > =-\frac{3}{16s^2},
 > $$
 > 故 $Q(s)=3/(16s^2)$，标准形为
-> $u''+[\lambda+3/(16s^2)]u=0$。
+> $z''+[\lambda+3/(16s^2)]z=0$。
 >
 > **3.6** 由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$，
 > 所以 $x=\sin s$，$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$。

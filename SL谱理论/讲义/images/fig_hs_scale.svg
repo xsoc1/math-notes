@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 360" width="620" height="360">
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+</marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<rect x="60" y="60" width="500" height="240" rx="12" fill="#eef4fb" stroke="#1f77b4" stroke-width="2"/>
+<text x="292.0" y="186.0" font-family="serif" font-size="18" fill="#1f77b4" text-anchor="middle">H^1</text>
+<rect x="110" y="95" width="400" height="180" rx="12" fill="#eefaf0" stroke="#2ca02c" stroke-width="2"/>
+<text x="292.0" y="191.0" font-family="serif" font-size="18" fill="#2ca02c" text-anchor="middle">H^2</text>
+<rect x="170" y="135" width="280" height="110" rx="12" fill="#fdeeee" stroke="#d62728" stroke-width="2"/>
+<text x="292.0" y="196.0" font-family="serif" font-size="18" fill="#d62728" text-anchor="middle">H^3</text>
+<rect x="230" y="170" width="160" height="50" rx="12" fill="#f5eefc" stroke="#9467bd" stroke-width="2"/>
+<text x="292.0" y="201.0" font-family="serif" font-size="18" fill="#9467bd" text-anchor="middle">H^4 ...</text>
+<line x1="90" y1="330" x2="520" y2="330" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="300.0" y="355.0" font-family="serif" font-size="15" fill="#555" text-anchor="middle">范数增强 / 光滑性增强 / 空间缩小</text>
+<text x="300.0" y="35.0" font-family="serif" font-size="18" fill="#111" text-anchor="middle">左定空间尺度：H^1 ⊃ H^2 ⊃ H^3 ⊃ ...</text>
+</svg>

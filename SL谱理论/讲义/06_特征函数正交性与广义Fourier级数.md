@@ -41,11 +41,16 @@ prerequisites:
 > $$
 > 中讨论。$r>0$ 保证内积正定。
 
-> [!note] 物理来源：一维热传导
-> 热传导方程 $c\rho u_t=(ku_x)_x$ 分离变量 $u(x,t)=T(t)y(x)$ 后给出
-> $-(ky')'=\lambda c\rho y$，其中 $c\rho$ 就是权函数 $r$。
-> 解写成特征展开 $u=\sum_n c_ne^{-\lambda_nt}e_n(x)$；
-> 这直接说明为什么需要特征函数系的完备性。
+> [!note] 物理来源：热传导与波动方程
+> 一维热传导 $c\rho u_t=(ku_x)_x$ 分离变量后给出
+> $-(ky')'=\lambda c\rho y$，$c\rho$ 就是权函数 $r$。
+> 初始温度 $f=\sum c_ne_n$ 给出 $u=\sum c_ne^{-\lambda_nt}e_n(x)$：
+> 高模态衰减快、低模态衰减慢，长时间后只剩最小特征值的模态，
+> 衰减率就是谱隙；若 $f$ 与第一模态正交，则衰减由 $\lambda_2$ 控制。
+> 对波动方程 $u_{tt}=c^2u_{xx}$，同一组 $e_n$ 给出振荡模态
+> $u=\sum(a_n\cos(\sqrt{\lambda_n}ct)+b_n\sin(\sqrt{\lambda_n}ct))e_n(x)$，
+> 特征值 $\lambda_n$ 对应频率平方；完备性保证任意初始波形都能这样分解。
+> 这正是 Fourier 分离变量法的物理来源。
 
 ## 同一特征值对应线性相关
 

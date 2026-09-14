@@ -22,7 +22,7 @@ properties:
 
 views:
   - type: table
-    name: "李代数课程与习题"
+    name: "李代数课程、代数基础与习题"
     order:
       - file.name
       - note_type

@@ -1,48 +1,58 @@
 filters:
   and:
-    - file.inFolder("SL谱理论/讲义")
-    - 'file.ext == "md"'
-
+  - file.hasTag("sl-lecture")
+  - file.ext == "md"
+  - stage_type == "lecture"
 formulas:
-  prereq_count: 'if(prerequisites, prerequisites.length, 0)'
-  status_icon: 'if(status == "published", "✅", if(status == "audited", "🔍", if(status == "self-reviewed", "📝", if(status == "drafting", "✍️", "⏳"))))'
-
+  prereq_count: if(prerequisites, prerequisites.length, 0)
+  status_icon: if(status == "published", "✅", if(status == "audited", "🔍", if(status
+    == "self-reviewed", "📝", if(status == "drafting", "✍️", "⏳"))))
 properties:
-  stage_type:
-    displayName: "类型"
-  status:
-    displayName: "状态"
-  prerequisites:
-    displayName: "前置"
+  note.stage_type:
+    displayName: 类型
+  note.status:
+    displayName: 状态
+  note.prerequisites:
+    displayName: 前置
   formula.prereq_count:
-    displayName: "前置数"
+    displayName: 前置数
   formula.status_icon:
-    displayName: ""
-
+    displayName: 审阅
+  note.lecture_chapter:
+    displayName: 新版章号
+  file.name:
+    displayName: 阅读副本
 views:
-  - type: table
-    name: "全部讲次"
-    order:
-      - file.name
-      - stage_type
-      - status
-      - formula.status_icon
-      - formula.prereq_count
-
-  - type: table
-    name: "写作队列"
-    filters:
-      not:
-        - 'status == "published"'
-    order:
-      - file.name
-      - stage_type
-      - status
-      - prerequisites
-
-  - type: cards
-    name: "状态卡片"
-    order:
-      - file.name
-      - status
-      - stage_type
+- type: table
+  name: 全部讲次
+  order:
+  - note.lecture_chapter
+  - file.name
+  - formula.status_icon
+  sort:
+  - property: note.lecture_chapter
+    direction: ASC
+- type: table
+  name: 写作队列
+  filters:
+    not:
+    - status == "published"
+  order:
+  - note.lecture_chapter
+  - file.name
+  - note.stage_type
+  - note.status
+  - note.prerequisites
+  sort:
+  - property: note.lecture_chapter
+    direction: ASC
+- type: cards
+  name: 状态卡片
+  order:
+  - note.lecture_chapter
+  - file.name
+  - note.status
+  - note.stage_type
+  sort:
+  - property: note.lecture_chapter
+    direction: ASC

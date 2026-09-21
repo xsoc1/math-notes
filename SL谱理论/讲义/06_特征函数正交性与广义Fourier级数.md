@@ -1,542 +1,258 @@
 ---
-title: 特征函数正交性与广义 Fourier 级数
-date: 2026-08-23
+title: Hilbert 空间中的正交几何
+date: '2026-09-22'
 tags:
-  - SL
-  - spectral-theory
-  - orthogonality
-  - fourier-series
-  - eigenfunctions
+- SL
+- spectral-theory
+- sl-lecture
 aliases:
-  - SL 特征函数正交性
-  - 广义 Fourier 级数
+- SL 特征函数正交性
+- 广义 Fourier 级数
 stage_type: lecture
-latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\04_fourier.tex'
-latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
-latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
-status: self-reviewed
+latex_source: F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\04_fourier.tex
+latex_master: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex
+latex_pdf: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf
+status: audited
 prerequisites:
-  - "[[05_Sturm比较定理与零点交错]]"
+- '[[05_Sturm比较定理与零点交错]]'
+lecture_chapter: 4
 ---
 
-# 06 特征函数正交性与广义 Fourier 级数
+# 第 4 章 Hilbert 空间中的正交几何
+> [!info] 阅读位置
+> 本页对应新版第 4 章. 文件名前缀保留历史讲次; 以 [[00_SL谱理论讲义总览]] 中的新章序阅读.
 
-> [!info] 本讲位置
-> 模块 C：正交展开与谱框架（自伴性见第 07 讲）。前置：[[05_Sturm比较定理与零点交错]]；下一讲：[[07_自伴边界条件与Hilbert空间框架]]。
+![[fig_projection.svg|520]]
 
 
-> [!abstract] 本讲目标
-> 证明特征函数正交性，建立 Bessel、Parseval 与广义 Fourier 展开。
+> [!abstract] 本章目标
+从完备性,闭子空间与投影出发, 建立 Fourier 系数的几何意义.
 
 > [!question] 基本问题
-> 特征函数系在什么意义下可以表示任意函数？
+互相正交的函数何时足以表示所有函数?
 
+本章只建立展开所需的几何工具. SL 特征函数是否构成一组基, 将在第 7 章证明; 这里不把它当作前提. 全书内积对第一变量线性, 对第二变量共轭线性.
 
-> [!note] 记号
-> 本讲在带权 Hilbert 空间
-> $$
-> L^2_r(a,b)=\left\{f:\int_a^b r|f|^2<\infty\right\},
-> \qquad
-> (f,g)_r=\int_a^b r f\overline{g}\,dx
-> $$
-> 中讨论。$r>0$ 保证内积正定。
+## 从内积到 Hilbert 空间
 
-> [!note] 物理来源：热传导与波动方程
-> 一维热传导 $c\rho u_t=(ku_x)_x$ 分离变量后给出
-> $-(ky')'=\lambda c\rho y$，$c\rho$ 就是权函数 $r$。
-> 初始温度 $f=\sum c_ne_n$ 给出 $u=\sum c_ne^{-\lambda_nt}e_n(x)$：
-> 高模态衰减快、低模态衰减慢，长时间后只剩最小特征值的模态，
-> 衰减率就是谱隙（相邻两个特征值之差）；若 $f$ 与第一模态正交，
-> 则衰减由 $\lambda_2$ 控制。
-> 对波动方程 $u_{tt}=c^2u_{xx}$，同一组 $e_n$ 给出振荡模态
-> $u=\sum(a_n\cos(\sqrt{\lambda_n}ct)+b_n\sin(\sqrt{\lambda_n}ct))e_n(x)$，
-> 特征值 $\lambda_n$ 对应频率平方；完备性保证任意初始波形都能这样分解。
-> 这正是 Fourier 分离变量法的物理来源。
+> [!note] 定义. 完备性与 Hilbert 空间
 
-## 同一特征值对应线性相关
-
-> [!lemma]
-> 设 $\lambda$ 是正则 SL 问题的特征值，$\varphi,\psi$ 是同一 $\lambda$
-> 的两个特征函数，则 $\varphi,\psi$ 线性相关。
-
-由边界条件
+内积空间 $H$ 的范数为 $\|u\|=(u,u)^{1/2}$. 若每个 Cauchy 列都在 $H$ 中有范数极限, 则称 $H$ 为 Hilbert 空间. 子空间 $M$ 是闭的, 指 $M$ 中的范数收敛列的极限仍属于 $M$. 记
 
 $$
-\varphi(a)\cos\alpha-\varphi'(a)\sin\alpha=0,
-\qquad
-\psi(a)\cos\alpha-\psi'(a)\sin\alpha=0,
+M^\perp=\{v\in H:(v,m)=0\text{ 对所有 }m\in M\}.
 $$
 
-可得
+
+
+Cauchy--Schwarz 不等式 $|(u,v)|\le\|u\|\|v\|$ 可由 $\|u-tv\|^2\ge0$ 取 $t=(u,v)/\|v\|^2$ 得到. 它说明内积对范数极限连续, 因而 $M^\perp$ 总是闭的. 内积还给出平行四边形恒等式
 
 $$
-\varphi(a)\psi'(a)-\varphi'(a)\psi(a)=0,
+\|u+v\|^2+\|u-v\|^2=2\|u\|^2+2\|v\|^2.
 $$
 
-即 $W(a)=0$。对二阶线性齐次方程，Wronskian 恒为零当且仅当两解线性相关。
-因此在分离型边界条件下，正则 SL 问题的每个特征值都是单重的（耦合边界条件可能出现二重特征值，见第 07 讲）。
 
-## 不同特征值正交
 
-> [!theorem] 正交性
-> 设 $\lambda_n\neq\lambda_m$，$\varphi_n,\varphi_m$ 分别是对应特征函数，则
-> $$
-> \int_a^b r(x)\,\varphi_n(x)\varphi_m(x)\,dx=0.
-> $$
+> [!note] 定理. 带权平方可积空间的完备性
 
-证明：两个方程分别为
+设 $r\in C[a,b]$, $r>0$. 将几乎处处相等的可测函数视为同一元素, 则
 
 $$
--\bigl(p\varphi_n'\bigr)'+q\varphi_n=\lambda_n r\varphi_n,
+L^2_r(a,b)=\left\{f:\int_a^b r|f|^2\,dx<\infty\right\},
+        \qquad (f,g)_r=\int_a^b rf\bar g\,dx
 $$
 
-$$
--\bigl(p\varphi_m'\bigr)'+q\varphi_m=\lambda_m r\varphi_m.
-$$
-
-第一式乘 $\varphi_m$，第二式乘 $\varphi_n$，相减得
+ 是 Hilbert 空间. 若 $r_-=\min r$, $r_+=\max r$, 则
 
 $$
-(\lambda_n-\lambda_m)r\varphi_n\varphi_m
-=\frac{d}{dx}\Bigl[p\bigl(\varphi_n\varphi_m'-\varphi_n'\varphi_m\bigr)\Bigr].
+r_-\|f\|_2^2\le\|f\|_r^2\le r_+\|f\|_2^2.
 $$
 
-积分并利用分离型边界条件，右端为零。因 $\lambda_n\neq\lambda_m$，
-故正交。
 
-记
 
-$$
-S_n=\int_a^b r(x)\varphi_n^2(x)\,dx>0.
-$$
+**证明.**
 
-归一化特征函数
+先证普通 $L^2$ 完备. 从 Cauchy 列 $(f_n)$ 中取子列使 $\|f_{n_{k+1}}-f_{n_k}\|_2\le2^{-k}$. 记 $g_k=f_{n_{k+1}}-f_{n_k}$. 有限和 $S_N=\sum_{k\le N}|g_k|$ 满足 $\|S_N\|_2\le\sum2^{-k}\le1$. 单调收敛给出 $S=\sum|g_k|\in L^2$, 因而级数几乎处处绝对收敛. 令 $f=f_{n_1}+\sum g_k$; 对尾和用 Fatou 引理和三角不等式得
 
 $$
-e_n(x)=\frac{\varphi_n(x)}{\sqrt{S_n}}
+\|f-f_{n_m}\|_2\le\sum_{k\ge m}2^{-k}\longrightarrow0.
 $$
 
-构成带权 $L^2_r[a,b]$ 中的正交规范系。
+ 原列为 Cauchy 列, 故原列也收敛到 $f$. 最后映射 $f\mapsto\sqrt r f$ 是 $L^2_r$ 到 $L^2$ 的满射等距映射, 将完备性转移到带权空间. 范数比较由 $r_-\le r\le r_+$ 积分得到. $\square$
 
-## 广义 Fourier 级数
+> [!example] 例. 缺少完备性会发生什么
 
-### 正交规范系与广义 Fourier 系数
+有限非零项序列构成的空间 $c_{00}$ 配以 $\ell^2$ 范数并不完备: $(1,1/2,\ldots,1/N,0,\ldots)$ 是 Cauchy 列, 极限 $(1/n)_{n\ge1}$ 不在 $c_{00}$ 中. 无穷级数的极限存在于何处, 是函数展开的第一个问题.
 
-设 $\{\varphi_n\}_{n=0}^\infty$ 是正则 SL 问题的特征函数系，
-特征值按大小排列
+## 投影定理与 Riesz 表示
 
-$$
-\lambda_0<\lambda_1<\lambda_2<\cdots .
-$$
+> [!note] 定理. 到闭子空间的正交投影
 
-记
+设 $M$ 是 Hilbert 空间 $H$ 的闭子空间. 对每个 $f\in H$, 存在唯一 $m\in M$ 使
 
 $$
-S_n=\int_a^b r(x)\varphi_n(x)^2\,dx>0,
-\qquad
-e_n(x)=\frac{\varphi_n(x)}{\sqrt{S_n}}.
+\|f-m\|=\inf_{v\in M}\|f-v\|.
 $$
 
-则 $\{e_n\}_{n=0}^\infty$ 是 $L^2_r(a,b)$ 中的正交规范系：
+ 它由 $f-m\in M^\perp$ 唯一刻画. 记 $m=P_Mf$, 则 $H=M\oplus M^\perp$, 且 $\|P_Mf\|\le\|f\|$.
+
+**证明.**
+
+记下确界为 $d$, 取 $m_k\in M$ 使 $\|f-m_k\|\to d$. 平行四边形恒等式给出
 
 $$
-(e_m,e_n)_r=\int_a^b r(x)e_m(x)e_n(x)\,dx=\delta_{mn}.
+\|m_j-m_k\|^2
+        =2\|f-m_j\|^2+2\|f-m_k\|^2
+        -4\left\|f-\frac{m_j+m_k}{2}\right\|^2\longrightarrow0,
 $$
 
-对 $f\in L^2_r(a,b)$，定义 **广义 Fourier 系数**
+ 因为最后一个平方至少为 $d^2$. 完备性与闭性给出 $m_k\to m\in M$. 对任意 $v\in M$ 和实数 $t$, $\|f-m-tv\|^2$ 在 $t=0$ 取最小值, 故 $\operatorname{Re}(f-m,v)=0$. 再以 $iv$ 代 $v$, 得 $(f-m,v)=0$. 反过来, 若此正交性成立, 则
 
 $$
-c_n=(f,e_n)_r=\int_a^b r(x)f(x)e_n(x)\,dx,
+\|f-v\|^2=\|f-m\|^2+\|m-v\|^2\quad(v\in M),
 $$
 
-并记部分和
+ 同时给出最小性与唯一性. 取 $v=0$ 又得投影的范数估计; 线性由唯一性得到. $\square$
+
+> [!note] 定义. 有界线性泛函
+
+线性映射 $\ell:H\to\mathbb C$ 若满足 $|\ell(f)|\le C\|f\|$, 称为有界线性泛函. 最小的这样的 $C$ 记作 $\|\ell\|$. 有界等价于在零点连续, 从而等价于处处连续.
+
+> [!note] 定理. Riesz 表示定理
+
+每个有界线性泛函 $\ell$ 唯一写成 $\ell(f)=(f,g)$, 其中 $g\in H$, 且 $\|\ell\|=\|g\|$.
+
+**证明.**
+
+$\ell=0$ 时取 $g=0$. 否则 $M=\ker\ell$ 是闭真子空间. 取 $z$ 使 $\ell(z)\ne0$, 令 $e=(z-P_Mz)/\|z-P_Mz\|$. 则 $e\perp M$, $\ell(e)\ne0$. 因 $f-\ell(f)e/\ell(e)\in M$, 有 $(f,e)=\ell(f)/\ell(e)$. 所以取 $g=\overline{\ell(e)}e$ 即得表示. 两个表示向量之差与一切 $f$ 正交, 故为零. Cauchy--Schwarz 给出 $\|\ell\|\le\|g\|$; 取 $f=g/\|g\|$ 得反向不等式. $\square$
+
+## 正交系,基与 Fourier 系数
+
+> [!note] 定义. 正交规范系与完备正交规范基
+
+若 $(e_n,e_m)=\delta_{nm}$, 称 $(e_n)_{n\ge1}$ 为正交规范系. 若其有限线性组合的闭包等于 $H$, 称其为完备正交规范基. 这里的基允许范数收敛的无穷和, 不要求每个向量是有限线性组合.
+
+> [!note] 定理. Bessel 不等式,最佳逼近与完备性判据
+
+令 $c_n=(f,e_n)$, $P_Nf=\sum_{n=1}^Nc_ne_n$. 则
 
 $$
-(P_Nf)(x)=\sum_{n=0}^N c_n e_n(x).
+\|f-P_Nf\|^2=\|f\|^2-\sum_{n=1}^N|c_n|^2,
+        \qquad \sum_{n=1}^\infty|c_n|^2\le\|f\|^2.
 $$
 
-形式上写成
+ $P_Nf$ 是到 $\operatorname{span}\{e_1,\ldots,e_N\}$ 的唯一最佳逼近. 以下四件事等价: 系完备; 与全部 $e_n$ 正交的向量只有零; 每个 $f$ 满足 $P_Nf\to f$; 每个 $f$ 满足 Parseval 恒等式 $\|f\|^2=\sum|c_n|^2$.
+
+**证明.**
+
+展开平方得到 (4.1). 对任意复数 $d_n$, 再用正交性得
 
 $$
-f(x)\sim\sum_{n=0}^{\infty}c_n e_n(x).
+\left\|f-\sum_{n=1}^Nd_ne_n\right\|^2
+        =\|f-P_Nf\|^2+\sum_{n=1}^N|d_n-c_n|^2.
 $$
 
-> [!note] 复值情形
-> 若函数取复值，内积改为 $(f,g)_r=\int_a^b r f\bar g$，
-> 系数改为 $c_n=(f,e_n)_r$，下文结论完全相同。
+ 这证明最佳逼近. 由 Bessel 不等式, $\|P_Mf-P_Nf\|^2=\sum_{n=N+1}^M|c_n|^2\to0$, 所以先由 Hilbert 完备性得到极限 $g$. 对每个 $m$, $(f-g,e_m)=0$. 因而零正交补推出 $g=f$. 零正交补与闭线性包等于 $H$ 的等价性来自投影定理. 最后由 (4.1), 范数收敛与 Parseval 等价. $\square$
 
-### Bessel 不等式与最佳逼近
+> [!note] 注. 系数趋零不等于完备
 
-> [!theorem] Bessel 不等式
-> 对任意 $f\in L^2_r(a,b)$，
-> $$
-> \sum_{n=0}^{\infty}|c_n|^2\le \|f\|_r^2,
-> $$
-> 其中 $\|f\|_r^2=(f,f)_r=\int_a^b r|f|^2$。
+Bessel 不等式总给出 $c_n\to0$, 即使正交系并不完备. 这只是 Hilbert 空间中的系数结论; 经典 $L^1$ Fourier 的 Riemann--Lebesgue 引理是另一个命题.
 
-**证明** 由正交规范性，
+> [!example] 例. 删掉一个方向
 
-$$
-\left\|f-\sum_{n=0}^N c_ne_n\right\|_r^2
-=\|f\|_r^2-2\sum_{n=0}^N|c_n|^2+\sum_{n=0}^N|c_n|^2
-=\|f\|_r^2-\sum_{n=0}^N|c_n|^2\ge0.
-$$
+在 $\ell^2$ 中, 标准单位向量 $e_1,e_2,\ldots$ 构成完备基, 因为截断误差是平方可和级数的尾和. 删去 $e_1$ 后仍是正交规范系, 但其闭线性包是 $\{x:x_1=0\}$; 向量 $e_1$ 的全部剩余系数都是零.
 
-因此 $\sum_{n=0}^N|c_n|^2\le\|f\|_r^2$。令 $N\to\infty$ 即得结论。 $\square$
+## SL 正交性是几何的入口
 
-> [!corollary] Riemann--Lebesgue 引理
-> $c_n\to0$（$n\to\infty$）。
+设 $p\in C^1[a,b]$, $p>0$, $q,r\in C[a,b]$ 为实函数且 $r>0$, 配以两端各一个实分离边界条件. 对经典解记 $Lu=-(pu')'+qu$.
 
-**证明** 由 Bessel 不等式，$\sum_{n=0}^\infty|c_n|^2$ 收敛，
-故其通项 $|c_n|^2\to0$。 $\square$
+> [!note] 定理. 特征值实性,单重性与正交性
 
-> [!theorem] 最佳逼近
-> 对任意 $d_0,\dots,d_N\in\mathbb{R}$，
-> $$
-> \left\|f-\sum_{n=0}^N c_ne_n\right\|_r
-> \le
-> \left\|f-\sum_{n=0}^N d_ne_n\right\|_r,
-> $$
-> 等号成立当且仅当 $d_n=c_n$（$n=0,\dots,N$）。
+每个特征值为实数, 特征空间是一维的. 不同特征值的特征函数在 $L^2_r$ 中正交.
 
-![[fig_projection.svg|460]]
+**证明.**
 
-*图 6：$E_N$ 上的正交投影与最佳逼近。*
-
-**证明** 展开右边：
+Lagrange 恒等式给出
 
 $$
-\left\|f-\sum_{n=0}^N d_ne_n\right\|_r^2
-=\|f\|_r^2-2\sum_{n=0}^N d_nc_n+\sum_{n=0}^N d_n^2
-=\|f\|_r^2-\sum_{n=0}^N c_n^2+\sum_{n=0}^N(d_n-c_n)^2.
+\int_a^b\bigl((Lu)\bar v-u\overline{Lv}\bigr)\,dx
+        =\bigl[p(u\bar v'-u'\bar v)\bigr]_a^b.
 $$
 
-因此最小值在 $d_n=c_n$ 时取得，且此时取到最小值
-$\|f\|_r^2-\sum_{n=0}^N c_n^2$。 $\square$
+ 同一实分离条件使每端的两对边界数据 $(u,pu')$, $(v,pv')$ 落在同一条复化实直线上, 故边界项为零. 取 $v=u$, $Lu=\lambda ru$, 得 $(\lambda-\bar\lambda)\|u\|_r^2=0$, 因而 $\lambda$ 实. 再对两个不同实特征值应用同一恒等式, 得 $(\lambda_n-\lambda_m)(u_n,u_m)_r=0$. 固定 $\lambda$, 左端边界条件将初始向量限制在一维空间; ODE 初值唯一性说明满足此条件的解空间一维, 故特征空间至多一维, 存在特征函数时恰为一维. $\square$
 
-### 完备性与 Parseval 恒等式
+> [!example] 例. 正弦系数能告诉我们什么
 
-> [!definition] 完备正交系
-> 正交规范系 $\{e_n\}$ 称为**完备的**，如果
-> $$
-> (f,e_n)_r=0\quad(\forall n)
-> \quad\Longrightarrow\quad
-> f=0\quad\text{于 }L^2_r(a,b).
-> $$
-> 等价的说法是：$\{e_n\}$ 是 $L^2_r(a,b)$ 的极大正交规范系。
-
-> [!theorem] 完备性的等价刻画
-> 对 $L^2_r(a,b)$ 中的正交规范系 $\{e_n\}$，下列命题等价：
-> 1. $\{e_n\}$ 完备；
-> 2. **Parseval 恒等式**：对一切 $f\in L^2_r$，
->    $$
->    \|f\|_r^2=\sum_{n=0}^{\infty}|c_n|^2;
->    $$
-> 3. 对一切 $f\in L^2_r$，
->    $$
->    f=\sum_{n=0}^{\infty}c_ne_n
->    \quad\text{（在 }L^2_r\text{ 范数意义下）}.
->    $$
-
-**证明** 记部分和 $P_Nf=\sum_{n=0}^N c_ne_n$。
-
-**(i) $\Rightarrow$ (iii)**：由正交性，
-$$
-(f-P_Nf,e_m)_r=(f,e_m)_r-\sum_{n=0}^N c_n(e_n,e_m)_r
-=c_m-c_m=0
-$$
-对 $m\le N$ 成立；对 $m>N$，同样有 $(f-P_Nf,e_m)_r=c_m$。
-固定 $m$，令 $N\to\infty$，由内积的连续性得
-$$
-(f-P_Nf,e_m)_r\to (f-\sum_{n=0}^\infty c_ne_n,e_m)_r=0.
-$$
-因此 $g:=f-\sum_{n=0}^\infty c_ne_n$ 与所有 $e_m$ 正交。
-由完备性 $g=0$，即 $f=\sum c_ne_n$ 在 $L^2_r$ 中成立。
-
-**(i) $\Leftrightarrow$ (ii)**：由 Bessel 不等式的证明，
-$$
-\|f-P_Nf\|_r^2=\|f\|_r^2-\sum_{n=0}^N|c_n|^2.
-$$
-左边趋于 $0$ 当且仅当 $\sum_{n=0}^\infty|c_n|^2=\|f\|_r^2$。
-而左边趋于 $0$ 正是 (iii)，因此 (ii) 与 (iii) 等价。
-再由 (i) $\Rightarrow$ (iii) 与 (iii) $\Rightarrow$ (ii) 即得 (i) $\Rightarrow$ (ii)。
-
-**(ii) $\Rightarrow$ (i)**：若 $f\perp e_n$ 对一切 $n$，则 $c_n=0$，
-Parseval 给出 $\|f\|_r=0$，故 $f=0$。 $\square$
-
-### 正则 SL 问题的完备性
-
-> [!theorem] 正则 SL 完备性定理
-> 设 $L y=-(p y')'+q y$，$p>0$，$q,r$ 连续，$r>0$，
-> 配以分离型边界条件。则特征函数系 $\{\varphi_n\}$ 在 $L^2_r(a,b)$ 中完备。
-> 等价地，$\{e_n\}$ 是 $L^2_r(a,b)$ 的完备正交规范系。
-
-> [!note] 证明路线（用到后续工具）
-> 完备性的标准算子证明分两步：
-> 第 07 讲建立自伴算子框架；第 09 讲构造 Green 函数并证明预解算子
-> $R_\lambda=(A-\lambda I)^{-1}$ 紧且自伴。随后用紧自伴算子的谱定理即可得到
-> $L^2_r$ 的完备正交特征系。
-> 本讲先用正交投影与 Parseval 恒等式给出形式展开与完备性的等价刻画；
-> 完整的谱定理证明见第 09--10 讲，也可参考 Zettl \S4.11--\S4.12。
-
-### 逐点收敛与一致收敛
-
-$L^2$ 收敛并不自动给出逐点收敛。下面陈述经典的正则 SL 展开收敛定理。
-
-> [!theorem] 逐段光滑收敛定理
-> 在上述正则 SL 设定下，若 $f$ 在 $[a,b]$ 上逐段 $C^1$，则广义 Fourier
-> 级数在 $(a,b)$ 内每点收敛，且
-> $$
-> \sum_{n=0}^{\infty}c_ne_n(x)
-> =\frac{f(x+)+f(x-)}2,\qquad x\in(a,b).
-> $$
-> 若 $f\in C^1[a,b]$ 且满足该 SL 问题的边界条件，则级数在 $[a,b]$ 上
-> 绝对且一致收敛到 $f$。
-
-> [!warning] 边界点
-> 在端点处，级数通常收敛到边界值的某种平均或延拓值，具体取决于边界条件。
-> 例如 Fourier 正弦级数在 $x=0,\pi$ 处收敛到 $0$。
-
-**证明思路** 用一个积分核把部分和写成积分算子，并估计该核与三角核的差
-（核的显式构造见第 09 讲的 Green 函数）；
-再对逐段 $C^1$ 函数使用有界变差函数的 Fourier 收敛定理。完整证明可参见
-Titchmarsh, *Eigenfunction Expansions Associated with Second-Order Differential Equations*，
-或 Zettl, *Sturm--Liouville Theory*。
-
-### 算子作用与逐项微分的 $L^2$ 版本
-
-下面用 $L^2_r$ 中的算子语言重述展开定理。记
+在 $[0,\pi]$ 上, $e_n=\sqrt{2/\pi}\sin(nx)$ 是 Dirichlet 问题的正交规范特征函数. 对 $f=1$,
 
 $$
-A y=\frac{1}{r}L y,
-\qquad
-D(A)=\left\{y\in C^2[a,b]:\ y\text{ 满足边界条件},\ Ly\in L^2_r(a,b)\right\}.
+c_n=\sqrt{2/\pi}\,\frac{1-(-1)^n}{n}.
 $$
 
-$A$ 的自伴性将在第 07 讲讨论；这里只用特征方程与分部积分。
+ 本章已经知道部分和是最佳平方逼近且收敛到正弦系闭线性包中的投影. 第 7 章证明这个投影就是 $f$; 在此之前不能仅凭正交性写出 Parseval 等号.
 
-> [!theorem] $L^2$ 展开与算子作用
-> 设 $f\in D(A)$，即 $f$ 满足边界条件且 $Lf\in L^2_r$。则
-> $$
-> Af=\sum_{n=0}^{\infty}\lambda_n c_ne_n
-> \quad\text{（在 }L^2_r\text{ 中收敛）},
-> $$
-> 并且
-> $$
-> \|Af\|_r^2=\sum_{n=0}^{\infty}\lambda_n^2|c_n|^2<\infty .
-> $$
+> [!note] 注. 热方程的模态解释
 
-**证明** 对 $f\in D(A)$，分部积分给出
-$$
-(Af,e_n)_r=\int_a^b (Lf)e_n\,dx
-=\int_a^b f(Le_n)\,dx
-+\bigl[p(f'e_n-fe_n')\bigr]_a^b.
-$$
-$f$ 与 $e_n$ 满足同一组分离型边界条件，故边界项为零。又
-$Le_n=\lambda_n r e_n$，因此
-$$
-(Af,e_n)_r=\lambda_n\int_a^b f e_n\,r\,dx=\lambda_n c_n.
-$$
-由 $\{e_n\}$ 完备，$Af$ 的广义 Fourier 级数就是
-$\sum \lambda_nc_ne_n$，且在 $L^2_r$ 中收敛到 $Af$。
-Parseval 恒等式给出 $\|Af\|_r^2=\sum\lambda_n^2|c_n|^2$。 $\square$
-
-> [!remark] 逐项积分
-> 由内积连续性，对任意 $g\in L^2_r$，
-> $$
-> (f,g)_r=\sum_{n=0}^{\infty}c_n(e_n,g)_r.
-> $$
-> 若级数一致收敛，还可以逐项积分到逐点等式。
-
-### 例子：区间 $[0,\pi]$ 上的正弦级数
-
-取 $p=1$，$q=0$，$r=1$，$[a,b]=[0,\pi]$，边界条件
-$y(0)=y(\pi)=0$。特征函数为
-$$
-\varphi_n(x)=\sin(nx),\qquad n=1,2,3,\dots,
-$$
-且 $S_n=\pi/2$，故
-$$
-e_n(x)=\sqrt{\frac{2}{\pi}}\sin(nx).
-$$
-
-对 $f(x)=1$，广义 Fourier 系数为
-$$
-c_n=\sqrt{\frac{2}{\pi}}\int_0^\pi \sin(nx)\,dx
-=\sqrt{\frac{2}{\pi}}\frac{1-\cos n\pi}{n}.
-$$
-因此 $c_n=2\sqrt{2/\pi}/n$ 当 $n$ 为奇数，$c_n=0$ 当 $n$ 为偶数。
-级数在 $(0,\pi)$ 内收敛到 $1$，在端点 $0,\pi$ 处收敛到 $0$。
-
-由 Parseval 恒等式，
-$$
-\int_0^\pi 1^2\,dx=\pi
-=\sum_{n\text{ 奇}}\left(\frac{2\sqrt{2/\pi}}{n}\right)^2
-=\frac{8}{\pi}\sum_{n\text{ 奇}}\frac1{n^2},
-$$
-故
-$$
-\sum_{n=1}^{\infty}\frac{1}{(2n-1)^2}=\frac{\pi^2}{8}.
-$$
-
-> [!tip] 与研究的联系
-> 相关前沿问题包括：SL 特征函数系/多项式系在左定空间 $H^s$ 中的完备性，
-> 以及特征值间距 $\lambda_{n+1}-\lambda_n$ 与比值 $\lambda_{n+1}/\lambda_n$ 的最优界。
-> 本节的完备性与 Parseval 是后续完备性章节和左定理论讨论的基础。
-
-## 参考
-
-> [!info] 标准参考（Zettl）
-> - A. Zettl, *Sturm–Liouville Theory*, Ch 3 §3.2–§3.3：特征值的超越方程刻画与 Fourier 方程。
-> - A. Zettl, Ch 4 §4.11–§4.12：Green 核算子与有限实谱，完备性讨论的算子入口。
-> - A. Zettl, Ch 16：展开定理与逐点收敛的文献路线。
-> - 完整章节映射见 [[Zettl参考映射]]。
-
-## 本讲小结
-
-分离型边界条件使边界项消失，从而特征函数正交；完备性等价于 Parseval 与 $L^2$ 展开。
+对非负的空间算子, 模态 $e_n$ 随时间乘以 $e^{-\lambda_nt}$. 绝对衰减率由最低的非零初始模态对应的 $\lambda_n$ 决定. 只有把第一模态的时间因子提出后, 其余模态的相对衰减率才是 $\lambda_n-\lambda_1$. 完备性使这一解释适用于任意平方可积初值, 其证明仍待第 7 章.
 
 ## 习题
 
-> [!question] 6.1
-> 对 Neumann 问题 $-y''=\lambda y$，$y'(0)=y'(\pi)=0$，
-> 写出特征值与特征函数，并验证正交性。
+1.  证明 $M^\perp$ 是闭子空间, 并证明 $(M^\perp)^\perp=\overline M$.
 
-> [!question] 6.2
-> 设 $f(x)=1$ 在 $[0,\pi]$ 上展开为
-> $$
-> f(x)\sim\sum_{n=1}^{\infty}a_n\sin(nx).
-> $$
-> 求 $a_n$。
+2.  在 $L^2_r(a,b)$ 中求 $f$ 到常数子空间的投影, 并写出最佳逼近误差.
 
-> [!question] 6.3
-> 证明 Bessel 不等式：
-> $$
-> \sum_{n=0}^{\infty}|c_n|^2\le \|f\|_r^2.
-> $$
+3.  证明任意正交规范列 $e_n$ 满足 $(f,e_n)\to0$, 但 $e_n$ 自身没有范数收敛子列.
 
-> [!question] 6.4
-> 证明最佳逼近定理：在 $N$ 次部分和空间中，广义 Fourier 部分和
-> $P_Nf$ 是 $f$ 的最佳逼近。
+4.  对 $\ell(f)=\int_a^bf(x)\,dx$, 在 $L^2_r$ 中求 Riesz 表示向量和泛函范数.
 
-> [!question] 6.5
-> 对 $f\in L^2_r$，证明 $c_n\to0$。
+5.  对正弦系计算 $f(x)=x(\pi-x)$ 的系数 $b_n=\frac2\pi\int_0^\pi f(x)\sin(nx)\,dx$. 说明仅由本章可断言哪些收敛事实.
 
-> [!question] 6.6
-> 设 $f\in D(A)$。证明
-> $$
-> Af=\sum_{n=0}^{\infty}\lambda_nc_ne_n
-> \quad\text{在 }L^2_r\text{ 中}.
-> $$
+本节习题解答见本页末的习题解答.
 
-> [!question] 6.7
-> 对 $f(x)=1$ 于 $[0,\pi]$ 的正弦级数，求级数在 $x=0$、$x=\pi/2$
-> 与 $x=\pi$ 处的收敛值，并用 Parseval 恒等式推出
-> $$
-> \sum_{n=1}^{\infty}\frac{1}{(2n-1)^2}=\frac{\pi^2}{8}.
-> $$
+## 本章小结
 
-> [!question] 6.8
-> 将 $f(x)=x(\pi-x)$ 在 $[0,\pi]$ 上展开为 Dirichlet 正弦级数
-> $$
-> f(x)=\sum_{n=1}^\infty b_n\sin(nx),
-> $$
-> 并用 Parseval 恒等式求
-> $$
-> \sum_{n=1}^\infty\frac1{n^6}.
-> $$
+Hilbert 完备性保证正交级数有极限, 闭子空间保证最佳逼近存在. 正交系只有在闭线性包为整个空间时才成为基. SL 特征函数的正交性已证明, 其完备性将由紧预解算子与谱定理建立.
 
-> [!success]- 解答
-> **6.1** 特征值为 $\lambda_n=n^2$，$n=0,1,2,\dots$，
-> 特征函数为 $\cos(nx)$。对 $m\neq n$，
-> $$
-> \int_0^\pi \cos(mx)\cos(nx)\,dx=0.
-> $$
->
-> **6.2** 
-> $$
-> a_n=\frac{2}{\pi}\int_0^\pi \sin(nx)\,dx
-> =\frac{2}{n\pi}(1-\cos n\pi).
-> $$
-> 因此 $a_n=4/(n\pi)$ 当 $n$ 为奇数，$a_n=0$ 当 $n$ 为偶数。
->
-> **6.3** 由正交规范性，
-> $$
-> 0\le\left\|f-\sum_{n=0}^N c_ne_n\right\|_r^2
-> =\|f\|_r^2-\sum_{n=0}^N|c_n|^2.
-> $$
-> 令 $N\to\infty$ 即得。
->
-> **6.4** 展开
-> $$
-> \left\|f-\sum_{n=0}^N d_ne_n\right\|_r^2
-> =\|f\|_r^2-\sum_{n=0}^N|c_n|^2
-> +\sum_{n=0}^N|d_n-c_n|^2,
-> $$
-> 故最小值在 $d_n=c_n$ 时取得。
->
-> **6.5** 由 Bessel 不等式，$\sum|c_n|^2$ 收敛，故 $|c_n|^2\to0$，
-> 从而 $c_n\to0$。
->
-> **6.6** 对每个 $n$，
-> $$
-> (Af,e_n)_r=(f,Ae_n)_r=\lambda_nc_n.
-> $$
-> 由 $\{e_n\}$ 完备，$Af$ 的广义 Fourier 展开为
-> $\sum\lambda_nc_ne_n$ 且在 $L^2_r$ 中收敛。
->
-> **6.7** 在 $x=0,\pi$ 处级数收敛到 $0$；在 $x=\pi/2$ 处收敛到
-> $1$。Parseval 恒等式给出
-> $$
-> \pi=\sum_{n\text{ 奇}}\left(\frac{4}{n\pi}\right)^2
-> =\frac{16}{\pi^2}\sum_{n\text{ 奇}}\frac1{n^2},
-> $$
-> 故 $\sum_{n\text{ 奇}}1/n^2=\pi^2/8$。
+## 标准参考与延伸阅读
 
->
-> **6.8** 系数为
-> $$
-> b_n=\frac2\pi\int_0^\pi(\pi x-x^2)\sin(nx)\,dx.
-> $$
-> 分部积分得
-> $$
-> \int_0^\pi x\sin(nx)\,dx=-\frac{\pi(-1)^n}{n},
-> $$
-> $$
-> \int_0^\pi x^2\sin(nx)\,dx
-> =-\frac{\pi^2(-1)^n}{n}+\frac{2}{n^3}\bigl((-1)^n-1\bigr).
-> $$
-> 因此
-> $$
-> b_n=\frac{4}{\pi n^3}\bigl(1-(-1)^n\bigr)
-> =\begin{cases}
-> \dfrac{8}{\pi n^3}, & n\text{ 为奇数},\\[2mm]
-> 0, & n\text{ 为偶数}.
-> \end{cases}
-> $$
-> Parseval 恒等式给出
-> $$
-> \int_0^\pi\bigl(x(\pi-x)\bigr)^2dx
-> =\sum_{n\text{ 奇}}\left(\frac{8}{\pi n^3}\right)^2\frac{\pi}{2}.
-> $$
-> 左端
-> $$
-> \int_0^\pi(\pi^2x^2-2\pi x^3+x^4)\,dx
-> =\frac{\pi^5}{30},
-> $$
-> 右端
-> $$
-> \frac{32}{\pi}\sum_{n\text{ 奇}}\frac1{n^6}.
-> $$
-> 故 $\sum_{n\text{ 奇}}1/n^6=\pi^6/960$。又
-> $$
-> \sum_{n=1}^\infty\frac1{n^6}
-> =\sum_{n\text{ 奇}}\frac1{n^6}
-> +\frac1{64}\sum_{n=1}^\infty\frac1{n^6},
-> $$
-> 从而
-> $$
-> \sum_{n=1}^\infty\frac1{n^6}
-> =\frac{64}{63}\cdot\frac{\pi^6}{960}
-> =\frac{\pi^6}{945}.
-> $$
+本章所用结论均已给出证明. 延伸阅读: G. Teschl, *Mathematical Methods in Quantum Mechanics*, 作者在线的 2009 版, §1.2--§1.3 (正交基,投影与 Riesz 表示).
+
+## 习题解答
+
+1.  设 $x_n\in M^\perp$, $x_n\to x$. 对任意 $m\in M$, 内积连续性给出 $(x,m)=\lim(x_n,m)=0$, 故 $M^\perp$ 闭; 线性显然. $M^\perp=(\overline M)^\perp$. 由投影定理写任意 $x=m+z$, $m\in\overline M$, $z\in M^\perp$. 若 $x\in(M^\perp)^\perp$, 则 $0=(x,z)=\|z\|^2$, 故 $x=m\in\overline M$. 反向包含由定义得到.
+
+2.  常数子空间由 $1$ 张成, 所以
+
+$$
+P f=\frac{(f,1)_r}{(1,1)_r}\,1
+            =\frac{\int_a^b r f\,dx}{\int_a^b r\,dx},\qquad
+            \|f-P f\|_r^2=\|f\|_r^2-\frac{|\int_a^b rf\,dx|^2}{\int_a^br\,dx}.
+$$
+
+ 最佳常数一般是复数; 公式中的绝对值平方不能换成普通平方.
+
+3.  Bessel 给出 $\sum|(f,e_n)|^2\le\|f\|^2$, 故通项趋零. 但 $n\ne m$ 时 $\|e_n-e_m\|^2=2$, 任意子列都不是 Cauchy 列, 因而无范数收敛子列.
+
+4.  因 $r>0$ 连续, $1/r\in L^2_r$, 且
+
+$$
+\ell(f)=\int_a^b f\,dx=(f,1/r)_r.
+$$
+
+ 所以表示向量为 $g=1/r$, 泛函范数为 $\|\ell\|=\|1/r\|_r=(\int_a^br^{-1}\,dx)^{1/2}$. Cauchy--Schwarz 也直接证明该泛函有界.
+
+5.  $f=x(\pi-x)$ 两端为零, $f''=-2$. 两次分部积分给出
+
+$$
+\int_0^\pi f\sin(nx)\,dx
+            =-\frac1{n^2}\int_0^\pi f''\sin(nx)\,dx
+            =\frac{2(1-(-1)^n)}{n^3},
+$$
+
+ 故 $b_n=4(1-(-1)^n)/(\pi n^3)$, 奇数项为 $8/(\pi n^3)$, 偶数项为零. 本章的抽象结论保证部分和在 $L^2$ 中收敛到正弦系闭包中的投影. 本例另由 $\sum|b_n|<\infty$ 和 $|\sin(nx)|\le1$ 得到绝对一致收敛到某连续函数, 但仅凭本章尚未证明这个函数必等于 $f$. 第 7 章的正弦系完备性将补上这一步.
+
+## 相关链接
+
+- [[00_SL谱理论讲义总览]]
+- [[05_Sturm比较定理与零点交错|上一章]]
+- [[07_自伴边界条件与Hilbert空间框架|下一章]]

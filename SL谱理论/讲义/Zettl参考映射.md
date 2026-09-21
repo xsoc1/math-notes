@@ -1,186 +1,101 @@
----
-title: Zettl《Sturm-Liouville Theory》参考映射
-date: 2026-09-13
-tags:
-  - SL
-  - spectral-theory
-  - sturm-liouville
-  - reference
-  - reading-map
-  - zettl
-aliases:
-  - Zettl参考
-  - Zettl映射
-  - Zettl章节对照
-stage_type: reference
-status: self-reviewed
----
+# 参考文献与 Zettl 章节对照
 
-# Zettl《Sturm-Liouville Theory》参考映射
+## 与 Zettl 的章节对照
 
-> [!abstract] 用途
-> 把 Anton Zettl 的 *Sturm-Liouville Theory* 逐章映射到本讲义已写讲次与后续写作计划。
-> 每一讲的教学顺序仍以讲义自身为准；Zettl 用来补强标准定理的严格证明、奇异理论、
-> 左定/不定理论，以及提供研究级问题的文献入口。
+Anton Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol. 121, American Mathematical Society, 2005,是本讲义 SL 理论部分的主参考. 下表给出各章与 Zettl 的对应关系;表内为主题阅读对应, 不是用书名替代正文证明.
 
-> [!info] 书目信息
-> Anton Zettl, *Sturm-Liouville Theory*,
-> Mathematical Surveys and Monographs, Vol. 121, American Mathematical Society, 2005,
-> ISBN 0-8218-3905-5, xii+328 pp.
-> 本映射依据本地 DjVu 全书的目录与正文抽取核对；表中页码为原书页码。
+::: center
+| 讲义章节 | 主题 | Zettl 章节 | 主要用途 |
+|:---|:---|:---|:---|
+| 讲义章节 | 主题 | Zettl 章节 | 主要用途 |
+| 第 1 章 | 物理建模与正则 SL 框架 | Ch. 1--2;Ch. 3 §3.1;Ch. 4 §4.1 | 存在唯一性,对数据的连续与可微依赖,标准问题定义 |
+| 第 2 章 | Liouville 标准形与 Prüfer 变换 | Ch. 4 §4.5--§4.6;Ch. 3 §3.2 | Prüfer 定理链,分离边界条件与结点计数 |
+| 第 3 章 | Sturm 比较与振荡 | Ch. 2 §2.6;Ch. 6 §6.2--§6.4 | 分离定理,比较定理与振动性刻画 |
+| 第 4 章 | 正交性与广义 Fourier 级数 | Ch. 3 §3.2--§3.3;Ch. 4 §4.11--§4.12;Ch. 16 | Green 核算子,有限实谱与展开定理文献 |
+| 第 5 章 | 自伴边界条件与 Hilbert 框架 | Ch. 4 §4.2,§4.10,§4.12;Ch. 10 §10.2--§10.4 | 边界条件标准形,重数与奇异自伴扩张 |
+| 第 6 章 | Green 函数,预解式与紧性 | Ch. 3 §3.8;Ch. 4 §4.11--§4.12;Ch. 10 §10.9--§10.10 | 正则与奇异 Green 函数,有限实谱 |
+| 第 7 章 | 完备性与 Fourier 收敛 | Ch. 4 §4.11--§4.12;Ch. 16 | 紧自伴谱定理,特征展开与逐点收敛的文献路线 |
+| 第 8 章 | 变分刻画与单调性 | Ch. 4 §4.9;Ch. 5 §5.5--§5.6;Ch. 3 §3.6 | 单调性定理,特征值不等式与可微性 |
+| 第 9 章 | 特征值渐近与 Weyl 公式 | Ch. 4 §4.3,§4.5,§4.8;Ch. 3 §3.7 | Prüfer 相位比较,Weyl 计数与特征值渐近,比值下确界 |
+| 第 10--17 章 | 左定理论与具体完备性问题 | 见下列现代文献与研究注记 | Zettl 的变号权框架与正自伴空间标度分开阅读 |
+:::
 
-> [!warning] 引用原则
-> 只引用实际核对过的章节与定理，不凭二手摘要补写定理号；
-> 不整段复制 Zettl 原文，所有证明都在讲义中重写或明确标为“引用 + 证明路线”。
-> Zettl 对一般形式 $-(py')'+qy=\lambda wy$ 直接处理，不先化 Liouville 标准形，
-> 因此本讲义第 03 讲的标准形化简属于教学便利，不是引用 Zettl 的必要前提。
+## 物理模型与讲次对照
 
-## 一、Zettl 的整体结构
+下表只登记作为\"动机\"的物理模型,不另设物理章节,也不展开推导.
 
-| 部分 | 章节 | 主题 | 对本讲义的作用 |
-|---|---|---|---|
-| Part 1 | Ch 1–2 | 一阶系统与标量初值问题：存在唯一、连续依赖、可微依赖、Sturm 分离与比较 | 讲义 01–05 的 ODE 严格基础；比较定理的直接来源 |
-| Part 2 | Ch 3–5 | 正则两点边值问题、正则自伴问题、正则左定与不定问题 | 讲义 02–14 的主参考；模块 1 与“极值问题工具箱”的外部依据 |
-| Part 3 | Ch 6–8 | 振荡理论、极限点/极限圆二分、奇异初值问题 | 讲义 12、26–28 的振荡与端点分类基础 |
-| Part 4 | Ch 9–12 | 奇异两点边值问题、奇异自伴问题、奇异不定问题、奇异左定问题 | 模块 3 左定理论与完备性、模块 4 前沿的总参考 |
-| Part 5 | Ch 13–17 | 双区间、例子、记号、评注、开放问题 | 例子库、文献路线、开放问题清单 |
+::: center
+| 物理系统 | 物理图像 / 方程 | SL 形式 | 对应章节与数学落点 |
+|:---|:---|:---|:---|
+| 受压杆屈曲 | $EIy''''+Py''=0$,简支 | $-EIy''=Py$ | 第 1 章:临界载荷,失稳模态 |
+| 边界条件 | 固定,自由,弹性支撑,闭合环 | $Ky-L(py')=0$ | 第 1 章:能量守恒,互易性 |
+| 变密度弦/杆 | $\rho u_{tt}=(Tu_x)_x$ | $-(Ty')'=\lambda\rho y$ | 第 1,2,8 章:自然频率,Rayleigh 商 |
+| 圆膜与悬挂链 | $u_{tt}=c^2\Delta u$ | Bessel 方程 | 第 2 章:$J_m$ 零点,节线,基频 |
+| 球面角向问题 | 球坐标 Laplace 方程 | Legendre 方程 | 第 2 章:$P_n$,球面调和,多极展开 |
+| 无限深势阱 | $-\psi''=E\psi$,Dirichlet | $p=r=1$,$q=0$ | 第 2,3,4,7 章:能级,结点数,完备性 |
+| 弦与管乐器 | $u_{tt}=c^2u_{xx}$ | 同上 | 第 2,3 章:谐波频率,零点计数 |
+| 热传导与波动 | $c\rho u_t=(ku_x)_x$ | $-(ky')'=\lambda c\rho y$ | 第 4,7 章:Fourier 展开,谱隙 |
+| 能量与互易性 | 无阻尼振动 | 正自伴算子 | 第 5--7 章:实频率,正交模态,完备性 |
+| 点电荷与波导 | $-\Delta G=\delta$;$-\Delta u=\lambda u$ | Green 函数 / 横向模式 | 第 6 章及后续:点源响应,Weyl 计数 |
+| 谱几何 | 听音辨鼓 | 特征值决定鼓声 | 第 7,9 章及后续:Weyl 定律,逆谱问题 |
+:::
 
-## 二、Zettl 章节 → 讲义讲次总表
+## 物理术语白话表
 
-### Part 1 存在与唯一性
+::: center
+| 术语 | 白话解释 |
+|:---|:---|
+| 互易性 | 在 $A$ 点加力,$B$ 点测位移,与在 $B$ 点加同样力,$A$ 点测位移,结果相同;数学上就是 $G(x,\xi)=G(\xi,x)$ 或 $(Au,v)=(u,Av)$.只对无损耗的线性系统成立. |
+| 屈曲 / 临界载荷 | 压杆在压力达到某个值时突然侧向弯曲,称为屈曲;这个压力等于最小特征值. |
+| 弹性支撑(Robin) | 端点接在弹簧或弹性材料上,恢复力与位移成正比,于是出现 $y'=hy$ 型边界条件. |
+| 节线 / 波腹 | 节线是振动中始终不动的曲线;波腹是振幅最大的位置. |
+| 谱隙 | 相邻特征值之差. 热半群本身的最低模态衰减率由最低特征值给出; 提取最低模态后的相对衰减才由谱隙控制. |
+| 截止频率 / 共振频率 | 截止频率是\"低于它就传不过去\"的频率;共振频率是腔体的固有振动频率;两者都由 $\sqrt{\lambda}$ 给出. |
+| 多极展开 | 把远处的静电场或引力场按球谐函数(单极,偶极,四极......)展开,便于提取主导项. |
+| 听音辨鼓 / 谱几何 | 问鼓的振动频率(谱)能否唯一决定鼓的形状,是逆谱问题的入门版本. |
+| 无阻尼 | 没有摩擦,黏性或辐射等能量损耗的理想系统;自伴边界条件正对应这种情形. |
+:::
 
-| Zettl 章节（页码） | 主要内容 | 对应讲义 | 具体用法 |
-|---|---|---|---|
-| Ch 1 First Order Systems（3–24） | §1.2 存在唯一性；§1.3 变分常数法；§1.4 Gronwall 不等式；§1.5 端点延拓；§1.6 连续依赖；§1.7 对数据可微依赖；§1.8 伴随系统；§1.9 反初值问题 | 01、02 的前置；07 的伴随系统 | 给出方程解对系数、初值、边界数据的连续/可微依赖的完整证明；§1.8 为自伴边界条件的伴随矩阵语言作准备 |
-| Ch 2 Scalar IVPs（25–40） | §2.2 存在唯一；§2.3 端点延拓；§2.4 连续依赖；§2.5 可微依赖；§2.6 Sturm 分离定理与比较定理；§2.7 周期系数 | 01、05、12 | §2.6 是讲义 05 的首选严格参考（Theorem 2.6.2、Theorem 2.6.3）；§2.7 为周期问题与 Floquet 理论留入口 |
+## 主要参考书
 
-### Part 2 正则边值问题
+1.  A. Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol. 121, American Mathematical Society, Providence, RI, 2005.
 
-| Zettl 章节（页码） | 主要内容 | 对应讲义 | 具体用法 |
-|---|---|---|---|
-| Ch 3 Two-Point Regular BVPs（43–68） | §3.2 特征值的超越方程刻画；§3.3 Fourier 方程；§3.4 正则 BVP 空间；§3.5 特征值与特征函数的连续性；§3.6 特征值的可微性；§3.7 有限谱；§3.8 Green 函数（Theorem 3.8.1、Theorem 3.8.2） | 04、06、09、11、13、14 | §3.2 给特征值作为整函数零点的刻画；§3.6 给 $\dot\lambda$ 的可微性前提；§3.8 是讲义 09 的主力参考 |
-| Ch 4 Regular Self-Adjoint Problems（69–106） | §4.2 自伴边界条件的标准形；§4.3 特征值存在性（含 $\lambda_n/n^2$ 渐近、结点数）；§4.4 对问题的依赖；§4.5 Prüfer 变换（Theorem 4.5.1–4.5.3）；§4.6 分离边界条件（Theorem 4.6.1–4.6.6）；§4.7 耦合边界条件；§4.8 耦合情形的初等存在性证明；§4.9 单调性（Theorem 4.9.1）；§4.10 重数（Theorem 4.10.1、Theorem 4.10.2）；§4.11 Green 核算子（Theorem 4.11.1）；§4.12 有限实谱（Theorem 4.12.1–4.12.5） | 02、04、05、06、07、09、10、12、13 | 讲义前半的核心外部参考。§4.2 用于 07；§4.5 用于 02、04；§4.6 用于 05、12；§4.9 用于 08、13；§4.11–4.12 用于 09、10 |
-| Ch 5 Regular Left-Definite and Indefinite Problems（107–128） | §5.2 左定问题的定义与刻画（Theorem 5.2.1、Theorem 5.2.2）；§5.3 特征值存在性；§5.4 连续依赖；§5.5 特征值不等式；§5.6 可微性；§5.7 T-左定问题；§5.8 不定问题与复特征值 | 21、22、23、13、18 | 模块 3 左定理论的起点；§5.5–5.6 与第 13、14 讲的特征值不等式、方向导数直接相关 |
+2.  G. Teschl, *Ordinary Differential Equations and Dynamical Systems*, Graduate Studies in Mathematics, Vol. 140, American Mathematical Society, Providence, RI, 2012.
 
-### Part 3 振荡与奇异存在性
+3.  G. Teschl, *Mathematical Methods in Quantum Mechanics: With Applications to Schrödinger Operators*, Graduate Studies in Mathematics, Vol. 99, American Mathematical Society, 2009. 本讲义第 4--8 章对应作者公开的 2009 在线版, <https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf>. 2014 第二版为 Vol. 157, 阅读时应另核对节号.
 
-| Zettl 章节（页码） | 主要内容 | 对应讲义 | 具体用法 |
-|---|---|---|---|
-| Ch 6 Oscillation（131–142） | §6.2 主解与非主解（Theorem 6.2.1、Theorem 6.2.2）；§6.3 振动判别法；§6.4 振动性刻画 | 03、05、12、26 | 主解/非主解与“非振动端点”是奇异理论的核心词汇；讲义 12 的定量比较可由此展开 |
-| Ch 7 Limit-Point, Limit-Circle Dichotomy（143–154） | §7.2 标量方程的系统正则化；§7.3 端点分类 R、LC、LP、O、NO、LCNO、LCO（Theorem 7.3.1）；§7.4 LP 与 LC 条件 | 26、27、28 | 奇异端点分类的标准参考；写奇异模块时先建立这组词汇，再进入自伴扩张 |
-| Ch 8 Singular IVPs（155–160） | §8.2 用正则化函数作标量正则化；§8.3 LCNO 端点附近解的因子分解；§8.4 极限圆“初值问题” | 26、27 | LCNO 情形解的局部结构；与项目 $H^s$ 完备性文档中的端点假设对接 |
+4.  M. Reed and B. Simon, *Methods of Modern Mathematical Physics I: Functional Analysis*, revised and enlarged ed., Academic Press, New York, 1980.
 
-### Part 4 奇异边值问题
+5.  E. C. Titchmarsh, *Eigenfunction Expansions Associated with Second-Order Differential Equations, Part I*, 2nd ed., Oxford University Press, Oxford, 1962.
 
-| Zettl 章节（页码） | 主要内容 | 对应讲义 | 具体用法 |
-|---|---|---|---|
-| Ch 9 Two-Point Singular BVPs（163–170） | §9.2 最小/最大定义域与 Lagrange 形式；§9.3 特征值的超越刻画；§9.4 Green 函数 | 27、28 | 从正则过渡到奇异自伴理论的第一站 |
-| Ch 10 Singular Self-Adjoint Problems（171–214） | §10.2 Lagrange 形式；§10.3 最小/最大定义域与自伴算子；§10.4 算子刻画与自伴边界条件；§10.5 Friedrichs 扩张；§10.6 非振动端点；§10.7 振动端点；§10.8 奇异边界附近特征值行为；§10.9 用正则问题逼近奇异问题；§10.10 Green 函数（Theorem 10.10.1）；§10.11 重数；§10.12 谱性质总表（Theorem 10.12.1） | 07、09、10、27、28 | 奇异自伴理论最完整的一章；§10.9 与项目“正则逼近”工具直接相关；§10.12 可作模块 3/4 的谱性质清单 |
-| Ch 11 Singular Indefinite Problems（215–228） | §11.1 问题与结果；§11.2 Krein 空间；§11.3 Krein 空间中的自伴算子；§11.4 左定 Krein 空间的构造；§11.5 主要定理证明 | 21、22、26 | 不定度规、Krein 空间与左定空间的接口 |
-| Ch 12 Singular Left-Definite Problems（229–262） | §12.2 单参数右定算子族；§12.3 特征值存在性；§12.4 引理与证明；§12.5 LCNO 问题；§12.6 LCNO 情形进一步特征值性质；§12.7 用正则问题逼近；§12.8 左定 Floquet 理论 | 21–26 | 奇异左定理论的主参考；§12.2 与 Littlejohn–Wellman 型结果相互对照 |
+6.  A. Zygmund, *Trigonometric Series*, 3rd ed., Cambridge University Press, Cambridge, 2002.
 
-### Part 5 例子与其他主题
+7.  J. Weidmann, *Spectral Theory of Ordinary Differential Operators*, Lecture Notes in Mathematics, Vol. 1258, Springer, Berlin, 1987.
 
-| Zettl 章节（页码） | 主要内容 | 对应讲义 | 具体用法 |
-|---|---|---|---|
-| Ch 13 Two Intervals（265–276） | 双区间问题的记号与全部自伴扩张 | 19、28 | 分块约化、转移矩阵与界面条件的严格框架 |
-| Ch 14 Examples（277–292） | 全书例题汇编 | 01–32、30 | 构造例子与习题的主要来源之一 |
-| Ch 15 Notation（293–294） | 全书记号 | 符号表 | 对照并统一讲义符号，特别是边界条件矩阵 $A,B$ 与耦合矩阵 $K$ |
-| Ch 16 Comments on Some Topics not Covered（295–298） | 展开定理、边值问题、变换理论等评注与文献 | 10、28、29 | 第 10 讲完备性、Fourier 展开的文献路线图 |
-| Ch 17 Open Problems（299–302） | 开放问题清单 | 27、28 | 研究入口；与项目开放问题文档交叉使用 |
+8.  M. A. Naimark, *Linear Differential Operators, Part II*, Frederick Ungar, New York, 1968.
 
-## 三、讲义讲次 → Zettl 最小参考集
+9.  F. V. Atkinson, *Discrete and Continuous Boundary Problems*, Mathematics in Science and Engineering, Vol. 8, Academic Press, New York, 1964.
 
-下表给出每一讲写作或自学时的“最小 Zettl 阅读集”。先读左列，需要更深证明时再进右列。
+10. W. T. Reid, *Ordinary Differential Equations*, Applied Mathematics Series, Wiley, New York, 1971.
 
-| 讲义 | 主题 | 最小 Zettl 阅读集 | 进阶 |
-|---|---|---|---|
-| 01 | 杆的弯曲与 SL 建模 | Ch 3 §3.1、Ch 4 §4.1 | Ch 1 §1.2–§1.5 存在唯一与端点延拓 |
-| 02 | 正则 SL 问题 | Ch 3 §3.1、§3.4；Ch 4 §4.1 | Ch 4 §4.2 自伴边界条件标准形 |
-| 03 | Liouville 标准形 | Ch 3 §3.1；Ch 4 §4.1 | Ch 6 §6.3 振动判别法 |
-| 04 | Prüfer 变换与特征值存在性 | Ch 4 §4.5（Theorem 4.5.1–4.5.3） | Ch 4 §4.6 分离边界条件；Ch 3 §3.2 超越刻画 |
-| 05 | Sturm 比较与零点交错 | Ch 2 §2.6（Theorem 2.6.2、Theorem 2.6.3） | Ch 4 §4.3 结点数；Ch 6 §6.4 振动性刻画 |
-| 06 | 正交性与广义 Fourier 级数 | Ch 3 §3.2–§3.3；Ch 4 §4.12 | Ch 16 展开定理评注与文献 |
-| 07 | 自伴边界条件与 Hilbert 框架 | Ch 4 §4.2、§4.10、§4.12 | Ch 10 §10.2–§10.4 奇异自伴扩张 |
-| 08 | 变分刻画与单调性 | Ch 4 §4.9（Theorem 4.9.1）；Ch 5 §5.5–§5.6 | Ch 3 §3.6 特征值可微性；Ch 5 §5.8 不定问题 |
-| 09 | Green 函数、预解式与紧性 | Ch 3 §3.8（Theorem 3.8.1、Theorem 3.8.2）；Ch 4 §4.11（Theorem 4.11.1） | Ch 4 §4.12；Ch 10 §10.9–§10.10 |
-| 10 | 完备性与 Fourier 收敛 | Ch 4 §4.12；Ch 16 | Ch 3 §3.7 有限谱；Ch 10 §10.12 谱性质总表 |
-| 11 | 特征值渐近与 Weyl 公式 | Ch 4 §4.3（含 $\lambda_n/n^2\to c$）；Ch 3 §3.7 | Ch 10 §10.8–§10.9 奇异边界与正则逼近 |
-| 12 | 振荡理论进阶 | Ch 6 §6.2–§6.4 | Ch 2 §2.6–§2.7；Ch 4 §4.6 结点计数 |
-| 13 | 二次型与特征值不等式 | Ch 5 §5.5；Ch 4 §4.9 | Ch 5 §5.2 左定刻画 |
-| 14 | 方向导数与 Feynman–Hellmann | Ch 3 §3.6；Ch 5 §5.6 | Ch 4 §4.4 对问题的依赖 |
-| 19 | 有限块约化与开关结构 | Ch 13 双区间；Ch 6 §6.4 | Ch 4 §4.12 有限谱 |
-| 21–23 | 右定算子、左定空间、Krein–Sobolev | Ch 5 §5.2–§5.3；Ch 12 §12.2–§12.3 | Ch 11 §11.2–§11.4 Krein 空间 |
-| 24–26 | $H^s$ 完备性与稠密性 | Ch 6 §6.2；Ch 7 §7.3；Ch 12 §12.5–§12.7 | Ch 8 §8.3 LCNO 因子分解；Ch 10 §10.6–§10.7 |
-| 27–28 | 奇异理论、开放问题 | Ch 7 §7.3；Ch 10 §10.12；Ch 17 | Ch 9、Ch 11、Ch 12 全文 |
+11. N. Dunford and J. T. Schwartz, *Linear Operators, Part II: Spectral Theory*, Interscience, New York, 1963.
 
-## 四、可直接补强讲义的 Zettl 结果清单
+12. L. L. Littlejohn and R. Wellman, *A General Left-Definite Theory for Certain Self-Adjoint Operators with Applications to Differential Equations*, Journal of Differential Equations 181 (2002), 280--339. <https://doi.org/10.1006/jdeq.2001.4078>.
 
-以下条目按“能补什么”列出，写作时优先核对原书相应章节。
+13. C. Fischbacher, F. Gesztesy, P. Hagelstein and L. L. Littlejohn, *Abstract Left-Definite Theory: A Model Operator Approach, Examples, Fractional Sobolev Spaces, and Interpolation Theory*, arXiv:2408.01514v1. 本文使用的定位: Theorems 1.1,1.3, Remark 1.2, Sections 2,4 及附录. <https://arxiv.org/html/2408.01514v1>.
 
-1. **自伴边界条件的标准形**（§4.2）：把讲义 07 的分离型条件推广到实耦合与复耦合条件，并给出自伴性代数判据。
-> [!success] 已落地内容（持续更新）
-> - **07 一般自伴边界条件**：$AEA^*=BEB^*$ 判据、三类标准形、证明路线（Zettl §4.2、§10.4）。
-> - **03 Liouville 变换**：显式势公式 $Q=-q/r-F''/F$ 与证明；Bessel 型与 Legendre 方程例子；习题 3.4--3.6。
-> - **04 Prüfer 相位**：用 $\tan\phi=\sqrt{\lambda}\tan\theta$ 证明相位增长下界与 $\theta(b,\lambda)\to+\infty$；修正特征值存在性定理；结点计数推论；习题 4.4--4.6。
-> - **05 振荡理论**：Sturm 分离定理（恰有一个零点）完整证明；$q\le0$ 非振动判别；习题 5.4--5.6。
-> - **07 耦合边界**：转移矩阵判据 $\operatorname{tr}(K^{-1}\Phi)=2$；周期与反周期问题的完整谱与二重特征值；习题 7.5--7.7。
-> - **08 单调性与可微性**：严格单调性证明；$\partial\lambda/\partial p,\partial\lambda/\partial q,\partial\lambda/\partial r$ 公式；习题 8.4--8.6。
-> - **09 Green 与谱**：有限实谱定理；预解算子与谱的倒数对应；伴随 Green 函数；习题 9.6--9.7。
-> - **10 完备性与 Fourier 收敛**：紧自伴谱定理的证明路线；预解算子特征函数与 SL 特征函数的对应；
->   $L^2_r$ 完备性证明；Bessel/Parseval 等价刻画；Dirichlet--Jordan 逐点收敛；
->   Gibbs 现象与 du Bois-Reymond 反例；习题 10.1--10.7（对应 Zettl Ch.4 §4.11--§4.12、Ch.16）。
-> - **01、02、06 补充习题**：1.4--1.5（分离变量与尺度变换）、2.4--2.5（Neumann 与边界形式）、6.8（$x(\pi-x)$ 的正弦级数与 $\sum1/n^6$）。
-> - **例 2.1/2.2 扩充**：Bessel 型方程（变密度弦、逆平方势、Bessel $J_{1/4}$、端点极限圆）
->   与 Legendre 方程（球面调和、Legendre 多项式、端点极限圆、奇异理论入口）的物理意义、
->   数学结构与后续联系。
->
-> LaTeX 整本已同步上述正文与习题，新增第 8 章《完备性与 Fourier 收敛》，编译为 76 页（含附录 A 习题答案）。
-2. **Prüfer 变换的完整定理链**（§4.5）：Theorem 4.5.1–4.5.3 给相位函数的存在唯一性与对 $\lambda$ 的可微性，可直接补强讲义 04 的证明。
-3. **Sturm 分离与比较定理**（§2.6）：Theorem 2.6.2、Theorem 2.6.3 的证明结构和边界情形处理，可补强讲义 05。
-4. **结点计数定理**（§4.3、§4.6）：分离边界条件下第 $n$ 个特征函数恰有 $n$ 个零点，是讲义 12 的核心目标之一。
-5. **特征值单调性**（§4.9，Theorem 4.9.1）：在一般 $p,q,w$ 与一般自伴边界条件下给出单调性，可把讲义 08 的结论从 Dirichlet/分离型推广。
-6. **重数定理**（§4.10，Theorem 4.10.1–4.10.2）：说明分离边界条件下特征值单重、耦合边界条件下几何重数与代数重数的关系。
-7. **Green 核算子与有限实谱**（§4.11–4.12）：Theorem 4.11.1 与 Theorem 4.12.1–4.12.5 给讲义 09、10 提供可审计的定理编号。
-8. **左定问题的定义与刻画**（§5.2，Theorem 5.2.1–5.2.2）：左定性等价于 $L^2_w$ 中某个下界条件，是模块 3 的入口命题。
-9. **特征值不等式与可微性**（§5.5–5.6）：给讲义 13、14 提供算子层面的证明路径。
-10. **奇异端点分类**（§7.3，Theorem 7.3.1）：R、LC、LP、O、NO、LCNO、LCO 的统一分类，是讲义 26–28 的词汇基础。
-11. **主解与非主解**（§6.2，Theorem 6.2.1–6.2.2）：NO/LCNO 端点附近解的因子分解与渐近结构的起点。
-12. **奇异自伴理论总表**（§10.12，Theorem 10.12.1）：特征值存在性、离散性、下方无界性、渐近与展开的统一陈述，可作模块 3/4 的对照清单。
-13. **奇异 Green 函数**（§10.10，Theorem 10.10.1）：把讲义 09 的预解核理论推广到奇异情形。
-14. **正则逼近奇异**（§10.9、§12.7）：与项目“用正则问题逼近奇异问题”的工具卡直接对应。
-15. **双区间自伴扩张**（Ch 13）：为讲义 19 的有限块约化提供界面条件的严格框架。
+14. A. Jones, L. L. Littlejohn and A. Quintero Roba, *Krein--Sobolev Orthogonal Polynomials II*, Axioms 14 (2025), article 115. <https://doi.org/10.3390/axioms14020115>.
 
-## 五、使用方式与写作规范
+15. D. Frymark and C. Liaw, *Perspectives on General Left-Definite Theory*, arXiv:2012.01014v1; 收于 *From Operator Theory to Orthogonal Polynomials, Combinatorics, and Number Theory*, 2021. <https://arxiv.org/abs/2012.01014>.
 
-1. **讲义正文引用格式**：
-   - 章节级：`Zettl, Sturm-Liouville Theory, §4.5`；
-   - 定理级（仅限已核对）：`Zettl, Theorem 4.5.1`；
-   - 不做页码级引用，避免版本与 OCR 差异。
-2. **证明策略**：
-   - 标准结论：讲义给完整证明；Zettl 作为一致性核对与边界情形补强；
-   - 超出讲义主线的奇异/左定结果：写“引用 Zettl §x.y + 证明路线”，并标 `引用`；
-   - 项目前沿结论：仍按 `STRICT` / `EVIDENCE` / `OPEN` 分层，不用 Zettl 的教材结论替换项目证据状态。
-3. **不引入的内容**：
-   - Zettl 中面向数值计算（SLEIGN2 等）的实现细节；
-   - 需要大量泛函分析前置才能陈述的奇异扩张定理，放到模块 3/4 再引入。
-4. **同步维护**：
-   - 本文件是 Zettl 引用的唯一登记处；
-   - 讲义新增讲次后，先更新本文件的“讲次 → 最小参考集”，再写正文引用；
-   - LaTeX 版在每章末尾设“标准参考”，与本文件保持同一组章节号。
+## 引用约定
 
-## 六、与其他参考书的分工
+- 章节级引用写作\"Zettl, §4.5\";
 
-| 参考书 | 主责范围 | 与 Zettl 的分工 |
-|---|---|---|
-| Zettl, *Sturm-Liouville Theory* | 正则/奇异自伴、左定/不定、端点分类、Green 函数、单调性与重数 | 本讲义 SL 理论的主参考与定理编号来源 |
-| Teschl, *Ordinary Differential Equations and Dynamical Systems* | ODE 基础、Sturm–Liouville 边值问题、Hilbert 空间方法 | 提供更短的入门证明与 Hilbert 空间路径 |
-| Teschl, *Mathematical Methods in Quantum Mechanics* | 无界自伴算子、谱定理 | 供第 10、21 讲的算子理论引用 |
-| Reed–Simon, *Methods of Modern Mathematical Physics I* | 泛函分析、紧自伴算子谱定理 | 供第 10、13 讲的紧自伴谱定理引用 |
-| Titchmarsh, *Eigenfunction Expansions* | 奇异展开、逐点收敛 | 供第 10 讲 Fourier 收敛与奇异展开的经典文献 |
-| Weidmann, *Spectral Theory of Ordinary Differential Operators* | 奇异自伴扩张、谱理论 | 模块 3/4 的进阶参考 |
-| 项目文档 | 左定空间 $H^s$、谱隙极值、有限块约化 | 前沿结论与证据状态，不以 Zettl 代替 |
+- 定理级引用只用于已核对过的定理,写作\"Zettl, Theorem 4.5.1\";
 
-> [!tip] 下一讲衔接
-> 写作 10 完备性与 Fourier 收敛时，先读本文件第三节第 10 行与第四节第 7、12 条，
-> 再对照 [[09_Green函数预解式与紧性]] 的紧预解式结论。
+- 第 14--16 章的研究案例来自书末注记所列项目文稿, 不写成经典无来源结论;
+
+- 本讲义不复制 Zettl 的原文段落,所有证明均在正文中重写或标明证明路线.
+
+返回 [[00_SL谱理论讲义总览]].

@@ -1,483 +1,313 @@
 ---
-title: 自伴边界条件与 Hilbert 空间框架
-date: 2026-08-23
+title: 一维 Sobolev 空间,算子域与边界形式
+date: '2026-09-22'
 tags:
-  - SL
-  - spectral-theory
-  - self-adjoint
-  - boundary-conditions
-  - hilbert-space
+- SL
+- spectral-theory
+- sl-lecture
 aliases:
-  - 自伴边界条件
-  - SL 算子
-  - Sturm-Liouville 算子
+- 自伴边界条件
+- SL 算子
+- Sturm-Liouville 算子
 stage_type: lecture
-latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\05_self_adjoint.tex'
-latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
-latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
-status: self-reviewed
+latex_source: F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\05_self_adjoint.tex
+latex_master: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex
+latex_pdf: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf
+status: audited
 prerequisites:
-  - "[[06_特征函数正交性与广义Fourier级数]]"
+- '[[06_特征函数正交性与广义Fourier级数]]'
+lecture_chapter: 5
 ---
 
-# 07 自伴边界条件与 Hilbert 空间框架
+# 第 5 章 一维 Sobolev 空间,算子域与边界形式
+> [!info] 阅读位置
+> 本页对应新版第 5 章. 文件名前缀保留历史讲次; 以 [[00_SL谱理论讲义总览]] 中的新章序阅读.
 
-> [!info] 本讲位置
-> 模块 C：正交展开与谱框架（自伴性在本讲引入）。前置：[[06_特征函数正交性与广义Fourier级数]]；下一讲：[[08_特征值的变分刻画与单调性]]。
 
-
-> [!abstract] 本节目标
-> 把 SL 边值问题写成 Hilbert 空间中的自伴算子问题。本讲的核心结论是：
-> 在分离型实边界条件下，SL 算子关于带权内积
-> $$
-> (u,v)_r=\int_a^b r(x)u(x)v(x)\,dx
-> $$
-> 是对称的，并给出一般自伴边界条件的标准形。
-> 紧预解式、Green 函数与离散谱将在第 09 讲证明。
+> [!abstract] 本章目标
+补齐弱导数,迹与图范数, 精确区分算子域和能量型域.
 
 > [!question] 基本问题
-> 为什么自伴性保证实谱、正交特征系与完备性？
+边界条件究竟应施加在哪一种函数空间上?
 
-> [!note] 物理来源：能量守恒与互易性
-> 对无阻尼振动，能量
-> $$
-> E=\frac12\int_a^b\bigl(p y'^2+q y^2+r y_t^2\bigr)dx
-> $$
-> 在自伴边界条件下守恒：边界项为零，能量不会从端点漏出。
-> 自伴性给出实特征值（实频率）、正交特征函数（独立模态）与完备性
-> （任意初始状态可分解）；Robin 边界对应端点的弹性支撑，
-> 周期边界对应闭合环。
-> 对称性 $(Au,v)_r=(u,Av)_r$ 的物理含义是**互易性**：
-> 在 $A$ 点加力、$B$ 点测位移，与在 $B$ 点加同样力、$A$ 点测位移，
-> 结果相同（只对无损耗的线性系统成立）。它是“对称矩阵”的连续版本。
+## 绝对连续函数与弱导数
 
+> [!note] 定义. 绝对连续与弱导数
 
-## 伴随算子与自伴算子
-
-本讲涉及 Hilbert 空间中的无界算子，先把“对称”与“自伴”两个词讲清楚。
-Hilbert 空间的定义与基本性质属于泛函分析前置，这里只用到内积、正交与闭包。
-
-> [!definition] 伴随算子与自伴算子
-> 设 $H$ 是复 Hilbert 空间，$A:D(A)\subset H\to H$ 是稠定线性算子。
-> 伴随算子 $A^*$ 的定义域为
-> $$
-> D(A^*)=\{v\in H:\text{存在 }w\in H,\ (Au,v)=(u,w)\ \forall u\in D(A)\},
-> $$
-> 并令 $A^*v=w$。
-> - 若 $D(A)\subset D(A^*)$ 且 $A^*u=Au$ 对一切 $u\in D(A)$ 成立，
->   则称 $A$ **对称**；
-> - 若 $D(A)=D(A^*)$，则称 $A$ **自伴**。
-
-> [!note] 本讲证明什么
-> 本讲先证明分离边界条件下的算子是对称的；在正则 SL 情形，
-> 适当选取定义域后它实际上自伴。自伴性的完整证明要用算子图范数与
-> 边界三元组，这里从略；第 09 讲的紧预解式论证会用到自伴性。
-
-## 为什么需要自伴性
-
-前几节主要用初等方法研究相位和零点。若要对特征值做变分和优化，必须知道：
-
-- 特征值都是实数；
-- 不同特征值的特征函数正交；
-- 特征函数系是完备的；
-- 预解算子紧、谱没有连续部分（这一性质在第 09 讲证明）。
-
-这些性质统一来自“自伴算子”这一结构。本节先证明对称性与自伴边界条件；紧预解式留到第 09 讲。
-
-## Lagrange 恒等式
-
-定义 SL 算子
+函数 $u:[a,b]\to\mathbb C$ 绝对连续, 指对任意 $\varepsilon>0$, 存在 $\delta>0$, 使任意有限个互不相交的区间 $(a_j,b_j)$ 若满足 $\sum_j(b_j-a_j)<\delta$, 则 $\sum_j|u(b_j)-u(a_j)|<\varepsilon$. 记为 $u\in AC[a,b]$. 对 $u,v\in L^1(a,b)$, 若
 
 $$
-L u=-(p(x)u')'+q(x)u.
+\int_a^bu\phi'\,dx=-\int_a^bv\phi\,dx\quad(\phi\in C_c^\infty(a,b)),
 $$
 
-设 $u,v$ 是复值 $C^2$ 函数。由乘积求导公式，
+ 称 $v$ 为 $u$ 的弱导数, 记 $u'=v$. 定义
 
 $$
-\overline{v}Lu-u\overline{Lv}
-=-\overline{v}(pu')'+u(p\overline{v'}')'
-=\frac{d}{dx}\Bigl[p\bigl(u\overline{v'}-u'\overline{v}\bigr)\Bigr].
+H^1(a,b)=\{u\in L^2:u'\in L^2\},\qquad
+        H^2(a,b)=\{u\in H^1:u'\in H^1\},
 $$
 
-这就是 Lagrange 恒等式。定义边界双线性形式
+ 并取范数 $\|u\|_{H^k}^2=\sum_{j=0}^k\|u^{(j)}\|_2^2$.
+
+实变函数课程中的绝对连续基本定理说: $u\in AC$ 当且仅当 $u(x)=u(a)+\int_a^xg(t)\,dt$ 对某个 $g\in L^1$ 成立; 此时经典导数几乎处处存在且等于 $g$. 我们把这个积分基本定理作为实变先修结论, 不把 Sobolev 理论列为先修.
+
+> [!note] 引理. 一维弱导数的积分表示
+
+$u\in H^1$ 当且仅当其等价类有唯一的连续代表
 
 $$
-[u,v](x):=p(x)\bigl(u(x)\overline{v'(x)}-u'(x)\overline{v(x)}\bigr).
+u(x)=c+\int_a^xv(t)\,dt,\qquad v\in L^2.
 $$
 
-对区间 $[a,b]$ 积分得到 分部积分公式：
+ 此时代表绝对连续, $v=u'$ 几乎处处, 且
 
 $$
-\int_a^b\Bigl(\overline{v}Lu-u\overline{Lv}\Bigr)dx
-=[u,v](b)-[u,v](a).
+|u(x)-u(y)|\le\|u'\|_2|x-y|^{1/2}.
 $$
 
-> [!note] 准导数记号
-> 在一般 $p$ 下，常把
-> $$
-> y^{[1]}:=p y'
-> $$
-> 称为 $y$ 的准导数。边界形式 $[u,v]$ 与准导数直接相关。
 
-## 分离型边界条件
 
-最简单的边界条件是两端各给一个实线性条件：
+**证明.**
+
+若 $u$ 有弱导数 $v$, 令 $U(x)=\int_a^xv$. Fubini 定理直接给出 $U'=v$ 的弱导数恒等式, 所以 $w=u-U$ 的弱导数为零. 若 $\eta\in C_c^\infty$ 且 $\int\eta=0$, 则 $\phi(x)=\int_a^x\eta$ 属于 $C_c^\infty$, 故 $\int w\eta=0$. 固定 $\rho\in C_c^\infty$ 满足 $\int\rho=1$, 任意测试函数 $\eta$ 减去 $(\int\eta)\rho$ 后积分为零, 因而
 
 $$
-K y(a)-L y'(a)=0,\qquad M y(b)+N y'(b)=0,
+\int w\eta=c\int\eta,\qquad c=\int w\rho.
 $$
 
-其中
+ 于是 $w=c$ 几乎处处. 为说明这一步, 若 $h\in L^1_{\rm loc}$ 与所有光滑紧支撑函数积分为零, 对任意内部闭区间 $[\alpha,\beta]$ 取 $0\le\eta_j\le1$ 的光滑截断, 支持在一个固定内部紧区间, 并使 $\eta_j\to\mathbf1_{[\alpha,\beta]}$ 几乎处处. 这样的截断可把一个固定的光滑台阶函数分别平移缩放到两端后相乘得到. 控制收敛给 $\int_\alpha^\beta h=0$. 因此 $h$ 的局部积分原函数为常数, 绝对连续积分基本定理给 $h=0$ 几乎处处. 应用于 $h=w-c$ 即得所需结论. 反向由积分表示和 Fubini 得到. 连续代表的唯一性来自连续函数几乎处处为零则处处为零. 最后用 Cauchy--Schwarz 估计积分 $\int_y^xu'$. $\square$
+
+> [!note] 定理. Sobolev 完备性,迹和分部积分
+
+$H^1,H^2$ 都是 Hilbert 空间. 取上述连续代表后, $u(a),u(b)$ 是 $H^1$ 上的有界线性泛函; 对 $H^2$ 函数, $u'(a),u'(b)$ 也有意义并连续. 对 $u,v\in H^1$,
 
 $$
-K^2+L^2>0,\qquad M^2+N^2>0.
+\int_a^b u'\bar v\,dx+\int_a^bu\bar v'\,dx
+        =u(b)\bar v(b)-u(a)\bar v(a).
 $$
 
-为了与准导数匹配，也可写成
+
+
+**证明.**
+
+若 $u_n$ 在 $H^1$ 中是 Cauchy 列, 则 $u_n\to u$, $u_n'\to v$ 于 $L^2$. 在弱导数恒等式中取极限, 得 $u'=v$, 故在 $H^1$ 中收敛. 对 $H^2$ 再对导数应用同样论证. 内积取各阶导数内积之和. 令 $\ell=b-a$. 对任意 $0<\delta\le\ell$ 和 $x\in[a,a+\delta]$, 积分表示给出 $|u(a)|^2\le2|u(x)|^2+2\delta\|u'\|_2^2$. 对 $x$ 平均, 并在右端同样处理, 得
 
 $$
-K y(a)-L p(a)y'(a)=0,\qquad
-M y(b)+N p(b)y'(b)=0.
+|u(a)|^2+|u(b)|^2
+        \le\frac4\delta\|u\|_2^2+4\delta\|u'\|_2^2.
 $$
 
-实际上，只要 $p(a),p(b)>0$，把常数重新命名，两种写法可以互相转化。
-本节后文统一使用准导数形式。
+ 这给出迹的连续性. 对 $H^2$ 中的 $u'$ 重复即可. $u\bar v$ 绝对连续, 导数为 $u'\bar v+u\bar v'\in L^1$, 积分基本定理即给出 (5.2). $\square$
 
-> [!example] 常见边界条件
-> - **Dirichlet**：$y(a)=y(b)=0$，即 $L=N=0$。
-> - **Neumann**：$y'(a)=y'(b)=0$，即 $K=M=0$。
-> - **Robin**：$y'(a)=h_a y(a)$，$y'(b)=-h_b y(b)$；
->   写成准导数形式时把 $p$ 吸收进 $h_a,h_b$ 即可。
-> - **周期/反周期**：不属于分离型；它们的自伴性将在下一节的标准形中说明。
+> [!example] 例. 有尖点仍可属于能量空间
 
-## 一般自伴边界条件的标准形
+在 $[-1,1]$ 上, $u(x)=|x|$ 的弱导数是 $\operatorname{sgn}x$, 所以 $u\in H^1$. 它不在 $H^2$: 若在, 则其一阶弱导数应有连续代表, 但 $\operatorname{sgn}x$ 的左右极限不同. 相反, 阶跃函数本身不在 $H^1$, 因为它没有连续代表.
 
-分离型只是自伴边界条件的一类。设
+## 紧嵌入与闭的边界约束
 
-$$
-Y(x)=\begin{pmatrix}y(x)\\ (py')(x)\end{pmatrix},
-\qquad
-E=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
-$$
+> [!note] 定义. 紧算子与紧嵌入
 
-一般两点边界条件写成
+有界线性映射 $T:X\to Y$ 若把每个有界序列映为具有收敛子列的序列, 称为紧算子. 若包含映射 $X\hookrightarrow Y$ 具有此性质, 称为紧嵌入.
 
-$$
-A Y(a)+B Y(b)=0,\qquad
-A,B\in M_2(\mathbb C),\qquad
-\operatorname{rank}(A:B)=2,
-$$
-其中 $M_2(\mathbb C)$ 是复 $2\times2$ 矩阵全体，$(A:B)$ 表示把 $A,B$
-并排成的 $2\times4$ 矩阵。
+> [!note] 定理. 一维能量空间的紧性
 
-它在 Lagrange 边界形式下自伴，当且仅当
+包含映射 $H^1(a,b)\hookrightarrow C[a,b]\hookrightarrow L^2_r(a,b)$ 的第一步是连续且紧的, 第二步连续. 因而 $H^1\hookrightarrow L^2_r$ 紧.
+
+**证明.**
+
+取一点 $y$ 使 $|u(y)|\le\ell^{-1/2}\|u\|_2$, 再用 (5.1), 得 $\|u\|_\infty\le\ell^{-1/2}\|u\|_2+\ell^{1/2}\|u'\|_2$. $H^1$ 有界列因此一致有界且具有共同的 $1/2$ 阶连续模. 在区间的一个可数稠密子集上逐点选子列, 用对角线法得到在该稠密集上收敛的子列. 给定 $\varepsilon$, 先用共同连续模选有限细网格, 再用网格点上的收敛, 得此子列在全区间上一致 Cauchy. 一致极限连续. 最后 $\|u\|_r\le(\int_a^br)^{1/2}\|u\|_\infty$. $\square$
+
+本书用 $H_0^1(a,b)=\{u\in H^1:u(a)=u(b)=0\}$ 表示两端零迹空间. 它是 $H^1$ 的闭子空间. 此定义在区间上与 $C_c^\infty$ 的 $H^1$ 闭包相同: 零延拓后卷积, 再用稍向区间内部压缩的光滑逼近即可; 后文只需要上述零迹刻画.
+
+## 精确的正则算子与边界形式
+
+以下固定实系数
 
 $$
-A E A^*=B E B^*.
+p\in C^1[a,b],\quad p>0,\qquad q,r\in C[a,b],\quad r>0.
 $$
 
-> [!theorem] 自伴边界条件的分类（引用 Zettl §4.2）
-> 在上述条件下，自伴边界条件恰分为互不重叠的三类：
-> 1. **分离型**：两端各给一个实线性条件，可参数化为
->    $$
->    \cos\alpha\,y(a)-\sin\alpha\,(py')(a)=0,
->    \qquad
->    \cos\beta\,y(b)-\sin\beta\,(py')(b)=0;
->    $$
-> 2. **实耦合型**：$Y(b)=K Y(a)$，其中 $K\in SL_2(\mathbb R)$（即 $2\times2$ 实矩阵且 $\det K=1$）；
-> 3. **复耦合型**：$Y(b)=e^{i\gamma}K Y(a)$，其中
->    $K\in SL_2(\mathbb R)$，$\gamma\in(-\pi,0)\cup(0,\pi)$。
-
-> [!example] 三类边界的典型例子
-> - 分离型：Dirichlet、Neumann、Robin；
-> - 实耦合型：周期条件 $Y(b)=Y(a)$（$K=I$）、
->   反周期条件 $Y(b)=-Y(a)$（$K=-I$，仍有 $\det K=1$）；
-> - 复耦合型：带相位 $\gamma\neq0$ 的耦合条件，边界条件本质上是复值的。
-
-> [!note] 证明路线
-> 自伴性等价于边界形式对定义域中所有 $u,v$ 满足
-> $[u,v](b)-[u,v](a)=0$。把边界值写成 $Y$，即得矩阵条件
-> $A E A^*=B E B^*$；再由 $SL_2(\mathbb R)$ 的代数结构得到三类标准形。
-> 正则情形的完整证明见 Zettl §4.2（Lemma 4.2.1）；一般奇异情形的证明走
-> GKN 算子理论，见 Zettl §10.4（Theorem 10.4.3）。
-> 本讲义目前只证明分离型与实耦合型中的简单情形，分类定理作为引用结果使用。
-
-## 耦合边界条件：转移矩阵判据
-
-设 $\Phi(x,\lambda)$ 是基本解矩阵：它的两列分别是初值
-$$
-Y_1(a)=\begin{pmatrix}1\\0\end{pmatrix},
-\qquad
-Y_2(a)=\begin{pmatrix}0\\1\end{pmatrix}
-$$
-对应的解向量 $Y=(y,py')^T$。由 $\Phi(a,\lambda)=I$ 得
-$\det\Phi(a,\lambda)=1$；又系数矩阵的迹为零，直接对行列式求导可得
-$$
-\frac{d}{dx}\det\Phi(x,\lambda)=0,
-$$
-故 $\det\Phi(x,\lambda)\equiv1$。
-
-> [!theorem] 实耦合边界的特征值判据
-> 设实耦合边界条件为 $Y(b)=KY(a)$，其中 $K\in SL_2(\mathbb R)$。
-> 则 $\lambda$ 是特征值，当且仅当
-> $$
-> \operatorname{tr}\bigl(K^{-1}\Phi(b,\lambda)\bigr)=2.
-> $$
-
-**证明** 由 $Y(b)=\Phi(b,\lambda)Y(a)$ 与 $Y(b)=KY(a)$ 得
-$$
-K^{-1}\Phi(b,\lambda)Y(a)=Y(a).
-$$
-非零解存在等价于 $1$ 是 $M:=K^{-1}\Phi(b,\lambda)$ 的特征值。又
-$$
-\det M=\det(K^{-1})\det\Phi=1.
-$$
-对二阶矩阵 $M$，$1$ 是特征值当且仅当
-$$
-0=\det(M-I)=\det M-\operatorname{tr}M+1
-=2-\operatorname{tr}M,
-$$
-即 $\operatorname{tr}M=2$。 $\square$
-
-> [!example] 周期与反周期问题
-> 取 $p=r=1$，$q=0$，$[0,\pi]$，方程 $-y''=\lambda y$。
-> 对 $\lambda=\mu^2>0$，
-> $$
-> \Phi(x,\lambda)=
-> \begin{pmatrix}
-> \cos\mu x & \dfrac{\sin\mu x}{\mu}\\[2mm]
-> -\mu\sin\mu x & \cos\mu x
-> \end{pmatrix},
-> \qquad
-> \operatorname{tr}\Phi(\pi,\lambda)=2\cos(\mu\pi).
-> $$
-> 对 $\lambda=0$，$\Phi(x,0)=\begin{pmatrix}1&x\\0&1\end{pmatrix}$。
->
-> - **周期条件** $Y(\pi)=Y(0)$，即 $K=I$。判据给出
->   $\operatorname{tr}\Phi=2$，故 $\cos\mu\pi=1$，
->   $\mu=2n$，$\lambda=4n^2$，$n=0,1,2,\dots$。
->   $\lambda_0=0$ 单重；$n\ge1$ 时 $\cos2nx$ 与 $\sin2nx$ 都满足边界条件，
->   特征值为二重。
-> - **反周期条件** $Y(\pi)=-Y(0)$，即 $K=-I$。判据给出
->   $\operatorname{tr}(-\Phi)=2$，即 $\operatorname{tr}\Phi=-2$，
->   故 $\cos\mu\pi=-1$，$\mu=2n+1$，$\lambda=(2n+1)^2$，
->   $n=0,1,2,\dots$，全部为二重。
->
-> 两组谱合起来恰为 $\{n^2:n=0,1,2,\dots\}$：
-> $n$ 为偶数时对应周期条件，$n$ 为奇数时对应反周期条件。
-
-> [!note] 重数对比
-> 分离型自伴边界的特征值必为单重；耦合边界条件可能出现二重特征值。
-> 周期与反周期例子中，除 $\lambda=0$ 外全部是二重特征值。
-> 这与 Zettl \S4.10 的重数定理一致。
-
-## 对称性定理
-
-在带权 Hilbert 空间
+ 每个端点选择 Dirichlet 条件, 或选择一个实数 Robin 参数. 统一约定为
 
 $$
-L^2_r(a,b)=\left\{u:\int_a^b r|u|^2<\infty\right\},
-\qquad
-(u,v)_r=\int_a^b r u\overline{v}\,dx
+u(a)=0\ \text{或}\ p(a)u'(a)=h_au(a),\qquad
+        u(b)=0\ \text{或}\ p(b)u'(b)=-h_bu(b).
 $$
 
-上定义算子
+ Neumann 对应 $h=0$. 若选 Dirichlet, 下文所有含该端点的 $h$ 项均省去.
+
+> [!note] 定义. 算子域与型域
+
+在 $H=L^2_r(a,b)$ 上定义
 
 $$
-A y=\frac{1}{r}L y,
+Au=r^{-1}\bigl(-(pu')'+qu\bigr),\qquad
+        D(A)=\{u\in H^2(a,b):u\text{ 满足 }(5.5)\}.
 $$
 
-其定义域为满足上述边界条件、且 $L y\in L^2_r$ 的函数全体。
-
-> [!theorem] 对称性
-> 对任意 $u,v\in D(A)$，
-> $$
-> (Au,v)_r=(u,Av)_r.
-> $$
-
-**证明** 由定义
+ 型域 $V$ 是 $H^1$ 中仅满足所选 Dirichlet 零迹条件的子空间. Robin 端点不在 $V$ 上限制导数. 定义 Hermite 型
 
 $$
-(Au,v)_r=\int_a^b (Lu)\overline{v}\,dx,
-\qquad
-(u,Av)_r=\int_a^b u\overline{Lv}\,dx.
+\mathfrak a(u,v)=\int_a^b(pu'\bar v'+qu\bar v)\,dx
+        +h_au(a)\bar v(a)+h_bu(b)\bar v(b),\qquad Q[u]=\mathfrak a(u,u).
 $$
 
-两式相减，并用 分部积分公式：
+
+
+$H^1$ 元素的端点导数一般没有定义, 因此不能在型域上直接施加 Robin 导数条件. $C_c^\infty(a,b)\subset D(A)$ 在 $L^2_r$ 中稠密, 所以 $A$ 稠定. 这里的稠密性可由简单函数逼近,将区间指示函数在端点小区间上平滑化得到, 再用带权范数等价.
+
+> [!note] 定理. 边界形式与能量恒等式
+
+对 $u,v\in H^2$,
 
 $$
 (Au,v)_r-(u,Av)_r
-=\int_a^b\Bigl((Lu)\overline{v}-u\overline{Lv}\Bigr)dx
-=[u,v](b)-[u,v](a).
+        =\bigl[p(u\bar v'-u'\bar v)\bigr]_a^b.
 $$
 
-在左端点，$u,v$ 都满足
+ 在 $D(A)$ 上右边为零; 更强地, 对 $u\in D(A),v\in V$ 有
 
 $$
-K u(a)-L p(a)u'(a)=0,\qquad
-K v(a)-L p(a)v'(a)=0.
+(Au,v)_r=\mathfrak a(u,v).
 $$
 
-若 $K\neq0$ 且 $L\neq0$，则 $u(a),v(a)$ 分别与
-$p(a)u'(a),p(a)v'(a)$ 成比例，故
-$u(a)\overline{p(a)v'(a)}-p(a)u'(a)\overline{v(a)}=0$。
-若 $K\neq0$ 且 $L=0$，则 $u(a)=v(a)=0$，直接得 $[u,v](a)=0$。
-若 $K=0$，则 $L\neq0$，条件化为 $p(a)u'(a)=p(a)v'(a)=0$，
-同样有 $[u,v](a)=0$。右端点同理，因此
+
+
+**证明.**
+
+因 $p\in C^1$, $u\in H^2$, 故 $pu'\in H^1$. 应用 (5.2) 两次得 (5.8). 应用一次则
 
 $$
-[u,v](b)-[u,v](a)=0.
+(Au,v)_r=\int_a^b(pu'\bar v'+qu\bar v)\,dx-[pu'\bar v]_a^b.
 $$
 
-所以 $(Au,v)_r=(u,Av)_r$。 $\square$
+ Dirichlet 端点的 $v$ 为零; Robin 端点代入 (5.5), 恰得到两个正号的 $h$ 项. 这也证明了对称性. $\square$
 
-> [!important] 对称与自伴
-> 上面的论证给出的是**对称性**。在正则 SL 情形，定义域选得足够大，
-> 对称算子实际上是自伴的。自伴性的完整证明需要算子图范数闭包与边界三元组，
-> 此处从略；对称性加上第 09 讲证明的紧预解式，足以推出离散谱。
+> [!example] 例. 弹性端点的能量
 
-## 下一讲预告：紧预解式与离散谱
-
-本讲证明了对称性与自伴边界条件的结构。第 09 讲将构造 Green 函数，并证明
-预解算子
-$$
-R_\lambda=(A-\lambda I)^{-1}
-$$
-是紧自伴算子，从而由紧自伴算子的谱定理得到离散实特征值与完备正交特征系。
-本讲不把这一结论当作已知工具使用；涉及它的证明与习题都放在第 09 讲。
-
-## 二次型与算子
-
-若只关心特征值，可以用二次型
+取 $p=r=1,q=0$, 区间 $[0,1]$, 两端 Robin. 则
 
 $$
-Q(y)=\int_a^b\bigl(p y'^2+q y^2\bigr)dx,
-\qquad
-M(y)=\int_a^b r y^2\,dx.
+Q[u]=\int_0^1|u'|^2\,dx+h_a|u(0)|^2+h_b|u(1)|^2.
 $$
 
-在适当定义域上，特征值问题等价于
+ 当 $h_a,h_b\ge0$ 时型非负, 端点项是弹性势能. 若 $h_a+h_b<0$, 常数的能量为负. 波动方程的守恒能量须包含端点项; 自伴性本身并不保证正性.
+
+## 下界,图范数与闭算子
+
+> [!note] 引理. 带边界能量的下界
+
+存在 $c_0>0,C_0\ge0$, 对所有 $u\in V$ 有
 
 $$
-Q(y)=\lambda M(y),\qquad y\neq0.
+Q[u]\ge c_0\|u'\|_2^2-C_0\|u\|_r^2.
 $$
 
-这就是下一节 [[08_特征值的变分刻画与单调性]] 的起点。
+ 若 $\zeta<-C_0$, 则 $\mathfrak a_\zeta(u,v)=\mathfrak a(u,v)-\zeta(u,v)_r$ 是 $V$ 上的内积, 其范数与 $H^1$ 范数等价. 因而 $(V,\mathfrak a_\zeta)$ 是 Hilbert 空间.
 
-## 参考
+**证明.**
 
-> [!info] 标准参考（Zettl）
-> - A. Zettl, *Sturm–Liouville Theory*, Ch 4 §4.2：自伴边界条件的标准形（分离、实耦合、复耦合）。
-> - A. Zettl, Ch 4 §4.10：特征值重数；§4.12 的有限实谱在第 09 讲使用。
-> - A. Zettl, Ch 10 §10.2–§10.4：奇异情形的 Lagrange 形式、最小/最大定义域与自伴扩张。
-> - 完整章节映射见 [[Zettl参考映射]]。
+$p_-=\min p>0$. 只需控制 $q$ 的负部和负 Robin 项. 用 (5.3) 并选充分小的 $\delta$, 使所有负边界项中 $\|u'\|_2^2$ 的系数之和至多 $p_-/2$. 剩余项由 $\|u\|_2^2\le r_-^{-1}\|u\|_r^2$ 控制, 即得 $c_0=p_-/2$ 和某个 $C_0$. 减去 $\zeta\|u\|_r^2$ 给出正下界; 上界由系数有界和迹连续性给出. $V$ 是 $H^1$ 的闭子空间, 故完备. $\square$
 
-## 本讲小结
+> [!note] 定义. 闭算子与图范数
 
-Lagrange 恒等式与边界形式给出对称性；这为第 09 讲的紧预解式与离散谱作准备。
+算子 $A$ 闭, 指 $u_n\in D(A)$, $u_n\to u$, $Au_n\to f$ 于 $H$ 时, 必有 $u\in D(A)$ 且 $Au=f$. 图范数为 $\|u\|_A=(\|u\|_r^2+\|Au\|_r^2)^{1/2}$. 闭性等价于 $D(A)$ 在图范数下完备.
+
+> [!note] 定理. 正则算子域上的椭圆估计与闭性
+
+存在仅依赖固定系数,区间和边界条件的 $C$, 使
+
+$$
+C^{-1}\|u\|_{H^2}\le\|u\|_A\le C\|u\|_{H^2}\quad(u\in D(A)).
+$$
+
+ 特别地, (5.6) 定义的是闭对称算子.
+
+**证明.**
+
+由 (5.9),(5.10) 及 Cauchy--Schwarz,
+
+$$
+c_0\|u'\|_2^2\le\|Au\|_r\|u\|_r+C_0\|u\|_r^2.
+$$
+
+ 又 $pu''=qu-rAu-p'u'$, 故 $\|u''\|_2\le C(\|u\|_r+\|Au\|_r)$, 得左侧估计. 右侧由 $A$ 的表达式直接得到. 若 $u_n\to u$, $Au_n\to f$, 左侧估计使 $u_n$ 在 $H^2$ 中 Cauchy. 其 $H^2$ 极限与 $u$ 相同, 迹连续性保留边界条件, 微分表达式连续性给出 $Au=f$. $\square$
+
+## 伴随与自伴: 需要再证明什么
+
+> [!note] 定义. 伴随算子
+
+对稠定算子 $A$, 令
+
+$$
+D(A^*)=\{v\in H:\exists w\in H,\ (Au,v)_r=(u,w)_r\ \forall u\in D(A)\},\qquad A^*v=w.
+$$
+
+ 稠密性保证 $w$ 唯一. 若 $A\subset A^*$ 称对称; 若 $D(A)=D(A^*)$ 且作用相同, 称自伴.
+
+本章已证明对称性和闭性. 第 6 章将构造一个实数 $\zeta$ 上的满射 $A-\zeta I$, 并以此证明定义域恰好等于伴随域. 这个证明不需要边界三元组.
+
+> [!example] 例. 周期与反周期是耦合条件
+
+也可取 $u(b)=\sigma u(a)$, $p(b)u'(b)=\sigma p(a)u'(a)$, $\sigma=1$ 或 $-1$. 型域为 $V_\sigma=\{u\in H^1:u(b)=\sigma u(a)\}$, 型为不含端点项的积分型. 两端的边界项相消, 前述下界与闭性证明仍成立. 对 $-u''$ 在 $[0,\pi]$, 周期谱为 $0,4,4,16,16,\ldots$; 反周期谱为 $1,1,9,9,\ldots$. 正谱中的二重性来自正弦,余弦两个方向, 因而不能把分离条件的单重性套用到耦合条件.
 
 ## 习题
 
-> [!question] 7.1
-> 计算 $[u,v](x)=p(uv'-u'v)$ 的导数，并验证 Lagrange 恒等式。
+1.  求 $|x|$ 在 $[-1,1]$ 上的弱导数, 并从定义验证它属于 $H^1$ 而不属于 $H^2$.
 
-> [!question] 7.2
-> 对 Dirichlet 问题，说明 $[u,v](a)=[u,v](b)=0$。
+2.  证明 (5.3), 并说明对每个 $\varepsilon>0$, 可将右侧写成 $\varepsilon\|u'\|_2^2+C_\varepsilon\|u\|_2^2$.
 
-> [!question] 7.3
-> 对 Neumann 问题，说明 $[u,v](a)=[u,v](b)=0$。
+3.  对 $u(0)=0$, $u'(1)+hu(1)=0$, 写出 $D(A)$,$V$ 和 $Q[u]$, 并证明 $(Au,u)=Q[u]$.
 
-> [!question] 7.4
-> 证明带权内积
-> $$
-> (u,v)_r=\int_a^b r(x)u(x)\overline{v(x)}\,dx
-> $$
-> 满足内积公理，并说明为什么必须要求 $r(x)>0$。
+4.  若 $u\in V$ 且存在 $f\in L^2_r$ 使 $\mathfrak a(u,v)=(f,v)_r$ 对所有 $v\in V$ 成立, 证明 $u\in D(A)$ 且 $Au=f$.
 
-> [!question] 7.5
-> 证明：分离型自伴边界条件下，正则 SL 问题的特征值是单重的。
+5.  对上一例周期/反周期问题, 证明没有负特征值并确定零特征值的重数.
 
-> [!question] 7.6
-> 对 $p=r=1$，$q=0$，$[0,\pi]$，写出基本解矩阵 $\Phi(x,\lambda)$，
-> 并用转移矩阵判据证明周期与反周期边界的特征值分别为
-> $4n^2$ 与 $(2n+1)^2$。
+本节习题解答见本页末的习题解答.
 
-> [!question] 7.7
-> 证明周期与反周期问题没有负特征值。
+## 本章小结
 
-> [!success]- 解答
-> **7.1** 直接求导：
-> $$
-> \frac{d}{dx}[u,v]
-> =p'(uv'-u'v)+p(u'v'+uv''-u''v-u'v')
-> =p'(uv'-u'v)+p(uv''-u''v).
-> $$
-> 另一方面
-> $$
-> vLu-uLv
-> =v(-p'u'-pu'')+u(p'v'+pv'')
-> =p'(uv'-u'v)+p(uv''-u''v),
-> $$
-> 两者相等。
->
-> **7.2** Dirichlet 边界条件为 $u(a)=v(a)=0$ 与 $u(b)=v(b)=0$，
-> 代入 $[u,v]=p(uv'-u'v)$ 得零。
->
-> **7.3** Neumann 边界条件为 $u'(a)=v'(a)=0$ 与 $u'(b)=v'(b)=0$，
-> 同样代入得零。
->
-> **7.4** 对 $u,v,w\in L^2_r$ 与 $\alpha,\beta\in\mathbb C$，由积分的线性性，
-> $(u,\alpha v+\beta w)_r=\alpha(u,v)_r+\beta(u,w)_r$，
-> 共轭对称性 $(u,v)_r=\overline{(v,u)}_r$ 也直接来自定义。
-> 正定性：$(u,u)_r=\int r|u|^2\ge0$；
-> 当 $r>0$ 时，$(u,u)_r=0$ 推出 $u=0$ 几乎处处。
-> 若 $r$ 在正测度集上为零或为负，则非零函数可能满足
-> $(u,u)_r\le0$，内积的正定性失效，因此必须要求 $r>0$。
+一维 $H^1$ 元素有绝对连续代表和端点迹, $H^2$ 才允许端点导数. 算子域施加完整边界条件, 型域只施加 Dirichlet 或耦合的值约束. Robin 条件通过边界能量进入型, 迹估计保证下界, 图范数估计保证闭性.
 
->
-> **7.5** 设 $u,v$ 是同一个特征值 $\lambda$ 的两个特征函数。左端分离条件
-> $$
-> K y(a)-L(py')(a)=0
-> $$
-> 的零点集是二维向量空间
-> $\{(y(a),(py')(a)):y\in\mathbb R^2\}$ 中的一条过原点的直线。
-> 因此 $u$ 与 $v$ 在 $a$ 处的向量成比例，从而
-> $$
-> W(a)=u(a)(pv')(a)-(pu')(a)v(a)=0.
-> $$
-> 但两个线性无关解的 Wronskian 处处非零，矛盾。因此特征函数空间是
-> 一维的，特征值单重。
->
-> **7.6** 对 $-y''=\lambda y$，$\lambda=\mu^2>0$，基本解矩阵为
-> $$
-> \Phi(x,\lambda)=
-> \begin{pmatrix}
-> \cos\mu x & \sin\mu x/\mu\\
-> -\mu\sin\mu x & \cos\mu x
-> \end{pmatrix},
-> \qquad \operatorname{tr}\Phi(\pi)=2\cos\mu\pi.
-> $$
-> 周期：$\operatorname{tr}\Phi=2$ 给出 $\cos\mu\pi=1$，
-> 故 $\mu=2n$，$\lambda=4n^2$。反周期：
-> $\operatorname{tr}(-\Phi)=2$ 给出 $\operatorname{tr}\Phi=-2$，
-> 即 $\cos\mu\pi=-1$，故 $\mu=2n+1$，$\lambda=(2n+1)^2$。
-> $\lambda=0$ 时 $\Phi(\pi,0)=\begin{pmatrix}1&\pi\\0&1\end{pmatrix}$，
-> 迹为 $2$，对应周期的常数特征函数。
->
-> **7.7** 对周期或反周期边界条件及实值 $y$，分部积分给出
-> $$
-> \int_0^\pi (-y'')y\,dx
-> =\int_0^\pi (y')^2\,dx-\bigl[y y'\bigr]_0^\pi
-> =\int_0^\pi (y')^2\,dx,
-> $$
-> 因为周期或反周期条件都使边界项 $[yy']_0^\pi=0$。
-> 若 $-y''=\lambda y$，则
-> $$
-> \lambda\int_0^\pi y^2\,dx=\int_0^\pi (y')^2\,dx\ge0.
-> $$
-> 非零特征函数给出 $\lambda\ge0$，故没有负特征值。
+## 标准参考与延伸阅读
 
-> [!tip] 下一步
-> 有了 Hilbert 空间框架后，就可以用 [[08_特征值的变分刻画与单调性]]
-> 的极小极大原理研究特征值对系数和权的依赖。
+本章使用实变课程中的绝对连续积分基本定理, Fubini 定理及基本 $L^p$ 逼近; 测试函数基本引理已在正文补证. 延伸阅读: G. Teschl, *Mathematical Methods in Quantum Mechanics*, 作者在线的 2009 版, §2.2--§2.3 (伴随,闭算子和二次型), §2.7 (绝对连续函数).
+
+## 习题解答
+
+1.  对 $\phi\in C_c^\infty(-1,1)$ 在 $(-1,0)$ 和 $(0,1)$ 分段积分,
+
+$$
+\int_{-1}^1|x|\phi'(x)\,dx
+            =\int_{-1}^0\phi(x)\,dx-\int_0^1\phi(x)\,dx
+            =-\int_{-1}^1\operatorname{sgn}(x)\phi(x)\,dx.
+$$
+
+ $|x|$ 和 $\operatorname{sgn}x$ 都平方可积, 故属于 $H^1$. 若 $|x|\in H^2$, 则 $\operatorname{sgn}x\in H^1$ 应有连续代表, 但这样的代表在 $(-1,0)$ 必恒为 $-1$, 在 $(0,1)$ 必恒为 $1$, 不可能在零点连续.
+
+2.  对 $x\in[a,a+\delta]$, $u(a)=u(x)-\int_a^xu'$, 所以 $|u(a)|^2\le2|u(x)|^2+2\delta\|u'\|_2^2$. 积分并除以 $\delta$, 得 $|u(a)|^2\le(2/\delta)\|u\|_2^2+2\delta\|u'\|_2^2$. 右端同理, 相加即为正文公式. 给定 $\varepsilon>0$, 取 $\delta=\min\{b-a,\varepsilon/4\}$, 得所需估计, $C_\varepsilon=4/\delta$.
+
+3.  取 $A=-d^2/dx^2$,
+
+$$
+D(A)=\{u\in H^2(0,1):u(0)=0,\ u'(1)+hu(1)=0\},\quad
+            V=\{u\in H^1(0,1):u(0)=0\},
+$$
+
+
+
+$$
+Q[u]=\int_0^1|u'|^2\,dx+h|u(1)|^2.
+$$
+
+ 分部积分给出 $(Au,u)=\int|u'|^2-u'(1)\bar u(1)+u'(0)\bar u(0)=Q[u]$. 对一般 $v\in V$, 同样得到 $(Au,v)=\mathfrak a(u,v)$.
+
+4.  先取 $v\in C_c^\infty$, 得 $(pu')'=qu-rf\in L^2$ 的分布恒等式. 因 $pu'\in L^2$, 它属于 $H^1$; 乘以 $1/p\in C^1$ 得 $u'\in H^1$, 所以 $u\in H^2$. 现在可合法分部积分, 将 $\mathfrak a(u,v)-(f,v)_r$ 化为两端的 Robin 残差乘以端点值. 型域中未规定的端点值可以独立选取 (取相应仿射函数即可), 故各 Robin 残差为零. Dirichlet 条件原已满足. 因此 $u\in D(A)$, $Au=f$.
+
+5.  设 $-u''=\lambda u$ 且 $u(\pi)=\sigma u(0)$, $u'(\pi)=\sigma u'(0)$, $\sigma=\pm1$. 分部积分的端点项相消, 得 $\lambda\|u\|_2^2=\|u'\|_2^2\ge0$, 无负特征值. 若 $\lambda=0$, 则 $u'=0$ 几乎处处, 所以 $u$ 常数. 周期条件允许任意常数, 零特征空间一维; 反周期要求常数等于其相反数, 只有零函数, 故零不是特征值.
+
+## 相关链接
+
+- [[00_SL谱理论讲义总览]]
+- [[06_特征函数正交性与广义Fourier级数|上一章]]
+- [[09_Green函数预解式与紧性|下一章]]

@@ -1,419 +1,656 @@
 ---
-title: Liouville 标准形
-date: 2026-08-23
+title: Liouville 标准形与 Prüfer 变换
+date: '2026-09-22'
 tags:
-  - SL
-  - spectral-theory
-  - liouville-normal-form
-  - change-of-variables
+- SL
+- spectral-theory
+- sl-lecture
 aliases:
-  - Liouville 标准形
-  - Liouville normal form
+- Liouville 标准形
+- Liouville normal form
 stage_type: lecture
-latex_source: 'F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\02_standard_prufer.tex'
-latex_master: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex'
-latex_pdf: 'F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf'
-status: self-reviewed
+latex_source: F:\LaTeX\SL_Spectral_Theory_Lecture\chapters\02_standard_prufer.tex
+latex_master: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.tex
+latex_pdf: F:\LaTeX\SL_Spectral_Theory_Lecture\SL_Spectral_Theory_Lecture_Notes.pdf
+status: audited
 prerequisites:
-  - "[[02_正则Sturm-Liouville问题]]"
+- '[[02_正则Sturm-Liouville问题]]'
+lecture_chapter: 2
 ---
 
-# 03 Liouville 标准形
+# 第 2 章 Liouville 标准形与 Prüfer 变换
+> [!info] 阅读位置
+> 本页对应新版第 2 章. 文件名前缀保留历史讲次; 以 [[00_SL谱理论讲义总览]] 中的新章序阅读.
 
-> [!info] 本讲位置
-> 模块 B：化简与振荡。前置：[[02_正则Sturm-Liouville问题]]；下一讲：[[04_Pruefer变换与特征值存在性]]。
+![[fig_prufer.svg|520]]
 
 
-一般 SL 方程可以通过自变量与因变量的变换，化为更简单的“标准形”
+> [!abstract] 本章目标
+掌握 Liouville 标准形与 Prüfer 相位变换,把二阶方程化为一阶相位方程.
+
+> [!question] 基本问题
+如何把变系数 SL 方程化为最简形式,并用相位描述解的振荡?
+
+## Liouville 标准形
+
+一般 SL 方程可以通过自变量与因变量的变换化为更简单的\"标准形\"
 
 $$
 y''+\bigl[\lambda+q(x)\bigr]y=0.
 $$
 
-> [!abstract] 本讲目标
-> 掌握 Liouville 标准形变换，把一般 SL 方程化为 $y''+[\lambda+q(x)]y=0$。
+ 本节假设 $p,r\in C^2[a,b]$ 且严格为正, $q\in C[a,b]$. 例子中允许在开区间局部作变换, 但不据此调用闭区间的正则结论. 通常采用的变换如下.
 
-> [!question] 基本问题
-> 如何把变系数 SL 方程化为最简形式？
-
-
-## 自变量变换
+### 自变量变换
 
 定义新的自变量
 
 $$
-s=\frac{1}{c}\int_a^x\sqrt{\frac{r(t)}{p(t)}}\,dt,
-\qquad
-c=\int_a^b\sqrt{\frac{r(t)}{p(t)}}\,dt,
+s=\int_a^x\sqrt{\frac{r(t)}{p(t)}}\,dt,
+    \qquad
+    c=\int_a^b\sqrt{\frac{r(t)}{p(t)}}\,dt,
 $$
 
-则 $s\in[0,1]$。这个变换把 $[a,b]$ 映射到 $[0,1]$，并把
+ 则 $s\in[0,c]$. 这个变换把 $[a,b]$ 映射到 $[0,c]$,并把
 
 $$
 -\bigl(p y'\bigr)'+q y=\lambda r y
 $$
 
-化为以 $s$ 为自变量的方程。
+ 化为以 $s$ 为自变量的二阶方程.
 
-## 因变量变换
+### 因变量变换
 
 再令
 
 $$
-y(x)=\bigl[r(x)p(x)\bigr]^{-1/4}z(s),\qquad s\in[0,1].
+z(s)=\bigl[p(x(s))r(x(s))\bigr]^{1/4}y(x(s)),
 $$
 
-经过计算，方程化为
+ 并记
+
+$$
+f(x)=\bigl(p(x)r(x)\bigr)^{1/4},\qquad
+    \theta(x)=s'(x)=\sqrt{\frac{r(x)}{p(x)}},\qquad
+    F(s)=f(x(s)).
+$$
+
+
+
+> [!note] 定理. Liouville 变换的显式公式
+
+上述变换把方程
+
+$$
+-(py')'+qy=\lambda ry
+$$
+
+ 化为
 
 $$
 z''+\bigl[\lambda+Q(s)\bigr]z=0,
+        \qquad
+        Q(s)=-\frac{q(x(s))}{r(x(s))}-\frac{F''(s)}{F(s)}.
 $$
 
-其显式公式如下。
 
-> [!theorem] Liouville 变换的显式公式
-> 设 $f(x)=\bigl(p(x)r(x)\bigr)^{1/4}$，
-> $$
-> s'(x)=\sqrt{\frac{r(x)}{p(x)}},
-> \qquad
-> F(s)=f(x(s)),
-> $$
-> 其中 $x(s)$ 是 $s(x)$ 的反函数。则
-> $$
-> z(s)=\bigl(p(x(s))r(x(s))\bigr)^{1/4}y(x(s))
-> $$
-> 把方程
-> $$
-> -(p y')'+q y=\lambda r y
-> $$
-> 化为
-> $$
-> z''+\bigl[\lambda+Q(s)\bigr]z=0,
-> \qquad
-> Q(s)=-\frac{q(x(s))}{r(x(s))}-\frac{F''(s)}{F(s)}.
-> $$
 
-**证明** 记 $f=(pr)^{1/4}$，$\theta=s'=\sqrt{r/p}$，$A=p f'/f^2$。
-由
+**证明.**
+
+记 $A=pf'/f^2$.由 $p/f^2=\sqrt{p/r}=1/\theta$ 得 $A=f'/\theta$. 写 $y=z(s)/f(x)$,计算
+
 $$
-\frac{p}{f^2}=\frac{p}{\sqrt{pr}}=\sqrt{\frac pr}=\frac1\theta
+py'=fz_s-Az.
 $$
-得 $A=f'/\theta$。写 $y=z(s)/f(x)$，计算
+
+ 对 $x$ 求导,利用 $A\theta=f'$,得
+
 $$
-p y'=f z_s-A z.
+(py')'=f\theta\,z_{ss}-A'z.
 $$
-对 $x$ 求导，利用 $A\theta=f'$，得
-$$
-(p y')'=f\theta\,z_{ss}-A'z.
-$$
-代入方程并除以 $-f\theta$，再用 $f^2\theta=r$，得到
+
+ 代入方程并除以 $-f\theta$,再用 $f^2\theta=r$,得到
+
 $$
 z_{ss}+\left[\lambda-\frac qr-\frac{A'}{f\theta}\right]z=0.
 $$
-最后，由 $A=f'/\theta$ 与 $F(s)=f(x(s))$，
-$$
-F_s=\frac{f'}{\theta}=A,
-\qquad
-F_{ss}=\frac{A'}{\theta},
-$$
-故
+
+ 最后由 $A=f'/\theta$ 得 $F_s=A$,$F_{ss}=A'/\theta$,于是
+
 $$
 \frac{F_{ss}}{F}=\frac{A'}{\theta f}=\frac{A'}{f\theta}.
 $$
-因此 $z''+[\lambda+Q(s)]z=0$，其中 $Q=-q/r-F''/F$。 $\square$
 
-> [!example] 例 2.1：Bessel 型方程
-> 取 $p=1$，$r=x^2$，$q=0$，$x\in(0,1)$。则
-> $$
-> s=\frac{x^2}{2},
-> \qquad
-> F(s)=(2s)^{1/4},
-> \qquad
-> Q(s)=\frac{3}{16s^2}.
-> $$
-> 标准形为
-> $$
-> z''+\left[\lambda+\frac{3}{16s^2}\right]z=0.
-> $$
-> 势在 $s=0$ 处奇异，对应原方程的端点 $x=0$。
+ 故 $Q=-q/r-F''/F$. $\square$
 
-**物理意义** 原方程
-$$
--y''=\lambda x^2y
-$$
-可以看作一根**变密度弦**的振动方程。设弦的张力为 $1$，单位长度密度为
-$\rho(x)=x^2$，横向位移为 $u(x,t)$，则
-$$
-\rho(x)u_{tt}=\bigl(Tu_x\bigr)_x
-\quad\Longrightarrow\quad
-x^2u_{tt}=u_{xx}.
-$$
-令 $u(x,t)=T(t)y(x)$ 分离时间变量，即得
-$-y''=\lambda x^2y$。
-密度在 $x=0$ 处退化为零，所以端点 $x=0$ 是奇异的：质量分布趋于零，
-振动在端点附近的行为需要单独分析。
+> [!example] 例. Bessel 型方程:变密度弦与 Bessel 函数
 
-更一般地，若密度是幂函数 $r(x)=x^{2\alpha}$（$\alpha>-1$），
-则
+取 $p=1$,$r=x^2$,$q=0$,$x\in(0,1)$.则
+
+$$
+s=\frac{x^2}{2},\qquad
+        F(s)=(2s)^{1/4},\qquad
+        Q(s)=\frac{3}{16s^2},
+$$
+
+ 标准形为 $z''+[\lambda+3/(16s^2)]z=0$.势在 $s=0$ 处奇异, 对应原方程端点 $x=0$.
+
+##### 物理意义.
+
+原方程 $-y''=\lambda x^2y$ 可以看作一根**变密度弦**的振动方程: 设张力为 $1$,单位长度密度为 $\rho(x)=x^2$,位移为 $u(x,t)$,则
+
+$$
+\rho(x)u_{tt}=(Tu_x)_x
+    \quad\Longrightarrow\quad
+    x^2u_{tt}=u_{xx}.
+$$
+
+ 令 $u(x,t)=T(t)y(x)$ 分离时间变量,即得 $-y''=\lambda x^2y$. 密度在 $x=0$ 处为零, 超出了本书要求端点也严格正的简化假设. 但原问题仍满足广义正则条件 $1/p,q,r\in L^1$ 且 $r>0$ 几乎处处; 变换后出现奇异势不意味着原端点按所有 SL 定义都奇异. 更一般地,若 $r(x)=x^{2\alpha}$, $\alpha>-1$ 且只在 $x>0$ 作变换, 则
+
 $$
 s=\frac{x^{\alpha+1}}{\alpha+1},
-\qquad
-Q(s)=\frac{\alpha(\alpha+2)}{4(\alpha+1)^2}\frac1{s^2}.
+    \qquad
+    Q(s)=\frac{\alpha(\alpha+2)}{4(\alpha+1)^2}\frac1{s^2};
 $$
-当 $\alpha=1$ 时即为 $Q=3/(16s^2)$。这说明**变密度会产生逆平方势**
-（离心势垒），它是高维径向问题中反复出现的结构。
 
-**数学理解** 变换后的方程
-$$
-z''+\left[\lambda+\frac{3}{16s^2}\right]z=0
-$$
-在 $s=0$ 处有一个不可积的逆平方势。把它写成
-$$
--z''+\frac{c}{s^2}z=\lambda z,
-\qquad
-c=-\frac{3}{16},
-$$
-则端点 $s=0$ 的端点分类为（完整定义见后续奇异 SL 理论）：
-$c<3/4$ 时是极限圆（limit-circle），
-$c\ge3/4$ 时是极限点（limit-point）。这里 $c=-3/16<3/4$，
-属于极限圆情形。因此这个例子**不能直接套用第 08 章的正则完备性定理**，
-它正是后续奇异 SL 理论（模块 3/4）的入口。
+ $\alpha=1$ 给出 $Q=3/(16s^2)$.这说明变密度会产生**逆平方势** (离心势垒),它是高维径向问题中反复出现的结构.
 
-**与 Bessel 函数的联系** 变换后的方程是 Bessel 方程（阶 $\nu=1/4$）
-的标准约化形式。事实上，Bessel 方程
+##### 这里先观察什么.
+
+变换后的 $Q(s)$ 在端点发散, 因此不能把有界势的估计直接搬到此处. 现在只把它当作换元的例子; 第 17 章再解释奇异端点为何需要单独的定义域条件.
+
+##### 与 Bessel 函数的联系.
+
+Bessel 方程
+
 $$
 u''+\frac1t u'+\left(1-\frac{\nu^2}{t^2}\right)u=0
 $$
-作变换 $u(t)=t^{-1/2}v(t)$ 后化为
+
+ 在变换 $u=t^{-1/2}v$ 下化为
+
 $$
 v''+\left[1+\frac{1/4-\nu^2}{t^2}\right]v=0.
 $$
-取 $\nu=1/4$，再令 $t=\sqrt{\lambda}s$，就得到上面的变换后方程。
-因此原方程的解可以写成
+
+ 对 $\lambda>0$, 取 $\nu=1/4$,$t=\sqrt{\lambda}s$,即得本例的变换后方程. 因此原方程的解可写成
+
 $$
 y(x)=\sqrt{x}\,J_{1/4}\!\left(\frac{\sqrt{\lambda}}2x^2\right)
 $$
-与第二类 Bessel 函数的线性组合。若在 $x=1$ 处给定边界条件、
-在 $x=0$ 处要求解有界，就得到一个奇异 SL 特征值问题；
-特征函数由 $J_{1/4}$ 给出，正交性权重为 $x^2$。
 
-> [!example] 例 2.2：Legendre 方程
-> 取 $p=1-x^2$，$q=0$，$r=1$，$x\in(-1,1)$。则
-> $$
-> s=\arcsin x,
-> \qquad
-> F(s)=\sqrt{\cos s},
-> \qquad
-> Q(s)=\frac12+\frac14\tan^2 s.
-> $$
-> 标准形为
-> $$
-> z''+\left[\lambda+\frac12+\frac14\tan^2 s\right]z=0,
-> \qquad
-> s\in\left(-\frac\pi2,\frac\pi2\right).
-> $$
-> $s=\pm\pi/2$ 处势发散，对应 Legendre 方程在 $x=\pm1$ 的奇异端点。
+ 与 $\sqrt{x}J_{-1/4}(\sqrt{\lambda}x^2/2)$ 的线性组合. 两支在 $x=0$ 都有界, 所以仅要求有界不能选出唯一边界条件. 若另加 $y(0)=0$, 才选出 $J_{1/4}$ 这一支; 右端条件随后决定允许的 $\lambda$.
 
-**物理意义** Legendre 方程
+> [!example] 例. Legendre 方程:球面调和与 Legendre 多项式
+
+取 $p=1-x^2$, $q=0$, $r=1$, $x\in(-1,1)$. 在这个局部例子中把积分常数选为 $s(0)=0$, 则
+
 $$
--\bigl((1-x^2)y'\bigr)'=\lambda y
+s=\arcsin x,\qquad
+        F(s)=\sqrt{\cos s},\qquad
+        Q(s)=\frac12+\frac14\tan^2s.
 $$
-是 Laplace 方程在球坐标下分离变量得到的**角向方程**。
-取 $x=\cos\theta$，其中 $\theta$ 是球坐标的极角，则角向本征方程为
+
+ 标准形为 $z''+[\lambda+\frac12+\frac14\tan^2s]z=0$, $s\in(-\pi/2,\pi/2)$;奇异端点 $x=\pm1$ 对应 $s=\pm\pi/2$.
+
+##### 物理意义.
+
+Legendre 方程 $-((1-x^2)y')'=\lambda y$ 是 Laplace 方程在球坐标下 分离变量得到的**角向方程**.取 $x=\cos\theta$($\theta$ 为极角), 角向本征方程为
+
 $$
 \frac1{\sin\theta}\frac{d}{d\theta}
-\left(\sin\theta\frac{dY}{d\theta}\right)
-+\lambda Y=0,
+    \left(\sin\theta\frac{dY}{d\theta}\right)+\lambda Y=0,
 $$
-令 $x=\cos\theta$ 即化为 Legendre 方程。此时
-$$
-\lambda=n(n+1),\qquad n=0,1,2,\dots,
-$$
-特征函数是 Legendre 多项式 $P_n(\cos\theta)$。它们对应球面调和函数、
-角动量量子数、静电场与引力场的多极展开，以及氢原子角向方程。
-一维问题中参数 $n$ 的物理含义是角动量大小，而 $2n+1$ 重简并
-来自磁量子数。
 
-**数学理解** 变换后
-$$
-Q(s)=\frac12+\frac14\tan^2 s.
-$$
-当 $s\to\pm\pi/2$ 时，令 $u=\pi/2\mp s$，则
-$\tan s\sim1/u$，所以
-$$
-Q(s)\sim\frac1{4u^2}.
-$$
-方程在端点附近化为
-$$
--z''-\frac{1}{4u^2}z=\lambda z,
-$$
-即 $c=-1/4<3/4$，端点同样属于**极限圆**情形（完整定义见后续奇异 SL 理论）。
-Legendre 方程的两个端点 $x=\pm1$ 都是奇异端点，且两个线性无关解
-在端点附近都平方可积：一个趋于常数，另一个具有对数发散
-（Legendre 函数 $Q_n$）。Legendre 多项式 $P_n$ 正是被
-“两端有界”这一要求选出的解。
+ 令 $x=\cos\theta$ 即化为 Legendre 方程.此时 $\lambda=n(n+1)$,$n=0,1,2,\dots$,特征函数是 Legendre 多项式 $P_n(\cos\theta)$,对应球面调和函数,角动量量子数,静电场与引力场的 多极展开,以及氢原子的角向方程.
 
-变换后的特征函数可以写成
+##### 这里先观察什么.
+
+$p=1-x^2$ 在端点退化, 且变换后 $Q$ 发散. 因此第 7 章的正则算子证明不能直接套用. 不过 Legendre 多项式的 $L^2(-1,1)$ 完备性可以直接由多项式逼近证明, 不必先解决一般奇异扩张; 第 13 章将给出这条途径. 奇异算子的定义域问题另见第 17 章.
+
+##### 与其他特殊函数的联系.
+
+把权函数换成 $(1-x)^\alpha(1+x)^\beta$ 就得到 Jacobi 多项式, Legendre 多项式是其特例;更高维球面角向问题给出 Gegenbauer 多项式. 这些正交多项式与 Bessel 函数一道构成常见的数学物理特殊函数; Bessel 函数本身一般不是多项式.
+
+> [!note] 注. 两个例子的共同结构
+
+换元可以简化方程, 也可能把端点行为显露为奇异势. 求出微分方程的解,选定算子定义域,证明所选函数族完备, 是三个不同步骤.
+
+> [!note] 注. 物理动机:圆膜,悬挂链与 Bessel 零点
+
+圆膜自由振动 $u_{tt}=c^2\Delta u$ 的径向方程为 $-(rR')'+(m^2/r)R=\lambda rR$,即 Bessel 方程; 特征值由 $J_m$ 的零点决定,节线(振动中始终不动的曲线)是同心圆与直径, 最低音对应第一个零点. 圆柱热传导与圆波导也出现同一方程. 悬挂链的张力 $T(x)=\rho gx$,方程为 $-(xy')'=\lambda y$, 解由 $J_0$ 给出,基频由 $J_0$ 的第一个零点决定.
+
+## Prüfer 变换:把二阶方程变成一阶相位方程
+
+> [!note] 注. 物理动机:无限深势阱与弦的谐波
+
+宽度为 $L$ 的无限深势阱满足 $-\psi''=E\psi$,$\psi(0)=\psi(L)=0$. 解 $\psi_n=\sin(n\pi x/L)$,能级 $E_n=(n\pi/L)^2$; 第 $n$ 个态的零点数为 $n-1$,对应 Prüfer 相位穿过 $n-1$ 个零点. 两端固定弦的模态同为 $\sin(n\pi x/L)$,频率 $f_n=nc/(2L)$; 管乐器与弦乐器的谐波列都是这一结点计数的物理表现.
+
+### 极坐标表示
+
+考虑标准形
+
 $$
-z_n(s)=\sqrt{\cos s}\,P_n(\sin s),
-\qquad
-\lambda_n=n(n+1).
+y''+\bigl[\lambda+q(x)\bigr]y=0.
 $$
-这说明 Legendre 多项式正是变换后奇异 SL 问题的特征函数；
-Legendre 展开
+
+
+
+> [!note] 定义. Prüfer 振幅与连续相位
+
+设 $\varphi(x,\lambda)$ 是一个非零实解. 引入极坐标
+
 $$
-f(x)\sim\sum_{n=0}^{\infty}c_nP_n(x)
+\begin{cases}
+        \varphi(x,\lambda)=\rho(x,\lambda)\sin\theta(x,\lambda),\\[2mm]
+        \varphi'(x,\lambda)=\rho(x,\lambda)\cos\theta(x,\lambda),
+    \end{cases}
 $$
-在 $L^2(-1,1)$ 中完备，但它的完备性**不能由第 08 章的正则理论
-直接覆盖**，需要奇异自伴扩张与 Friedrichs 扩张等工具
-（模块 3/4）。这也是 Legendre 方程在 SL 理论中的典型地位：
-它是最经典的“正则理论之外”的完备正交系。
 
-**与其他特殊函数的联系** 将权函数换成 $(1-x)^\alpha(1+x)^\beta$
-就得到 Jacobi 多项式；Legendre 多项式是其特例。更高维球面上的
-角向问题则给出 Gegenbauer 多项式。它们与 Bessel 函数一起构成
-数学物理中最重要的几族正交多项式。
+ 其中 $\rho>0$, $\theta$ 为连续提升的相位角. 局部可写
 
-> [!note] 物理来源：圆膜、悬挂链与 Bessel 零点
-> 圆膜自由振动 $u_{tt}=c^2\Delta u$ 分离变量后，径向方程为
-> $-(rR')'+\frac{m^2}{r}R=\lambda rR$，即 Bessel 方程；
-> 特征值由 $J_m$ 的零点决定，节线（振动中始终不动的曲线）是同心圆与直径，
-> 最低音对应第一个零点。
-> 圆柱中的热传导与圆波导也会出现同一方程。
-> 另一条经典例子是悬挂链：张力 $T(x)=\rho gx$，方程为
-> $-(xy')'=\lambda y$，解由 $J_0$ 给出，基频由 $J_0$ 的第一个零点决定。
-> 这些例子说明 Bessel 函数不是抽象构造，而是圆对称系统的通用语言。
+$$
+\theta(x,\lambda)=\arctan\frac{\varphi(x,\lambda)}{\varphi'(x,\lambda)}.
+$$
 
-> [!note] 两个例子的共同结构
-> Bessel 型方程与 Legendre 方程都来自物理分离变量：
-> 前者是变密度弦/高维径向问题，后者是球面角向问题。
->  Liouville 变换后，两者都在奇异端点产生**逆平方势**（离心势垒）：
-> Bessel 型方程在 $x=0$ 属于极限圆（$x=1$ 为正则端点），
-> Legendre 方程在 $x=\pm1$ 两端都属于极限圆。
-> 特征函数分别由 Bessel 函数 $J_{1/4}$ 与 Legendre 多项式 $P_n$ 给出。
-> 它们说明正则理论之外还有一大类由奇异端点产生的完备正交系，
-> 这正是模块 3/4 的研究对象。
 
-> [!note] 结论
-> 只需研究
-> $$
-> y''+\bigl[\lambda+q(x)\bigr]y=0.
-> $$
-> 这解释了为何很多 SL 谱理论直接以这种形式展开。
 
-> [!tip] 与 Prüfer 变换的连接
-> 标准形 $y''+[\lambda+q(x)]y=0$ 是 [[04_Pruefer变换与特征值存在性|Prüfer 变换]] 的出发点。
+> [!note] 命题.
 
-## 参考
+在上述极坐标表示下,$\theta$ 满足一阶方程
 
-> [!info] 标准参考（Zettl）
-> - A. Zettl, *Sturm–Liouville Theory* 对一般形式 $-(py')'+qy=\lambda wy$ 直接处理，不先化标准形；记号约定见 Ch 3 §3.1、Ch 4 §4.1。
-> - A. Zettl, Ch 6 §6.3：振动判别法，与标准形下的系数比较互为参照。
-> - 完整章节映射见 [[Zettl参考映射]]。
+$$
+\theta'=\cos^2\theta+\bigl[\lambda+q(x)\bigr]\sin^2\theta.
+$$
 
-## 本讲小结
 
-自变量与因变量变换消去一阶项与权函数，把问题化为标准形，后续只需研究标准形。
+
+**证明.**
+
+由 $\theta=\arctan(\varphi/\varphi')$,
+
+$$
+\theta'=\frac{\varphi'^2-\varphi\varphi''}{\varphi'^2+\varphi^2}.
+$$
+
+ 因为 $\varphi''=-[\lambda+q]\varphi$,且 $\varphi'^2+\varphi^2=\rho^2$,所以
+
+$$
+\theta'
+        =\frac{\rho^2\cos^2\theta+\bigl[\lambda+q\bigr]\rho^2\sin^2\theta}{\rho^2}
+        =\cos^2\theta+\bigl[\lambda+q\bigr]\sin^2\theta.
+$$
+
+ $\square$
+
+### 边界条件变成角度方程
+
+若左端边界条件为
+
+$$
+\varphi(a)\cos\alpha-\varphi'(a)\sin\alpha=0,
+$$
+
+ 则代入 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 得
+
+$$
+\sin\theta\cos\alpha-\cos\theta\sin\alpha=0
+    \quad\Longleftrightarrow\quad
+    \sin(\theta-\alpha)=0,
+$$
+
+ 故
+
+$$
+\theta(a,\lambda)=\alpha+k\pi,\qquad k\in\mathbb{Z}.
+$$
+
+ 同理,右端边界条件给出
+
+$$
+\theta(b,\lambda)=\beta+k\pi,\qquad k\in\mathbb{Z}.
+$$
+
+ 因此特征值问题等价于:寻找 $\lambda$,使得从初始相位 $\theta(a)=\alpha$ 出发 的 $\theta(x,\lambda)$ 在 $x=b$ 处恰好落在 $\beta+k\pi$ 上.
+
+### 特征值的单调性与存在性
+
+> [!note] 定理. 相位单调性
+
+设 $q$ 连续有界,$\theta(x,\lambda)$ 由初值 $\theta(a,\lambda)=\alpha$ 确定.则对固定的 $x>a$, $\theta(x,\lambda)$ 关于 $\lambda$ 严格递增.
+
+证明的要点如下:将 $\theta'$ 的方程对 $\lambda$ 求导,得到
+
+$$
+\left(\partial_\lambda\theta\right)'
+    =\bigl[\lambda+q(x)-1\bigr]\sin(2\theta)\,\partial_\lambda\theta+\sin^2\theta,
+$$
+
+ 且 $\partial_\lambda\theta(a,\lambda)=0$.由此可推出
+
+$$
+\partial_\lambda\theta(x,\lambda)=\int_a^x\sin^2\theta(t,\lambda)\,
+    \exp\!\left(\int_t^x \bigl[\lambda+q(s)-1\bigr]\sin(2\theta(s,\lambda))\,ds\right)dt>0.
+$$
+
+ 因此在右端点定义
+
+$$
+w(\lambda):=\theta(b,\lambda),
+$$
+
+ 则 $w$ 是关于 $\lambda$ 的严格递增函数.
+
+进一步需要知道 $w(\lambda)$ 在 $\lambda\to+\infty$ 时的增长.
+
+> [!note] 引理. 相位增长下界
+
+设 $q\in L^1(a,b)$,$\theta(a,\lambda)=\alpha$.则存在只依赖 $\alpha,a,b$ 的常数 $C$,使得对 $\lambda>0$,
+
+$$
+\theta(b,\lambda)
+        \ge\sqrt{\lambda}(b-a)-C
+        -\frac{1}{\sqrt{\lambda}}\int_a^b|q(x)|\,dx.
+$$
+
+ 特别地,$\theta(b,\lambda)\to+\infty$($\lambda\to+\infty$).
+
+**证明.**
+
+令 $\phi$ 由 $\tan\phi=\sqrt{\lambda}\tan\theta$ 定义,取连续分支使 $|\phi-\theta|<\pi/2$.求导得
+
+$$
+\sec^2\phi\,\phi'=\sqrt{\lambda}\sec^2\theta\,\theta'.
+$$
+
+ 由 $\sec^2\phi=1+\lambda\tan^2\theta$ 及相位方程可得
+
+$$
+\phi'=\sqrt{\lambda}+\frac{q}{\sqrt{\lambda}}\sin^2\phi.
+$$
+
+ 积分并用 $\sin^2\phi\le1$ 得
+
+$$
+\phi(b,\lambda)\ge\phi(a,\lambda)+\sqrt{\lambda}(b-a)
+        -\frac{1}{\sqrt{\lambda}}\int_a^b|q|.
+$$
+
+ 又 $|\phi(a,\lambda)-\alpha|<\pi/2$,故 $\phi(a,\lambda)$ 有界; 由 $\theta\ge\phi-\pi/2$ 即得所述下界. $\square$
+
+> [!note] 定理. 特征值存在性
+
+$w(\lambda)=\theta(b,\lambda)$ 连续且严格递增,并且 $w(\lambda)\to+\infty$($\lambda\to+\infty$). 因此对每个充分大的整数 $k$,方程
+
+$$
+w(\lambda)=\beta+k\pi
+$$
+
+ 恰有一个解.这些解组成趋于 $+\infty$ 的离散特征值序列 (按实际出现的指标编号:允许 $k=0$ 的边界条件从 $\lambda_0$ 开始, Dirichlet 问题从 $\lambda_1$ 开始).
+
+> [!note] 推论. 结点计数
+
+若 $\lambda+q(x)>0$ 于 $[a,b]$, 则 $\theta(x,\lambda)$ 关于 $x$ 严格递增. 设 $\theta(a,\lambda)=0$ 且 $\theta(b,\lambda)=k\pi$,$k\in\mathbb N$, 则相应特征函数在 $(a,b)$ 内恰有 $k-1$ 个零点.
+
+**证明.**
+
+当 $\lambda+q>0$ 时, $\theta'=\cos^2\theta+(\lambda+q)\sin^2\theta>0$, 故 $\theta$ 严格递增. 零点对应 $\theta\equiv0\pmod\pi$;从 $0$ 到 $k\pi$ 严格递增的相位 恰好穿过 $\pi,2\pi,\dots,(k-1)\pi$ 各一次,故零点数为 $k-1$. $\square$
 
 ## 习题
 
-> [!question] 3.1
-> 当 $p=r=1$，$q=0$，$a=0$，$b=1$ 时，计算 $s(x)$ 与 $c$。
+1.  当 $p=r=1$,$q=0$ 时,计算 Liouville 变换中的 $s$ 与 $c$, 并验证标准形就是原方程.
 
-> [!question] 3.2
-> 验证在 $p=r=1$ 时，Liouville 标准形就是原方程本身。
+2.  设 $p=1$,$r=x^2$,求自变量变换 $s=s(x)$.
 
-> [!question] 3.3
-> 设 $p(x)=1$，$r(x)=x^2$，求自变量变换 $s=s(x)$。
+3.  利用 $A=f'/\theta$ 证明 $A'/(f\theta)=F''/F$, 其中 $F(s)=f(x(s))$.
 
-> [!question] 3.4
-> 利用 $A=f'/\theta$ 证明
-> $$
-> \frac{A'}{f\theta}=\frac{F''}{F},
-> $$
-> 其中 $F(s)=f(x(s))$。
+4.  对 $p=1$,$r=x^2$,$q=0$,计算 $F(s)$ 与 $Q(s)$, 并写出标准形.
 
-> [!question] 3.5
-> 对 $p=1$，$r=x^2$，$q=0$，$x\in(0,1)$，
-> 计算 $s(x)$、$F(s)$、$Q(s)$，并写出标准形。
+5.  对 Legendre 方程 $-((1-x^2)y')'=\lambda y$, $x\in(-1,1)$,计算 $s(x)$,$F(s)$,$Q(s)$, 并说明为什么变换后的势在 $s=\pm\pi/2$ 发散.
 
-> [!question] 3.6
-> 对 Legendre 方程
-> $$
-> -\bigl((1-x^2)y'\bigr)'=\lambda y,
-> \qquad x\in(-1,1),
-> $$
-> 计算 $s(x)$、$F(s)$、$Q(s)$，并说明为什么变换后的势在
-> $s=\pm\pi/2$ 发散。
+6.  由 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 推导 $\theta'=\cos^2\theta+[\lambda+q(x)]\sin^2\theta$.
 
-> [!success]- 解答
-> **3.1**
-> $$
-> c=\int_0^1 1\,dt=1,\qquad
-> s(x)=\int_0^x 1\,dt=x.
-> $$
-> 因此 $s\in[0,1]$。
->
-> **3.2** 直接代入可得 $z(s)=y(x)$，且 $Q(s)=0$，所以标准形
-> $z''+\lambda z=0$ 与原方程一致。
->
-> **3.3**
-> $$
-> s(x)=\frac{1}{c}\int_0^x t\,dt=\frac{x^2}{2c},\qquad
-> c=\int_0^1 t\,dt=\frac12,
-> $$
-> 所以 $s(x)=x^2$。
+7.  证明边界条件 $y(b)\cos\beta-y'(b)\sin\beta=0$ 等价于 $\theta(b)=\beta+k\pi$.
 
->
-> **3.4** 因为 $F_s=f'/\theta=A$，所以
-> $$
-> F_{ss}=\frac{dA}{ds}=\frac{A'}{\theta}.
-> $$
-> 又 $F=f$，故
-> $$
-> \frac{F_{ss}}{F}=\frac{A'}{\theta f}=\frac{A'}{f\theta}.
-> $$
->
-> **3.5** 由 $s'(x)=x$ 得 $s=x^2/2$，$x=\sqrt{2s}$，
-> $$
-> F(s)=\bigl(x^2\bigr)^{1/4}=x^{1/2}=(2s)^{1/4}.
-> $$
-> 计算
-> $$
-> F'(s)=\frac14(2s)^{-3/4}\cdot2=\frac12(2s)^{-3/4},
-> $$
-> $$
-> F''(s)=-\frac38(2s)^{-7/4}\cdot2
-> =-\frac34(2s)^{-7/4}.
-> $$
-> 因此
-> $$
-> \frac{F''}{F}
-> =-\frac34(2s)^{-7/4}(2s)^{-1/4}
-> =-\frac34(2s)^{-2}
-> =-\frac{3}{16s^2},
-> $$
-> 故 $Q(s)=3/(16s^2)$，标准形为
-> $z''+[\lambda+3/(16s^2)]z=0$。
->
-> **3.6** 由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$，
-> 所以 $x=\sin s$，$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$。
-> 记 $c=\cos s$，则
-> $$
-> F'=-\frac12\sin s\,c^{-1/2},
-> $$
-> $$
-> F''=-\frac12c^{1/2}-\frac14\sin^2s\,c^{-3/2}.
-> $$
-> 因此
-> $$
-> \frac{F''}{F}
-> =-\frac12\sec^2s-\frac14\tan^2s
-> =-\frac12-\frac14\tan^2s,
-> $$
-> 故
-> $$
-> Q(s)=\frac12+\frac14\tan^2s.
-> $$
-> 当 $s\to\pm\pi/2$ 时 $\tan^2s\to+\infty$，势发散；
-> 这正对应原方程在 $x=\pm1$ 处 $p=1-x^2$ 退化的奇异端点。
+8.  对 $q\equiv0$,$[a,b]=[0,\pi]$, 取两端 Dirichlet 条件及 $\theta(0,\lambda)=0$. 对 $\lambda>0$ 写出连续相位 $\theta(x,\lambda)$, 求首个特征值, 并说明 $\lambda\le0$ 被排除.
+
+9.  验证变换 $\tan\phi=\sqrt{\lambda}\tan\theta$ 把相位方程变为 $\phi'=\sqrt{\lambda}+(q/\sqrt{\lambda})\sin^2\phi$, 并用它证明 $\theta(b,\lambda)\to+\infty$.
+
+本节习题解答见本页末的习题解答.
+
+##### 习题提示.
+
+\(3\) 由 $F_s=f'/\theta=A$ 得 $F_{ss}=A'/\theta$. (4) $F=(2s)^{1/4}$,$F''/F=-3/(16s^2)$,故 $Q=3/(16s^2)$. (5) $s=\arcsin x$,$F=\sqrt{\cos s}$, $F''/F=-\frac12-\frac14\tan^2s$,故 $Q=\frac12+\frac14\tan^2s$. (8) 取 $\sqrt\lambda\cos(\sqrt\lambda x)+i\sin(\sqrt\lambda x)$ 的连续辐角, 初值为零. 主值 $\arctan$ 仅在局部给出相位模 $\pi$ 的表达式. $\theta(\pi)=k\pi$ 给出 $\lambda=k^2$, $k\ge1$. (9) 积分 $\phi'$ 的表达式并用 $\sin^2\phi\le1$; $\phi(a,\lambda)$ 有界,故下界随 $\sqrt{\lambda}$ 增长. $\square$
+
+## 本章小结
+
+通过自变量与因变量变换,一般 SL 方程化为标准形;Prüfer 变换把二阶方程变成一阶相位方程,为特征值计数与存在性提供工具.
+
+## 标准参考与延伸阅读
+
+- A. Zettl, *Sturm--Liouville Theory*, Ch. 4 §4.5, Theorem 4.5.1--4.5.3: Prüfer 变换的存在唯一性与相位方程.
+
+- A. Zettl, Ch. 4 §4.6:分离边界条件下的特征值存在性与结点计数.
+
+- A. Zettl, Ch. 3 §3.2:特征值的超越方程刻画.
+
+## 习题解答
+
+#### 习题 2.1 的解答.
+
+在一般区间 $[a,b]$, $c=b-a$, $s=x-a$, $F=1$, $Q=0$. 因而 $z''+\lambda z=0$.
+
+#### 习题 2.2 的解答.
+
+取 $s(0)=0$, 则 $s=\int_0^x t\,dt=x^2/2$, $c=1/2$. 不能同时把 $s$ 写成 $x^2$ 而不缩放谱参数.
+
+#### 习题 2.3 的解答.
+
+因为 $F_s=f'/\theta=A$,所以
+
+
+
+$$
+F_{ss}=\frac{dA}{ds}=\frac{A'}{\theta}.
+$$
+
+
+
+又 $F=f$,故
+
+
+
+$$
+\frac{F_{ss}}{F}=\frac{A'}{\theta f}=\frac{A'}{f\theta}.
+$$
+
+
+
+#### 习题 2.4 的解答.
+
+由 $s'(x)=x$ 得 $s=x^2/2$,$x=\sqrt{2s}$,
+
+
+
+$$
+F(s)=\bigl(x^2\bigr)^{1/4}=x^{1/2}=(2s)^{1/4}.
+$$
+
+
+
+计算
+
+
+
+$$
+F'(s)=\frac14(2s)^{-3/4}\cdot2=\frac12(2s)^{-3/4},
+$$
+
+
+
+
+
+$$
+F''(s)=-\frac38(2s)^{-7/4}\cdot2
+=-\frac34(2s)^{-7/4}.
+$$
+
+
+
+因此
+
+
+
+$$
+\frac{F''}{F}
+=-\frac34(2s)^{-7/4}(2s)^{-1/4}
+=-\frac34(2s)^{-2}
+=-\frac{3}{16s^2},
+$$
+
+
+
+故 $Q(s)=3/(16s^2)$,标准形为 $z''+[\lambda+3/(16s^2)]z=0$.
+
+#### 习题 2.5 的解答.
+
+由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$, 所以 $x=\sin s$,$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$. 记 $c=\cos s$,则
+
+
+
+$$
+F'=-\frac12\sin s\,c^{-1/2},
+$$
+
+
+
+
+
+$$
+F''=-\frac12c^{1/2}-\frac14\sin^2s\,c^{-3/2}.
+$$
+
+
+
+因此
+
+
+
+$$
+\frac{F''}{F}
+=-\frac12-\frac14\tan^2s
+=-\frac12-\frac14\tan^2s,
+$$
+
+
+
+故
+
+
+
+$$
+Q(s)=\frac12+\frac14\tan^2s.
+$$
+
+
+
+当 $s\to\pm\pi/2$ 时 $\tan^2s\to+\infty$,势发散; 这正对应原方程在 $x=\pm1$ 处 $p=1-x^2$ 退化的奇异端点.
+
+#### 习题 2.6 的解答.
+
+由 $\theta=\arctan(\varphi/\varphi')$,
+
+
+
+$$
+\theta'=\frac{\varphi'^2-\varphi\varphi''}{\varphi'^2+\varphi^2}.
+$$
+
+
+
+代入 $\varphi''=-[\lambda+q]\varphi$ 以及 $\varphi'^2+\varphi^2=\rho^2$,即得结论.
+
+#### 习题 2.7 的解答.
+
+代入 $y=\rho\sin\theta$,$y'=\rho\cos\theta$ 得
+
+
+
+$$
+\sin\theta\cos\beta-\cos\theta\sin\beta
+=\sin(\theta-\beta)=0,
+$$
+
+
+
+因此 $\theta(b)=\beta+k\pi$,$k\in\mathbb{Z}$.
+
+#### 习题 2.8 的解答.
+
+当 $q=0$ 且 $\lambda>0$ 时, 令 $k=\sqrt\lambda$. 满足左端条件的解及连续相位可写为
+
+
+
+$$
+y=\sin(kx),\qquad \theta(x)=\operatorname{Arg}_{\mathrm{cont}}(k\cos(kx)+i\sin(kx)),\quad\theta(0)=0.
+$$
+
+
+
+Dirichlet 条件 $y(\pi)=0$ 要求 $k\pi=j\pi$, $j\in\mathbb N_+$, 即 $\lambda=j^2$, 故正特征值为 $1,4,9,\ldots$. 对任意两端为零的本征函数, 分部积分得 $\int|y'|^2=\lambda\int|y|^2$, 排除 $\lambda<0$; 若 $\lambda=0$, 则 $y$ 为常数, 两端为零迫使它平凡. 因此最小特征值为 $\lambda_1=1$. 连续辐角会越过主值分支, 不能一直用主值 $\arctan$ 代替.
+
+#### 习题 2.9 的解答.
+
+由 $\tan\phi=\sqrt{\lambda}\tan\theta$ 得
+
+
+
+$$
+\sec^2\phi\,\phi'=\sqrt{\lambda}\sec^2\theta\,\theta'.
+$$
+
+
+
+又 $\sec^2\phi=1+\lambda\tan^2\theta$,且
+
+
+
+$$
+\theta'=\cos^2\theta+(\lambda+q)\sin^2\theta
+=\frac{1+(\lambda+q)\tan^2\theta}{\sec^2\theta},
+$$
+
+
+
+所以
+
+
+
+$$
+\phi'
+=\sqrt{\lambda}\frac{1+(\lambda+q)\tan^2\theta}
+{1+\lambda\tan^2\theta}
+=\sqrt{\lambda}+\frac{q}{\sqrt{\lambda}}\sin^2\phi.
+$$
+
+
+
+把上式在 $[a,b]$ 上积分:
+
+
+
+$$
+\phi(b,\lambda)
+\ge\phi(a,\lambda)+\sqrt{\lambda}(b-a)
+-\frac{1}{\sqrt{\lambda}}\int_a^b|q|.
+$$
+
+
+
+由于 $\phi(a,\lambda)$ 有界,右端当 $\lambda\to+\infty$ 时趋于 $+\infty$.又 $|\phi-\theta|<\pi/2$,故 $\theta(b,\lambda)\to+\infty$.于是对每个充分大的整数 $k$, 连续严格递增函数 $w(\lambda)=\theta(b,\lambda)$ 必与水平线 $\beta+k\pi$ 相交一次,给出一个特征值;$k$ 任意大, 故特征值有无穷多个且趋于 $+\infty$.
+
+## 相关链接
+
+- [[00_SL谱理论讲义总览]]
+- [[02_正则Sturm-Liouville问题|上一章]]
+- [[05_Sturm比较定理与零点交错|下一章]]

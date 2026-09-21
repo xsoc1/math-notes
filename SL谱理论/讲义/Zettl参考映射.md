@@ -88,14 +88,10 @@ Anton Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol
 
 15. D. Frymark and C. Liaw, *Perspectives on General Left-Definite Theory*, arXiv:2012.01014v1; 收于 *From Operator Theory to Orthogonal Polynomials, Combinatorics, and Number Theory*, 2021. <https://arxiv.org/abs/2012.01014>.
 
-## 引用约定
+## 来源层次
 
-- 章节级引用写作\"Zettl, §4.5\";
+Hilbert 空间中的投影,基与稳定性属于经典理论. 第17章使用的 Schauder 基定义与 Riesz 基刻画, 可参阅 C. Heil, *A Basis Theory Primer*, 1998年电子稿, Definition 4.5 与 Theorem 11.9(a),(d), <https://heil.math.gatech.edu/papers/bases.pdf>. 这里定位的是该电子稿, 不是2011年扩充版的节号; 正文所用刻画给出完整证明.
 
-- 定理级引用只用于已核对过的定理,写作\"Zettl, Theorem 4.5.1\";
-
-- 第 14--16 章的研究案例来自书末注记所列项目文稿, 不写成经典无来源结论;
-
-- 本讲义不复制 Zettl 的原文段落,所有证明均在正文中重写或标明证明路线.
+第14--16章的具体稀疏族结果来自书末注明的未刊研究文稿, 不能与经典一般理论或已发表论文中的问题陈述混为一谈. 一般谱测度,完整插值与扩张理论的阅读入口位于第17章; 书中的引用定理与已在正文展开的证明分别标明.
 
 返回 [[00_SL谱理论讲义总览]].

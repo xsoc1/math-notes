@@ -398,23 +398,41 @@ $$
 
 ## 习题
 
-1.  当 $p=r=1$,$q=0$ 时,计算 Liouville 变换中的 $s$ 与 $c$, 并验证标准形就是原方程.
+##### 习题 2.1
 
-2.  设 $p=1$,$r=x^2$,求自变量变换 $s=s(x)$.
+**[基础]** 当 $p=r=1$,$q=0$ 时,计算 Liouville 变换中的 $s$ 与 $c$, 并验证标准形就是原方程.
 
-3.  利用 $A=f'/\theta$ 证明 $A'/(f\theta)=F''/F$, 其中 $F(s)=f(x(s))$.
+##### 习题 2.2
 
-4.  对 $p=1$,$r=x^2$,$q=0$,计算 $F(s)$ 与 $Q(s)$, 并写出标准形.
+**[基础]** 设 $p=1$,$r=x^2$,求自变量变换 $s=s(x)$.
 
-5.  对 Legendre 方程 $-((1-x^2)y')'=\lambda y$, $x\in(-1,1)$,计算 $s(x)$,$F(s)$,$Q(s)$, 并说明为什么变换后的势在 $s=\pm\pi/2$ 发散.
+##### 习题 2.3
 
-6.  由 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 推导 $\theta'=\cos^2\theta+[\lambda+q(x)]\sin^2\theta$.
+**[主线]** 利用 $A=f'/\theta$ 证明 $A'/(f\theta)=F''/F$, 其中 $F(s)=f(x(s))$.
 
-7.  证明边界条件 $y(b)\cos\beta-y'(b)\sin\beta=0$ 等价于 $\theta(b)=\beta+k\pi$.
+##### 习题 2.4
 
-8.  对 $q\equiv0$,$[a,b]=[0,\pi]$, 取两端 Dirichlet 条件及 $\theta(0,\lambda)=0$. 对 $\lambda>0$ 写出连续相位 $\theta(x,\lambda)$, 求首个特征值, 并说明 $\lambda\le0$ 被排除.
+**[主线]** 对 $p=1$,$r=x^2$,$q=0$,计算 $F(s)$ 与 $Q(s)$, 并写出标准形.
 
-9.  验证变换 $\tan\phi=\sqrt{\lambda}\tan\theta$ 把相位方程变为 $\phi'=\sqrt{\lambda}+(q/\sqrt{\lambda})\sin^2\phi$, 并用它证明 $\theta(b,\lambda)\to+\infty$.
+##### 习题 2.5
+
+**[拓展]** 对 Legendre 方程 $-((1-x^2)y')'=\lambda y$, $x\in(-1,1)$,计算 $s(x)$,$F(s)$,$Q(s)$, 并说明为什么变换后的势在 $s=\pm\pi/2$ 发散.
+
+##### 习题 2.6
+
+**[主线]** 由 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 推导 $\theta'=\cos^2\theta+[\lambda+q(x)]\sin^2\theta$.
+
+##### 习题 2.7
+
+**[主线]** 证明边界条件 $y(b)\cos\beta-y'(b)\sin\beta=0$ 等价于 $\theta(b)=\beta+k\pi$.
+
+##### 习题 2.8
+
+**[主线]** 对 $q\equiv0$,$[a,b]=[0,\pi]$, 取两端 Dirichlet 条件及 $\theta(0,\lambda)=0$. 对 $\lambda>0$ 写出连续相位 $\theta(x,\lambda)$, 求首个特征值, 并说明 $\lambda\le0$ 被排除.
+
+##### 习题 2.9
+
+**[拓展]** 验证变换 $\tan\phi=\sqrt{\lambda}\tan\theta$ 把相位方程变为 $\phi'=\sqrt{\lambda}+(q/\sqrt{\lambda})\sin^2\phi$, 并用它证明 $\theta(b,\lambda)\to+\infty$.
 
 本节习题解答见本页末的习题解答.
 
@@ -438,15 +456,15 @@ $$
 
 #### 习题 2.1 的解答.
 
-在一般区间 $[a,b]$, $c=b-a$, $s=x-a$, $F=1$, $Q=0$. 因而 $z''+\lambda z=0$.
+**[基础]** 在一般区间 $[a,b]$, $c=b-a$, $s=x-a$, $F=1$, $Q=0$. 因而 $z''+\lambda z=0$.
 
 #### 习题 2.2 的解答.
 
-取 $s(0)=0$, 则 $s=\int_0^x t\,dt=x^2/2$, $c=1/2$. 不能同时把 $s$ 写成 $x^2$ 而不缩放谱参数.
+**[基础]** 取 $s(0)=0$, 则 $s=\int_0^x t\,dt=x^2/2$, $c=1/2$. 不能同时把 $s$ 写成 $x^2$ 而不缩放谱参数.
 
 #### 习题 2.3 的解答.
 
-因为 $F_s=f'/\theta=A$,所以
+**[主线]** 因为 $F_s=f'/\theta=A$,所以
 
 
 
@@ -468,7 +486,7 @@ $$
 
 #### 习题 2.4 的解答.
 
-由 $s'(x)=x$ 得 $s=x^2/2$,$x=\sqrt{2s}$,
+**[主线]** 由 $s'(x)=x$ 得 $s=x^2/2$,$x=\sqrt{2s}$,
 
 
 
@@ -514,7 +532,7 @@ $$
 
 #### 习题 2.5 的解答.
 
-由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$, 所以 $x=\sin s$,$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$. 记 $c=\cos s$,则
+**[拓展]** 由 $s'(x)=1/\sqrt{1-x^2}$ 得 $s=\arcsin x$, 所以 $x=\sin s$,$F(s)=(1-x^2)^{1/4}=(\cos^2s)^{1/4}=\sqrt{\cos s}$. 记 $c=\cos s$,则
 
 
 
@@ -558,7 +576,7 @@ $$
 
 #### 习题 2.6 的解答.
 
-由 $\theta=\arctan(\varphi/\varphi')$,
+**[主线]** 由 $\theta=\arctan(\varphi/\varphi')$,
 
 
 
@@ -572,7 +590,7 @@ $$
 
 #### 习题 2.7 的解答.
 
-代入 $y=\rho\sin\theta$,$y'=\rho\cos\theta$ 得
+**[主线]** 代入 $y=\rho\sin\theta$,$y'=\rho\cos\theta$ 得
 
 
 
@@ -587,7 +605,7 @@ $$
 
 #### 习题 2.8 的解答.
 
-当 $q=0$ 且 $\lambda>0$ 时, 令 $k=\sqrt\lambda$. 满足左端条件的解及连续相位可写为
+**[主线]** 当 $q=0$ 且 $\lambda>0$ 时, 令 $k=\sqrt\lambda$. 满足左端条件的解及连续相位可写为
 
 
 
@@ -601,7 +619,7 @@ Dirichlet 条件 $y(\pi)=0$ 要求 $k\pi=j\pi$, $j\in\mathbb N_+$, 即 $\lambda=
 
 #### 习题 2.9 的解答.
 
-由 $\tan\phi=\sqrt{\lambda}\tan\theta$ 得
+**[拓展]** 由 $\tan\phi=\sqrt{\lambda}\tan\theta$ 得
 
 
 

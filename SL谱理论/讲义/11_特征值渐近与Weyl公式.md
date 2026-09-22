@@ -593,17 +593,29 @@ $$
 
 ## 习题
 
-1.  证明常势相位引理:若 $Q\equiv q_0$,$\lambda+q_0>0$,且 $\tan\varphi=\sqrt{\lambda+q_0}\tan\theta$,则 $\varphi'=\sqrt{\lambda+q_0}$,并由此证明 (9.15).
+##### 习题 9.1
 
-2.  证明等价关系:对 $A>0$,$N(\lambda)\sim A\sqrt\lambda$ 当且仅当 $\lambda_n\sim(n/A)^2$.
+**[主线]** 证明常势相位引理:若 $Q\equiv q_0$,$\lambda+q_0>0$,且 $\tan\varphi=\sqrt{\lambda+q_0}\tan\theta$,则 $\varphi'=\sqrt{\lambda+q_0}$,并由此证明 (9.15).
 
-3.  取 $p=1$,$r=(1+x)^2$,$q=0$,$[a,b]=[0,1]$,Dirichlet 边界条件. 计算 Liouville 长度 $c$ 与 $\lambda_n$ 的 Weyl 主项.
+##### 习题 9.2
 
-4.  在假设 (A) 下证明 $\lambda_{n+1}/\lambda_n\to1$, 并说明 Neumann 问题 $\lambda_0=0$ 时下确界应如何定义.
+**[主线]** 证明等价关系:对 $A>0$,$N(\lambda)\sim A\sqrt\lambda$ 当且仅当 $\lambda_n\sim(n/A)^2$.
 
-5.  设 $p=1$,$q=0$,$r=\rho$ 为至多有限个跳的逐段常数函数, $0<a\le\rho\le A$. 在 $[0,L]$ 上取两端 Dirichlet 条件, 并令 $\varphi(0)=0$. 对 $\lambda>0$, 用缩放 Prüfer 相角 $y=R\sin\varphi$,$y'=\sqrt{\lambda\rho}\,R\cos\varphi$ 证明 $N(\lambda)=\frac{\sqrt\lambda}{\pi}\int_0^L\sqrt\rho\,dx+O(1)$.
+##### 习题 9.3
 
-6.  证明 Dirichlet 与 Neumann 计数函数之差有界,即 (9.48);并用型域余维证明 $\lambda_n^N\le\lambda_n^D\le\lambda_{n+2}^N$ (从零编号).
+**[基础]** 取 $p=1$,$r=(1+x)^2$,$q=0$,$[a,b]=[0,1]$,Dirichlet 边界条件. 计算 Liouville 长度 $c$ 与 $\lambda_n$ 的 Weyl 主项.
+
+##### 习题 9.4
+
+**[主线]** 在假设 (A) 下证明 $\lambda_{n+1}/\lambda_n\to1$, 并说明 Neumann 问题 $\lambda_0=0$ 时下确界应如何定义.
+
+##### 习题 9.5
+
+**[拓展]** 设 $p=1$,$q=0$,$r=\rho$ 为至多有限个跳的逐段常数函数, $0<a\le\rho\le A$. 在 $[0,L]$ 上取两端 Dirichlet 条件, 并令 $\varphi(0)=0$. 对 $\lambda>0$, 用缩放 Prüfer 相角 $y=R\sin\varphi$,$y'=\sqrt{\lambda\rho}\,R\cos\varphi$ 证明 $N(\lambda)=\frac{\sqrt\lambda}{\pi}\int_0^L\sqrt\rho\,dx+O(1)$.
+
+##### 习题 9.6
+
+**[拓展]** 证明 Dirichlet 与 Neumann 计数函数之差有界,即 (9.48);并用型域余维证明 $\lambda_n^N\le\lambda_n^D\le\lambda_{n+2}^N$ (从零编号).
 
 本节习题解答见本页末的习题解答.
 
@@ -635,7 +647,7 @@ Weyl 公式把特征值渐近归结为 Liouville 长度 $c=\int_a^b\sqrt{r/p}\,d
 
 #### 习题 9.1 的解答.
 
-记 $\kappa=\sqrt{\lambda+q_0}$.由 $\tan\varphi=\kappa\tan\theta$ 求导得
+**[主线]** 记 $\kappa=\sqrt{\lambda+q_0}$.由 $\tan\varphi=\kappa\tan\theta$ 求导得
 
 $$
 \sec^2\varphi\,\varphi'=\kappa\sec^2\theta\,\theta'.
@@ -667,7 +679,7 @@ $$
 
 #### 习题 9.2 的解答.
 
-设 $N(\lambda_n)=n+1$. 若 $N(\lambda)\sim A\sqrt\lambda$,则 $n+1\sim A\sqrt{\lambda_n}$,故
+**[主线]** 设 $N(\lambda_n)=n+1$. 若 $N(\lambda)\sim A\sqrt\lambda$,则 $n+1\sim A\sqrt{\lambda_n}$,故
 
 $$
 \sqrt{\lambda_n}\sim\frac nA,\qquad \lambda_n\sim\Bigl(\frac nA\Bigr)^2 .
@@ -685,7 +697,7 @@ $$
 
 #### 习题 9.3 的解答.
 
-
+**[基础]**
 
 $$
 c=\int_0^1\sqrt{\frac{(1+x)^2}{1}}\,dx=\int_0^1(1+x)\,dx=\frac32 .
@@ -702,7 +714,7 @@ $$
 
 #### 习题 9.4 的解答.
 
-由 $\lambda_n=(n/A)^2+O(n)$,
+**[主线]** 由 $\lambda_n=(n/A)^2+O(n)$,
 
 $$
 \frac{\lambda_{n+1}}{\lambda_n}
@@ -713,7 +725,7 @@ $$
 
 #### 习题 9.5 的解答.
 
-在每个 $\rho$ 为常数的子区间上, 由 9.1 的推导得 $\varphi'=\sqrt{\lambda\rho}$. 在跳点处 $y,y'$ 连续. 缩放只是把向量 $(y',y)$ 的一个分量乘以正数, 取保持所在象限的相位分支, 跳变满足 $|\Delta\varphi|<\pi/2<\pi$. 在坐标轴上按两侧极限选同一象限的端值. 这个统一界与 $\lambda$ 无关. 初相 $\varphi(0)=0$, 若共有 $m$ 个跳点, 则
+**[拓展]** 在每个 $\rho$ 为常数的子区间上, 由 9.1 的推导得 $\varphi'=\sqrt{\lambda\rho}$. 在跳点处 $y,y'$ 连续. 缩放只是把向量 $(y',y)$ 的一个分量乘以正数, 取保持所在象限的相位分支, 跳变满足 $|\Delta\varphi|<\pi/2<\pi$. 在坐标轴上按两侧极限选同一象限的端值. 这个统一界与 $\lambda$ 无关. 初相 $\varphi(0)=0$, 若共有 $m$ 个跳点, 则
 
 $$
 \varphi(L)=\sqrt\lambda\sum_i\sqrt{\rho_i}\,(x_i-x_{i-1})+O(1)
@@ -731,7 +743,7 @@ $$
 
 #### 习题 9.6 的解答.
 
-对两种边界分别用 Weyl 计数式后相减, 得到 $N_D-N_N=O(1)$. 型域包含给出 $\lambda_n^N\le\lambda_n^D$. 若 $E$ 是前 $n+3$ 个 Neumann 特征函数的张成空间, 则 $\dim(E\cap H_0^1)\ge n+1$, 且其 Rayleigh 商至多为 $\lambda_{n+2}^N$. 对 Dirichlet 问题用极小极大原理即得右侧不等式.
+**[拓展]** 对两种边界分别用 Weyl 计数式后相减, 得到 $N_D-N_N=O(1)$. 型域包含给出 $\lambda_n^N\le\lambda_n^D$. 若 $E$ 是前 $n+3$ 个 Neumann 特征函数的张成空间, 则 $\dim(E\cap H_0^1)\ge n+1$, 且其 Rayleigh 商至多为 $\lambda_{n+2}^N$. 对 Dirichlet 问题用极小极大原理即得右侧不等式.
 
 ## 相关链接
 

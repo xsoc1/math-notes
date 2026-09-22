@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="430" viewBox="0 0 1080 430"><rect width="100%" height="100%" fill="white"/><style>text{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;font-size:20px;fill:#252525}</style><defs><marker id="a0" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#696969"/></marker><marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#2d6ec8"/></marker><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#6946a0"/></marker><marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#aa283c"/></marker></defs>
+<line x1="135" y1="335" x2="1019.4" y2="335" stroke="#696969" stroke-width="2" marker-end="url(#a0)"/>
+<text x="1032.6" y="343" text-anchor="start" style="fill:#252525;font-size:20px">s</text>
+<line x1="135" y1="331" x2="135" y2="341" stroke="#696969" stroke-width="2"/>
+<text x="135" y="366" text-anchor="middle" style="fill:#252525;font-size:20px">0</text>
+<line x1="135" y1="55" x2="135" y2="319" stroke="#dddddd" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="333.0" y1="331" x2="333.0" y2="341" stroke="#696969" stroke-width="2"/>
+<text x="333.0" y="366" text-anchor="middle" style="fill:#252525;font-size:20px">3/2</text>
+<line x1="333.0" y1="55" x2="333.0" y2="319" stroke="#dddddd" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="597.0" y1="331" x2="597.0" y2="341" stroke="#696969" stroke-width="2"/>
+<text x="597.0" y="366" text-anchor="middle" style="fill:#252525;font-size:20px">7/2</text>
+<line x1="597.0" y1="55" x2="597.0" y2="319" stroke="#dddddd" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="663" y1="331" x2="663" y2="341" stroke="#696969" stroke-width="2"/>
+<text x="663" y="366" text-anchor="middle" style="fill:#252525;font-size:20px">4</text>
+<line x1="663" y1="55" x2="663" y2="319" stroke="#dddddd" stroke-width="1" stroke-dasharray="2 5"/>
+<line x1="927" y1="331" x2="927" y2="341" stroke="#696969" stroke-width="2"/>
+<text x="927" y="366" text-anchor="middle" style="fill:#252525;font-size:20px">6</text>
+<line x1="927" y1="55" x2="927" y2="319" stroke="#dddddd" stroke-width="1" stroke-dasharray="2 5"/>
+<text x="100" y="97" text-anchor="end" style="fill:#252525;font-size:20px">x²</text>
+<line x1="135" y1="90" x2="333.0" y2="90" stroke="#288c5a" stroke-width="5"/>
+<line x1="333.0" y1="90" x2="1006.1999999999999" y2="90" stroke="#aa283c" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#a3)"/>
+<circle cx="135" cy="90" r="5" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<circle cx="333.0" cy="90" r="6" stroke="#aa283c" stroke-width="2" fill="white"/>
+<text x="333.0" y="68" text-anchor="middle" style="fill:#aa283c;font-size:18px">临界点不属于</text>
+<text x="100" y="182" text-anchor="end" style="fill:#252525;font-size:20px">p₄</text>
+<line x1="135" y1="175" x2="597.0" y2="175" stroke="#288c5a" stroke-width="5"/>
+<line x1="597.0" y1="175" x2="1006.1999999999999" y2="175" stroke="#aa283c" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#a3)"/>
+<circle cx="135" cy="175" r="5" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<circle cx="597.0" cy="175" r="6" stroke="#aa283c" stroke-width="2" fill="white"/>
+<text x="597.0" y="153" text-anchor="middle" style="fill:#aa283c;font-size:18px">临界点不属于</text>
+<text x="100" y="267" text-anchor="end" style="fill:#252525;font-size:20px">q₆</text>
+<line x1="135" y1="260" x2="663" y2="260" stroke="#288c5a" stroke-width="5"/>
+<line x1="663" y1="260" x2="927" y2="260" stroke="#696969" stroke-width="3" stroke-dasharray="2 6"/>
+<line x1="927" y1="260" x2="1006.1999999999999" y2="260" stroke="#aa283c" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#a3)"/>
+<circle cx="135" cy="260" r="5" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<circle cx="663" cy="260" r="6" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<circle cx="927" cy="260" r="6" stroke="#aa283c" stroke-width="2" fill="#aa283c"/>
+<text x="795" y="240" text-anchor="middle" style="fill:#696969;font-size:20px">本章未细判</text>
+<text x="210" y="410" text-anchor="start" style="fill:#288c5a;font-size:20px">绿实线: 属于目标空间</text>
+<text x="640" y="410" text-anchor="start" style="fill:#aa283c;font-size:20px">红虚线: 不属于目标空间</text>
+</svg>

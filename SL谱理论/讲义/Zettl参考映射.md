@@ -8,14 +8,14 @@ Anton Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol
 | 讲义章节 | 主题 | Zettl 章节 | 主要用途 |
 |:---|:---|:---|:---|
 | 讲义章节 | 主题 | Zettl 章节 | 主要用途 |
-| 第 1 章 | 物理建模与正则 SL 框架 | Ch. 1--2;Ch. 3 §3.1;Ch. 4 §4.1 | 存在唯一性,对数据的连续与可微依赖,标准问题定义 |
+| 第 1 章 | 从物理问题到正则 SL 问题 | Ch. 1--2;Ch. 3 §3.1;Ch. 4 §4.1 | 存在唯一性,对数据的连续与可微依赖,标准问题定义 |
 | 第 2 章 | Liouville 标准形与 Prüfer 变换 | Ch. 4 §4.5--§4.6;Ch. 3 §3.2 | Prüfer 定理链,分离边界条件与结点计数 |
-| 第 3 章 | Sturm 比较与振荡 | Ch. 2 §2.6;Ch. 6 §6.2--§6.4 | 分离定理,比较定理与振动性刻画 |
-| 第 4 章 | 正交性与广义 Fourier 级数 | Ch. 3 §3.2--§3.3;Ch. 4 §4.11--§4.12;Ch. 16 | Green 核算子,有限实谱与展开定理文献 |
-| 第 5 章 | 自伴边界条件与 Hilbert 框架 | Ch. 4 §4.2,§4.10,§4.12;Ch. 10 §10.2--§10.4 | 边界条件标准形,重数与奇异自伴扩张 |
-| 第 6 章 | Green 函数,预解式与紧性 | Ch. 3 §3.8;Ch. 4 §4.11--§4.12;Ch. 10 §10.9--§10.10 | 正则与奇异 Green 函数,有限实谱 |
-| 第 7 章 | 完备性与 Fourier 收敛 | Ch. 4 §4.11--§4.12;Ch. 16 | 紧自伴谱定理,特征展开与逐点收敛的文献路线 |
-| 第 8 章 | 变分刻画与单调性 | Ch. 4 §4.9;Ch. 5 §5.5--§5.6;Ch. 3 §3.6 | 单调性定理,特征值不等式与可微性 |
+| 第 3 章 | Sturm 比较定理与零点交错 | Ch. 2 §2.6;Ch. 6 §6.2--§6.4 | 分离定理,比较定理与振动性刻画 |
+| 第 4 章 | Hilbert 空间中的正交几何 | Ch. 3 §3.2--§3.3;Ch. 4 §4.11--§4.12;Ch. 16 | Green 核算子,有限实谱与展开定理文献 |
+| 第 5 章 | 一维 Sobolev 空间,算子域与边界形式 | Ch. 4 §4.2,§4.10,§4.12;Ch. 10 §10.2--§10.4 | 边界条件标准形,重数与奇异自伴扩张 |
+| 第 6 章 | Green 函数,紧预解式与自伴性 | Ch. 3 §3.8;Ch. 4 §4.11--§4.12;Ch. 10 §10.9--§10.10 | 正则与奇异 Green 函数,有限实谱 |
+| 第 7 章 | 紧自伴谱定理与特征函数完备性 | Ch. 4 §4.11--§4.12;Ch. 16 | 紧自伴谱定理与特征展开; 本章振荡证明另见 Teschl ODE 第5.5节 |
+| 第 8 章 | 变分原理,系数单调性与方向导数 | Ch. 4 §4.9;Ch. 5 §5.5--§5.6;Ch. 3 §3.6 | 单调性定理,特征值不等式与可微性 |
 | 第 9 章 | 特征值渐近与 Weyl 公式 | Ch. 4 §4.3,§4.5,§4.8;Ch. 3 §3.7 | Prüfer 相位比较,Weyl 计数与特征值渐近,比值下确界 |
 | 第 10--17 章 | 左定理论与具体完备性问题 | 见下列现代文献与研究注记 | Zettl 的变号权框架与正自伴空间标度分开阅读 |
 :::
@@ -60,7 +60,7 @@ Anton Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol
 
 1.  A. Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol. 121, American Mathematical Society, Providence, RI, 2005.
 
-2.  G. Teschl, *Ordinary Differential Equations and Dynamical Systems*, Graduate Studies in Mathematics, Vol. 140, American Mathematical Society, Providence, RI, 2012.
+2.  G. Teschl, *Ordinary Differential Equations and Dynamical Systems*, Graduate Studies in Mathematics, Vol. 140, American Mathematical Society, Providence, RI, 2012. 作者公开初版稿: <https://www.mat.univie.ac.at/~gerald/ftp/book-ode/ode.pdf>.
 
 3.  G. Teschl, *Mathematical Methods in Quantum Mechanics: With Applications to Schrödinger Operators*, Graduate Studies in Mathematics, Vol. 99, American Mathematical Society, 2009. 本讲义第 4--8 章对应作者公开的 2009 在线版, <https://www.mat.univie.ac.at/~gerald/ftp/book-schroe/schroe.pdf>. 2014 第二版为 Vol. 157, 阅读时应另核对节号.
 
@@ -93,5 +93,33 @@ Anton Zettl, *Sturm--Liouville Theory*, Mathematical Surveys and Monographs, Vol
 Hilbert 空间中的投影,基与稳定性属于经典理论. 第17章使用的 Schauder 基定义与 Riesz 基刻画, 可参阅 C. Heil, *A Basis Theory Primer*, 1998年电子稿, Definition 4.5 与 Theorem 11.9(a),(d), <https://heil.math.gatech.edu/papers/bases.pdf>. 这里定位的是该电子稿, 不是2011年扩充版的节号; 正文所用刻画给出完整证明.
 
 第14--16章的具体稀疏族结果来自书末注明的未刊研究文稿, 不能与经典一般理论或已发表论文中的问题陈述混为一谈. 一般谱测度,完整插值与扩张理论的阅读入口位于第17章; 书中的引用定理与已在正文展开的证明分别标明.
+
+## 未刊研究证明
+
+以下六篇按 BVE research 项目文稿登记; 原稿未署名个人作者. 题名与文稿日期按各自题名页记载, 与讲义采用的版本分开列明. 所引文件均取自2026-09-22仓库快照, 下列"固定版本"链接直接定位到该快照中的各篇源码. 这些条目属于未刊研究证明, 出版论文中的问题来源另见前列文献.
+
+##### BVE-H2
+
+BVE research 项目文稿. *第二左定空间 $H^2[-1,1]$ 中多项式基的解析完备性: 证明文档*. 2026-08-04. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_h2_completeness_proof.tex); 仓库内位置: `docs/SL_h2_completeness_proof.tex`.
+
+##### BVE-H3
+
+BVE research 项目文稿. *第三左定空间 $H^3[-1,1]$ 中多项式基的解析完备性: 证明文档*. 2026-08-04初稿, 2026-09-20修订. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_h3_completeness_proof.tex); 仓库内位置: `docs/SL_h3_completeness_proof.tex`.
+
+##### BVE-FRAC
+
+BVE research 项目文稿. *稀疏多项式族的完整非负阶稠密窗口与成员阈值*. 2026-08-05初稿, 2026-09-20勘误, 2026-09-21补证. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_fractional_left_definite.tex); 仓库内位置: `docs/SL_fractional_left_definite.tex`.
+
+##### BVE-COF
+
+BVE research 项目文稿. *第二左定空间中余有限稀疏子族的精确闭包*. 2026-09-21. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_cofinite_left_definite.tex); 仓库内位置: `docs/SL_cofinite_left_definite.tex`.
+
+##### BVE-PROJ
+
+BVE research 项目文稿. *投影稠密性与有限矩检验的修复证明*. 2026-09-21. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_projection_moment_repairs.tex); 仓库内位置: `docs/SL_projection_moment_repairs.tex`.
+
+##### BVE-MOM
+
+BVE research 项目文稿. *边界约束 Hilbert 空间中多项式稠密的一般准则: 充分条件, 矩刻画与临界指数*. 2026-08-05初稿, 题名页标注2026-09-20修订; 所引文件含2026-09-21补充. 未刊证明文稿. [固定版本](https://github.com/Zhongshan-Big-Jun/Sturm-Liouville-theory-research/blob/2a81b608d53e3decee04c46716a8d8f8c2d9b1b4/docs/SL_denseness_criteria.tex); 仓库内位置: `docs/SL_denseness_criteria.tex`.
 
 返回 [[00_SL谱理论讲义总览]].

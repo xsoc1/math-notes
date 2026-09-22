@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="470" viewBox="0 0 1080 470"><rect width="100%" height="100%" fill="white"/><style>text{font-family:"Noto Sans CJK SC","Microsoft YaHei",sans-serif;font-size:20px;fill:#252525}</style><defs><marker id="a0" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#696969"/></marker><marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#2d6ec8"/></marker><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#6946a0"/></marker><marker id="a3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" fill="#aa283c"/></marker></defs>
+<line x1="72.75" y1="365" x2="342.75" y2="365" stroke="#696969" stroke-width="2" marker-end="url(#a0)"/>
+<line x1="120" y1="392.0" x2="120" y2="27.5" stroke="#696969" stroke-width="2" marker-end="url(#a0)"/>
+<text x="352.2" y="370.4" text-anchor="start" style="fill:#252525;font-size:20px">z₀</text>
+<text x="115.95" y="30.19999999999999" text-anchor="start" style="fill:#252525;font-size:20px">z₁</text>
+<line x1="103.8" y1="397.4" x2="279.29999999999995" y2="46.400000000000034" stroke="#aa283c" stroke-width="3"/>
+<text x="225.3" y="22.100000000000023" text-anchor="start" style="fill:#aa283c;font-size:20px">V = ℝ(1,2)</text>
+<line x1="120" y1="365" x2="255" y2="365" stroke="#2d6ec8" stroke-width="4" marker-end="url(#a1)"/>
+<text x="255" y="386.6" text-anchor="start" style="fill:#2d6ec8;font-size:20px">e₀</text>
+<line x1="120" y1="365" x2="120" y2="230" stroke="#2d6ec8" stroke-width="4" marker-end="url(#a1)"/>
+<text x="97.05" y="223.25" text-anchor="end" style="fill:#2d6ec8;font-size:20px">e₁</text>
+<line x1="120" y1="365" x2="255" y2="95" stroke="#6946a0" stroke-width="3" marker-end="url(#a2)"/>
+<circle cx="255" cy="95" r="5" stroke="#6946a0" stroke-width="2" fill="#6946a0"/>
+<text x="265.8" y="99.05000000000001" text-anchor="start" style="fill:#6946a0;font-size:20px">v = e₀ + 2e₁</text>
+<line x1="255" y1="365" x2="147.0" y2="311.0" stroke="#288c5a" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="147.0" cy="311.0" r="5" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<line x1="120" y1="230" x2="174.0" y2="257.0" stroke="#288c5a" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="174.0" cy="257.0" r="5" stroke="#288c5a" stroke-width="2" fill="#288c5a"/>
+<text x="133.5" y="311.0" text-anchor="end" style="fill:#288c5a;font-size:20px">v/5</text>
+<text x="184.8" y="257.0" text-anchor="start" style="fill:#288c5a;font-size:20px">2v/5</text>
+<circle cx="120" cy="365" r="5" stroke="#dc821e" stroke-width="2" fill="#dc821e"/>
+<text x="105.15" y="385.25" text-anchor="start" style="fill:#dc821e;font-size:20px">0</text>
+<text x="540" y="120" text-anchor="start" style="fill:#dc821e;font-size:20px">逐项筛选</text>
+<text x="540" y="152" text-anchor="start" style="fill:#252525;font-size:20px">e₀、e₁ 均不在 V.</text>
+<text x="540" y="182" text-anchor="start" style="fill:#252525;font-size:20px">所得空间为 {0}.</text>
+<text x="540" y="225" text-anchor="start" style="fill:#6946a0;font-size:20px">先组合再约束</text>
+<text x="540" y="257" text-anchor="start" style="fill:#252525;font-size:20px">e₀ + 2e₁ = v.</text>
+<text x="540" y="287" text-anchor="start" style="fill:#252525;font-size:20px">所得空间为 ℝv = V.</text>
+<text x="540" y="330" text-anchor="start" style="fill:#288c5a;font-size:20px">正交投影</text>
+<text x="540" y="362" text-anchor="start" style="fill:#252525;font-size:20px">P<tspan baseline-shift="sub" font-size="15">V</tspan>e₀ = v/5,  P<tspan baseline-shift="sub" font-size="15">V</tspan>e₁ = 2v/5.</text>
+<text x="540" y="392" text-anchor="start" style="fill:#252525;font-size:20px">两个投影张成 V; 虚线垂直于 V.</text>
+<text x="45" y="451" text-anchor="start" style="fill:#696969;font-size:18px">实二维几何示意; Krein 空间的正交投影须使用该空间的内积.</text>
+</svg>

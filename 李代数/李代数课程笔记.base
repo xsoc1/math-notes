@@ -11,6 +11,8 @@ properties:
     displayName: "资料来源"
   source_chapter:
     displayName: "章节"
+  lecture_number:
+    displayName: "讲次"
   status:
     displayName: "状态"
   source_check:
@@ -28,6 +30,7 @@ views:
       - note_type
       - source_volume
       - source_chapter
+      - lecture_number
       - status
       - source_check
       - exercise_range

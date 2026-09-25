@@ -1,6 +1,6 @@
 ---
 title: 从物理问题到正则 SL 问题
-date: '2026-09-22'
+date: '2026-09-25'
 tags:
 - SL
 - spectral-theory
@@ -44,7 +44,7 @@ $$
 
 1.  从力学问题中\"看出\"特征值问题;
 
-2.  把变系数 SL 问题化为最简形式 $y''+[\lambda+q(x)]y=0$;
+2.  把变系数 SL 问题化为标准形 $z''+[\lambda+Q(s)]z=0$;
 
 3.  用 Prüfer 变换研究特征值的存在性与振荡性质;
 
@@ -169,7 +169,7 @@ $$
 -(py')'+qy=\lambda ry
 $$
 
- 出发. 它也可写成 $(py')'+(\lambda r-q)y=0$. 特别地, $p=r=1$ 时为 $y''+(\lambda-q)y=0$. 第 2--3 章的标准形 $y''+(\lambda+Q)y=0$ 中, $Q$ 是变换后的势, 不能与此处的 $q$ 混用.
+ 出发. 它也可写成 $(py')'+(\lambda r-q)y=0$. 特别地, $p=r=1$ 时为 $y''+(\lambda-q)y=0$. 第 2 章将用 $s$ 与 $z$ 写成标准形 $z''+[\lambda+Q(s)]z=0$, 其中导数对 $s$ 而言, $Q$ 是变换后的势; 在这里的 $p=r=1$ 情形, $Q(s)=-q(x(s))$.
 
 > [!note] 注. 物理动机:屈曲与临界载荷
 
@@ -258,7 +258,7 @@ $$
 
 > [!example] 例. 自由端的零模态
 
-在 $[0,\pi]$ 上, $-y''=\lambda y$, $y'(0)=y'(\pi)=0$. 分部积分给出 $\lambda\int|y|^2=\int|y'|^2\ge0$. $\lambda=0$ 的解是常数; $\lambda>0$ 时写成三角函数并代入边界, 得到 $\lambda=n^2$, $y=\cos(nx)$, $n\ge1$. 边界条件改变了最低模态, 并不改变微分表达式.
+在 $[0,\pi]$ 上, $-y''=\lambda y$, $y'(0)=y'(\pi)=0$. 分部积分给出 $\lambda\int|y|^2=\int|y'|^2\ge0$. $\lambda=0$ 的解是常数; $\lambda>0$ 时写成三角函数并代入边界, 以自然频率 $k$ 记这些解, 全部特征对为 $\lambda_{k+1}=k^2$, $y_{k+1}=\cos(kx)$, $k=0,1,2,\ldots$. 这里谱排序序号为 $n=k+1\ge1$, 常数模态对应 $\lambda_1=0$. 边界条件改变了最低模态, 并不改变微分表达式.
 
 > [!note] 定理. 实分离条件下的经典特征值为实数
 
@@ -312,7 +312,7 @@ $$
 
 ##### 习题提示.
 
-\(4\) 两边除以 $r yT$,左端只依赖 $t$,右端只依赖 $x$, 令公共常数为 $-\lambda$. (5) 先算 $Y''(t)=L^2y''(Lt)$,再代回方程; Dirichlet 特征值为 $\lambda_n=n^2\pi^2/L^2$. (6) $\lambda_0=0$,$y_0=1$;对 $n\ge1$, $\lambda_n=n^2$,$y_n=\cos(nx)$. (7) 在 $x=a$ 处两个向量 $(u,(pu'))$,$(v,(pv'))$ 都满足同一个 非平凡线性方程,故成比例;对 $x=b$ 同理. (8) 通解为 $y=\sin(\mu x)$,$y'(\pi)=\mu\cos(\mu\pi)=0$ 给出 $\mu=n+\frac12$,故 $\lambda_n=(n+\frac12)^2$, 特征函数为 $\sin((n+\frac12)x)$. $\square$
+\(4\) 两边除以 $r yT$,左端只依赖 $t$,右端只依赖 $x$, 令公共常数为 $-\lambda$. (5) 先算 $Y''(t)=L^2y''(Lt)$,再代回方程; Dirichlet 特征值为 $\lambda_n=n^2\pi^2/L^2$. (6) $\lambda_1=0$,$y_1=1$;对 $k\ge0$, $\lambda_{k+1}=k^2$,$y_{k+1}=\cos(kx)$. (7) 在 $x=a$ 处两个向量 $(u,(pu'))$,$(v,(pv'))$ 都满足同一个 非平凡线性方程,故成比例;对 $x=b$ 同理. (8) 通解为 $y=\sin(\mu x)$,$y'(\pi)=\mu\cos(\mu\pi)=0$ 给出 $\mu=k+\frac12$ ($k\ge0$), 故 $\lambda_{k+1}=(k+\frac12)^2$, 特征函数为 $y_{k+1}=\sin((k+\frac12)x)$; 即 $\lambda_n=(n-\frac12)^2$, $n\ge1$. $\square$
 
 ## 本章小结
 
@@ -423,12 +423,12 @@ $$
 
 #### 习题 1.6 的解答.
 
-**[主线]** $\lambda=0$ 时 $y=Ax+B$,$y'\equiv A$,Neumann 条件要求 $A=0$,故 $\lambda_0=0$,$y_0=1$. 对 $\lambda=\mu^2>0$,$y=A\cos\mu x+B\sin\mu x$, $y'(0)=B\mu=0$ 得 $B=0$,$y'(\pi)=-A\mu\sin\mu\pi=0$ 得 $\mu=n$,$n=1,2,\dots$.因此
+**[主线]** $\lambda=0$ 时 $y=Ax+B$,$y'\equiv A$,Neumann 条件要求 $A=0$,故 $\lambda_1=0$,$y_1=1$. 对 $\lambda=\mu^2>0$,$y=A\cos\mu x+B\sin\mu x$, $y'(0)=B\mu=0$ 得 $B=0$,$y'(\pi)=-A\mu\sin\mu\pi=0$ 得 $\mu=k$,$k=1,2,\dots$. 因此连同零频率 $k=0$, 全部特征对为
 
 
 
 $$
-\lambda_n=n^2,\qquad y_n(x)=\cos(nx),\qquad n=0,1,2,\dots.
+\lambda_{k+1}=k^2,\qquad y_{k+1}(x)=\cos(kx),\qquad k=0,1,2,\dots.
 $$
 
 
@@ -474,11 +474,11 @@ $$
 **[基础]** 方程通解为 $y=A\sin(\mu x)+B\cos(\mu x)$,$\lambda=\mu^2$. 由 $y(0)=0$ 得 $B=0$;由 $y'(\pi)=\mu A\cos(\mu\pi)=0$ 得 $\cos(\mu\pi)=0$,故 $\mu=k+\frac12$,$k=0,1,2,\dots$. 因此
 
 $$
-\lambda_k=\left(k+\frac12\right)^2,\qquad
-y_k(x)=\sin\bigl((k+\frac12)x\bigr).
+\lambda_{k+1}=\left(k+\frac12\right)^2,\qquad
+y_{k+1}(x)=\sin\bigl((k+\frac12)x\bigr).
 $$
 
- $\lambda=0$ 与 $\lambda<0$ 都不给出非零解.
+ 等价地, $\lambda_n=(n-\frac12)^2$, $n\ge1$. $\lambda=0$ 与 $\lambda<0$ 都不给出非零解.
 
 ## 相关链接
 

@@ -1,6 +1,6 @@
 ---
 title: 紧自伴谱定理与特征函数完备性
-date: '2026-09-22'
+date: '2026-09-25'
 tags:
 - SL
 - spectral-theory
@@ -375,6 +375,16 @@ $$
 
 **[拓展]** 若 $f\in C^2[0,\pi]$, $f(0)=f(\pi)=0$, 证明正弦系数满足 $|b_n|\le C/n^2$, 并据此证明正弦级数绝对且一致收敛到 $f$.
 
+##### 习题 7.6
+
+**[主线]** 在 $(0,\pi)$ 上研究
+
+$$
+-u''-\alpha u=\lambda u,\qquad u(0)=u(\pi)=0,\qquad \alpha\in\mathbb R.
+$$
+
+ 求全部特征值, 按从最低特征值开始的顺序编号; 判断负特征值与零特征值的数量. 结合第7.4节, 解释为什么随 $\alpha$ 改变, 第 $n$ 个本征函数的内部零点数保持不变.
+
 本节习题解答见本页末的习题解答.
 
 ## 本章小结
@@ -400,10 +410,8 @@ $$
 **[主线]** 第 4 章给出奇数项 $b_n=8/(\pi n^3)$,偶数项零. 直接积分得 $\int_0^\pi x^2(\pi-x)^2\,dx=\pi^5/30$. Parseval 因而给出
 
 $$
-\frac{\pi^5}{30}=\frac\pi2\frac{64}{\pi^2}\sum_{n\ {
-m odd}}\frac1{n^6},\qquad
-        \sum_{n\ {
-m odd}}\frac1{n^6}=\frac{\pi^6}{960}.
+\frac{\pi^5}{30}=\frac\pi2\frac{64}{\pi^2}\sum_{\substack{n\ge1\\ n\text{ 为奇数}}}\frac1{n^6},\qquad
+        \sum_{\substack{n\ge1\\ n\text{ 为奇数}}}\frac1{n^6}=\frac{\pi^6}{960}.
 $$
 
  设 $S=\sum_{n\ge1}n^{-6}$, 偶数项之和为 $2^{-6}S$, 所以 $(1-2^{-6})S=\pi^6/960$, 即 $S=\pi^6/945$.
@@ -428,6 +436,16 @@ b_n=-\frac2{\pi n^2}\int_0^\pi f''(x)\sin(nx)\,dx,
 $$
 
  Weierstrass 一致收敛判别法给出绝对一致收敛到某连续 $g$. 完备性又给出 $L^2$ 收敛到 $f$, 故 $g=f$ 几乎处处. 两者连续, 所以在闭区间上处处相等.
+
+#### 习题 7.6 的解答
+
+**[主线]** 把方程写成 $-u''=(\lambda+\alpha)u$. 乘以 $\overline u$ 积分得 $\int|u'|^2=(\lambda+\alpha)\int|u|^2$. 非零 Dirichlet 解要求 $\lambda+\alpha>0$: 小于零与能量式矛盾, 等于零则 $u$ 为常数且两端为零. 令 $\mu=\sqrt{\lambda+\alpha}>0$, 解为 $u=A\sin(\mu x)$, 右端条件给出 $\mu=n$, $n=1,2,\ldots$. 因此全部特征对为
+
+$$
+\lambda_n=n^2-\alpha,\qquad u_n(x)=\sin(nx),\qquad n\ge1.
+$$
+
+ 这已是从最低特征值开始的严格递增排序. 负谱由严格不等式 $n^2<\alpha$ 决定. 若 $\alpha\le0$, 没有负特征值或零特征值. 若 $\alpha=m^2$, $m\ge1$ 为整数, 则有 $m-1$ 个负特征值和一个零特征值 $\lambda_m$. 若 $m^2<\alpha<(m+1)^2$, $m\ge0$ 为整数, 则有 $m$ 个负特征值而没有零特征值. 这些情形包括 $0<\alpha<1$ 时全部谱仍为正. 改变 $\alpha$ 只把整列特征值平移 $-\alpha$, 不改变次序或本征函数. $u_n$ 的内部零点恰为 $j\pi/n$, $j=1,\ldots,n-1$, 始终有 $n-1$ 个, 与第7.4节的振荡定理一致; 经过零值时不重新编号.
 
 ## 相关链接
 

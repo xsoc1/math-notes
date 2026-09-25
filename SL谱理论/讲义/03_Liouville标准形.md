@@ -1,6 +1,6 @@
 ---
 title: Liouville 标准形与 Prüfer 变换
-date: '2026-09-22'
+date: '2026-09-25'
 tags:
 - SL
 - spectral-theory
@@ -36,10 +36,10 @@ lecture_chapter: 2
 一般 SL 方程可以通过自变量与因变量的变换化为更简单的\"标准形\"
 
 $$
-y''+\bigl[\lambda+q(x)\bigr]y=0.
+z''+\bigl[\lambda+Q(s)\bigr]z=0.
 $$
 
- 本节假设 $p,r\in C^2[a,b]$ 且严格为正, $q\in C[a,b]$. 例子中允许在开区间局部作变换, 但不据此调用闭区间的正则结论. 通常采用的变换如下.
+ 本节假设 $p,r\in C^2[a,b]$ 且严格为正, $q\in C[a,b]$. 例子中允许在开区间局部作变换, 但不据此调用闭区间的正则结论. 原势记作 $q$, 变换后的势记作 $Q$. 标准形中的撇号对新变量 $s$ 求导. 通常采用的变换如下.
 
 ### 自变量变换
 
@@ -123,6 +123,14 @@ $$
 
  故 $Q=-q/r-F''/F$. $\square$
 
+原变量中的 $y',f',A'$ 对 $x$ 求导, $z',F'$ 对 $s$ 求导. 例如 $p=r=1$ 时, $s=x-a$, $F=1$, 因而 $Q(s)=-q(x(s))$, 正好恢复 $-y''+qy=\lambda y$ 的符号. 边界条件也随换元一起变换. 在任一端点, 若原条件写成 $Ky-L(py')=0$, 则由 $y=z/F$ 与 $py'=Fz'-F'z$ 得
+
+$$
+\left(\frac K F+LF'\right)z-LFz'=0.
+$$
+
+ 这里 $F,F'$ 均在对应端点取值, 系数与 $\lambda$ 无关. 特别地, Dirichlet 条件仍为 $z=0$, Neumann 条件则成为 $Fz'-F'z=0$, 通常不是 $z'=0$. 第9章将再次使用这个端点关系.
+
 > [!example] 例. Bessel 型方程:变密度弦与 Bessel 函数
 
 取 $p=1$,$r=x^2$,$q=0$,$x\in(0,1)$.则
@@ -202,7 +210,7 @@ $$
     \left(\sin\theta\frac{dY}{d\theta}\right)+\lambda Y=0,
 $$
 
- 令 $x=\cos\theta$ 即化为 Legendre 方程.此时 $\lambda=n(n+1)$,$n=0,1,2,\dots$,特征函数是 Legendre 多项式 $P_n(\cos\theta)$,对应球面调和函数,角动量量子数,静电场与引力场的 多极展开,以及氢原子的角向方程.
+ 令 $x=\cos\theta$ 即化为 Legendre 方程.此时 $\lambda=n(n+1)$,$n=0,1,2,\dots$,特征函数是 Legendre 多项式 $P_n(\cos\theta)$. 这里 $n$ 是多项式次数, 不是从1开始的谱排序序号. 这些函数联系着球面调和函数,角动量量子数,静电场与引力场的 多极展开,以及氢原子的角向方程.
 
 ##### 这里先观察什么.
 
@@ -228,29 +236,29 @@ $p=1-x^2$ 在端点退化, 且变换后 $Q$ 发散. 因此第 7 章的正则算�
 
 ### 极坐标表示
 
-考虑标准形
+以下固定标准形的变量 $s\in[0,c]$, 所有撇号均表示 $d/ds$. 端点角 $\alpha,\beta$ 指已经变换后的边界条件, 由上一节的端点关系确定. 考虑标准形
 
 $$
-y''+\bigl[\lambda+q(x)\bigr]y=0.
+z''+\bigl[\lambda+Q(s)\bigr]z=0.
 $$
 
 
 
 > [!note] 定义. Prüfer 振幅与连续相位
 
-设 $\varphi(x,\lambda)$ 是一个非零实解. 引入极坐标
+设 $\varphi(s,\lambda)$ 是一个非零实解. 引入极坐标
 
 $$
 \begin{cases}
-        \varphi(x,\lambda)=\rho(x,\lambda)\sin\theta(x,\lambda),\\[2mm]
-        \varphi'(x,\lambda)=\rho(x,\lambda)\cos\theta(x,\lambda),
+        \varphi(s,\lambda)=\rho(s,\lambda)\sin\theta(s,\lambda),\\[2mm]
+        \varphi'(s,\lambda)=\rho(s,\lambda)\cos\theta(s,\lambda),
     \end{cases}
 $$
 
  其中 $\rho>0$, $\theta$ 为连续提升的相位角. 局部可写
 
 $$
-\theta(x,\lambda)=\arctan\frac{\varphi(x,\lambda)}{\varphi'(x,\lambda)}.
+\theta(s,\lambda)=\arctan\frac{\varphi(s,\lambda)}{\varphi'(s,\lambda)}.
 $$
 
 
@@ -260,7 +268,7 @@ $$
 在上述极坐标表示下,$\theta$ 满足一阶方程
 
 $$
-\theta'=\cos^2\theta+\bigl[\lambda+q(x)\bigr]\sin^2\theta.
+\theta'=\cos^2\theta+\bigl[\lambda+Q(s)\bigr]\sin^2\theta.
 $$
 
 
@@ -273,12 +281,12 @@ $$
 \theta'=\frac{\varphi'^2-\varphi\varphi''}{\varphi'^2+\varphi^2}.
 $$
 
- 因为 $\varphi''=-[\lambda+q]\varphi$,且 $\varphi'^2+\varphi^2=\rho^2$,所以
+ 因为 $\varphi''=-[\lambda+Q]\varphi$,且 $\varphi'^2+\varphi^2=\rho^2$,所以
 
 $$
 \theta'
-        =\frac{\rho^2\cos^2\theta+\bigl[\lambda+q\bigr]\rho^2\sin^2\theta}{\rho^2}
-        =\cos^2\theta+\bigl[\lambda+q\bigr]\sin^2\theta.
+        =\frac{\rho^2\cos^2\theta+\bigl[\lambda+Q\bigr]\rho^2\sin^2\theta}{\rho^2}
+        =\cos^2\theta+\bigl[\lambda+Q\bigr]\sin^2\theta.
 $$
 
  $\square$
@@ -288,7 +296,7 @@ $$
 若左端边界条件为
 
 $$
-\varphi(a)\cos\alpha-\varphi'(a)\sin\alpha=0,
+\varphi(0)\cos\alpha-\varphi'(0)\sin\alpha=0,
 $$
 
  则代入 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 得
@@ -302,41 +310,41 @@ $$
  故
 
 $$
-\theta(a,\lambda)=\alpha+k\pi,\qquad k\in\mathbb{Z}.
+\theta(0,\lambda)=\alpha+k\pi,\qquad k\in\mathbb{Z}.
 $$
 
  同理,右端边界条件给出
 
 $$
-\theta(b,\lambda)=\beta+k\pi,\qquad k\in\mathbb{Z}.
+\theta(c,\lambda)=\beta+k\pi,\qquad k\in\mathbb{Z}.
 $$
 
- 因此特征值问题等价于:寻找 $\lambda$,使得从初始相位 $\theta(a)=\alpha$ 出发 的 $\theta(x,\lambda)$ 在 $x=b$ 处恰好落在 $\beta+k\pi$ 上.
+ 因此特征值问题等价于:寻找 $\lambda$,使得从初始相位 $\theta(0)=\alpha$ 出发 的 $\theta(s,\lambda)$ 在 $s=c$ 处恰好落在 $\beta+k\pi$ 上.
 
 ### 特征值的单调性与存在性
 
 > [!note] 定理. 相位单调性
 
-设 $q$ 连续有界,$\theta(x,\lambda)$ 由初值 $\theta(a,\lambda)=\alpha$ 确定.则对固定的 $x>a$, $\theta(x,\lambda)$ 关于 $\lambda$ 严格递增.
+设 $Q$ 连续有界,$\theta(s,\lambda)$ 由初值 $\theta(0,\lambda)=\alpha$ 确定.则对固定的 $s>0$, $\theta(s,\lambda)$ 关于 $\lambda$ 严格递增.
 
 证明的要点如下:将 $\theta'$ 的方程对 $\lambda$ 求导,得到
 
 $$
 \left(\partial_\lambda\theta\right)'
-    =\bigl[\lambda+q(x)-1\bigr]\sin(2\theta)\,\partial_\lambda\theta+\sin^2\theta,
+    =\bigl[\lambda+Q(s)-1\bigr]\sin(2\theta)\,\partial_\lambda\theta+\sin^2\theta,
 $$
 
- 且 $\partial_\lambda\theta(a,\lambda)=0$.由此可推出
+ 且 $\partial_\lambda\theta(0,\lambda)=0$.由此可推出
 
 $$
-\partial_\lambda\theta(x,\lambda)=\int_a^x\sin^2\theta(t,\lambda)\,
-    \exp\!\left(\int_t^x \bigl[\lambda+q(s)-1\bigr]\sin(2\theta(s,\lambda))\,ds\right)dt>0.
+\partial_\lambda\theta(s,\lambda)=\int_0^s\sin^2\theta(t,\lambda)\,
+    \exp\!\left(\int_t^s \bigl[\lambda+Q(u)-1\bigr]\sin(2\theta(u,\lambda))\,du\right)dt>0.
 $$
 
  因此在右端点定义
 
 $$
-w(\lambda):=\theta(b,\lambda),
+w(\lambda):=\theta(c,\lambda),
 $$
 
  则 $w$ 是关于 $\lambda$ 的严格递增函数.
@@ -345,15 +353,15 @@ $$
 
 > [!note] 引理. 相位增长下界
 
-设 $q\in L^1(a,b)$,$\theta(a,\lambda)=\alpha$.则存在只依赖 $\alpha,a,b$ 的常数 $C$,使得对 $\lambda>0$,
+设 $Q\in L^1(0,c)$,$\theta(0,\lambda)=\alpha$.则存在只依赖 $\alpha,c$ 的常数 $C$,使得对 $\lambda>0$,
 
 $$
-\theta(b,\lambda)
-        \ge\sqrt{\lambda}(b-a)-C
-        -\frac{1}{\sqrt{\lambda}}\int_a^b|q(x)|\,dx.
+\theta(c,\lambda)
+        \ge c\sqrt{\lambda}-C
+        -\frac{1}{\sqrt{\lambda}}\int_0^c|Q(s)|\,ds.
 $$
 
- 特别地,$\theta(b,\lambda)\to+\infty$($\lambda\to+\infty$).
+ 特别地,$\theta(c,\lambda)\to+\infty$($\lambda\to+\infty$).
 
 **证明.**
 
@@ -366,35 +374,35 @@ $$
  由 $\sec^2\phi=1+\lambda\tan^2\theta$ 及相位方程可得
 
 $$
-\phi'=\sqrt{\lambda}+\frac{q}{\sqrt{\lambda}}\sin^2\phi.
+\phi'=\sqrt{\lambda}+\frac{Q}{\sqrt{\lambda}}\sin^2\phi.
 $$
 
  积分并用 $\sin^2\phi\le1$ 得
 
 $$
-\phi(b,\lambda)\ge\phi(a,\lambda)+\sqrt{\lambda}(b-a)
-        -\frac{1}{\sqrt{\lambda}}\int_a^b|q|.
+\phi(c,\lambda)\ge\phi(0,\lambda)+c\sqrt{\lambda}
+        -\frac{1}{\sqrt{\lambda}}\int_0^c|Q|.
 $$
 
- 又 $|\phi(a,\lambda)-\alpha|<\pi/2$,故 $\phi(a,\lambda)$ 有界; 由 $\theta\ge\phi-\pi/2$ 即得所述下界. $\square$
+ 又 $|\phi(0,\lambda)-\alpha|<\pi/2$,故 $\phi(0,\lambda)$ 有界; 由 $\theta\ge\phi-\pi/2$ 即得所述下界. $\square$
 
 > [!note] 定理. 特征值存在性
 
-$w(\lambda)=\theta(b,\lambda)$ 连续且严格递增,并且 $w(\lambda)\to+\infty$($\lambda\to+\infty$). 因此对每个充分大的整数 $k$,方程
+$w(\lambda)=\theta(c,\lambda)$ 连续且严格递增,并且 $w(\lambda)\to+\infty$($\lambda\to+\infty$). 因此对每个充分大的整数 $k$,方程
 
 $$
 w(\lambda)=\beta+k\pi
 $$
 
- 恰有一个解.这些解组成趋于 $+\infty$ 的离散特征值序列 (按实际出现的指标编号:允许 $k=0$ 的边界条件从 $\lambda_0$ 开始, Dirichlet 问题从 $\lambda_1$ 开始).
+ 恰有一个解, 可记为 $\lambda^{(k)}$. 这些解随相位整数 $k$ 增大而趋于 $+\infty$. 这里 $k$ 标记右端相位水平, 尚不等同于从最低特征值开始的谱排序序号. 第7章先建立从 $n=1$ 开始的全谱排序, 再在正则 Dirichlet 情形证明 第 $n$ 个特征值对应相位 $n\pi$.
 
 > [!note] 推论. 结点计数
 
-若 $\lambda+q(x)>0$ 于 $[a,b]$, 则 $\theta(x,\lambda)$ 关于 $x$ 严格递增. 设 $\theta(a,\lambda)=0$ 且 $\theta(b,\lambda)=k\pi$,$k\in\mathbb N$, 则相应特征函数在 $(a,b)$ 内恰有 $k-1$ 个零点.
+若 $\lambda+Q(s)>0$ 于 $[0,c]$, 则 $\theta(s,\lambda)$ 关于 $s$ 严格递增. 设 $\theta(0,\lambda)=0$ 且 $\theta(c,\lambda)=k\pi$,$k\in\mathbb N$, 则相应特征函数在 $(0,c)$ 内恰有 $k-1$ 个零点.
 
 **证明.**
 
-当 $\lambda+q>0$ 时, $\theta'=\cos^2\theta+(\lambda+q)\sin^2\theta>0$, 故 $\theta$ 严格递增. 零点对应 $\theta\equiv0\pmod\pi$;从 $0$ 到 $k\pi$ 严格递增的相位 恰好穿过 $\pi,2\pi,\dots,(k-1)\pi$ 各一次,故零点数为 $k-1$. $\square$
+当 $\lambda+Q>0$ 时, $\theta'=\cos^2\theta+(\lambda+Q)\sin^2\theta>0$, 故 $\theta$ 严格递增. 零点对应 $\theta\equiv0\pmod\pi$;从 $0$ 到 $k\pi$ 严格递增的相位 恰好穿过 $\pi,2\pi,\dots,(k-1)\pi$ 各一次,故零点数为 $k-1$. $\square$
 
 ## 习题
 
@@ -420,25 +428,25 @@ $$
 
 ##### 习题 2.6
 
-**[主线]** 由 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 推导 $\theta'=\cos^2\theta+[\lambda+q(x)]\sin^2\theta$.
+**[主线]** 由 $\varphi=\rho\sin\theta$,$\varphi'=\rho\cos\theta$ 推导 $\theta'=\cos^2\theta+[\lambda+Q(s)]\sin^2\theta$.
 
 ##### 习题 2.7
 
-**[主线]** 证明边界条件 $y(b)\cos\beta-y'(b)\sin\beta=0$ 等价于 $\theta(b)=\beta+k\pi$.
+**[主线]** 证明边界条件 $z(c)\cos\beta-z'(c)\sin\beta=0$ 等价于 $\theta(c)=\beta+k\pi$.
 
 ##### 习题 2.8
 
-**[主线]** 对 $q\equiv0$,$[a,b]=[0,\pi]$, 取两端 Dirichlet 条件及 $\theta(0,\lambda)=0$. 对 $\lambda>0$ 写出连续相位 $\theta(x,\lambda)$, 求首个特征值, 并说明 $\lambda\le0$ 被排除.
+**[主线]** 对 $Q\equiv0$,$[0,c]=[0,\pi]$, 取两端 Dirichlet 条件及 $\theta(0,\lambda)=0$. 对 $\lambda>0$ 写出连续相位 $\theta(s,\lambda)$, 求首个特征值, 并说明 $\lambda\le0$ 被排除.
 
 ##### 习题 2.9
 
-**[拓展]** 验证变换 $\tan\phi=\sqrt{\lambda}\tan\theta$ 把相位方程变为 $\phi'=\sqrt{\lambda}+(q/\sqrt{\lambda})\sin^2\phi$, 并用它证明 $\theta(b,\lambda)\to+\infty$.
+**[拓展]** 验证变换 $\tan\phi=\sqrt{\lambda}\tan\theta$ 把相位方程变为 $\phi'=\sqrt{\lambda}+(Q/\sqrt{\lambda})\sin^2\phi$, 并用它证明 $\theta(c,\lambda)\to+\infty$.
 
 本节习题解答见本页末的习题解答.
 
 ##### 习题提示.
 
-\(3\) 由 $F_s=f'/\theta=A$ 得 $F_{ss}=A'/\theta$. (4) $F=(2s)^{1/4}$,$F''/F=-3/(16s^2)$,故 $Q=3/(16s^2)$. (5) $s=\arcsin x$,$F=\sqrt{\cos s}$, $F''/F=-\frac12-\frac14\tan^2s$,故 $Q=\frac12+\frac14\tan^2s$. (8) 取 $\sqrt\lambda\cos(\sqrt\lambda x)+i\sin(\sqrt\lambda x)$ 的连续辐角, 初值为零. 主值 $\arctan$ 仅在局部给出相位模 $\pi$ 的表达式. $\theta(\pi)=k\pi$ 给出 $\lambda=k^2$, $k\ge1$. (9) 积分 $\phi'$ 的表达式并用 $\sin^2\phi\le1$; $\phi(a,\lambda)$ 有界,故下界随 $\sqrt{\lambda}$ 增长. $\square$
+\(3\) 由 $F_s=f'/\theta=A$ 得 $F_{ss}=A'/\theta$. (4) $F=(2s)^{1/4}$,$F''/F=-3/(16s^2)$,故 $Q=3/(16s^2)$. (5) $s=\arcsin x$,$F=\sqrt{\cos s}$, $F''/F=-\frac12-\frac14\tan^2s$,故 $Q=\frac12+\frac14\tan^2s$. (8) 取 $\sqrt\lambda\cos(\sqrt\lambda s)+i\sin(\sqrt\lambda s)$ 的连续辐角, 初值为零. 主值 $\arctan$ 仅在局部给出相位模 $\pi$ 的表达式. $\theta(\pi)=k\pi$ 给出 $\lambda=k^2$, $k\ge1$. (9) 积分 $\phi'$ 的表达式并用 $\sin^2\phi\le1$; $\phi(0,\lambda)$ 有界,故下界随 $\sqrt{\lambda}$ 增长. $\square$
 
 ## 本章小结
 
@@ -556,7 +564,6 @@ $$
 
 $$
 \frac{F''}{F}
-=-\frac12-\frac14\tan^2s
 =-\frac12-\frac14\tan^2s,
 $$
 
@@ -586,11 +593,11 @@ $$
 
 
 
-代入 $\varphi''=-[\lambda+q]\varphi$ 以及 $\varphi'^2+\varphi^2=\rho^2$,即得结论.
+代入 $\varphi''=-[\lambda+Q]\varphi$ 以及 $\varphi'^2+\varphi^2=\rho^2$,即得结论.
 
 #### 习题 2.7 的解答.
 
-**[主线]** 代入 $y=\rho\sin\theta$,$y'=\rho\cos\theta$ 得
+**[主线]** 代入 $z=\rho\sin\theta$,$z'=\rho\cos\theta$ 得
 
 
 
@@ -601,21 +608,21 @@ $$
 
 
 
-因此 $\theta(b)=\beta+k\pi$,$k\in\mathbb{Z}$.
+因此 $\theta(c)=\beta+k\pi$,$k\in\mathbb{Z}$.
 
 #### 习题 2.8 的解答.
 
-**[主线]** 当 $q=0$ 且 $\lambda>0$ 时, 令 $k=\sqrt\lambda$. 满足左端条件的解及连续相位可写为
+**[主线]** 当 $Q=0$ 且 $\lambda>0$ 时, 令 $k=\sqrt\lambda$. 满足左端条件的解及连续相位可写为
 
 
 
 $$
-y=\sin(kx),\qquad \theta(x)=\operatorname{Arg}_{\mathrm{cont}}(k\cos(kx)+i\sin(kx)),\quad\theta(0)=0.
+z=\sin(ks),\qquad \theta(s)=\operatorname{Arg}_{\mathrm{cont}}(k\cos(ks)+i\sin(ks)),\quad\theta(0)=0.
 $$
 
 
 
-Dirichlet 条件 $y(\pi)=0$ 要求 $k\pi=j\pi$, $j\in\mathbb N_+$, 即 $\lambda=j^2$, 故正特征值为 $1,4,9,\ldots$. 对任意两端为零的本征函数, 分部积分得 $\int|y'|^2=\lambda\int|y|^2$, 排除 $\lambda<0$; 若 $\lambda=0$, 则 $y$ 为常数, 两端为零迫使它平凡. 因此最小特征值为 $\lambda_1=1$. 连续辐角会越过主值分支, 不能一直用主值 $\arctan$ 代替.
+Dirichlet 条件 $z(\pi)=0$ 要求 $k\pi=j\pi$, $j\in\mathbb N_+$, 即 $\lambda=j^2$, 故正特征值为 $1,4,9,\ldots$. 对任意两端为零的本征函数, 分部积分得 $\int|z'|^2=\lambda\int|z|^2$, 排除 $\lambda<0$; 若 $\lambda=0$, 则 $z$ 为常数, 两端为零迫使它平凡. 因此最小特征值为 $\lambda_1=1$. 连续辐角会越过主值分支, 不能一直用主值 $\arctan$ 代替.
 
 #### 习题 2.9 的解答.
 
@@ -634,8 +641,8 @@ $$
 
 
 $$
-\theta'=\cos^2\theta+(\lambda+q)\sin^2\theta
-=\frac{1+(\lambda+q)\tan^2\theta}{\sec^2\theta},
+\theta'=\cos^2\theta+(\lambda+Q)\sin^2\theta
+=\frac{1+(\lambda+Q)\tan^2\theta}{\sec^2\theta},
 $$
 
 
@@ -646,26 +653,26 @@ $$
 
 $$
 \phi'
-=\sqrt{\lambda}\frac{1+(\lambda+q)\tan^2\theta}
+=\sqrt{\lambda}\frac{1+(\lambda+Q)\tan^2\theta}
 {1+\lambda\tan^2\theta}
-=\sqrt{\lambda}+\frac{q}{\sqrt{\lambda}}\sin^2\phi.
+=\sqrt{\lambda}+\frac{Q}{\sqrt{\lambda}}\sin^2\phi.
 $$
 
 
 
-把上式在 $[a,b]$ 上积分:
+把上式在 $[0,c]$ 上积分:
 
 
 
 $$
-\phi(b,\lambda)
-\ge\phi(a,\lambda)+\sqrt{\lambda}(b-a)
--\frac{1}{\sqrt{\lambda}}\int_a^b|q|.
+\phi(c,\lambda)
+\ge\phi(0,\lambda)+c\sqrt{\lambda}
+-\frac{1}{\sqrt{\lambda}}\int_0^c|Q|.
 $$
 
 
 
-由于 $\phi(a,\lambda)$ 有界,右端当 $\lambda\to+\infty$ 时趋于 $+\infty$.又 $|\phi-\theta|<\pi/2$,故 $\theta(b,\lambda)\to+\infty$.于是对每个充分大的整数 $k$, 连续严格递增函数 $w(\lambda)=\theta(b,\lambda)$ 必与水平线 $\beta+k\pi$ 相交一次,给出一个特征值;$k$ 任意大, 故特征值有无穷多个且趋于 $+\infty$.
+由于 $\phi(0,\lambda)$ 有界,右端当 $\lambda\to+\infty$ 时趋于 $+\infty$.又 $|\phi-\theta|<\pi/2$,故 $\theta(c,\lambda)\to+\infty$.于是对每个充分大的整数 $k$, 连续严格递增函数 $w(\lambda)=\theta(c,\lambda)$ 必与水平线 $\beta+k\pi$ 相交一次,给出一个特征值;$k$ 任意大, 故特征值有无穷多个且趋于 $+\infty$.
 
 ## 相关链接
 

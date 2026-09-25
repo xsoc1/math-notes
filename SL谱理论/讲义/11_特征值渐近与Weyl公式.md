@@ -1,6 +1,6 @@
 ---
 title: 特征值渐近与 Weyl 公式
-date: '2026-09-22'
+date: '2026-09-25'
 tags:
 - SL
 - spectral-theory
@@ -55,7 +55,7 @@ $$
 
  其中 $\alpha,\beta\in[0,\pi)$.
 
-由第 7 章,在假设 (A) 下问题的特征值都是实数,单重,构成严格递增序列 $\lambda_0<\lambda_1<\cdots$ 且 $\lambda_n\to+\infty$,相应的特征函数系在 $L^2_r(a,b)$ 中完备.本讲要回答的是这些特征值的分布:$\lambda_n$ 按什么速度 增长?低于给定水平的特征值有多少个?
+由第 7 章,在假设 (A) 下问题的特征值都是实数,单重,构成严格递增序列 $\lambda_1<\lambda_2<\cdots$ 且 $\lambda_n\to+\infty$,相应的特征函数系在 $L^2_r(a,b)$ 中完备.本讲要回答的是这些特征值的分布:$\lambda_n$ 按什么速度 增长?低于给定水平的特征值有多少个?
 
 ### Liouville 标准形与 Liouville 长度
 
@@ -63,7 +63,7 @@ $$
 
 $$
 s=s(x)=\int_a^x\sqrt{\frac{r(t)}{p(t)}}\,dt,\qquad
-    c=s(b)=\int_a^b\sqrt{\frac{r(t)}{p(t)}}\,dx,
+    c=s(b)=\int_a^b\sqrt{\frac{r(t)}{p(t)}}\,dt,
     \qquad
     z(s)=F(s)\,y(x(s)),
 $$
@@ -162,7 +162,7 @@ $$
 
 > [!note] 引理. 常势相位的显式解
 
-设 $Q\equiv q_0$ 为常数,$\lambda+q_0>0$,记 $\kappa=\sqrt{\lambda+q_0}$.取 $\varphi(\cdot,\lambda)$ 为关系 $\tan\varphi=\kappa\tan\theta$ 的连续分支,使 $|\varphi(0,\lambda)-\alpha'|<\pi/2$.则
+设 $Q\equiv Q_0$ 为常数,$\lambda+Q_0>0$,记 $\kappa=\sqrt{\lambda+Q_0}$.取 $\varphi(\cdot,\lambda)$ 为关系 $\tan\varphi=\kappa\tan\theta$ 的连续分支,使 $|\varphi(0,\lambda)-\alpha'|<\pi/2$.则
 
 $$
 \varphi'(s)=\kappa,\qquad
@@ -186,7 +186,7 @@ $$
 \sec^2\varphi\,\varphi'=\kappa\,\sec^2\theta\,\theta' .
 $$
 
- 由 $\sec^2\varphi=1+\tan^2\varphi=1+\kappa^2\tan^2\theta$,并用 (9.12)(此时 $Q\equiv q_0=\kappa^2-\lambda$),
+ 由 $\sec^2\varphi=1+\tan^2\varphi=1+\kappa^2\tan^2\theta$,并用 (9.12)(此时 $Q\equiv Q_0=\kappa^2-\lambda$),
 
 $$
 \theta'=\cos^2\theta+\kappa^2\sin^2\theta
@@ -283,11 +283,11 @@ $$
 \sqrt{\lambda+m}\,c-C_0\le\theta(c,\lambda)\le\sqrt{\lambda+M}\,c+C_0 .
 $$
 
- 取 $\lambda_*=\max\{1,1-m,1-M\}$,则 $\lambda\ge\lambda_*$ 时 $\lambda+m\ge1$,$\lambda+M\ge1$,于是对任意 $q_0\in\{m,M\}$,
+ 取 $\lambda_*=\max\{1,1-m,1-M\}$,则 $\lambda\ge\lambda_*$ 时 $\lambda+m\ge1$,$\lambda+M\ge1$,于是对任意 $Q_0\in\{m,M\}$,
 
 $$
-\bigl|\sqrt{\lambda+q_0}-\sqrt\lambda\bigr|
-    =\frac{|q_0|}{\sqrt{\lambda+q_0}+\sqrt\lambda}\le|q_0| .
+\bigl|\sqrt{\lambda+Q_0}-\sqrt\lambda\bigr|
+    =\frac{|Q_0|}{\sqrt{\lambda+Q_0}+\sqrt\lambda}\le|Q_0| .
 $$
 
  因此存在只依赖于 $m,M,c$ 与 $\alpha'$ 的常数
@@ -308,10 +308,10 @@ $$
 对正则 SL 问题定义计数函数
 
 $$
-N(\lambda)=\#\{n:\ \lambda_n\le\lambda\},\qquad \lambda\in\mathbb R .
+N(\lambda)=\#\{n\ge1:\ \lambda_n\le\lambda\},\qquad \lambda\in\mathbb R .
 $$
 
- 本讲按 $\lambda_0<\lambda_1<\cdots$ 编号 (本章局部约定); 若改按 $\lambda_1<\lambda_2<\cdots$ 编号,则 $O(1)$ 中的常数相应改变, 渐近主项不变.
+ 谱排序从 $n=1$ 开始, 并按重数计数. 在本章的分离边界条件下谱单重, 所以 $N(\lambda_n)=n$. 对重特征值, $N$ 在该点一次计入整个特征空间的维数; 此时 $N(\lambda_n)$ 等于该重特征值最后一次出现的序号, 未必等于 $n$.
 
 > [!note] 命题. 计数函数与右端相位的对应
 
@@ -399,13 +399,13 @@ $$
 由第 7 章的谱排列结论,特征值单重且严格递增,故计数函数满足
 
 $$
-N(\lambda_n)=n+1,\qquad n=0,1,2,\dots
+N(\lambda_n)=n,\qquad n=1,2,3,\dots
 $$
 
- (若按 $\lambda_1<\lambda_2<\cdots$ 编号,则 $N(\lambda_n)=n$, 下面结论不变).由 (9.34),
+ 对充分大的 $n$, $\lambda_n>0$. 由 (9.34),
 
 $$
-n+1=A\sqrt{\lambda_n}+O(1),\qquad A=\frac c\pi,
+n=A\sqrt{\lambda_n}+O(1),\qquad A=\frac c\pi,
 $$
 
  故 $\sqrt{\lambda_n}=\dfrac nA+O(1)=\dfrac{n\pi}{c}+O(1)$.平方得
@@ -419,7 +419,7 @@ $$
 
 > [!note] 推论. 两种形式的等价
 
-设 $\lambda_0\le\lambda_1\le\cdots$ 是严格递增且趋于无穷大的正数列, $A>0$. 则
+设 $\lambda_1<\lambda_2<\cdots$ 是严格递增且趋于无穷大的正数列, $A>0$. 则
 
 $$
 N(\lambda)\sim A\sqrt\lambda\quad(\lambda\to+\infty)
@@ -431,15 +431,15 @@ $$
 
 **证明.**
 
-\"$\Rightarrow$\":与定理\"Weyl 渐近(特征值形式)\"的证明相同, 由 $N(\lambda_n)=n+1$ 得 $n+1\sim A\sqrt{\lambda_n}$,故 $\sqrt{\lambda_n}\sim n/A$.
+\"$\Rightarrow$\":与定理\"Weyl 渐近(特征值形式)\"的证明相同, 由 $N(\lambda_n)=n$ 得 $n\sim A\sqrt{\lambda_n}$,故 $\sqrt{\lambda_n}\sim n/A$.
 
-\"$\Leftarrow$\":设 $\lambda_n\sim(n/A)^2$.对 $\lambda\in[\lambda_n,\lambda_{n+1})$ 有 $N(\lambda)=n+1$,并且 $\sqrt{\lambda_n}\sim n/A$,$\sqrt{\lambda_{n+1}}\sim(n+1)/A$. 于是
+\"$\Leftarrow$\":设 $\lambda_n\sim(n/A)^2$.对 $\lambda\in[\lambda_n,\lambda_{n+1})$ 有 $N(\lambda)=n$,并且 $\sqrt{\lambda_n}\sim n/A$,$\sqrt{\lambda_{n+1}}\sim(n+1)/A$. 于是
 
 $$
-\frac{n+1}{\sqrt{\lambda_{n+1}}}
+\frac{n}{\sqrt{\lambda_{n+1}}}
         \le\frac{N(\lambda)}{\sqrt\lambda}
-        =\frac{n+1}{\sqrt\lambda}
-        \le\frac{n+1}{\sqrt{\lambda_n}},
+        =\frac{n}{\sqrt\lambda}
+        \le\frac{n}{\sqrt{\lambda_n}},
 $$
 
  两端当 $n\to\infty$ 时都趋于 $A$,故 $N(\lambda)\sim A\sqrt\lambda$, 即 (9.41) 的右到左. $\square$
@@ -458,27 +458,34 @@ $$
 
 $$
 \lambda_n=\frac{q_0}{r_0}+\frac{p_0}{r_0}
-        \Bigl(\frac{(n+1)\pi}{L}\Bigr)^2,\qquad n=0,1,2,\dots;
+        \Bigl(\frac{n\pi}{L}\Bigr)^2,\qquad n\ge1;
 $$
 
  Neumann 问题 $y'(0)=y'(L)=0$ 的特征值为
 
 $$
 \lambda_n=\frac{q_0}{r_0}+\frac{p_0}{r_0}
-        \Bigl(\frac{n\pi}{L}\Bigr)^2,\qquad n=0,1,2,\dots .
+        \Bigl(\frac{(n-1)\pi}{L}\Bigr)^2,\qquad n\ge1 .
 $$
 
- 两者的主项都是
+ 左 Dirichlet、右 Neumann 条件 $y(0)=y'(L)=0$ 则给出
+
+$$
+\lambda_n=\frac{q_0}{r_0}+\frac{p_0}{r_0}
+        \Bigl(\frac{(n-\tfrac12)\pi}{L}\Bigr)^2,\qquad n\ge1.
+$$
+
+ 三者的主项都是
 
 $$
 \frac{p_0}{r_0}\frac{n^2\pi^2}{L^2}=\Bigl(\frac{n\pi}{c}\Bigr)^2,
 $$
 
- 与定理一致. Dirichlet 从零编号产生线性项 $2n\pi^2p_0/(r_0L^2)$, 势 $q_0/r_0$ 只贡献常数项.
+ 与定理一致. 相对这一主项, Dirichlet 的偏移为 $q_0/r_0$; Neumann 的偏移为 $(-2n+1)\pi^2p_0/(r_0L^2)+q_0/r_0$; 混合条件的偏移为 $(-n+1/4)\pi^2p_0/(r_0L^2)+q_0/r_0$. 因此边界造成的低阶偏移与 $O(n)$ 余项相容, 常势只贡献常数项.
 
 > [!example] 例. $p=r=1$,$q=0$ 的两种边界条件
 
-取 $[0,L]$,$p=r=1$,$q=0$.则 $c=L$,Weyl 公式给出 $N(\lambda)\sim L\sqrt\lambda/\pi$. Dirichlet 与 Neumann 的特征值分别是 $\bigl((n+1)\pi/L\bigr)^2$ 与 $\bigl(n\pi/L\bigr)^2$($n=0,1,2,\dots$),两者都满足 $\lambda_n\sim(n\pi/L)^2$.差别只在最小的一个:Neumann 有 $\lambda_0=0$(常数函数),Dirichlet 有 $\lambda_0=(\pi/L)^2$. 这一差别只影响 $N(\lambda)$ 的 $O(1)$ 项.
+取 $[0,L]$,$p=r=1$,$q=0$.则 $c=L$,Weyl 公式给出 $N(\lambda)\sim L\sqrt\lambda/\pi$. Dirichlet 与 Neumann 的特征值分别是 $\bigl(n\pi/L\bigr)^2$ 与 $\bigl((n-1)\pi/L\bigr)^2$ ($n\ge1$), 两者都满足 $\lambda_n\sim(n\pi/L)^2$. Neumann 的常数模态对应 $\lambda_1^N=0$, 且 $\lambda_{n+1}^N=\lambda_n^D$ ($n\ge1$). 若用自然频率 $k\ge0$, 同一 Neumann 谱写成 $\lambda_{k+1}^N=(k\pi/L)^2$, 其中 $k$ 与谱序号相差1. 对 $\lambda\ge0$, 精确地有 $N_D(\lambda)=\lfloor L\sqrt\lambda/\pi\rfloor$, $N_N(\lambda)=1+\lfloor L\sqrt\lambda/\pi\rfloor$. 这一个计数偏移包含在 Weyl 公式的 $O(1)$ 项中.
 
 ## Dirichlet 与 Neumann 的比较
 
@@ -507,17 +514,17 @@ Dirichlet 与 Neumann 边界条件都是分离型自伴边界条件,故两个问
 
 > [!note] 注. 由型域余维得到的比较
 
-统一从 $n=0$ 编号. 由第 8 章极小极大原理以及 $H_0^1(a,b)\subset H^1(a,b)$ 的余维为 $2$, 有
+统一从 $n=1$ 编号. 由第 8 章极小极大原理以及 $H_0^1(a,b)\subset H^1(a,b)$ 的余维为 $2$, 有
 
 $$
 \lambda_n^N\le\lambda_n^D\le\lambda_{n+2}^N.
 $$
 
- 第二个不等式的证明是: 任意 $(n+3)$ 维 Neumann 试探空间与 $H_0^1$ 的交至少有 $n+1$ 维. 对该交取 Rayleigh 商最大值, 再取下确界. 一般势下不能把 $n+2$ 无条件改成 $n+1$.
+ 第二个不等式的证明是: 任意 $(n+2)$ 维 Neumann 试探空间与 $H_0^1$ 的交至少有 $n$ 维. 从交中选取 $n$ 维子空间, 其 Rayleigh 商最大值 不超过原试探空间上的最大值. 先用 Dirichlet 的第 $n$ 个极小极大值, 再对所有 $(n+2)$ 维 Neumann 试探空间取下确界, 即得右侧比较. 一般势下不能把 $n+2$ 无条件改成 $n+1$.
 
 ### Neumann 的零特征值与一般分离边界
 
-若进一步 $p=r=1$,$q=0$ 并取 Neumann 边界条件,则常数函数是特征函数, 对应 $\lambda_0=0$,于是 $N_N(\lambda)$ 在 $\lambda=0$ 处比 Dirichlet 多计一项.这个差别包含在 (9.48) 的 $O(1)$ 中,不影响主项. 在相位证明中,Neumann 左端对应的初值为 $\theta(0,\lambda)=\pi/2$, 而估计 (9.15) 对任意固定的 $\alpha'\in[0,\pi)$ 都成立, 故结论不变.
+若进一步 $p=r=1$,$q=0$ 并取 Neumann 边界条件,则常数函数是特征函数, 对应 $\lambda_1=0$,于是 $N_N(\lambda)$ 在 $\lambda=0$ 处比 Dirichlet 多计一项.这个差别包含在 (9.48) 的 $O(1)$ 中,不影响主项. 在相位证明中,Neumann 左端对应的初值为 $\theta(0,\lambda)=\pi/2$, 而估计 (9.15) 对任意固定的 $\alpha'\in[0,\pi)$ 都成立, 故结论不变.
 
 更一般地,任意分离型自伴边界条件只改变 (9.27) 中的常数 $C_0$ 与 (9.31) 中的偏移 $\beta'$,不改变 $c\sqrt\lambda$ 这一主项.因此 Weyl 主项与边界条件的类型无关.
 
@@ -595,11 +602,11 @@ $$
 
 ##### 习题 9.1
 
-**[主线]** 证明常势相位引理:若 $Q\equiv q_0$,$\lambda+q_0>0$,且 $\tan\varphi=\sqrt{\lambda+q_0}\tan\theta$,则 $\varphi'=\sqrt{\lambda+q_0}$,并由此证明 (9.15).
+**[主线]** 证明常势相位引理:若 $Q\equiv Q_0$,$\lambda+Q_0>0$,且 $\tan\varphi=\sqrt{\lambda+Q_0}\tan\theta$,则 $\varphi'=\sqrt{\lambda+Q_0}$,并由此证明 (9.15).
 
 ##### 习题 9.2
 
-**[主线]** 证明等价关系:对 $A>0$,$N(\lambda)\sim A\sqrt\lambda$ 当且仅当 $\lambda_n\sim(n/A)^2$.
+**[主线]** 在本章从1编号的简单谱设定下证明等价关系:对 $A>0$,$N(\lambda)\sim A\sqrt\lambda$ 当且仅当 $\lambda_n\sim(n/A)^2$.
 
 ##### 习题 9.3
 
@@ -607,7 +614,7 @@ $$
 
 ##### 习题 9.4
 
-**[主线]** 在假设 (A) 下证明 $\lambda_{n+1}/\lambda_n\to1$, 并说明 Neumann 问题 $\lambda_0=0$ 时下确界应如何定义.
+**[主线]** 在假设 (A) 下证明 $\lambda_{n+1}/\lambda_n\to1$, 并说明 Neumann 问题 $\lambda_1=0$ 时下确界应如何定义.
 
 ##### 习题 9.5
 
@@ -615,13 +622,13 @@ $$
 
 ##### 习题 9.6
 
-**[拓展]** 证明 Dirichlet 与 Neumann 计数函数之差有界,即 (9.48);并用型域余维证明 $\lambda_n^N\le\lambda_n^D\le\lambda_{n+2}^N$ (从零编号).
+**[拓展]** 证明 Dirichlet 与 Neumann 计数函数之差有界,即 (9.48);并用型域余维证明 $\lambda_n^N\le\lambda_n^D\le\lambda_{n+2}^N$ ($n\ge1$, 按重数计数).
 
 本节习题解答见本页末的习题解答.
 
 ##### 习题提示.
 
-\(1\) 对 $\tan\varphi=\kappa\tan\theta$ 求导,用 $\sec^2\varphi=1+\kappa^2\tan^2\theta$ 与相位方程化简; 再用 $|\varphi(0,\lambda)-\alpha'|<\pi/2$ 控制初值. (2) 由 $N(\lambda_n)=n+1$ 双向夹逼,见推论\"两种形式的等价\". (3) $c=\int_0^1(1+x)\,dx=3/2$. (4) 由 $\lambda_n=(n/A)^2+O(n)$ 展开比值;严格递增保证比值 $>1$. (5) 每个常数段内 $\varphi'=\sqrt{\lambda\rho}$,跳点处 $|\Delta\varphi|<\pi$,求和后主项为 $\sqrt\lambda\int\sqrt\rho$. (6) 对两个问题分别用定理\"Weyl 渐近(计数函数形式)\"后相减. $\square$
+\(1\) 对 $\tan\varphi=\kappa\tan\theta$ 求导,用 $\sec^2\varphi=1+\kappa^2\tan^2\theta$ 与相位方程化简; 再用 $|\varphi(0,\lambda)-\alpha'|<\pi/2$ 控制初值. (2) 由 $N(\lambda_n)=n$ 双向夹逼,见推论\"两种形式的等价\". (3) $c=\int_0^1(1+x)\,dx=3/2$. (4) 由 $\lambda_n=(n/A)^2+O(n)$ 展开比值;严格递增保证比值 $>1$. (5) 每个常数段内 $\varphi'=\sqrt{\lambda\rho}$,跳点处 $|\Delta\varphi|<\pi$,求和后主项为 $\sqrt\lambda\int\sqrt\rho$. (6) 对两个问题分别用定理\"Weyl 渐近(计数函数形式)\"后相减. $\square$
 
 ## 本章小结
 
@@ -647,7 +654,7 @@ Weyl 公式把特征值渐近归结为 Liouville 长度 $c=\int_a^b\sqrt{r/p}\,d
 
 #### 习题 9.1 的解答.
 
-**[主线]** 记 $\kappa=\sqrt{\lambda+q_0}$.由 $\tan\varphi=\kappa\tan\theta$ 求导得
+**[主线]** 记 $\kappa=\sqrt{\lambda+Q_0}$.由 $\tan\varphi=\kappa\tan\theta$ 求导得
 
 $$
 \sec^2\varphi\,\varphi'=\kappa\sec^2\theta\,\theta'.
@@ -679,18 +686,18 @@ $$
 
 #### 习题 9.2 的解答.
 
-**[主线]** 设 $N(\lambda_n)=n+1$. 若 $N(\lambda)\sim A\sqrt\lambda$,则 $n+1\sim A\sqrt{\lambda_n}$,故
+**[主线]** 本章采用从1开始的简单谱编号, 故 $N(\lambda_n)=n$. 若 $N(\lambda)\sim A\sqrt\lambda$,则 $n\sim A\sqrt{\lambda_n}$,故
 
 $$
 \sqrt{\lambda_n}\sim\frac nA,\qquad \lambda_n\sim\Bigl(\frac nA\Bigr)^2 .
 $$
 
- 反之设 $\lambda_n\sim(n/A)^2$.对 $\lambda\in[\lambda_n,\lambda_{n+1})$ 有 $N(\lambda)=n+1$,且 $\sqrt{\lambda_n}\sim n/A$, $\sqrt{\lambda_{n+1}}\sim(n+1)/A$,于是
+ 反之设 $\lambda_n\sim(n/A)^2$.对 $\lambda\in[\lambda_n,\lambda_{n+1})$ 有 $N(\lambda)=n$,且 $\sqrt{\lambda_n}\sim n/A$, $\sqrt{\lambda_{n+1}}\sim(n+1)/A$,于是
 
 $$
-\frac{n+1}{\sqrt{\lambda_{n+1}}}
+\frac{n}{\sqrt{\lambda_{n+1}}}
 \le\frac{N(\lambda)}{\sqrt\lambda}
-\le\frac{n+1}{\sqrt{\lambda_n}},
+\le\frac{n}{\sqrt{\lambda_n}},
 $$
 
  两端都趋于 $A$,故 $N(\lambda)/\sqrt\lambda\to A$.
@@ -721,7 +728,7 @@ $$
 =\Bigl(\frac{n+1}{n}\Bigr)^2\frac{1+O(1/n)}{1+O(1/n)}\to1 .
 $$
 
- 又特征值严格递增,在 $\lambda_n>0$ 的范围内比值恒大于 $1$,下确界为 $1$ 且不被取到. Neumann 问题 $\lambda_0=0$ 时 $\lambda_1/\lambda_0$ 无定义, 下确界应改为对一切满足 $\lambda_n>0$ 的 $n$ 取(例如 $n\ge1$), 这不影响结论.
+ 又特征值严格递增,在 $\lambda_n>0$ 的范围内比值恒大于 $1$,下确界为 $1$ 且不被取到. Neumann 问题 $\lambda_1=0$ 时 $\lambda_2/\lambda_1$ 无定义, 下确界应对一切满足 $\lambda_n>0$ 的 $n$ 取(在 $p=r=1,q=0$ 的例子中为 $n\ge2$), 这不影响结论.
 
 #### 习题 9.5 的解答.
 
@@ -743,7 +750,7 @@ $$
 
 #### 习题 9.6 的解答.
 
-**[拓展]** 对两种边界分别用 Weyl 计数式后相减, 得到 $N_D-N_N=O(1)$. 型域包含给出 $\lambda_n^N\le\lambda_n^D$. 若 $E$ 是前 $n+3$ 个 Neumann 特征函数的张成空间, 则 $\dim(E\cap H_0^1)\ge n+1$, 且其 Rayleigh 商至多为 $\lambda_{n+2}^N$. 对 Dirichlet 问题用极小极大原理即得右侧不等式.
+**[拓展]** 对两种边界分别用 Weyl 计数式后相减, 得到 $N_D-N_N=O(1)$. 型域包含给出 $\lambda_n^N\le\lambda_n^D$. 若 $E$ 是前 $n+2$ 个 Neumann 特征函数的张成空间, 则两个端点迹条件至多使维数减少2, 故 $\dim(E\cap H_0^1)\ge n$. 从交中取 $n$ 维子空间, 其 Rayleigh 商至多为 $\lambda_{n+2}^N$. 对从1编号的 Dirichlet 第 $n$ 个极小极大值取这个试探空间, 即得右侧不等式.
 
 ## 相关链接
 

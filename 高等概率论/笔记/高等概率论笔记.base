@@ -11,6 +11,8 @@ properties:
     displayName: 来源册次
   source_chapter:
     displayName: 原书章节
+  source_pages:
+    displayName: 原书 PDF 页码
   status:
     displayName: 状态
   source_check:
@@ -28,6 +30,7 @@ views:
       - note_type
       - source_volume
       - source_chapter
+      - source_pages
       - status
       - source_check
       - exercise_range

@@ -1,0 +1,150 @@
+% !TEX program = xelatex
+% Source: F:\Obsidian Storage\数学\泛函分析\泛函分析讲义上册习题册.md
+\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
+\usepackage[margin=2.3cm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={第三周作业},pdfauthor={黄子昱}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{泛函分析\quad 第三周作业}
+\fancyhead[R]{黄子昱\quad 24343058}
+\fancyfoot[C]{\thepage}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.3em}
+\linespread{1.15}
+\allowdisplaybreaks[2]
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\ctexset{section={format=\large\bfseries,beforeskip=1.3ex,afterskip=.7ex},subsection={format=\normalsize\bfseries,beforeskip=1.1ex,afterskip=.5ex}}
+\newcommand{\exercise}[1]{\par\ifdim\dimexpr\pagegoal-\pagetotal\relax<7\baselineskip\newpage\fi\subsection*{习题 #1}}
+\newcommand{\answer}{\par\smallskip\noindent\textbf{答案}\quad}
+\newcommand{\qedherecustom}{\unskip\hfill\mbox{\normalfont Q.E.D.}\par}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries 第三周作业}\par\medskip
+{\large 泛函分析}\par\medskip
+姓名：黄子昱\qquad 学号：24343058
+\end{center}
+\medskip
+
+
+\section*{1.3 紧性}
+\noindent 本节“列紧”指任意序列均有在所在空间中收敛的子列，极限不必属于原集合。
+
+\exercise{1.3.6}
+设 $E=\{\sin nt\}_{n=1}^{\infty}$。证明 $E$ 在赋予上确界范数的 $C[0,\pi]$ 中不是序列紧的。
+
+\answer
+证明它不是等度连续的：取 $\varepsilon_0=\frac12$，对任意 $\delta>0$，令
+\[
+n>\max\left\{\frac{\pi}{2\delta},1\right\},\qquad x=\frac{\pi}{2n}.
+\]
+则 $x\in[0,\pi]$，且 $|x-0|<\delta$ 显然，但
+\[
+|\sin(n\cdot0)-\sin(nx)|=\left|0-\sin\frac\pi2\right|=1>\varepsilon_0.
+\]
+因此不等度连续，进而由 AA 定理知不列紧。\qedherecustom
+
+\exercise{1.3.7}
+设 $S$ 为习题 1.2.1 中的空间，即所有实数列或复数列组成的空间，赋予度量
+\[
+\rho(x,y)=\sum_{n=1}^{\infty}\frac1{2^n}
+\frac{|\xi_n-\eta_n|}{1+|\xi_n-\eta_n|},
+\qquad x=(\xi_n),\quad y=(\eta_n).
+\]
+证明 $A\subset S$ 序列紧，当且仅当存在常数 $C_n>0$，使得对所有 $x=(\xi_1,\xi_2,\ldots)\in A$ 和 $n=1,2,\ldots$，有 $|\xi_n|\leq C_n$。
+
+\answer
+必要性：若某个坐标不有界，记为第 $n$ 个坐标，则可取 $\{x^{(k)}\}\subset A$，使 $|\xi_n^{(k)}|>k$。由 $A$ 列紧，存在收敛子列 $x^{(k_j)}\to x=(\xi_i)\in S$。那么有
+\[
+\frac{|\xi_n^{(k_j)}-\xi_n|}{1+|\xi_n^{(k_j)}-\xi_n|}
+\leq 2^n\rho(x^{(k_j)},x)\longrightarrow0,
+\]
+从而 $\xi_n^{(k_j)}\to\xi_n$，进而得出该坐标子列有界。但 $|\xi_n^{(k_j)}|>k_j\to\infty$，矛盾。因此每个坐标均有界，可取所需的 $C_n>0$。
+
+充分性：由 1.2.1 知 $S$ 完备，再由 1.3.1，构造一个列紧的 $\varepsilon$-网即可。给定 $\varepsilon>0$，取 $N$ 使
+\[
+\sum_{n>N}\frac1{2^n}=2^{-N}<\varepsilon.
+\]
+记底域为 $\mathbb K=\mathbb R$ 或 $\mathbb C$，令
+\[
+K_N=\{(\eta_1,\ldots,\eta_N,0,\ldots):
+\eta_i\in\mathbb K,\ |\eta_i|\leq C_i,\ 1\leq i\leq N\}.
+\]
+先证 $K_N$ 列紧。任取 $\{y^{(k)}\}\subset K_N$，由于前 $N$ 个坐标均有界，逐次取子列，有限次后得到一个子列 $\{y^{(k_j)}\}$，使前 $N$ 个坐标同时收敛，记极限为 $\eta_1,\ldots,\eta_N$。由 $|\eta_i|\leq C_i$，有 $y=(\eta_1,\ldots,\eta_N,0,\ldots)\in K_N$，且
+\[
+\rho(y^{(k_j)},y)=\sum_{i=1}^N\frac1{2^i}
+\frac{|\eta_i^{(k_j)}-\eta_i|}{1+|\eta_i^{(k_j)}-\eta_i|}
+\longrightarrow0.
+\]
+因此 $K_N$ 列紧。
+
+再对任意 $x=(\xi_i)\in A$，取 $x^{[N]}=(\xi_1,\ldots,\xi_N,0,\ldots)\in K_N$，则
+\[
+\rho(x,x^{[N]})=\sum_{i>N}\frac1{2^i}\frac{|\xi_i|}{1+|\xi_i|}
+\leq\sum_{i>N}\frac1{2^i}<\varepsilon.
+\]
+所以 $K_N$ 是 $A$ 的一个列紧的 $\varepsilon$-网，这里的网点允许取在 $S$ 中。由 1.3.1 知 $A$ 列紧。\qedherecustom
+
+\exercise{1.3.8}
+设 $(\mathcal X,\rho)$ 是非空度量空间，$M\subset\mathcal X$ 是序列紧集，$f:\mathcal X\to M$ 满足对 $x\ne y$ 有
+\[
+\rho(f(x),f(y))<\rho(x,y).
+\]
+证明 $f$ 在 $\mathcal X$ 中有唯一不动点。
+
+\answer
+任取 $x_0\in\mathcal X$，令迭代序列 $f(x_n)=x_{n+1}$，$d_n=\rho(x_n,x_{n+1})$。由于 $n\geq1$ 时 $x_n\in M$，知 $\{x_n\}$ 存在收敛子列。若某步 $d_n=0$，则得到不动点；否则有 $d_{n+1}<d_n$，从而 $d_n\to d\geq0$。
+
+而 $\exists x_{n_k}\to a\in\mathcal X$，且由
+\[
+\rho(f(x),f(y))\leq\rho(x,y)
+\]
+知 $f$ 的连续性显然，因此
+\[
+x_{n_k+1}=f(x_{n_k})\longrightarrow f(a),\qquad
+x_{n_k+2}=f(x_{n_k+1})\longrightarrow f^2(a).
+\]
+若 $a$ 不是不动点，那么有
+\[
+\rho(f(a),f^2(a))<\rho(a,f(a)).
+\]
+但由前文知
+\[
+\begin{aligned}
+\rho(a,f(a))&=\lim_{k\to\infty}\rho(x_{n_k},x_{n_k+1})
+=\lim_{k\to\infty}d_{n_k}=d,\\
+\rho(f(a),f^2(a))&=\lim_{k\to\infty}\rho(x_{n_k+1},x_{n_k+2})
+=\lim_{k\to\infty}d_{n_k+1}=d,
+\end{aligned}
+\]
+因此矛盾，故 $f(a)=a$。
+
+再证唯一性，若 $p\ne q$ 都是不动点，则
+\[
+\rho(p,q)=\rho(f(p),f(q))<\rho(p,q),
+\]
+矛盾。因此存在唯一不动点。\qedherecustom
+
+\exercise{1.3.9}
+设 $M$ 是紧度量空间，$C(M)$ 赋予上确界范数，$E\subset C(M)$ 一致有界，且存在 $C>0$ 和 $0<\alpha\leq1$ 使得
+\[
+|x(t_1)-x(t_2)|\leq C\rho(t_1,t_2)^\alpha
+\]
+对所有 $x\in E$ 和 $t_1,t_2\in M$ 成立。证明 $E$ 在 $C(M)$ 中序列紧。
+
+\answer
+直接用 $\varepsilon$-$\delta$ 语言证明等度连续即可。对任意 $\varepsilon>0$，取
+\[
+\delta=\left(\frac\varepsilon C\right)^{1/\alpha}>0,
+\]
+则当 $\rho(t_1,t_2)<\delta$ 时，对所有 $x\in E$，都有
+\[
+|x(t_1)-x(t_2)|\leq C\rho(t_1,t_2)^\alpha
+<C\delta^\alpha=\varepsilon.
+\]
+因此 $E$ 等度连续。又因为 $E$ 一致有界，$M$ 紧，由 AA 定理知 $E$ 列紧。\qedherecustom
+
+\end{document}

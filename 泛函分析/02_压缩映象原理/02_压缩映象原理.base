@@ -1,7 +1,7 @@
 filters:
   and:
     - 'file.hasTag("functional-analysis")'
-    - 'file.hasTag("fixed-point")'
+    - 'file.hasTag("contraction-mapping")'
     - 'file.ext == "md"'
 properties:
   note_type:

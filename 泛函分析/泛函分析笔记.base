@@ -1,0 +1,41 @@
+filters:
+  and:
+    - 'file.hasTag("functional-analysis")'
+    - '!file.hasTag("exercise-book")'
+    - 'file.ext == "md"'
+properties:
+  note_type:
+    displayName: "类型"
+  source_section:
+    displayName: "资料来源"
+  exercise_range:
+    displayName: "原书习题"
+  status:
+    displayName: "编写状态"
+views:
+  - type: table
+    name: "全部理论与导航"
+    order:
+      - file.name
+      - file.folder
+      - note_type
+      - source_section
+      - exercise_range
+      - status
+    sort:
+      - property: file.folder
+        direction: ASC
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: "专题总览"
+    filters:
+      and:
+        - 'note_type == "overview"'
+    order:
+      - file.name
+      - file.folder
+      - source_section
+    sort:
+      - property: file.folder
+        direction: ASC

@@ -1,0 +1,26 @@
+filters:
+  and:
+    - 'file.hasTag("functional-analysis")'
+    - 'file.hasTag("fa-riesz-variational")'
+    - 'file.ext == "md"'
+properties:
+  note_type:
+    displayName: "类型"
+  source_section:
+    displayName: "资料来源"
+  exercise_range:
+    displayName: "原书习题"
+  status:
+    displayName: "编写状态"
+views:
+  - type: table
+    name: "专题笔记目录"
+    order:
+      - file.name
+      - note_type
+      - source_section
+      - exercise_range
+      - status
+    sort:
+      - property: file.name
+        direction: ASC

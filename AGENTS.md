@@ -12,7 +12,8 @@ F:\Obsidian Storage\数学\
 ├── README.md
 ├── Obsidian技能与Agent调用指南.md
 ├── AI教学工程/
-│   └── OpenMAIC课程与教材规划调研.md
+│   ├── OpenMAIC课程与教材规划调研.md
+│   └── Obsidian_Codex侧栏插件开发调研.md
 ├── 高等概率论/
 │   ├── 01_测度论基础与高等概率论上册习题集.md
 │   ├── 02_测度论基础与高等概率论下册习题集.md
@@ -342,6 +343,7 @@ aliases:
 
 | 日期 | 变更内容 |
 |------|----------|
+| 2026-10-11 | 新增 Obsidian Codex 侧栏插件开发调研, 核对官方 API 与 Claudian/Copilot 固定源码, 完成本机登录状态探测; 记录 Windows 桌面目标、公式保真及会话复用边界, 更新 README 和指南入口 |
 | 2026-10-07 | 依据用户 math-writing 包新增 PDE 快速讲义：多元微积分补桥与数学推导为主线，按五份课件及四周作业定位，10 道助手自测含答案；同步课程导航、双向回链和 README，保留原作业证明与教材习题留白 |
 | 2026-10-07 | 新增数学物理方程第四周作业四（3 题，答案已补充）；说明 Neumann 题归一化缺失并证明模常数唯一，补齐散度型能量估计与三维热传导推导，更新双向导航、README 和维护记录 |
 | 2026-10-07 | 收尾格式校核：12 张依赖图已原生渲染, 01–03 与总图调整后适配 700px 阅读区；图源统一 Tab 缩进, 数学内容和链接不变。主体提交 19c5da8 已推送并与远端 main 提交号核对一致；共享文件原有增量仍保留 |
@@ -458,3 +460,13 @@ aliases:
 
 
 - 2026-10-08: 按用户指定math-writing修订SL讲义行文, 保留17章和96题. 长证明交代构造与估计目标, 密集段落按推理任务展开, 改善等距下降、矩递推、迹修正与Gram稳定性的衔接; 原公式、定义与定理、习题答案、两图和固定来源保持一致. 当前源码编译为151页, 全页缩略及重点页实际检查, 158标签/165引用闭合, 无undefined或缺字. 阅读版20个文件同步, 5,206公式经原生MathJax 4.1.3解析无错误, SL范围未解析链接为0, 阅读模式与实时预览已查看. 不新增理论或先修, 不称全书证明认证; 未刊状态与第二阶非基结论范围保留. 用户要求据指定skill实际修改行文; 以2026-09-25源稿为基线, 数学片段逐项对照. 修改依据、基线和检查证据在 F:/tools/sl-lecture-writing-20261008, LaTeX交付在 F:/LaTeX/SL_Spectral_Theory_Lecture/delivery/20261008. 按本库既有规则精确提交SL内容及两根文件的本条追加, 不纳入根文件原脏记录和7项无关笔记.
+
+
+## Obsidian Codex 侧栏调研状态与本轮记录
+
+- 2026-10-11: 用户要求调研类似 VS Code Codex 侧栏的 Obsidian 插件, 包括随时提问、选区自动 prompt 和阅读视图上下文; 随后明确真正 Codex、复用本机登录与会话、首版 Windows 桌面。
+- 当前成果为 [[AI教学工程/Obsidian_Codex侧栏插件开发调研|插件开发调研]], 覆盖官方插件 API、源码对照、Codex 协议、数学选区保真及分阶段验收。助手建议先在独立测试库评估 Claudian 的 Codex 后端, 再扩展阅读上下文; 用户尚未决定 fork、从零开发或安装。
+- 实测 Obsidian 1.14.4/installer 1.13.7、codex-cli 0.162.0-alpha.17.2; 协议 TypeScript 类型生成成功, 独立 App Server 完成 initialize/initialized/account-read, 只输出脱敏 chatgpt 账号类型。未创建会话或发起推理, 未安装或运行第三方插件, 未验证活跃会话跨客户端接管、阅读选区源码映射或截图识别。
+- 方法与复验: 官方文档及固定提交源码核查, `codex --version`, `codex app-server --help`, `codex app-server generate-ts --out <目录>`, `G:/Obsidian/Obsidian.com vault=数学 unresolved total`。完整过程证据在仓库外 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-codex-research-20261011-61a51045fe3e4b9e92a10bd4dd6a3d44`。代码与配置不纳入笔记库; 下一步是测试库按报告验收清单验证实际工作流。
+
+- 交付检查: UTF-8 与新笔记内部链接检查通过, 七份无关脏文件 SHA-256 与基线一致; Obsidian 全库未解析链接为 0, 新笔记两条链接可解析。阅读模式首页截图已人工查看, 架构图在原生 DOM 中渲染为 1 个 SVG、零 Mermaid 错误; 未逐屏验收整篇表格。首次未激活 leaf 的截图是旧页面, 已用 CLI open 更正并取得当前首页; 架构图截图仍是旧绘制画面, 仅 DOM 渲染结果作为图解析证据。

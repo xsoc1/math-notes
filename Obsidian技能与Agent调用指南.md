@@ -252,3 +252,8 @@ npx skills add https://github.com/kepano/obsidian-skills
 1. **数学公式保真**：公式一律采用标准 LaTeX 格式（`$...$` 与 `$$...$$`），避免引入不兼容的 KaTeX 宏。
 2. **双向链接规范**：引用定理与概念时优先使用 `[[章节/笔记名#^theorem-id|显示名]]` 保持反向链接图谱完整。
 3. **版本控制纯净**：`.obsidian` 与 `.trash` 严禁提交至 Git；所有新增与修改需如实登记于 `README.md` 与 `AGENTS.md` 并同步至 GitHub。
+
+
+## 5. Codex 侧栏插件开发调研
+
+2026-10-11 的专项调研见 [[AI教学工程/Obsidian_Codex侧栏插件开发调研|Obsidian Codex 侧栏插件开发调研]]。该文核对当前 Claudian 与 Copilot 的 Codex 实现, 区分编辑器选区、阅读视图选区、当前可见章节和图像上下文, 并给出 Windows 本机 App Server 接入路线与数学公式保真方案。当前只完成文档/源码调研及本机登录状态探测, 尚未安装或验收插件。

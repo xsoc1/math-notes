@@ -9,19 +9,22 @@ tags:
 aliases:
   - Obsidian Codex 插件调研
   - Obsidian 数学阅读助手
-status: 文档与源码调研，未实现插件
+status: 0.1.0 已实现并完成本机基础验收
 ---
 
 # Obsidian Codex 侧栏插件开发调研
 
 > [!abstract] 调研结论
-> 目标可以实现，而且已有接近目标的项目。优先评估 **YishenTu/Claudian 的 Codex 后端及选区机制**，再扩展数学阅读上下文，比从零复制聊天、工具审批和会话管理更有依据。Claudian 已有右侧视图、Codex app-server 接入、编辑态与阅读态选区捕获；当前所查阅读选区实现读取 DOM 文本，仍需专门验证 LaTeX 保真、源文定位与屏幕可见区域。[Claudian 源码](https://github.com/YishenTu/claudian/tree/5e9b17cf771b74ace3fdfc665ebfb5bf103c6e93/src)
+> 调研阶段结论：目标可以实现，而且已有接近目标的项目。优先评估 **YishenTu/Claudian 的 Codex 后端及选区机制**，再扩展数学阅读上下文，比从零复制聊天、工具审批和会话管理更有依据。Claudian 已有右侧视图、Codex app-server 接入、编辑态与阅读态选区捕获；当前所查阅读选区实现读取 DOM 文本，仍需专门验证 LaTeX 保真、源文定位与屏幕可见区域。[Claudian 源码](https://github.com/YishenTu/claudian/tree/5e9b17cf771b74ace3fdfc665ebfb5bf103c6e93/src)
+
+> [!success] 0.1.0 初版已安装
+> 点击左侧工具栏机器人图标打开/收起右侧 Codex 聊天. 使用本机登录, 支持选区自动 prompt 和阅读源块. 本次实现、操作方法及已验证/未验证范围见第 11 节.
 
 ## 1. 本次需求与证据范围
 
 用户的目标是类似 VS Code Codex 侧栏的 Obsidian 插件：随时提问，选中文本后自动组织 prompt，并理解阅读界面。当前方向为真正的 Codex、复用本机登录与会话、首版 Windows 桌面。
 
-本文件区分四层：官方公开 API、现有插件源码、据此提出的设计、仍待运行测试的行为。调研没有安装或启用插件，没有修改 Obsidian 配置，也没有验证任何现有插件在本机能否完成一次模型推理。README 中的功能说明与源码入口，不等于本机验收。
+本文件区分四层：官方公开 API、现有插件源码、据此提出的设计、仍待运行测试的行为。第一阶段调研没有安装或启用插件，没有修改 Obsidian 配置，也没有验证现有插件在本机的模型推理; 随后的 0.1.0 实现阶段见第 11 节。README 中的功能说明与源码入口，不等于本机验收。
 
 “识别阅读界面”应拆成以下能力，分别验收：
 
@@ -127,7 +130,7 @@ flowchart TD
 
 若后来需要让 Codex 主动读取“我此刻看哪里”, 再提供 `get_active_note`、`get_selection_snapshot`、`get_visible_sections` 等受限上下文工具。首版每次提问直接附上下文足够。App Server 的动态工具属于实验能力, 需要固定版本和能力协商; 不应把它作为第一阶段必需依赖。[官方动态工具说明](https://learn.chatgpt.com/docs/app-server#dynamic-tool-calls-experimental)
 
-### 本轮实际核查
+### 调研阶段实际核查
 
 - `Obsidian version`: **1.14.4**, installer **1.13.7**。
 - `codex --version`: **codex-cli 0.162.0-alpha.17.2**。可执行文件由 `Get-Command codex` 定位, 不在插件中硬编码此次带版本哈希的安装目录。
@@ -240,7 +243,7 @@ PDF 与 Canvas 不是 MarkdownView。公开类型中有 `loadPdfJs()`，但不�
 
 ## 8. 实现后的验收场景
 
-以下尚未执行，是后续实现验收表：
+以下是调研阶段制定的完整验收表; 首版已执行的子集见第 11.3 节, 其余组合仍待验收：
 
 | 场景 | 应验收的结果 |
 | --- | --- |
@@ -259,7 +262,59 @@ PDF 与 Canvas 不是 MarkdownView。公开类型中有 `loadPdfJs()`，但不�
 
 ## 10. 证据保存
 
-所有关键链接已绑定本次读取的完整提交 SHA。临时下载的类型、官方文档、README、manifest、LICENSE 和所查源码位于仓库外 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-plugin-research-20261011`。没有下载模型、安装插件、运行所查插件测试或验证发布包。仓库仅保存本调研文档，后续按明确需求开展原型与运行验收。
+所有关键链接已绑定本次读取的完整提交 SHA。临时下载的类型、官方文档、README、manifest、LICENSE 和所查源码位于仓库外 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-plugin-research-20261011`。第一阶段未下载模型、安装插件、运行所查插件测试或验证发布包. 随后按用户明确要求实施的初版及运行证据见第 11 节. 笔记仓库只保存文档, 插件源码与配置留在仓库外。
+
+## 11. 0.1.0 初版实现与使用 (2026-10-11)
+
+用户在调研后明确要求先做初版, 并将调用开关放在 Obsidian 左侧工具栏. 本阶段选择独立轻量插件, 聚焦本机 Codex、聊天和 Markdown 阅读上下文. 第 7 节的 Claudian 评估路线保留为调研阶段的建议, 不是本次实际安装的实现.
+
+### 11.1 安装位置与操作
+
+- 已在当前数学库安装并启用 **Codex Sidebar 0.1.0**, id 为 `codex-sidebar`. 点击左侧工具栏机器人图标, 打开或收起右侧 Codex 聊天栏.
+- 源码项目: `F:/Obsidian Plugins/codex-sidebar`. 安装文件: `F:/Obsidian Storage/数学/.obsidian/plugins/codex-sidebar`. 配置和聊天快照存在该插件的 `data.json`, 不纳入笔记仓库.
+- 直接输入问题, Enter 发送, Shift+Enter 换行. 支持流式回复、公式渲染、停止、复制、新会话及本插件历史会话切换.
+- 在编辑/实时预览/阅读模式选中文字, 自动更新来源卡片. 点击 **解释选区** 或 **检查证明** 自动构造 prompt 并提问. 单纯拖选只捕获上下文, 不发起模型请求.
+- **捕获当前位置** 取编辑光标附近文本或当前阅读视口的源块. 卡片可展开查看原始 Markdown; 复选框决定普通问题是否附带该快照, 也可清除.
+- 插件设置可指定 `codex.exe` 路径及模型. 本机已配置当前可执行文件, 复用现有 ChatGPT 登录; 没有读取或复制私有认证文件. 模型留空沿用 Codex 配置, 本次实际模型为 `gpt-6.1-sol`.
+- 为加载插件已打开当前库原先关闭的社区插件总开关, 启用列表新增此插件. 先前无社区插件, 没有改写其他插件、主题或快捷键. 工作区修改前副本保存在本阶段证据目录.
+
+### 11.2 实现边界
+
+使用独立、隐藏的 `codex app-server --listen stdio://` 子进程, 实现初始化、登录状态读取、thread 创建/恢复、turn 提交/中断和流式事件. 收起面板保留连接, 禁用/重载插件关闭本插件的进程. 历史列表为本插件创建的 Codex 会话, 并非直接接管桌面应用当前运行的聊天.
+
+阅读模式通过 Markdown postprocessor 的 `getSectionInfo()` 定位源块, 携带原始 LaTeX、路径、行范围与标题路径. 映射结果明确标为完整源块, 不声称精确到渲染字符. 无法映射时, 选区退化为明确标注的渲染文本; 无可见源块时不假造阅读位置. 默认源文本上限 24,000 字符, 选区显示文本上限 12,000 字符, 截断有提示.
+
+问答线程采用只读沙箱. 命令/文件审批请求有批准或拒绝窗口, 补充信息请求有输入窗口, 未支持的服务端请求返回明确错误. 请求超时或断连不自动重发 turn, 避免结果未知时重复提交. 初版没有回答写回、PDF 页码/OCR、截图识别或移动端支持.
+
+### 11.3 实际验收与待验收范围
+
+在 Obsidian 1.14.4、codex-cli 0.162.0-alpha.17.2 上实际执行:
+
+| 检查 | 本次结果 |
+| --- | --- |
+| TypeScript 与 esbuild | `npm run build` 通过 |
+| JSONL 和 prompt 测试 | `npm test` 8 项通过: UTF-8 分帧、合并帧、乱序响应、错误/断连/超时及公式和标题路径 |
+| 左侧开关 | 真实 ribbon 点击令聊天 leaf 从 1 变 0, 再恢复为 1; 会话保留 |
+| 登录和真实推理 | 本机 ChatGPT 登录可用, Codex 返回“Codex侧栏已连接”, 行内公式由原生 MathJax 渲染 |
+| 会话恢复 | 重载保留 thread ID; 下一轮准确回忆上一轮的连接确认, 没有把本地聊天记录重新拼进提问 |
+| 停止 | 实际中断进行中的选区解释; 公开 `thread/read` 回读最后 turn 为 `interrupted`, UI 为已停止 |
+| 编辑选区 | 原生 Editor 选区与捕获的精确选区字符串相等, 未修改原笔记 |
+| 阅读选区 | 行间公式映射到源块, 完整保留 LaTeX; 公开 `thread/read` 核对已发送原公式与“源块”标签 |
+| 自动捕获 | 原生阅读 DOM 选区变化自动更新卡片, 保留球坐标面积元/体积元的 LaTeX 和标题路径 |
+| 附带上下文回答 | 通过聊天发送按钮提问, 真实 Codex 正确解释球面面积元与体积元, 回复公式正常显示 |
+| 阅读视口 | 按钮捕获实际视口对应第 359-419 行, 约 1,041 字符; 不将整篇笔记冒充可见范围 |
+| 生命周期 | 重载后旧的本插件 app-server PID 已退出; 新连接与保存会话正常 |
+| 界面 | 将数学库窗口置前、最大化后复核真实画面与当前 DOM; 发送/停止按钮位于状态栏上方 |
+
+原生 `dev:errors` 和 error 级 console 无错误. 后台全量阅读 rerender 曾清空当前 DOM, 截图仍保留旧绘制画面; 置前后 DOM 重新填充, 此后才验证自动选区与阅读视口. 旧后台截图不能作为重载后视觉验收证据.
+
+尚未穷尽双栏/弹出窗口、跨笔记嵌入、跨段重复文本、源文即时变化与折叠块的组合; 没有实际批准特权命令, 没有验证社区目录发布或其他 Obsidian/CLI 版本. 原有第 8 节完整验收表仍保留未覆盖项目. 这属于首版功能验收, 不代表对回答内容的数学认证.
+
+### 11.4 复现与证据
+
+源码含 `package-lock.json`, `src/`, `tests/`, `README.md` 和项目 `AGENTS.md`. 开发命令为 `npm ci`, `npm run build`, `npm test`. 安装复制 `manifest.json`, `main.js`, `main.js.map`, `styles.css`, 保留已有 `data.json`; 用 `G:/Obsidian/Obsidian.com vault=数学 plugin:reload id=codex-sidebar` 重载.
+
+本阶段快照、工作区备份及运行证据在 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-codex-build-20261011-a05f4689675b415cb655fee005018521`. 本地安装 ZIP 位于源码项目 `dist/codex-sidebar-0.1.0.zip`, 不含认证或聊天数据. 源码、构建物和 Obsidian 配置保留在仓库外; 数学笔记仓库只登记调研、使用方法与真实验收边界. 暂未公开发布插件.
 
 ## 相关链接
 

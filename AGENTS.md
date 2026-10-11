@@ -343,6 +343,7 @@ aliases:
 
 | 日期 | 变更内容 |
 |------|----------|
+| 2026-10-11 | 实现并安装 Codex Sidebar 0.1.0, 左侧工具栏开关与右侧聊天; 本机 Codex、停止/续聊、编辑与阅读选区源块基础验收通过, 更新调研使用说明及 README, 源码/配置留在笔记仓库外 |
 | 2026-10-11 | 新增 Obsidian Codex 侧栏插件开发调研, 核对官方 API 与 Claudian/Copilot 固定源码, 完成本机登录状态探测; 记录 Windows 桌面目标、公式保真及会话复用边界, 更新 README 和指南入口 |
 | 2026-10-07 | 依据用户 math-writing 包新增 PDE 快速讲义：多元微积分补桥与数学推导为主线，按五份课件及四周作业定位，10 道助手自测含答案；同步课程导航、双向回链和 README，保留原作业证明与教材习题留白 |
 | 2026-10-07 | 新增数学物理方程第四周作业四（3 题，答案已补充）；说明 Neumann 题归一化缺失并证明模常数唯一，补齐散度型能量估计与三维热传导推导，更新双向导航、README 和维护记录 |
@@ -465,8 +466,17 @@ aliases:
 ## Obsidian Codex 侧栏调研状态与本轮记录
 
 - 2026-10-11: 用户要求调研类似 VS Code Codex 侧栏的 Obsidian 插件, 包括随时提问、选区自动 prompt 和阅读视图上下文; 随后明确真正 Codex、复用本机登录与会话、首版 Windows 桌面。
-- 当前成果为 [[AI教学工程/Obsidian_Codex侧栏插件开发调研|插件开发调研]], 覆盖官方插件 API、源码对照、Codex 协议、数学选区保真及分阶段验收。助手建议先在独立测试库评估 Claudian 的 Codex 后端, 再扩展阅读上下文; 用户尚未决定 fork、从零开发或安装。
+- 调研阶段成果为 [[AI教学工程/Obsidian_Codex侧栏插件开发调研|插件开发调研]], 覆盖官方插件 API、源码对照、Codex 协议、数学选区保真及分阶段验收。助手建议先在独立测试库评估 Claudian 的 Codex 后端, 再扩展阅读上下文; 在该调研阶段用户尚未决定 fork、从零开发或安装; 此状态由下方 0.1.0 实现记录更新。
 - 实测 Obsidian 1.14.4/installer 1.13.7、codex-cli 0.162.0-alpha.17.2; 协议 TypeScript 类型生成成功, 独立 App Server 完成 initialize/initialized/account-read, 只输出脱敏 chatgpt 账号类型。未创建会话或发起推理, 未安装或运行第三方插件, 未验证活跃会话跨客户端接管、阅读选区源码映射或截图识别。
 - 方法与复验: 官方文档及固定提交源码核查, `codex --version`, `codex app-server --help`, `codex app-server generate-ts --out <目录>`, `G:/Obsidian/Obsidian.com vault=数学 unresolved total`。完整过程证据在仓库外 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-codex-research-20261011-61a51045fe3e4b9e92a10bd4dd6a3d44`。代码与配置不纳入笔记库; 下一步是测试库按报告验收清单验证实际工作流。
 
 - 交付检查: UTF-8 与新笔记内部链接检查通过, 七份无关脏文件 SHA-256 与基线一致; Obsidian 全库未解析链接为 0, 新笔记两条链接可解析。阅读模式首页截图已人工查看, 架构图在原生 DOM 中渲染为 1 个 SVG、零 Mermaid 错误; 未逐屏验收整篇表格。首次未激活 leaf 的截图是旧页面, 已用 CLI open 更正并取得当前首页; 架构图截图仍是旧绘制画面, 仅 DOM 渲染结果作为图解析证据。
+
+## Obsidian Codex 侧栏 0.1.0 实现记录
+
+- 2026-10-11: 用户要求“先把初版做出来, 调用开关就定在obsidian左侧工具栏里”. 在此前选择真实 Codex、本机登录/会话和 Windows 桌面的基础上, 实现独立轻量插件 Codex Sidebar 0.1.0. 这是首版范围的工程选择; 原 Claudian 评估路线保留为调研阶段建议, 现已由本次实施决定取代.
+- 源码及项目记录位于 `F:/Obsidian Plugins/codex-sidebar`; 安装到当前库被忽略的 `.obsidian/plugins/codex-sidebar`. 左侧机器人图标打开/收起右侧聊天, 支持真实 app-server 流式提问、停止、保存/恢复会话、解释选区/检查证明自动 prompt、读取编辑光标附近或阅读视口的原始 Markdown. 默认只读沙箱, 不写回习题或笔记, 不解析认证文件.
+- 本机已打开社区插件总开关并启用此插件; 原启用社区插件为零. 已保存修改前工作区副本, 未改写其他插件/主题/快捷键. 模型继承用户本机配置, 实测 gpt-6.1-sol. 源码与构建产物不进入笔记镜像, 使用说明和结果登记在现有 [[AI教学工程/Obsidian_Codex侧栏插件开发调研|调研笔记]] 和 README.
+- 实际通过 `npm run build` 与 8 项 `npm test`; 原生验证 ribbon 开关、真实模型回复/数学渲染、中断、重载同一 thread 续聊、编辑选区一致性、阅读公式原 LaTeX 的源块映射、自动选区捕获与当前阅读视口. 公开 thread/read 回读确认选区 prompt 包含原公式与源块标识、被中断 turn 状态为 interrupted; 重载旧本插件进程退出. 原生 dev:errors 和 error console 无错误.
+- 视觉复验发现后台 rerender 后截图仍可能是旧绘制画面; 用 computer-use 置前并最大化数学库窗口, DOM 重新填充后再核对当前阅读位置与新截图. 保留源块级定位边界, 不冒充精确字符映射. PDF/OCR/截图识别、全部多窗/嵌入组合、特权批准与社区发布尚未验收.
+- 复验: 源码目录运行 `npm ci`, `npm run build`, `npm test`; 原生 `G:/Obsidian/Obsidian.com vault=数学 plugin:reload id=codex-sidebar`, `dev:errors`, 可见窗口截图和源块核对. 本阶段证据在 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-codex-build-20261011-a05f4689675b415cb655fee005018521`. 后续依实际使用反馈改进上下文与交互, 不把首版功能测试认作数学回答认证.

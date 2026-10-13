@@ -503,3 +503,7 @@ aliases:
 - 实际通过 `npm run build` 与 8 项 `npm test`; 原生验证 ribbon 开关、真实模型回复/数学渲染、中断、重载同一 thread 续聊、编辑选区一致性、阅读公式原 LaTeX 的源块映射、自动选区捕获与当前阅读视口. 公开 thread/read 回读确认选区 prompt 包含原公式与源块标识、被中断 turn 状态为 interrupted; 重载旧本插件进程退出. 原生 dev:errors 和 error console 无错误.
 - 视觉复验发现后台 rerender 后截图仍可能是旧绘制画面; 用 computer-use 置前并最大化数学库窗口, DOM 重新填充后再核对当前阅读位置与新截图. 保留源块级定位边界, 不冒充精确字符映射. PDF/OCR/截图识别、全部多窗/嵌入组合、特权批准与社区发布尚未验收.
 - 复验: 源码目录运行 `npm ci`, `npm run build`, `npm test`; 原生 `G:/Obsidian/Obsidian.com vault=数学 plugin:reload id=codex-sidebar`, `dev:errors`, 可见窗口截图和源块核对. 本阶段证据在 `C:/Users/HuangZY/AppData/Local/Temp/obsidian-codex-build-20261011-a05f4689675b415cb655fee005018521`. 后续依实际使用反馈改进上下文与交互, 不把首版功能测试认作数学回答认证.
+
+## Codex 插件安装包本地传输
+
+- 2026-10-13：用户要求通过 vault 同步传输打包好的插件。将公开发布的 0.6.0 ZIP 复制到 `AI教学工程/插件安装包/codex-sidebar-0.6.0.zip`，开启本机 Obsidian Sync 的“同步所有其他类型”；既有社区插件安装/配置同步选项保持原值。实测 Sync 日志为 Upload complete，sync:history 返回首个云端版本，云端哈希与原包 SHA-256 `77683634bd082898b69933bd99eb4d251f3bd6786067477c05730c9956fb553e` 一致。此目录通过本地 `.git/info/exclude` 排除，不将构建产物纳入数学笔记的 GitHub 镜像；同步包不含配对密钥、电脑服务配置或聊天记录。iPad 也需在本机启用“同步所有其他类型”才能下载 ZIP，接收与插件真机安装仍未验证。本次不修改数学正文、答案、Base 或学习进度；已有未提交内容保留。

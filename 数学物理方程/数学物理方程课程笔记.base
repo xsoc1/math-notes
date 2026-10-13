@@ -1,0 +1,49 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder("数学物理方程")
+    - or:
+        - file.hasTag("mathematical-physics")
+        - file.hasTag("partial-differential-equations")
+properties:
+  file.name:
+    displayName: 笔记
+  note_type:
+    displayName: 资料类型
+  source_chapter:
+    displayName: 原课件单元
+  source_date:
+    displayName: 原题日期
+  status:
+    displayName: 编写状态
+views:
+  - type: table
+    name: 单元式笔记
+    filters: /^0[1-8]_/.matches(file.basename)
+    order:
+      - file.name
+      - source_chapter
+      - status
+  - type: table
+    name: 整体讲义
+    filters: file.basename == "数学推导主线快速入门讲义"
+    order:
+      - file.name
+      - note_type
+      - updated
+      - status
+  - type: table
+    name: 作业与测验
+    filters: file.inFolder("数学物理方程/作业")
+    order:
+      - file.name
+      - note_type
+      - source_date
+      - status
+  - type: table
+    name: 全部资料
+    order:
+      - file.name
+      - note_type
+      - source_chapter
+      - status

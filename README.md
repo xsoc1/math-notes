@@ -369,3 +369,5 @@ math-notes/
 - Codex Sidebar 0.6.0 安装包位于本地 `AI教学工程/插件安装包/codex-sidebar-0.6.0.zip`，已通过 Obsidian Sync 上传，iPad 接收尚待确认。该目录是本地传输附件，不计入笔记数量，并由本地 Git 排除规则排除；公开下载见 [0.6.0 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.0)。iPad 端需开启“同步所有其他类型”。
 
 - 2026-10-14 更新：[[AI教学工程/插件安装包/codex-sidebar-0.6.1.zip|Codex Sidebar 0.6.1 安装包]] 已通过 Obsidian Sync 上传，云端哈希与本地包相同；公开下载见 [0.6.1 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.1)。此前 0.6.0 包已由用户在 iPad 解压，0.6.1 的真机连接复测仍待完成。构建附件不计入笔记数量，继续排除在数学笔记 Git 镜像之外。
+
+- 2026-10-14 后续：用户已确认 iPad 模型列表出现，发送仍停在准备阶段；[[AI教学工程/插件安装包/codex-sidebar-0.6.2.zip|Codex Sidebar 0.6.2 安装包]] 已完成 vault Sync 上传，云端哈希与本地包相同，公开下载见 [0.6.2 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。此版更换移动 HTTP 传输并增加准备步骤和超时提示，41 项测试与 Windows 浏览器检查通过；iPad 真机发送复测仍待完成。附件继续排除在数学笔记 Git 镜像及笔记数量之外。

@@ -507,3 +507,5 @@ aliases:
 ## Codex 插件安装包本地传输
 
 - 2026-10-13：用户要求通过 vault 同步传输打包好的插件。将公开发布的 0.6.0 ZIP 复制到 `AI教学工程/插件安装包/codex-sidebar-0.6.0.zip`，开启本机 Obsidian Sync 的“同步所有其他类型”；既有社区插件安装/配置同步选项保持原值。实测 Sync 日志为 Upload complete，sync:history 返回首个云端版本，云端哈希与原包 SHA-256 `77683634bd082898b69933bd99eb4d251f3bd6786067477c05730c9956fb553e` 一致。此目录通过本地 `.git/info/exclude` 排除，不将构建产物纳入数学笔记的 GitHub 镜像；同步包不含配对密钥、电脑服务配置或聊天记录。iPad 也需在本机启用“同步所有其他类型”才能下载 ZIP，接收与插件真机安装仍未验证。本次不修改数学正文、答案、Base 或学习进度；已有未提交内容保留。
+
+- 2026-10-14：用户报告 iPad 模型未加载且连接超时，要求直接传入仓库。独立插件源码发布 0.6.1，修复已在旧构建复现的旧连接状态保存阻塞重连及模型收到后延迟刷新；37 项测试与 Windows 原生账号/模型/math-writing 连接通过，原有消息、活动会话和设置保留。插件 ZIP 放入本地 `AI教学工程/插件安装包/codex-sidebar-0.6.1.zip`，Obsidian Sync 显示 Upload complete，云端哈希与 SHA-256 `f7f4d8ab825b1ca0564baf4fd24e59a4d5880219b1e54e999d46949bd1b1c4f7` 相同；公开发布见 [0.6.1](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.1)。用户此前已确认 0.6.0 包在 iPad 解压，更新到 0.6.1 后的真机连接结果仍待确认，不能据桌面或协议测试宣布恢复。本轮仅追加插件交付记录，ZIP 和安装文件继续由本地 Git 排除；未修改数学正文、答案、Base 或学习进度，既有未提交文件保留。

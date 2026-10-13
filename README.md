@@ -371,3 +371,5 @@ math-notes/
 - 2026-10-14 更新：[[AI教学工程/插件安装包/codex-sidebar-0.6.1.zip|Codex Sidebar 0.6.1 安装包]] 已通过 Obsidian Sync 上传，云端哈希与本地包相同；公开下载见 [0.6.1 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.1)。此前 0.6.0 包已由用户在 iPad 解压，0.6.1 的真机连接复测仍待完成。构建附件不计入笔记数量，继续排除在数学笔记 Git 镜像之外。
 
 - 2026-10-14 后续：用户已确认 iPad 模型列表出现，发送仍停在准备阶段；[[AI教学工程/插件安装包/codex-sidebar-0.6.2.zip|Codex Sidebar 0.6.2 安装包]] 已完成 vault Sync 上传，云端哈希与本地包相同，公开下载见 [0.6.2 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。此版更换移动 HTTP 传输并增加准备步骤和超时提示，41 项测试与 Windows 浏览器检查通过；iPad 真机发送复测仍待完成。附件继续排除在数学笔记 Git 镜像及笔记数量之外。
+
+- 2026-10-14 真机复测结果：用户通过 GitHub/BRAT 更新后，已在 iPad 显示模型列表并收到实际短问题的完整回答，0.6.2 前台基础对话通过。临时诊断已撤除，独立远程桥恢复正常运行，问答记录保留；触控选区、中文键盘、补全及后台/网络切换仍待实测。详见 [0.6.2 发布与验收说明](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。

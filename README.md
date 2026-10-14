@@ -12,6 +12,13 @@ math-notes/
 ├── AI教学工程/
 │   ├── OpenMAIC课程与教材规划调研.md
 │   └── Obsidian_Codex侧栏插件开发调研.md
+├── MATLAB/
+│   ├── README.md
+│   ├── AGENTS.md
+│   ├── 课程资料/
+│   ├── 课程讲义/
+│   ├── MATLAB课程笔记.base
+│   └── 同步清单.json
 ├── 高等概率论/
 │   ├── 01_测度论基础与高等概率论上册习题集.md
 │   ├── 02_测度论基础与高等概率论下册习题集.md
@@ -182,6 +189,7 @@ math-notes/
 
 | 位置 | 内容 | 文件数 |
 |---|---|---|
+| [[MATLAB/README\|MATLAB/]] | 课程仓库的资料与讲义阅读副本；后续课程维护同时同步，不改变学习状态 | 10 讲义 md + 2 导航/维护 md + 1 base + 12 pdf + 3 zip + 2 mlx + 1 清单 json |
 | Obsidian技能与Agent调用指南.md | Obsidian Skills 规范、安装配置与 Agent CLI / REST / MCP 调用指南 | 1 md |
 | AI教学工程/ | OpenMAIC 课程/教材规划调研; Obsidian Codex 侧栏开发调研及 0.1.0 初版使用说明（左侧开关、本机 Codex、选区 prompt、阅读源块与真实验收） | 2 md |
 | 高等概率论/ | 《测度论基础与高等概率论》上、下册共 763 道习题，含逐节目录、总览、上册总览和上册第 1–12 章第一版理论笔记；习题答案留空，习题册保留扫描版 OCR 校核边界 | 16 md + 1 base |
@@ -201,6 +209,10 @@ math-notes/
 | 未命名.base | Obsidian 表格视图 | 1 base |
 
 注：`2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/` 与 `代数几何初步/Undergraduate Algebraic Geometry/` 存在重复内容。已从暑期学校副本移除 8 个经 SHA-256 确认重复的 JPG, `代数几何初步/` 保留完整图像副本。
+
+## MATLAB
+
+2026-10-14 起，[[MATLAB/README|MATLAB 阅读入口]]同时保存 `F:\MATLAB course` 的课程资料和讲义。原件逐字节复制，讲义只适配 Obsidian 导航；学习状态、源码、作业与运行证据仍以课程仓库为准。新增或修订资料时执行同步，未设置后台监视。[[MATLAB/MATLAB课程笔记.base|课程笔记表]]列出当前 10 篇讲义；本轮新增目录不修改其他课程正文。
 
 ## 泛函分析
 

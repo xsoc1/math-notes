@@ -1,0 +1,21 @@
+filters:
+  or:
+    - 'file.hasTag("matlab/lecture")'
+    - 'matlab_mirror == true'
+properties:
+  file.name:
+    displayName: "讲义"
+  title:
+    displayName: "主题"
+  matlab_source:
+    displayName: "课程仓库来源"
+views:
+  - type: table
+    name: "课程讲义"
+    order:
+      - file.name
+      - title
+      - matlab_source
+    sort:
+      - property: file.name
+        direction: ASC

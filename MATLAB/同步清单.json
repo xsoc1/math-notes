@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
   "materials": 17,
@@ -55,10 +55,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
-      "source_sha256": "c36c1a90389205e1b4928e1e838bafb13b7429d0a2cd87e31163114bc9865e2c",
-      "copy_sha256": "a85665ebf07efdb1283e9d6d286b1983c306915a6dc257cbf5775a150da327c0",
-      "source_bytes": 4517,
-      "copy_bytes": 5276,
+      "source_sha256": "216b14de3e885297b6a239a28179457369f55053afd76713880ddfff3b63d9fb",
+      "copy_sha256": "3c6604091739d51516ee5b812e8200d17e86ad8213605b6449dfc1d68546ec99",
+      "source_bytes": 8482,
+      "copy_bytes": 9439,
       "mode": "obsidian_navigation"
     },
     "课程讲义/补充_数据科学的数学基础.md": {
@@ -196,13 +196,13 @@
     }
   },
   "generated": {
-    "README.md": "3ea5ca39c052ed05e37322c29d96376c066ab02f46921e88dc78385508c8f289",
+    "README.md": "e12365b8c6f34dad94c19f32f725be443c462b63e0f205919827d34d3ffa8f5e",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 65,
+    "local_targets_checked": 68,
     "wikilinks": 11,
-    "file_links": 54
+    "file_links": 57
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

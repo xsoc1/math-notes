@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/工具_实时脚本mlx.md"
-matlab_source_sha256: c36c1a90389205e1b4928e1e838bafb13b7429d0a2cd87e31163114bc9865e2c
+matlab_source_sha256: 216b14de3e885297b6a239a28179457369f55053afd76713880ddfff3b63d9fb
 ---
 
 # MATLAB 实时脚本（`.mlx`）入门
@@ -35,5 +35,44 @@ matlab_source_sha256: c36c1a90389205e1b4928e1e838bafb13b7429d0a2cd87e31163114bc9
 **一个动手任务。** 在 MATLAB 编辑器打开已完成的本人脚本，选 Save → Save As，文件类型选 `MATLAB Live Code File (*.mlx)`，保存为 `F:\Documents\MATLAB\lab02_sequences.mlx`。在代码前添加正文标题和一句实验目的，把代码分为上述两段，再在图后用本人语言写一句曲线结论。给三个 `err_` 赋值行加分号，以免每行 300 个数字挤占输出；保留最后的三个项值输出。按顺序用 Run Section 运行，最终整份运行、保存，再提供可见正文、分段代码与结果的截图和保存路径。
 
 这里只提供组织方法，不替本人制作 `.mlx`，本单元尚未通过。归档的 `W5test_livescript_1.mlx` 可只读参考正文/代码/结果布局；傅里叶范例仍留到第三课之后。
+
+## 2026-10-15 从零讲解：正文、分段与可靠输出
+
+本轮目标延伸到素数红包与道路网，当前从实时脚本继续。以下三个主题先讲清楚，再用已完成数列程序做一次综合操作，不重做数列。
+
+### 1. 一个实时脚本里有什么
+
+实时脚本把三类内容放在同一文档：正文用于解释问题、目的和结论；代码由 MATLAB 执行；输出是运行代码得到的数值、表或图。本轮使用 `.mlx` 格式保存。普通脚本中的 `%` 注释供人阅读；实时脚本的 Text 则可以排标题、正文和公式。正文中的公式只是说明，不会因此在工作区定义变量，仍需代码赋值。
+
+在 MATLAB 新建实时脚本（New Live Script）；在需要说明的位置用 Live Editor 的 Text 加入正文，再切回代码区域输入语句。结束后 Save/另存为 `F:\Documents\MATLAB\lab02_sequences.mlx`。不要只在文件管理器改扩展名；本轮不使用另一种较新的 `.m` 实时代码格式，以免与已用普通脚本混淆。操作依据 [R2026a 实时脚本文档](https://www.mathworks.com/help/releases/R2026a/matlab/matlab_prog/create-live-scripts.html)。
+
+### 2. 分段为何仍有执行依赖
+
+代码行开头的 `%%` 建立新节，后面的文字是节标题；单个 `%` 是代码注释。Run Section 执行当前节，Run 执行整份文件。分段帮助局部运行和组织文稿，不自动创建独立工作区：后一节能使用前一节已经创建的变量，但不会自动补跑之前的计算。
+
+例如[这份短示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/live02_sections_basics.m)分两段：
+
+```matlab
+%% Prepare values
+Values = 1:4; % Four values in one row.
+Squares = Values.^2; % Square each value.
+
+%% Inspect results
+Totals = [sum(Values), sum(Squares)] % Show both sums on one row.
+```
+
+第一段创建 `Values=[1 2 3 4]` 和平方数组；第二段的 `sum` 分别求两者元素总和，方括号并排组成两个结果，所以得到 `[10 30]`。这里复用你已接触的数组运算，重点是第二段依赖第一段。若变量尚不存在，单跑第二段会失败；若它们来自旧运行，第二段甚至可能显示过时结果。代码分节与执行规则见 [R2026a 分节文档](https://www.mathworks.com/help/releases/R2026a/matlab/matlab_prog/create-and-run-sections.html)。
+
+短示范本机实际在 R2026a Update 5 批处理运行，结果 `[10 30]`，标记 `LIVE02_SECTION_EXAMPLE_PASSED`；[运行日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AE%9E%E6%97%B6%E8%84%9A%E6%9C%AC%E5%88%86%E6%AE%B5%E7%9F%AD%E7%A4%BA%E8%8C%83_20261015.txt)已保存。此证据只核验 `.m` 代码，不声称助手已经在 GUI 运行了 `.mlx`，更不代替本人操作。
+
+### 3. 输出、分号和最后一次完整运行
+
+分号控制是否展示该条语句的结果，不取消赋值或计算。数列程序的三条误差赋值各有 300 个元素；加分号可避免文档铺满数字，仍可正常作图。保留最后的 `[A(end), B(end), C(end)]` 输出即可检查第 300 项，图与正文说明分工呈现其余信息。
+
+局部运行便于修改，交付前则从头完整运行，使图和值对应当前代码，再保存。保存代码并不意味着已经运行了最新版；已经显示的旧图也不能替代这一步。本人需要理解“目的说明—计算—图示—结论”的组织关系，不必重述已通过的数列推导。
+
+### 本次唯一动手任务
+
+从[本人原样归档源码](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w02_sequences_revised_20261007.m)复制代码到新实时脚本，先保存到自己的上述 `.mlx` 路径；在开头添加正文标题“用三个数列近似 e”和一句目的。计算区、绘图区分别用 `%%` 分段；给三条误差赋值加分号，保留末尾项值输出，在图后用本人语言写一句结论。先顺序运行两段，再完整运行并保存。提交能看到正文、两个代码段、项值与图形的截图及保存路径，作为一次综合操作证据；不另加数列变式或口头复述关卡。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

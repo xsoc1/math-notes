@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-15",
+  "date": "2026-10-19",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
   "materials": 17,
@@ -27,10 +27,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/03_MATLAB符号计算二.md": {
-      "source_sha256": "6d76cdaeb57c4a2222d2e49d88525f01c6fdfa2d7b4d309a04bbca4f7f1ac0d7",
-      "copy_sha256": "d15bc11a25fffae0bb91c9c2020aafd1f83d45438ad55b63caba53303ed98453",
-      "source_bytes": 3494,
-      "copy_bytes": 4061,
+      "source_sha256": "3498e67f9c689842209f98cea5b05e57c128e9143a2601c6d50660af8649ad58",
+      "copy_sha256": "61fba2e88145520fb41473151004763dd1a4764fb55cd3031b79647a6a0d5135",
+      "source_bytes": 6726,
+      "copy_bytes": 7449,
       "mode": "obsidian_navigation"
     },
     "课程讲义/04_MATLAB数组定义与数组化编程.md": {
@@ -55,10 +55,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
-      "source_sha256": "216b14de3e885297b6a239a28179457369f55053afd76713880ddfff3b63d9fb",
-      "copy_sha256": "3c6604091739d51516ee5b812e8200d17e86ad8213605b6449dfc1d68546ec99",
-      "source_bytes": 8482,
-      "copy_bytes": 9439,
+      "source_sha256": "4ad875d1ad0a3b7ab41b57acc3e3555cbf3f3a67693fbdeebf2a7688e317ff59",
+      "copy_sha256": "3be58c897ac9547954a14e56d86eac3e2a46b701d3005638bad6ea2169d7d803",
+      "source_bytes": 9319,
+      "copy_bytes": 10504,
       "mode": "obsidian_navigation"
     },
     "课程讲义/补充_数据科学的数学基础.md": {
@@ -196,13 +196,13 @@
     }
   },
   "generated": {
-    "README.md": "e12365b8c6f34dad94c19f32f725be443c462b63e0f205919827d34d3ffa8f5e",
+    "README.md": "aa7ff0289d4f1c577851e6c8ca9ba82fb7f535acf1ac3362cba584be429e2244",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 68,
+    "local_targets_checked": 73,
     "wikilinks": 11,
-    "file_links": 57
+    "file_links": 62
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/工具_实时脚本mlx.md"
-matlab_source_sha256: 216b14de3e885297b6a239a28179457369f55053afd76713880ddfff3b63d9fb
+matlab_source_sha256: 4ad875d1ad0a3b7ab41b57acc3e3555cbf3f3a67693fbdeebf2a7688e317ff59
 ---
 
 # MATLAB 实时脚本（`.mlx`）入门
@@ -74,5 +74,11 @@ Totals = [sum(Values), sum(Squares)] % Show both sums on one row.
 ### 本次唯一动手任务
 
 从[本人原样归档源码](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w02_sequences_revised_20261007.m)复制代码到新实时脚本，先保存到自己的上述 `.mlx` 路径；在开头添加正文标题“用三个数列近似 e”和一句目的。计算区、绘图区分别用 `%%` 分段；给三条误差赋值加分号，保留末尾项值输出，在图后用本人语言写一句结论。先顺序运行两段，再完整运行并保存。提交能看到正文、两个代码段、项值与图形的截图及保存路径，作为一次综合操作证据；不另加数列变式或口头复述关卡。
+
+## 2026-10-19 本人操作通过
+
+本人提交[实时脚本原文件](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/lab02_sequences.mlx)与[运行截图](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w02_live_learner_20261019.png)。原文件有标题和实验目的、两处 `%%` 分节、分号抑制长数组输出、保存图形和第 300 项 `2.7138,2.6843,2.7183`；CRC 与保存内容已核对。基本组织、运行与保存操作通过，下一步进入第三课，不追加实时脚本变式。
+
+原文末尾仍有“可以沿用此前的数列结论”提示语，它不算本人已经写出的分析；写报告时改为实际结论即可，不因此重做工具练习。保留本人原文件字节。独立批处理只复运行提取的代码，不冒充本人 GUI 操作；结果见[本轮核验日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E8%B5%B7%E6%AD%A5%E4%B8%8E%E5%AE%9E%E6%97%B6%E8%84%9A%E6%9C%AC%E6%A0%B8%E9%AA%8C_20261019.txt)。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: 6d76cdaeb57c4a2222d2e49d88525f01c6fdfa2d7b4d309a04bbca4f7f1ac0d7
+matlab_source_sha256: 3498e67f9c689842209f98cea5b05e57c128e9143a2601c6d50660af8649ad58
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -42,5 +42,48 @@ matlab_source_sha256: 6d76cdaeb57c4a2222d2e49d88525f01c6fdfa2d7b4d309a04bbca4f7f
 先自己构造一个 $2\times2$ 符号矩阵，预测 `size`、`class`、`A*A`、`A.*A` 的结果形式，再运行。接着任选一个 `subs` 或 `dsolve` 例子，写出数学预期与回代检验。通过这些前置练习后，再引导做第 42 页三道无需提交的[第三周参考自测](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E4%B8%89%E5%91%A8%E5%8F%82%E8%80%83%E4%BD%9C%E4%B8%9A/%E9%A2%98%E7%9B%AE.md)；独立题面与原 PDF 自带的参考答案已分开，这里不预写答案。
 
 当前示范源码见 [符号对象与代入](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/lecture03_symbolic_subs.m)；其运行状态以 [运行结果](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E6%96%B0%E5%A2%9E%E7%A4%BA%E4%BE%8B%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.txt)为准。
+
+## 2026-10-19 引导学习：符号数组、整理与数值转换
+
+本人实时脚本任务已通过，本节按尚未接触的起点讲解。以下为讲解补充；对应原课件第 2–15 页，仍以 MATLAB 对象、命令机制和结果解释为主线。
+
+### 1. 符号数组保存表达式
+
+`syms x real` 创建符号变量 x，并声明它取实数；这不等于已经给 x 指定一个数值。`S=[x,sym(1)/3;0,x+1]` 是 2×2 的 `sym` 数组，每个位置保存表达式。数组里分号换行；整条赋值末尾的分号则抑制输出。整数 0 等会自动转为符号元素，`sym(1)/3` 从符号整数构造精确分数。
+
+符号数组仍遵守原矩阵尺寸与运算规则；本轮不重做已经验证过的矩阵乘法与逐元素乘法练习。重点是元素可以含未知量，不能把它当作已知数值矩阵。
+
+### 2. 不同命令有不同整理目标
+
+| 命令 | 意义 |
+|---|---|
+| `expand(E)` | 展开乘积与整数幂，例如 `(x+1)^3` 展开成多项式 |
+| `factor(E)` | 返回因子列表；将列表元素相乘才还原原多项式 |
+| `collect(E,x)` | 按 x 的幂收集同类项，便于查看各次项系数 |
+| `simplify(E)` | 在对象及假设允许的范围内尝试简化，不承诺某种唯一形式 |
+| `pretty(E)` | 改善命令窗口显示，不改变对象、不把符号值变成 double |
+
+简化要服从变量假设。已声明实数时，`sqrt(x^2)` 为 `abs(x)`，不能一般写成 x，因为 x 仍可能为负。符号整理应保持数学意义，不把式子短或软件能输出当作不带条件的恒等证明。
+
+### 3. 先代入，再转换类型
+
+`AtTwo=subs(S,x,2)` 对数组中各表达式替换 x，返回新的符号数组；S 本身仍含 x。此时 `AtTwo=[2,1/3;0,3]` 已无自由变量，`double(AtTwo)` 才能转为普通数值数组，其中 1/3 存为浮点近似。直接 `double(S)` 仍无法把未知量 x 变成一个已知数值。
+
+`symvar` 可查看还剩哪些自由变量。需要多位十进制近似时用 `vpa(E,20)`，结果仍为符号对象；`digits` 影响未显式指定精度的 vpa 运算，不提高 double 的存储精度。
+
+```matlab
+syms x real
+S = [x, sym(1)/3; 0, x+1]; % Keep an exact symbolic fraction.
+Expanded = expand((x+1)^3)
+Simple = simplify(sin(x)^2+cos(x)^2)
+AtTwo = subs(S,x,2)
+Approx = double(AtTwo)
+```
+
+`Expanded` 是展开后的三次多项式，`Simple` 为 1；`AtTwo` 保留符号类型和精确分数，`Approx` 为 double。完整[短示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_symbolic_arrays_demo.m)还核对 factor 的因子列表、collect、实数假设和自由变量数；本机 R2026a Update 5 实际运行结果见[日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E8%B5%B7%E6%AD%A5%E4%B8%8E%E5%AE%9E%E6%97%B6%E8%84%9A%E6%9C%AC%E6%A0%B8%E9%AA%8C_20261019.txt)。示范执行不登记为本人已完成。
+
+### 一次综合动手
+
+在 MATLAB 新建脚本 `w03_symbolic_arrays.m`。声明实符号变量 t，自行建立 `T=[t^2+1,sym(2)/5;sin(t),t+2]`；将 `(t-1)*(t+2)` 展开，用 simplify 检查展开前后的差。再将 T 中 t 替换为 0，分别保留符号结果与 double 结果。回传两个矩阵、展开前后差值，以及一句“为何原 T 不能直接转换成 double”的解释；一次操作核对三个主题，不另设每个函数的重复练习。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

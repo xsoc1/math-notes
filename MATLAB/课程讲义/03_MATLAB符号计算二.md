@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: ce9e9717ed313219c0be5d79e4ef0892d13ab9990a55fb0963cac598e208365c
+matlab_source_sha256: de0841ac1d8734cc48a871db89c4bb2e9d314827c8df2729e42b7ff5bfc291c0
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -148,5 +148,62 @@ title('Radius-2 quarter circle');
 自行保存 `环境/学习证据/w03_spiral.m`，沿用上述流程，将两个坐标改成 `X=t*cos(t)` 与 `Y=t*sin(t)`，参数从 0 到 `2*pi`。它的极径随 t 增大，同时绕原点旋转一圈，是一段阿基米德螺线。
 
 分别修改精确积分终点和绘图参数区间，保留 `diff`、速度合成、`int`、`vpa` 和 `axis equal`。回传 Speed、ArcApprox 与图，并用一句话解释 `fplot(X,Y,[0 2*pi])` 中 `[0 2*pi]` 限制哪个量。只布置这一项，不另要求重做圆弧。
+
+## 2026-10-20 螺线任务通过；微分方程第一步
+
+### 本人尝试与反馈
+
+本人[提交原稿](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_spiral_submitted_20261020.m)、[图窗](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_spiral_plot_20261020.png)和[数值输出](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_spiral_output_20261020.png)相符：Speed 为 `sqrt(t^2+1)`，精确长度为 `asinh(2*pi)/2+pi*sqrt(4*pi^2+1)`，10 位有效数字为 `21.25629415`。参数弧长与绘图任务通过。
+
+`[0,2*pi]` 限制 t 从 0 变到 2*pi；对 X=t*cos(t)、Y=t*sin(t)，极角旋转一圈而极径从 0 增至 2*pi，所以整条螺线不周期重复。图标题遗留的圆弧字样已在[工作脚本](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_spiral.m)中唯一替换为 `Archimedean spiral`，不改计算；提交原字节及两版 SHA-256 见[记录](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_spiral_review_20261020.json)。本措辞和标题不另设关卡。
+
+以下是对应课件第 19 页命令与初值主题的讲解补充。一阶示范先建立基础，后续仍须覆盖二阶语法、课件第 20 页方程组与第 21–22 页奇解/通解图示，再进入 Picard；本轮不把这些内容标成已完成。
+
+### 1. 未知对象变成一个函数
+
+代数方程通常求未知数，微分方程求一个函数：函数值及其导数必须在一段区间上符合关系。例如 `y'(t)=-2*y(t)` 要求变化率等于当前值的 -2 倍，解的候选是整条函数。
+
+`syms y(t)` 创建一个尚未确定表达式的符号函数 y，并建立自变量 t；`diff(y,t)` 表示它对 t 的导数。不要写成 `syms y t` 来代替：后者把 y 与 t 建成两个独立符号，`diff(y,t)` 就是 0，已经丢失 y 依赖 t 的含义。
+
+`Eqn=diff(y,t)==-2*y` 的单等号把右侧对象存入 Eqn，双等号在这里构造符号方程，交给求解器；不把数学等式误写成赋值。课件旧的字符串 `Dx=...` 语法不用于本轮示范。
+
+### 2. 通解包含常数，初值选定成员
+
+对此方程，`dsolve(Eqn)` 返回 `C1*exp(-2*t)`，因为对任意常数 C1 求导都满足关系。`Condition=y(0)==3` 是要求解在 t=0 时取 3；对本线性方程，它使 C1=3，因此 `dsolve(Eqn,Condition)` 返回 `3*exp(-2*t)`。
+
+初值是在某个起点对函数的要求，不是先给 y 整体赋值成 3。一般方程的初值可能不相容或不足以保证唯一；本例具有唯一解。dsolve 无法返回符号解也不等于数学上无解。
+
+### 3. 分开核对方程与初值
+
+```matlab
+% Teaching supplement: first-order symbolic differential equation.
+syms y(t)
+Eqn = diff(y,t) == -2*y;
+
+% Without a condition, return a family containing an arbitrary constant.
+GeneralSolution = dsolve(Eqn)
+
+% The condition selects one member for this linear equation.
+Condition = y(0) == 3;
+Solution = dsolve(Eqn,Condition)
+
+% Verify the differential equation and the initial value separately.
+EquationResidual = simplify(diff(Solution,t) + 2*Solution)
+InitialResidual = simplify(subs(Solution,t,0) - 3)
+```
+
+`EquationResidual` 是导数减去方程右端，这里写成 `y'+2*y`；它为 0 检验微分关系。`InitialResidual` 是解在 0 处的值减 3；它为 0 检验初值。只有一个为 0 不够，例如 `5*exp(-2*t)` 满足该微分方程，却不满足本初值。
+
+按此赋值方式，y 是 symfun，但 Solution 是含 t 的 sym 表达式；求 t=0 处的值用 `subs(Solution,t,0)`。不要把表达式当已命名函数写 `Solution(0)`，那会被当作数组索引。输出应为 `GeneralSolution=C1*exp(-2*t)`、`Solution=3*exp(-2*t)`，两个残差都为 0。[MathWorks dsolve 文档](https://www.mathworks.com/help/symbolic/sym.dsolve.html)列出符号方程、初值与函数的当前语法。示范源码见[一阶初值示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_dsolve_ivp_demo.m)，实际版本与独立核验结果见[运行日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E8%B5%B7%E6%AD%A5%E6%A0%B8%E9%AA%8C_20261020.txt)。助手运行不登记为本人已完成新主题。
+
+### 一次动手
+
+本人保存 `环境/学习证据/w03_dsolve.m`，求 `y'=t-y, y(0)=2` 的符号解。沿用示范结构，但同时修改方程、初值和两个残差：方程残差必须对应新的“左侧减右侧”，不能照搬旧的 `y'+2*y`。
+
+回传 Solution、EquationResidual、InitialResidual，并用一句话分别说明两个残差核对什么。尚未收到本人尝试时，第 9 项仍为当前，不推进后续内容。
+
+### 本节后续保留内容与课件勘误
+
+二阶用 `diff(y,t,2)`，导数初值需要先为导数命名；方程组使用符号方程向量及结构字段取解。课件第 19 页把所需条件数与“方程个数”联系并不普遍正确：一条二阶方程通常涉及两个积分常数；条件数也不能代替相容性与唯一性判断。第 21–22 页的奇解示范需区分任意常数族与不属于该族的解，并用当前 fplot 语法代替 ezplot。这些主题留在同一阶段继续讲解和操作，不以本次一阶示范替代。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

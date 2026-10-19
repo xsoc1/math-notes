@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
   "materials": 17,
@@ -27,10 +27,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/03_MATLAB符号计算二.md": {
-      "source_sha256": "3498e67f9c689842209f98cea5b05e57c128e9143a2601c6d50660af8649ad58",
-      "copy_sha256": "61fba2e88145520fb41473151004763dd1a4764fb55cd3031b79647a6a0d5135",
-      "source_bytes": 6726,
-      "copy_bytes": 7449,
+      "source_sha256": "ce9e9717ed313219c0be5d79e4ef0892d13ab9990a55fb0963cac598e208365c",
+      "copy_sha256": "b556ff72eb37f4beade2f45ca1db7f3fc1ab7f34ede39de0bb2b5c7aed10e9e5",
+      "source_bytes": 11136,
+      "copy_bytes": 12177,
       "mode": "obsidian_navigation"
     },
     "课程讲义/04_MATLAB数组定义与数组化编程.md": {
@@ -196,13 +196,13 @@
     }
   },
   "generated": {
-    "README.md": "aa7ff0289d4f1c577851e6c8ca9ba82fb7f535acf1ac3362cba584be429e2244",
+    "README.md": "efb7736026949e689acc72e4f388372376bf905d252cbf24fb973933a475e4d0",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 73,
+    "local_targets_checked": 78,
     "wikilinks": 11,
-    "file_links": 62
+    "file_links": 67
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

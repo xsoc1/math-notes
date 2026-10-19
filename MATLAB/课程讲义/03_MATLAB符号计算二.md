@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: 3498e67f9c689842209f98cea5b05e57c128e9143a2601c6d50660af8649ad58
+matlab_source_sha256: ce9e9717ed313219c0be5d79e4ef0892d13ab9990a55fb0963cac598e208365c
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -85,5 +85,68 @@ Approx = double(AtTwo)
 ### 一次综合动手
 
 在 MATLAB 新建脚本 `w03_symbolic_arrays.m`。声明实符号变量 t，自行建立 `T=[t^2+1,sym(2)/5;sin(t),t+2]`；将 `(t-1)*(t+2)` 展开，用 simplify 检查展开前后的差。再将 T 中 t 替换为 0，分别保留符号结果与 double 结果。回传两个矩阵、展开前后差值，以及一句“为何原 T 不能直接转换成 double”的解释；一次操作核对三个主题，不另设每个函数的重复练习。
+
+## 2026-10-20 本人反馈与下一环节：参数曲线、弧长和 fplot
+
+### 已完成的符号矩阵任务
+
+本人[原稿](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_symbolic_arrays.m)与[截图](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_symbolic_arrays_learner_20261020.png)显示展开前后差为 0，代入矩阵为 `[1,2/5;0,2]`，转换后为对应 double 矩阵，结果正确。原 T 仍含未确定的 t，因此不能直接成为具体数值矩阵；这与数值“准不准确”是两个问题。当前关口通过，不重复练习。原稿保留字节，截图和 SHA-256 见[校核记录](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_symbolic_arrays_review_20261020.json)。
+
+以下为对应课件第 16–18 页主题的讲解补充；半径 2 的四分之一圆是助手教学示范。螺线任务的区间由本次教学选定，不冒充原课件的逐字题面。
+
+### 1. 一个参数同时决定两个坐标
+
+普通函数图像 `fplot(F,[a b])` 上的点是 `(t,F(t))`。参数曲线则用两个表达式 `X=x(t)` 和 `Y=y(t)` 表示点 `(x(t),y(t))`；参数 t 不必是横坐标，也不必代表时间。
+
+例如 `X=2*cos(t); Y=2*sin(t)` 中，t 从 0 到 pi/2 时，点从 `(2,0)` 走到 `(0,2)`，描出半径 2 的四分之一圆。X 与 Y 在这里各是一个含 t 的标量符号表达式，`syms t real` 声明 t 是实参数。
+
+### 2. 坐标变化率合成沿曲线的速度
+
+参数增加一个很小的正量 dt 时，两方向位移近似为 x'(t)dt 和 y'(t)dt。由勾股关系，小段长度近似为 `sqrt(x'(t)^2+y'(t)^2)*dt`，因此光滑曲线的长度为
+
+$$
+L=\int_a^b\sqrt{[x'(t)]^2+[y'(t)]^2}\,dt.
+$$
+
+MATLAB 用 `diff(X,t)` 和 `diff(Y,t)` 求坐标对参数的导数，组成根号内的量，再 `simplify`。这里 t 为实数，根号中的量非负；`Speed` 表示每单位参数变化对应的路程。对本圆弧，`Dx=-2*sin(t)`，`Dy=2*cos(t)`，故 Speed 恒为 2，弧长为 `2*(pi/2)=pi`。若路径重复走过同一段，此积分会累计每次走过的路程。
+
+`int(Speed,t,0,sym(pi)/2)` 指定积分变量和精确符号终点；`vpa(ArcLength,10)` 显示 10 位有效数字，结果仍为 sym。这里 X、Y 和导数都是标量符号表达式，所以平方用 `^2`；若后续先代入一整组数值得到向量，再逐点平方，就要用 `.^2`。
+
+### 3. 用两个表达式画参数曲线
+
+```matlab
+% Teaching supplement: a radius-2 quarter circle.
+syms t real
+X = 2*cos(t);
+Y = 2*sin(t);
+
+% Differentiate the coordinates, then form the scalar speed.
+Dx = diff(X,t);
+Dy = diff(Y,t);
+Speed = simplify(sqrt(Dx^2 + Dy^2))
+
+% Integrate with an exact symbolic endpoint.
+ArcLength = int(Speed,t,0,sym(pi)/2)
+ArcApprox = vpa(ArcLength,10)
+
+% Here the third argument gives the parameter interval.
+figure;
+fplot(X,Y,[0 pi/2],'LineWidth',1.5);
+axis equal;
+grid on;
+xlabel('x');
+ylabel('y');
+title('Radius-2 quarter circle');
+```
+
+`fplot(X,Y,[0 pi/2])` 中第三个参数给的是 t 的区间，并非强行规定横坐标范围。fplot 会自动选取数值采样点绘制曲线，不要求先生成冒号向量。只写 `fplot(Y,[0 pi/2])` 画的是 `(t,Y(t))`，含义不同。`axis equal` 使横纵坐标的一个单位在屏幕上同长，避免圆被比例拉伸；不要求两个坐标轴的数值范围相同。[MathWorks fplot 文档](https://www.mathworks.com/help/symbolic/sym.fplot.html)给出参数形式和区间约定。
+
+积分终点用 `sym(pi)/2` 保留符号常数；绘图范围中的普通 `pi/2` 供数值采样使用。预期输出为 `Speed=2`、`ArcLength=pi`、`ArcApprox=3.141592654`，图形为第一象限四分之一圆。本机示范和本人原稿的独立批处理见[实际日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E5%8F%82%E6%95%B0%E6%9B%B2%E7%BA%BF%E6%A0%B8%E9%AA%8C_20261020.txt)；示范源码见[脚本](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_parametric_arc_demo.m)。助手运行示范不登记为本人完成本节，图形也不替代符号弧长计算。
+
+### 一次综合动手：改成螺线
+
+自行保存 `环境/学习证据/w03_spiral.m`，沿用上述流程，将两个坐标改成 `X=t*cos(t)` 与 `Y=t*sin(t)`，参数从 0 到 `2*pi`。它的极径随 t 增大，同时绕原点旋转一圈，是一段阿基米德螺线。
+
+分别修改精确积分终点和绘图参数区间，保留 `diff`、速度合成、`int`、`vpa` 和 `axis equal`。回传 Speed、ArcApprox 与图，并用一句话解释 `fplot(X,Y,[0 2*pi])` 中 `[0 2*pi]` 限制哪个量。只布置这一项，不另要求重做圆弧。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

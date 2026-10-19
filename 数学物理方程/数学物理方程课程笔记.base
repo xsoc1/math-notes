@@ -41,6 +41,13 @@ views:
       - source_date
       - status
   - type: table
+    name: 第六周作业
+    filters: file.hasTag("week-6") && file.inFolder("数学物理方程/作业")
+    order:
+      - file.name
+      - note_type
+      - status
+  - type: table
     name: 全部资料
     order:
       - file.name

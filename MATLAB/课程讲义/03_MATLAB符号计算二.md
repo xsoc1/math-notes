@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: 99638da4e7c45ab1ee801a536d47960191ec49d87f3cc196f072e9225c934a24
+matlab_source_sha256: a29d43d53a548520055ca78efdb2fb820e1eaf2924ca28a6f5dd4501c7c358a4
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -280,5 +280,76 @@ title('Line family and singular solution');
 本人保存 `环境/学习证据/w03_ode_more.m`。沿用示范，将二阶初值的 y'(0) 改成 1，并把等价方程组的 z(0) 同步改为 1；对应的初值残差也减去新的目标值。保留 y(0)=x(0)=1，运行比较两种表示及奇解图示。
 
 回传 SecondSolution、Xsol、Zsol、Consistency、FamilyResidual、SingularResidual 与图，并用一句话解释为何不能用某个固定 C 得到本例奇解。一个脚本完成三个相关主题，不另设三轮重复练习；收到本人正确作品后再完成第 9 项并进入 Picard。
+
+## 2026-10-20 微分方程综合任务通过；Picard 迭代
+
+本人[原稿](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_ode_more.m)、[图](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_ode_more_plot_20261020.png)和[输出](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_ode_more_output_20261020.png)相符：SecondSolution 与 Xsol 为 `cos(t)+sin(t)`，Zsol 为 `cos(t)-sin(t)`，一致性和两类解的代回残差均为 0。本人解释直线族关于 t 一次、奇解二次，因此固定 C 无法使两者整条重合，理由正确。C=0 时直线族退化为常数，统一说“至多一次”更准确；不为此加练。第 9 项完成。原字节与哈希见[校核记录](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_ode_more_review_20261020.json)。
+
+以下是课件第 23–25 页的 Picard 主题讲解补充，已核对第 23–24 页公式和图示。先用更简单的 y'=y、y(0)=1 示范命令，再由本人完成课件 y'=x+y 的任务。本轮不提前教授循环；以后第五课完整学习 for/while，不因这里的递推而登记学过循环。
+
+### 1. 用上一轮近似构造下一轮
+
+对初值问题 y'=f(x,y)、y(0)=b，由微积分基本定理可写成
+
+$$
+y(x)=b+\int_0^x f(\tau,y(\tau))\,d\tau.
+$$
+
+右侧仍含未知函数，先取简单的 P0(x)=b，再将上一轮的近似代入积分：
+
+$$
+P_{n+1}(x)=b+\int_0^x f(\tau,P_n(\tau))\,d\tau.
+$$
+
+这就是 Picard 迭代。本轮只需理解“取上一轮、代入右端、积分得到下一轮”。每次积分前加的是原来的初值 b，不能改成 Pn(x)。因为上限 x=0 时积分为 0，每轮都保留同一个初值。对于本例的线性方程，迭代在有界区间上收敛；一般方程需检查相应连续性和局部 Lipschitz 等条件，不能从某次图形贴近推断所有问题都收敛。
+
+### 2. 区分外部变量和积分变量
+
+示范中 y'=y，递推为 `Pnext=1+int(Pold(tau),tau,0,x)`。我们保存的 Pold 是关于 x 的 sym 表达式，因此先用 `subs(Pold,x,tau)` 得到积分中的表达式，再显式用 tau 积分。
+
+例如 P1=1+x 时，积分里应放 `1+tau`；直接 `int(P1,tau,0,x)` 会把其中的 x 当成常数，得到错误的下一轮。`expand` 只把结果展开，便于检查每个幂次；它不承担迭代本身。[subs](https://www.mathworks.com/help/symbolic/sym.subs.html)与[int](https://www.mathworks.com/help/symbolic/sym.int.html)的文档分别说明替换与显式积分变量/上下限的语法。
+
+```matlab
+% Teaching supplement: Picard iteration for y'=y, y(0)=1.
+syms x tau real
+P0 = sym(1);
+
+% Substitute the integration variable into the previous approximation.
+P1 = expand(1 + int(subs(P0,x,tau),tau,0,x))
+P2 = expand(1 + int(subs(P1,x,tau),tau,0,x))
+P3 = expand(1 + int(subs(P2,x,tau),tau,0,x))
+
+% Compare a finite approximation with the exact solution.
+syms y(x)
+Exact = dsolve(diff(y,x)==y,y(0)==1);
+InitialCheck = simplify(subs(P3,x,0)-1)
+Residual = simplify(diff(P3,x)-P3)
+ErrorAtHalf = vpa(abs(subs(Exact-P3,x,sym(1)/2)),10)
+
+% Plot the approximations and the exact solution together.
+figure;
+fplot([P0,P1,P2,P3,Exact],[0 1],'LineWidth',1.5);
+grid on;
+xlabel('x');
+ylabel('y');
+legend('P0','P1','P2','P3','Exact','Location','best');
+title('Picard approximations for y''=y');
+```
+
+示范得到 P1=1+x，P2=1+x+x^2/2，P3=1+x+x^2/2+x^3/6。这里单独保存前三轮，便于查看递推，不要求先掌握循环语法。完整[示范源码](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_picard_demo.m)和[实际日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BEPicard%E8%BF%AD%E4%BB%A3%E6%A0%B8%E9%AA%8C_20261020.txt)只作为助手运行证据，不认定本人完成新主题。
+
+### 3. 有限迭代是近似，分别看初值、方程残差与误差
+
+示范精确解为 exp(x)。P3 的 InitialCheck 为 0，说明初值满足；Residual 为 `-x^3/6`，不是恒零，说明这次有限迭代尚非精确解。ErrorAtHalf 约为 0.002887937367，是 x=1/2 处相对已知精确解的绝对误差，和微分方程残差属于不同的量。
+
+非零残差在这里是预期结果，不应要求把所有近似的残差都算成零。fplot 将 P0–P3 和 Exact 作为五个表达式画在一起，帮助观察本例在原点附近的逼近；有限图形与单点误差不代替收敛证明，也不能代替整个区间的误差上界。
+
+### 一次动手：课件的 Picard 例子
+
+本人保存 `环境/学习证据/w03_picard.m`，对 `y'=x+y, y(0)=1` 计算 P1、P2、P3。仍取 P0=sym(1)，将每轮被积表达式改成 `tau+subs(Pold,x,tau)`，每轮积分前仍加 1。
+
+精确解用 dsolve 按新方程求出；Residual 相应改为 `diff(P3,x)-(x+P3)`，InitialCheck 与 x=1/2 的绝对误差按示范计算。按课件在 `[0 3]` 上画 P0–P3 与精确解，注意这里会比示范区间 `[0 1]` 更明显地显示有限迭代的差距。
+
+回传 P3、InitialCheck、Residual、ErrorAtHalf 和图，并用一句话说明“本次 Residual 不为零为何不自动表示程序错误”。一个综合任务核对递推、代入与近似解释；本人未尝试前，第 10 项保持当前，三种变换仍待学习。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

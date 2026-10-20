@@ -27,10 +27,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/03_MATLAB符号计算二.md": {
-      "source_sha256": "99638da4e7c45ab1ee801a536d47960191ec49d87f3cc196f072e9225c934a24",
-      "copy_sha256": "410a2d6e136c178eaf513c77b19524540f03b08519d0938fc8e7f84c2d8b3500",
-      "source_bytes": 21489,
-      "copy_bytes": 23322,
+      "source_sha256": "a29d43d53a548520055ca78efdb2fb820e1eaf2924ca28a6f5dd4501c7c358a4",
+      "copy_sha256": "82d042262549977d3d15b82489f8ec80ebcc266b73a1abffb29f4e348e828933",
+      "source_bytes": 26469,
+      "copy_bytes": 28668,
       "mode": "obsidian_navigation"
     },
     "课程讲义/04_MATLAB数组定义与数组化编程.md": {
@@ -200,9 +200,9 @@
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 90,
+    "local_targets_checked": 96,
     "wikilinks": 11,
-    "file_links": 79
+    "file_links": 85
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

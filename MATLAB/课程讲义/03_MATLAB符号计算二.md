@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: a29d43d53a548520055ca78efdb2fb820e1eaf2924ca28a6f5dd4501c7c358a4
+matlab_source_sha256: ebf6a2ab1791e7e6db030de4bbe25002a8ee8f65ea00a56c14cb5ef036e4289a
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -351,5 +351,54 @@ title('Picard approximations for y''=y');
 精确解用 dsolve 按新方程求出；Residual 相应改为 `diff(P3,x)-(x+P3)`，InitialCheck 与 x=1/2 的绝对误差按示范计算。按课件在 `[0 3]` 上画 P0–P3 与精确解，注意这里会比示范区间 `[0 1]` 更明显地显示有限迭代的差距。
 
 回传 P3、InitialCheck、Residual、ErrorAtHalf 和图，并用一句话说明“本次 Residual 不为零为何不自动表示程序错误”。一个综合任务核对递推、代入与近似解释；本人未尝试前，第 10 项保持当前，三种变换仍待学习。
+
+## 2026-10-20 Picard 通过；第 11.1 轮：傅里叶基础与逆变换
+
+本人[原稿](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_picard.m)、[图](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_picard_plot_20261020.png)与[输出](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_picard_output_20261020.png)相符，第三轮近似、初值、残差和单点误差均正确。本人指出 P3 是近似而非精确解，解释正确。第 10 项通过，不重复本人已正确的运行；证据层级、哈希与加速要求见[记录](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_picard_review_20261020.json)。
+
+用户要求加速并显示具体轮次。变换阶段按 11.1 基础、11.2 性质与广义函数、11.3 拉普拉斯、11.4 单边 Z 四轮计划推进；第 12 轮进入第三周参考自测。这是教学轮次安排，不把四轮计划视作完成证据；必要澄清不自动增加相似练习。
+
+### 1. 从原变量到频率变量
+
+本轮对应课件第 26 页定义与命令，Gaussian 为助手讲解补充。傅里叶变换把关于 t 的函数变成关于频率 w 的函数，用来描述不同振荡频率的成分。核 `exp(-1i*w*t)=cos(w*t)-1i*sin(w*t)` 表明结果一般可以是复数；这里 w 是角频率，不是又一个时间点。
+
+课件与 MATLAB 默认约定为
+
+$$
+F(\omega)=\int_{-\infty}^{\infty} f(t)e^{-i\omega t}\,dt,
+\qquad
+f(t)=\frac{1}{2\pi}\int_{-\infty}^{\infty}F(\omega)e^{i\omega t}\,d\omega.
+$$
+
+正变换指数中的负号和逆变换前的 1/(2*pi) 是成对约定；不能把其他教材采用的 `exp(-2*pi*1i*frequency*t)` 结果直接混用。本例 exp(-t^2) 光滑且快速衰减，正反变换均无普通积分收敛问题；非可积的常数和阶跃如何处理留在 11.2，不把它们按本轮的绝对可积函数处理。
+
+### 2. 显式指定两个变量，再逆变换检验
+
+```matlab
+syms t w real
+f = exp(-t^2);
+
+% 从 t 变到 w, 再从 w 还原到 t
+F = simplify(fourier(f,t,w))
+Recovered = simplify(ifourier(F,w,t))
+RecoveryResidual = simplify(Recovered-f)
+
+% 在零频率处, 指数核为 1
+ZeroFrequency = simplify(subs(F,w,0))
+Area = int(f,t,-Inf,Inf);
+AreaResidual = simplify(ZeroFrequency-Area)
+```
+
+`fourier(f,t,w)` 的第二项是原变量，第三项是结果变量；`ifourier(F,w,t)` 正好反向。两者都返回符号对象。这个例子得到 `F=sqrt(pi)*exp(-w^2/4)`、`Recovered=exp(-t^2)`、RecoveryResidual=0。实偶函数的本例变换仍为实数，不代表所有实函数的变换都实值。[fourier](https://www.mathworks.com/help/symbolic/sym.fourier.html)与[ifourier](https://www.mathworks.com/help/symbolic/sym.ifourier.html)文档说明显式变量和变换约定。
+
+### 3. 零频率与图形核对
+
+令 w=0，核等于 1，故本例 ZeroFrequency 等于原函数在整个实轴上的积分，均为 sqrt(pi)，AreaResidual 为 0。它核对归一化；RecoveryResidual 则核对逆变换还原，两者目标不同。
+
+分别用 `fplot(f,[-3 3])` 和 `fplot(F,[-6 6])` 在两个图窗绘制，并将横轴分别标成 t、w；不要把频率轴标成时间。完整[示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_fourier_basics_demo.m)含两图与注释；实际默认 FourierParameters、运行和核验结果见[日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E5%82%85%E9%87%8C%E5%8F%B611_1%E6%A0%B8%E9%AA%8C_20261020.txt)。未改写全局符号首选项，助手示范不登记为本人完成。
+
+### 本轮一个任务
+
+本人保存 `环境/学习证据/w03_fourier.m`，将 f 改为 `exp(-2*t^2)`，计算 F、Recovered、RecoveryResidual、ZeroFrequency 和 AreaResidual，并画原函数与变换两图。回传 F、两个残差、ZeroFrequency 和频率图，用一句话说明逆变换调用中第二、第三个变量为什么换了位置。得到正确作品后进入 11.2，拉普拉斯、Z 和 Parseval/广义函数不提前略去。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

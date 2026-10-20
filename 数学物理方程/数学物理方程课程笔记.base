@@ -16,6 +16,8 @@ properties:
     displayName: 原题日期
   status:
     displayName: 编写状态
+  writing_skill:
+    displayName: 写作规范
 views:
   - type: table
     name: 单元式笔记
@@ -31,6 +33,7 @@ views:
       - file.name
       - note_type
       - updated
+      - writing_skill
       - status
   - type: table
     name: 作业与测验

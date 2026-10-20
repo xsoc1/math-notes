@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/03_MATLAB符号计算二.md"
-matlab_source_sha256: de0841ac1d8734cc48a871db89c4bb2e9d314827c8df2729e42b7ff5bfc291c0
+matlab_source_sha256: 99638da4e7c45ab1ee801a536d47960191ec49d87f3cc196f072e9225c934a24
 ---
 
 # 第三课：MATLAB 符号计算（二）
@@ -205,5 +205,80 @@ InitialResidual = simplify(subs(Solution,t,0) - 3)
 ### 本节后续保留内容与课件勘误
 
 二阶用 `diff(y,t,2)`，导数初值需要先为导数命名；方程组使用符号方程向量及结构字段取解。课件第 19 页把所需条件数与“方程个数”联系并不普遍正确：一条二阶方程通常涉及两个积分常数；条件数也不能代替相容性与唯一性判断。第 21–22 页的奇解示范需区分任意常数族与不属于该族的解，并用当前 fplot 语法代替 ezplot。这些主题留在同一阶段继续讲解和操作，不以本次一阶示范替代。
+
+## 2026-10-20 一阶任务通过；二阶、方程组与奇解
+
+本人[原稿](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_dsolve.m)和[截图](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_dsolve_output_20261020.png)给出 `Solution=t+3*exp(-t)-1`，两个残差均为 0，且分别解释为检查原方程和初值，完全正确。一阶部分通过，原字节保留；SHA-256 与反馈见[记录](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E5%AD%A6%E4%B9%A0%E8%AF%81%E6%8D%AE/w03_dsolve_review_20261020.json)。不追加一阶近似题。
+
+以下合并三个相关新主题。二阶语法是第三周自测的先修补充；方程组与奇解对应已核对的课件第 19–22 页。本轮先讲解并示范，本人综合任务未回传前，第 9 项仍为当前。
+
+### 1. 二阶导数与导数初值
+
+二阶方程含 y 的二阶导数。例如 `y''+y=0` 的通解为 `A*cos(t)+B*sin(t)`；初值 y(0)=1 与 y'(0)=0 分别确定 A=1、B=0，得到 cos(t)。因此不能按“只有一条方程”就认为总是只需一个条件。条件的相容性与唯一性仍要结合方程判断。
+
+`diff(y,t,2)` 中最后的 2 是求导阶数，表示对 t 连续求两次导数。`Dy=diff(y,t)` 给符号导数函数命名，随后 `Dy(0)==0` 表示导数初值。`[y(0)==1,Dy(0)==0]` 把两个条件放进同一数组，传给 dsolve。
+
+### 2. 用两个一阶方程描述同一问题
+
+令 x=y、z=y'，则 `y''+y=0` 等价于 `x'=z, z'=-x`。条件也同步变成 x(0)=1、z(0)=0。这两种写法应得到相同的第一分量，提供了一次不同表示之间的核对。
+
+`Eqns=[diff(x,t)==z,diff(z,t)==-x]` 把两个符号方程放进数组；`S=dsolve(Eqns,Conditions)` 在本例返回 struct 结构。`S.x` 取名为 x 的解，`S.z` 取名为 z 的解，点号在这里是取字段的语法。得到的 Xsol、Zsol 为符号表达式，可继续 diff、subs 和 fplot。[MathWorks 文档](https://www.mathworks.com/help/symbolic/sym.dsolve.html)给出二阶初值与结构字段的相应语法。
+
+### 3. 奇解不一定藏在任意常数族中
+
+课件例子是 `y=t*y'-(y')^2`，残差移到左侧为 `(y')^2-t*y'+y`。对每个固定常数 C，直线族 `Family=C*t-C^2` 都满足这个方程。另外，`Singular=t^2/4` 也满足它，但不能通过选择某个固定 C 使整条直线等于这条抛物线；这就是本例的奇解。
+
+MATLAB 本机 dsolve 对这个例子返回两个候选：`t^2/4` 与 `-C1^2+t*C1`。不能把某个固定返回位置当作“奇解”的永久标记，应按表达式和代回检验识别。本例的两类候选都能直接核验；本节不据候选列表声称已经分类所有可能的分段拼接解。
+
+下面的[完整示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w03_ode_more_demo.m)串联三个主题，最后把三个固定 C 对应的直线与奇解画在一起。实符号常数用单独的 `syms C real` 声明；不对符号函数使用 real 假设。
+
+```matlab
+%% Second-order equation with a derivative initial condition.
+syms y(t)
+Dy = diff(y,t);
+SecondSolution = dsolve(diff(y,t,2)+y==0,[y(0)==1,Dy(0)==0])
+SecondResidual = simplify(diff(SecondSolution,t,2)+SecondSolution)
+SecondInitialResiduals = [subs(SecondSolution,t,0)-1,subs(diff(SecondSolution,t),t,0)]
+
+%% The equivalent first-order system returns a structure.
+syms x(t) z(t)
+Eqns = [diff(x,t)==z,diff(z,t)==-x];
+Conditions = [x(0)==1,z(0)==0];
+S = dsolve(Eqns,Conditions);
+Xsol = S.x
+Zsol = S.z
+Consistency = simplify(Xsol-SecondSolution)
+SystemResiduals = simplify([diff(Xsol,t)-Zsol,diff(Zsol,t)+Xsol])
+SystemInitialResiduals = [subs(Xsol,t,0)-1,subs(Zsol,t,0)]
+
+%% A family of line solutions and a singular solution.
+syms w(t)
+syms C real
+Candidates = dsolve(diff(w,t)^2-t*diff(w,t)+w==0)
+Family = C*t-C^2;
+Singular = t^2/4;
+FamilyResidual = simplify(diff(Family,t)^2-t*diff(Family,t)+Family)
+SingularResidual = simplify(diff(Singular,t)^2-t*diff(Singular,t)+Singular)
+
+% Substitute three constant choices; fplot accepts a symbolic array.
+FamilyLines = subs(Family,C,[-1 0 1]);
+figure;
+fplot([FamilyLines,Singular],[-4 4],'LineWidth',1.5);
+grid on;
+xlabel('t');
+ylabel('y');
+legend('C=-1','C=0','C=1','Singular','Location','best');
+title('Line family and singular solution');
+```
+
+输出预期：SecondSolution 与 Xsol 都为 cos(t)，Zsol 为 -sin(t)，Consistency 为 0；二阶方程、方程组与其初值残差均为零。FamilyResidual 与 SingularResidual 也为零，但这不说明两个解相同，只说明各自满足同一方程。
+
+`subs(Family,C,[-1 0 1])` 分别取三个常数，形成 1×3 的符号表达式数组；`[FamilyLines,Singular]` 加上第四条抛物线，再由 fplot 一次画出。此处复用已有数组、代入和绘图知识，不提前引入循环。实际 MATLAB 版本、两次表示核对、候选和四条函数线的核验见[日志](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/%E7%AC%AC%E4%B8%89%E8%AF%BE%E4%BA%8C%E9%98%B6%E6%96%B9%E7%A8%8B%E7%BB%84%E4%B8%8E%E5%A5%87%E8%A7%A3%E6%A0%B8%E9%AA%8C_20261020.txt)。助手运行示范不登记为本人完成。
+
+### 一次综合动手
+
+本人保存 `环境/学习证据/w03_ode_more.m`。沿用示范，将二阶初值的 y'(0) 改成 1，并把等价方程组的 z(0) 同步改为 1；对应的初值残差也减去新的目标值。保留 y(0)=x(0)=1，运行比较两种表示及奇解图示。
+
+回传 SecondSolution、Xsol、Zsol、Consistency、FamilyResidual、SingularResidual 与图，并用一句话解释为何不能用某个固定 C 得到本例奇解。一个脚本完成三个相关主题，不另设三轮重复练习；收到本人正确作品后再完成第 9 项并进入 Picard。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

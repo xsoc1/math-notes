@@ -1,42 +1,80 @@
 filters:
   and:
-    - 'file.inFolder("李代数")'
-    - 'file.hasTag("lie-algebra")'
-    - 'file.ext == "md"'
-
+    - file.inFolder("李代数")
+    - file.hasTag("lie-algebra")
+    - file.ext == "md"
 properties:
   note_type:
-    displayName: "笔记类型"
+    displayName: 笔记类型
   source_volume:
-    displayName: "资料来源"
+    displayName: 资料来源
   source_chapter:
-    displayName: "章节"
-  lecture_number:
-    displayName: "讲次"
+    displayName: 章节
   status:
-    displayName: "状态"
+    displayName: 状态
   source_check:
-    displayName: "来源核验"
+    displayName: 来源核验
   exercise_range:
-    displayName: "作业或习题范围"
+    displayName: 作业或习题范围
+  writing_skill:
+    displayName: 写作技能
   file.mtime:
-    displayName: "修改时间"
-
+    displayName: 修改时间
 views:
   - type: table
-    name: "李代数课程、经典例子与作业"
+    name: 李代数课程、代数基础与习题
     order:
       - file.name
       - note_type
       - source_volume
       - source_chapter
-      - lecture_number
       - status
       - source_check
       - exercise_range
       - file.mtime
   - type: list
-    name: "按文件查看"
+    name: 按文件查看
     order:
       - file.name
       - source_chapter
+  - type: table
+    name: 入门整合讲义
+    filters:
+      and:
+        - note_type == "整合讲义"
+    order:
+      - file.name
+      - source_chapter
+      - source_check
+      - file.mtime
+  - type: table
+    name: 第四讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 4
+    order:
+      - file.name
+      - note_type
+      - source_check
+      - exercise_range
+  - type: table
+    name: 第五讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 5
+    order:
+      - file.name
+      - note_type
+      - source_check
+      - exercise_range
+  - type: table
+    name: 第六讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 6
+    order:
+      - file.name
+      - note_type
+      - source_check
+      - exercise_range
+      - writing_skill

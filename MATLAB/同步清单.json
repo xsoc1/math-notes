@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 17,
-  "lectures": 10,
+  "materials": 23,
+  "lectures": 14,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "10545a356c69b0f5fd6d37ccc2c2efaec7ecdf6f7a5b7dacead537fcef29d6ce",
@@ -20,10 +20,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/02_MATLAB基础运算与符号计算一.md": {
-      "source_sha256": "1dfe87e4e9710443125970334142815832011b1d478e6b58e086a76a643433dc",
-      "copy_sha256": "00012fc046d32c498cff68c1b0ec579b23d8597cbbfd4dce63b2fb06283913f7",
-      "source_bytes": 5296,
-      "copy_bytes": 5766,
+      "source_sha256": "f1891a249f62a73a63636ecc9890185e97f2e6374ca7f5d9fa0bafd9cab4f54c",
+      "copy_sha256": "b9dba1a351beceb428f7a5c9c6a24767b6fdcccccb853f44fe6252a3e0a77a24",
+      "source_bytes": 5533,
+      "copy_bytes": 6045,
       "mode": "obsidian_navigation"
     },
     "课程讲义/03_MATLAB符号计算二.md": {
@@ -34,10 +34,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/04_MATLAB数组定义与数组化编程.md": {
-      "source_sha256": "77e498c889a6cca641f646e4f85c73bfed0e4d495bce4bfa9f2cff412bfb400b",
-      "copy_sha256": "dfa6f4139e74154f41e06ed83baadfcbdf08d15fba0104052fc0da50d91214cf",
-      "source_bytes": 5720,
-      "copy_bytes": 6349,
+      "source_sha256": "84477a9ca7a4d7ca8a0278b4b92ce64ccb49adea67d4ceb3746c2cbc781e3190",
+      "copy_sha256": "09837c2a22a7ce3f56ab1edf880b204304ae854c000080808b2b057def8f39b3",
+      "source_bytes": 5942,
+      "copy_bytes": 6613,
       "mode": "obsidian_navigation"
     },
     "课程讲义/05_MATLAB矩阵函数与程序设计初步.md": {
@@ -47,11 +47,25 @@
       "copy_bytes": 16375,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/06B_第六周实验课.md": {
+      "source_sha256": "3116bf6cb43e634d383418c2c58722e98a2013aa057221c61da8abef5b061bff",
+      "copy_sha256": "3d88bd1b1929159d8eb2003d8c3d25f6e132de96f0e96fdd21c8f41beec12d61",
+      "source_bytes": 7371,
+      "copy_bytes": 8136,
+      "mode": "obsidian_navigation"
+    },
     "课程讲义/06_MATLAB数值微积分.md": {
-      "source_sha256": "cc8c6df4071632f2a0e6fa27817d0982c5550cb9f296a385984ef8cd12001431",
-      "copy_sha256": "7e05e7ca17e9a4dc8d023e914ddd2275faa23aee172a1ca7ab9bd1666a0f4907",
-      "source_bytes": 12672,
-      "copy_bytes": 13499,
+      "source_sha256": "1855df49fd0c8635743785df73bbdeb4b16164a98e70ea322c4ff2ad01369db7",
+      "copy_sha256": "6e975d8f7bf4016c44c9617fb77f6d1efc995c63f9cbaca50b442d5ece123670",
+      "source_bytes": 13192,
+      "copy_bytes": 14175,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/07_MATLAB微分方程数值解法.md": {
+      "source_sha256": "79ed6ad18612e80f45540fe1a54dbc5ca8162183022591198e21b61d3892677e",
+      "copy_sha256": "1ae962d651cdd61dbe58b2f90ca12392463a2bafaa0e1c9439db042b6f794aaf",
+      "source_bytes": 10691,
+      "copy_bytes": 11341,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -74,6 +88,27 @@
       "source_bytes": 2759,
       "copy_bytes": 3462,
       "mode": "obsidian_navigation"
+    },
+    "课程讲义/补充_第二周与第四周作业参考解读.md": {
+      "source_sha256": "9921d33f303e09e6a32734fdb4c4d53cac534c375643b3034d0465c1ed4a39b9",
+      "copy_sha256": "dd9708a5bd7596a9a9686c7eb7d3fd8f222c556e85d0480b4fd6b6429ee9a2b0",
+      "source_bytes": 4803,
+      "copy_bytes": 5323,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/补充_第六周参考作业解读.md": {
+      "source_sha256": "990d4fede7e2650ebb3169c31784a5cd5886e74c20b5fc75dd05ecaaf5742ff4",
+      "copy_sha256": "8d6d29e5e309e7fdfe702e4fdd6c89af01e9f30b0a473e6fc1d4a4396a85b9a5",
+      "source_bytes": 5622,
+      "copy_bytes": 6239,
+      "mode": "obsidian_navigation"
+    },
+    "课程资料/原始课件/W6实验课代码.zip": {
+      "source_sha256": "0c17eb42b5e0b57875246cd834e1cde4db2c7370a2a8b8c4dfc945661c6d3199",
+      "copy_sha256": "0c17eb42b5e0b57875246cd834e1cde4db2c7370a2a8b8c4dfc945661c6d3199",
+      "source_bytes": 3182,
+      "copy_bytes": 3182,
+      "mode": "byte_identical"
     },
     "课程资料/原始课件/Week3傅里叶变换.zip": {
       "source_sha256": "683dc38e87c258e4278649a3aa99f005297603c233da9edc365a6d474ccfe798",
@@ -103,6 +138,13 @@
       "copy_bytes": 4338300,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第七课 MATLAB微分方程数值解法.pdf": {
+      "source_sha256": "42c1c23f1ecdcd1780104c4cdb3402a3b7fcd6187f7df3ce261c237828ea53a5",
+      "copy_sha256": "42c1c23f1ecdcd1780104c4cdb3402a3b7fcd6187f7df3ce261c237828ea53a5",
+      "source_bytes": 1527665,
+      "copy_bytes": 1527665,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第三周参考作业.pdf": {
       "source_sha256": "d07e89cc66516c4648fb0229ea4aac4f8bac9b05c48f0968b03a7da9c2c3c493",
       "copy_sha256": "d07e89cc66516c4648fb0229ea4aac4f8bac9b05c48f0968b03a7da9c2c3c493",
@@ -115,6 +157,13 @@
       "copy_sha256": "5914a012e8f0d3d9a3a2ea8beb01371a0d1f9987d3af01468f70a08b8fc8670e",
       "source_bytes": 1259052,
       "copy_bytes": 1259052,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第二周.pdf": {
+      "source_sha256": "0f4aad18e39425fb559134667e310bac12ed95be4f699263da72c55b44e0930c",
+      "copy_sha256": "0f4aad18e39425fb559134667e310bac12ed95be4f699263da72c55b44e0930c",
+      "source_bytes": 295609,
+      "copy_bytes": 295609,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第二周实验课.pdf": {
@@ -145,11 +194,32 @@
       "copy_bytes": 1667359,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第六周参考作业.pdf": {
+      "source_sha256": "b5324df59d64391e610ce7a1ddc42769cc9bbf9f1b7761e1e83099e3b39e84ef",
+      "copy_sha256": "b5324df59d64391e610ce7a1ddc42769cc9bbf9f1b7761e1e83099e3b39e84ef",
+      "source_bytes": 336306,
+      "copy_bytes": 336306,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第六周实验课.pdf": {
+      "source_sha256": "f71849984a13b0a3bdf244c6462d179a9acb43b57fa6e4999687f967de3c0e15",
+      "copy_sha256": "f71849984a13b0a3bdf244c6462d179a9acb43b57fa6e4999687f967de3c0e15",
+      "source_bytes": 126803,
+      "copy_bytes": 126803,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第六课 MATLAB数值微积分.pdf": {
       "source_sha256": "f80f8add2b7003ac1f9c2546ccfb210603ab81324930f9c71666f7ec5dc943f0",
       "copy_sha256": "f80f8add2b7003ac1f9c2546ccfb210603ab81324930f9c71666f7ec5dc943f0",
       "source_bytes": 1145016,
       "copy_bytes": 1145016,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第四周.pdf": {
+      "source_sha256": "723ef1c010136a9d1c86fda2865e6c38d205ee3dc93546fae7fb16ec9cba9106",
+      "copy_sha256": "723ef1c010136a9d1c86fda2865e6c38d205ee3dc93546fae7fb16ec9cba9106",
+      "source_bytes": 370984,
+      "copy_bytes": 370984,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第四课 MATLAB数组定义与数组化编程.pdf": {
@@ -196,13 +266,13 @@
     }
   },
   "generated": {
-    "README.md": "efb7736026949e689acc72e4f388372376bf905d252cbf24fb973933a475e4d0",
+    "README.md": "4d8a42fc4c6b5a6a0d713412c3a52ed93ce1acd1f520b6ad977f4d7e613bac83",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 102,
-    "wikilinks": 11,
-    "file_links": 91
+    "local_targets_checked": 148,
+    "wikilinks": 36,
+    "file_links": 112
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

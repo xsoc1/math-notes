@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/04_MATLAB数组定义与数组化编程.md"
-matlab_source_sha256: 77e498c889a6cca641f646e4f85c73bfed0e4d495bce4bfa9f2cff412bfb400b
+matlab_source_sha256: 84477a9ca7a4d7ca8a0278b4b92ce64ccb49adea67d4ceb3746c2cbc781e3190
 ---
 
 # 第四课：MATLAB 数组定义与数组化编程
@@ -52,5 +52,9 @@ matlab_source_sha256: 77e498c889a6cca641f646e4f85c73bfed0e4d495bce4bfa9f2cff412b
 ## 引导式学习入口
 
 先学创建、尺寸和索引，再练掩码与数组化，最后处理第 36–37 页正式作业。每一步先由你预测、输入、运行和解释；我再点评。当前学习游标仍由[学习进度状态](file:///F:/MATLAB%20course/%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E7%8A%B6%E6%80%81.md)决定，加入本讲不表示现在开始第四课。
+
+## 2026-10-21 补充参考
+
+[[MATLAB/课程讲义/补充_第二周与第四周作业参考解读|第四周教师参考解读]]补充浮点下溢、索引与消元适用条件；原完成作业保留。返回[课程入口](file:///F:/MATLAB%20course/README.md)。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

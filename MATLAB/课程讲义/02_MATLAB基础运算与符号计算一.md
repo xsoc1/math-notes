@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/02_MATLAB基础运算与符号计算一.md"
-matlab_source_sha256: 1dfe87e4e9710443125970334142815832011b1d478e6b58e086a76a643433dc
+matlab_source_sha256: f1891a249f62a73a63636ecc9890185e97f2e6374ca7f5d9fa0bafd9cab4f54c
 ---
 
 # 第二课：MATLAB 基础运算与符号计算（一）
@@ -158,5 +158,9 @@ I = int(sin(x)/x, x, 0, inf);
 - [ ] 能区分符号表达式和符号函数。
 - [ ] 能用 `limit`、`diff`、`taylor`、`int` 完成基本计算。
 - [ ] 能独立检查定义域、不可导点和广义积分收敛性。
+
+## 2026-10-21 补充参考
+
+[[MATLAB/课程讲义/补充_第二周与第四周作业参考解读|第二周教师参考解读与证明边界]]已加入；原件为三页参考，不替换既有本人作品与报告。返回[课程入口](file:///F:/MATLAB%20course/README.md)。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

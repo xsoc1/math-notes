@@ -4,7 +4,7 @@ tags:
   - matlab/lecture
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/06_MATLAB数值微积分.md"
-matlab_source_sha256: cc8c6df4071632f2a0e6fa27817d0982c5550cb9f296a385984ef8cd12001431
+matlab_source_sha256: 1855df49fd0c8635743785df73bbdeb4b16164a98e70ea322c4ff2ad01369db7
 ---
 
 # 第六课：MATLAB 数值微积分
@@ -146,5 +146,13 @@ $$
 | F：四题参考自测 | 按题读取要求和条件 | 本人编写、运行、解释，再点评 | 留空题面见自测目录；不用交 |
 
 返回：[课程内容队列](file:///F:/MATLAB%20course/%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E7%8A%B6%E6%80%81.md) · [课程首页](file:///F:/MATLAB%20course/README.md)。
+
+## 2026-10-21 新接收的配套材料
+
+- [[MATLAB/课程讲义/06B_第六周实验课|第六周实验课]]：精度比较、逻辑索引、矩阵函数与欧拉通路。
+- [[MATLAB/课程讲义/补充_第六周参考作业解读|四题参考解读与勘误]]：容差、差分、蒙特卡洛与球面投影；[自测原题留白](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E5%85%AD%E5%91%A8%E5%8F%82%E8%80%83%E4%BD%9C%E4%B8%9A/README.md)保留。
+- [[MATLAB/课程讲义/07_MATLAB微分方程数值解法|下一主课：微分方程数值解法]]。
+
+这些是资料入口，不表示已经学习。返回[课程入口](file:///F:/MATLAB%20course/README.md)。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

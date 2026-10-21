@@ -2,8 +2,8 @@
   "date": "2026-10-21",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 23,
-  "lectures": 14,
+  "materials": 30,
+  "lectures": 16,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "10545a356c69b0f5fd6d37ccc2c2efaec7ecdf6f7a5b7dacead537fcef29d6ce",
@@ -62,10 +62,17 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/07_MATLAB微分方程数值解法.md": {
-      "source_sha256": "79ed6ad18612e80f45540fe1a54dbc5ca8162183022591198e21b61d3892677e",
-      "copy_sha256": "1ae962d651cdd61dbe58b2f90ca12392463a2bafaa0e1c9439db042b6f794aaf",
-      "source_bytes": 10691,
-      "copy_bytes": 11341,
+      "source_sha256": "ccc4b27e7af0c0cb892a4e528fbfa4dceb7ab1db1fe00241eb3809b07b3abb58",
+      "copy_sha256": "6412c2578ed70abe023f21d400b364a20c52f98e5f7e5f887d267e8b123d1e5b",
+      "source_bytes": 11024,
+      "copy_bytes": 11710,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/08_MATLAB线性代数.md": {
+      "source_sha256": "0756eebd8a766ad530c5e44387fb024127d6647fea49b7cee514a0a0a45931c4",
+      "copy_sha256": "d8387c502e4dc6809bc7c5d4533861b8e50f6ccbc6a90e0889dfb4d6f900ef61",
+      "source_bytes": 15055,
+      "copy_bytes": 15741,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -80,6 +87,13 @@
       "copy_sha256": "164dc6d120439aa590dae223f838aba3c5c9b9d5682ee7a4d9b82021782b5df6",
       "source_bytes": 2644,
       "copy_bytes": 3030,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/补充_第七周微分方程数值解法参考资料.md": {
+      "source_sha256": "5f6bc0902e7dea4cf18d6e08aeaebce9c99905ef926b214a3818a075864281b0",
+      "copy_sha256": "e637cef5c713987a821f061f259fb81bc27a2cc2d95bec3ba8a6c08f7d689743",
+      "source_bytes": 5452,
+      "copy_bytes": 7150,
       "mode": "obsidian_navigation"
     },
     "课程讲义/补充_第三周傅里叶参考资料.md": {
@@ -115,6 +129,13 @@
       "copy_sha256": "683dc38e87c258e4278649a3aa99f005297603c233da9edc365a6d474ccfe798",
       "source_bytes": 14998741,
       "copy_bytes": 14998741,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/Week7微分方程数值解法(1).zip": {
+      "source_sha256": "7363ca1da4d32e4fc91c6bad2d06ea2ffcc922159e1aeb6752c7efa60cacb742",
+      "copy_sha256": "7363ca1da4d32e4fc91c6bad2d06ea2ffcc922159e1aeb6752c7efa60cacb742",
+      "source_bytes": 31361406,
+      "copy_bytes": 31361406,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/week2实时脚本资料更新版.zip": {
@@ -194,6 +215,13 @@
       "copy_bytes": 1667359,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第八课 MATLAB线性代数.pdf": {
+      "source_sha256": "f22d271728448570f4bd4ae2c8463ecf647f04f245d3cba5c94c5da0d53edd57",
+      "copy_sha256": "f22d271728448570f4bd4ae2c8463ecf647f04f245d3cba5c94c5da0d53edd57",
+      "source_bytes": 905821,
+      "copy_bytes": 905821,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第六周参考作业.pdf": {
       "source_sha256": "b5324df59d64391e610ce7a1ddc42769cc9bbf9f1b7761e1e83099e3b39e84ef",
       "copy_sha256": "b5324df59d64391e610ce7a1ddc42769cc9bbf9f1b7761e1e83099e3b39e84ef",
@@ -263,16 +291,51 @@
       "source_bytes": 695824,
       "copy_bytes": 695824,
       "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week7微分方程数值解法/《有限元法及应用》总结--ppt课件.ppt": {
+      "source_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
+      "copy_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
+      "source_bytes": 7813632,
+      "copy_bytes": 7813632,
+      "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week7微分方程数值解法/微分方程数值解法（第四版）.pdf": {
+      "source_sha256": "45c16ac528b671b389b30450ee4c01808b30cbf6201e0b1524e49575ec932c1e",
+      "copy_sha256": "45c16ac528b671b389b30450ee4c01808b30cbf6201e0b1524e49575ec932c1e",
+      "source_bytes": 19889627,
+      "copy_bytes": 19889627,
+      "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week7微分方程数值解法/第三章-常微分方程的数值解法.ppt": {
+      "source_sha256": "08e0ffa71ae82ee9b3f4745d31d6cf6fd2e6ee0de66a500a3245057468d67389",
+      "copy_sha256": "08e0ffa71ae82ee9b3f4745d31d6cf6fd2e6ee0de66a500a3245057468d67389",
+      "source_bytes": 1872896,
+      "copy_bytes": 1872896,
+      "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week7微分方程数值解法/第五章-偏微分方程的有限元法.ppt": {
+      "source_sha256": "f8a80e43b2c664d1da4cdc2a16946b3706721bb2ee0a8bcfb11010510fc92395",
+      "copy_sha256": "f8a80e43b2c664d1da4cdc2a16946b3706721bb2ee0a8bcfb11010510fc92395",
+      "source_bytes": 4339712,
+      "copy_bytes": 4339712,
+      "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week7微分方程数值解法/第四章-偏微分方程的有限差分法.ppt": {
+      "source_sha256": "0c02e525cdf161612adeeee574ac4e83e12ed11cd7a1f8bb784d010a4ce53d11",
+      "copy_sha256": "0c02e525cdf161612adeeee574ac4e83e12ed11cd7a1f8bb784d010a4ce53d11",
+      "source_bytes": 2063360,
+      "copy_bytes": 2063360,
+      "mode": "byte_identical"
     }
   },
   "generated": {
-    "README.md": "4d8a42fc4c6b5a6a0d713412c3a52ed93ce1acd1f520b6ad977f4d7e613bac83",
+    "README.md": "ef0a41b082c669a4b03071cdf1fc1e83eef8abcad3918cd4125d64e2b79f7fcc",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 148,
-    "wikilinks": 36,
-    "file_links": 112
+    "local_targets_checked": 173,
+    "wikilinks": 47,
+    "file_links": 126
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

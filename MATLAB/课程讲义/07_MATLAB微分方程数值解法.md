@@ -6,7 +6,7 @@ tags:
 date: 2026-10-21
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/07_MATLAB微分方程数值解法.md"
-matlab_source_sha256: 79ed6ad18612e80f45540fe1a54dbc5ca8162183022591198e21b61d3892677e
+matlab_source_sha256: ccc4b27e7af0c0cb892a4e528fbfa4dceb7ab1db1fe00241eb3809b07b3abb58
 ---
 
 # 第七课：MATLAB 微分方程数值解法
@@ -148,5 +148,9 @@ $$
 官方依据：[ode45](https://www.mathworks.com/help/matlab/ref/ode45.html)。相关数学解释为助手补充，不冒充教师原文。
 
 返回：[[MATLAB/课程讲义/06_MATLAB数值微积分|数值微积分]]、[[MATLAB/课程讲义/06B_第六周实验课|第六周实验课]]、[课程内容队列](file:///F:/MATLAB%20course/%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E7%8A%B6%E6%80%81.md)。
+
+## 2026-10-21 后续参考与主课
+
+新增[[MATLAB/课程讲义/补充_第七周微分方程数值解法参考资料|微分方程参考导览]]，包内为扫描书与四份 PPT，无 MATLAB 代码；按需阅读，不新增强制关卡。下一主课为[[MATLAB/课程讲义/08_MATLAB线性代数|第八课线性代数]]。原第七周作业与学习位置不变。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

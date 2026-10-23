@@ -18,6 +18,8 @@ properties:
     displayName: 编写状态
   writing_skill:
     displayName: 写作规范
+  updated:
+    displayName: 最近修订
 views:
   - type: table
     name: 单元式笔记

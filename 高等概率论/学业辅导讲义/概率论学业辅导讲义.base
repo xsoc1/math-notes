@@ -1,0 +1,39 @@
+filters:
+  and:
+    - 'file.hasTag("probability-tutoring")'
+    - 'file.ext == "md"'
+properties:
+  file.name:
+    displayName: 文件
+  note_type:
+    displayName: 用途
+  status:
+    displayName: 状态
+views:
+  - type: table
+    name: 全部材料
+    order:
+      - file.name
+      - note_type
+      - status
+    sort:
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: 讲课正文
+    filters: 'note_type == "教师讲义"'
+    order:
+      - file.name
+      - status
+  - type: table
+    name: 教师题解
+    filters: 'note_type == "教师题解"'
+    order:
+      - file.name
+      - status
+  - type: table
+    name: 备课说明
+    filters: 'note_type == "备课说明"'
+    order:
+      - file.name
+      - status

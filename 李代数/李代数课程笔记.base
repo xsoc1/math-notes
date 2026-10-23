@@ -18,6 +18,8 @@ properties:
     displayName: 作业或习题范围
   writing_skill:
     displayName: 写作技能
+  version:
+    displayName: 讲义版本
   file.mtime:
     displayName: 修改时间
 views:
@@ -44,6 +46,9 @@ views:
         - note_type == "整合讲义"
     order:
       - file.name
+      - version
+      - writing_skill
+      - status
       - source_chapter
       - source_check
       - file.mtime

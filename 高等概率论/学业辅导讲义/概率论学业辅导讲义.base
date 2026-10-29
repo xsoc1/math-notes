@@ -37,3 +37,9 @@ views:
     order:
       - file.name
       - status
+  - type: table
+    name: 综合习题
+    filters: 'note_type == "综合习题"'
+    order:
+      - file.name
+      - status

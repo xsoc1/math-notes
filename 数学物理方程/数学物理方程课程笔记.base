@@ -14,6 +14,8 @@ properties:
     displayName: 原课件单元
   source_date:
     displayName: 原题日期
+  source_check:
+    displayName: 原稿核对
   status:
     displayName: 编写状态
   writing_skill:
@@ -51,6 +53,14 @@ views:
     order:
       - file.name
       - note_type
+      - status
+  - type: table
+    name: 第七至八周作业
+    filters: (file.hasTag("week-7") || file.hasTag("week-8")) && file.inFolder("数学物理方程/作业")
+    order:
+      - file.name
+      - note_type
+      - source_check
       - status
   - type: table
     name: 全部资料

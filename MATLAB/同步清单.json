@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 33,
-  "lectures": 19,
+  "materials": 41,
+  "lectures": 20,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "10545a356c69b0f5fd6d37ccc2c2efaec7ecdf6f7a5b7dacead537fcef29d6ce",
@@ -69,10 +69,17 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/08B_第八周实验课.md": {
-      "source_sha256": "1b6b0dcc670120c30217e62248d2545fbe731e0f696d4bde6786f1578848f217",
-      "copy_sha256": "da82a1f123e9c26be5dff5d45c811482f550ac6337d0815adbfaede61228ff21",
-      "source_bytes": 7867,
-      "copy_bytes": 8538,
+      "source_sha256": "d9b1a651a474e95c47d07aa3904490b2f7f4da9ed358885ee415e6e1847b95c0",
+      "copy_sha256": "d277e0859e86c079c14b0810066c1fa1ffe1bf8f3365c352cd024b027c033d4a",
+      "source_bytes": 8324,
+      "copy_bytes": 9264,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/08C_第八周实验代码与二维Simpson.md": {
+      "source_sha256": "6783b05d26124756a1f4459b269e191df2b9d8b852068609b2bcf0bd136f9e91",
+      "copy_sha256": "2c0ae32ba1d01e8d949f583f93013098c329354922ba3762460581196aab18c8",
+      "source_bytes": 11070,
+      "copy_bytes": 12832,
       "mode": "obsidian_navigation"
     },
     "课程讲义/08_MATLAB线性代数.md": {
@@ -143,6 +150,13 @@
       "copy_sha256": "0c17eb42b5e0b57875246cd834e1cde4db2c7370a2a8b8c4dfc945661c6d3199",
       "source_bytes": 3182,
       "copy_bytes": 3182,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/W8实验课代码 (有扩充).zip": {
+      "source_sha256": "d916a50405381471783a974b011ff04bb288c88b42851f2ddaffdcaf2c0b218a",
+      "copy_sha256": "d916a50405381471783a974b011ff04bb288c88b42851f2ddaffdcaf2c0b218a",
+      "source_bytes": 51663,
+      "copy_bytes": 51663,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/Week3傅里叶变换.zip": {
@@ -334,6 +348,55 @@
       "copy_bytes": 695824,
       "mode": "byte_identical"
     },
+    "课程资料/实验代码/W8实验课代码/Prob0401.m": {
+      "source_sha256": "2e97210ffc04d8c09490cc9c91950f6d0b9fa0c72f21a4bde352163ec3107cec",
+      "copy_sha256": "2e97210ffc04d8c09490cc9c91950f6d0b9fa0c72f21a4bde352163ec3107cec",
+      "source_bytes": 215,
+      "copy_bytes": 215,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/RandomSampleIntegral.m": {
+      "source_sha256": "442158a446862ec4756ec29352786b13761359005f1c5e40763e1b50c30878f0",
+      "copy_sha256": "442158a446862ec4756ec29352786b13761359005f1c5e40763e1b50c30878f0",
+      "source_bytes": 393,
+      "copy_bytes": 393,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/W8NDucks.m": {
+      "source_sha256": "886fdca2dc36439d3a93f3807e68d336e6ae55fa12936e59a1dbaabacc379090",
+      "copy_sha256": "886fdca2dc36439d3a93f3807e68d336e6ae55fa12936e59a1dbaabacc379090",
+      "source_bytes": 885,
+      "copy_bytes": 885,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/W8NewtonC.m": {
+      "source_sha256": "d167936fd9f0c00209e97f3d5b53d3d2b91b7071ee32416af3549f0cc2742e9b",
+      "copy_sha256": "d167936fd9f0c00209e97f3d5b53d3d2b91b7071ee32416af3549f0cc2742e9b",
+      "source_bytes": 427,
+      "copy_bytes": 427,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/data.m": {
+      "source_sha256": "f8ad90e48ae9461b07384d7243e09a01004d02dba174f54ecb48eabf65bbdb1c",
+      "copy_sha256": "f8ad90e48ae9461b07384d7243e09a01004d02dba174f54ecb48eabf65bbdb1c",
+      "source_bytes": 80,
+      "copy_bytes": 80,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/prob_data401.mat": {
+      "source_sha256": "e2d255f790b077f4782884c52fa01a3161297933548c5481b21dcf100ad48d53",
+      "copy_sha256": "e2d255f790b077f4782884c52fa01a3161297933548c5481b21dcf100ad48d53",
+      "source_bytes": 28381,
+      "copy_bytes": 28381,
+      "mode": "byte_identical"
+    },
+    "课程资料/实验代码/W8实验课代码/二维辛普森公式实例.docx": {
+      "source_sha256": "64e8d8d674196112edf723889ae109cafda3fed57a0d772d824e593f3493d277",
+      "copy_sha256": "64e8d8d674196112edf723889ae109cafda3fed57a0d772d824e593f3493d277",
+      "source_bytes": 23988,
+      "copy_bytes": 23988,
+      "mode": "byte_identical"
+    },
     "课程资料/补充资料/Week7微分方程数值解法/《有限元法及应用》总结--ppt课件.ppt": {
       "source_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
       "copy_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
@@ -371,13 +434,13 @@
     }
   },
   "generated": {
-    "README.md": "82e4876af53749f57e14fa438690f3146cc5e41500a3bc47e9968a1be35b67f3",
+    "README.md": "25f803310d731c89fc7e171966a19e443fc7e598a7f517d5cb0d3c8ca79ffd9d",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 204,
-    "wikilinks": 60,
-    "file_links": 144
+    "local_targets_checked": 223,
+    "wikilinks": 64,
+    "file_links": 159
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

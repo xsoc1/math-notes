@@ -95,3 +95,15 @@ views:
       - source_check
       - exercise_range
       - writing_skill
+  - type: table
+    name: 第八讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 8
+    order:
+      - file.name
+      - note_type
+      - source_chapter
+      - source_check
+      - exercise_range
+      - writing_skill

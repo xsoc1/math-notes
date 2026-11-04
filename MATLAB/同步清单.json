@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-11-04",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 41,
-  "lectures": 20,
+  "materials": 45,
+  "lectures": 22,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "10545a356c69b0f5fd6d37ccc2c2efaec7ecdf6f7a5b7dacead537fcef29d6ce",
@@ -82,18 +82,32 @@
       "copy_bytes": 12832,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/08D_第八课迭代补充.md": {
+      "source_sha256": "db10e321913634bcf64943691e77b338c3017db7e17ae48f81e4c64e9aa1a319",
+      "copy_sha256": "8b007e40aa5f10cf3df7db2165f82212c9a9cd2d1091b8efd479e42a249483ee",
+      "source_bytes": 3383,
+      "copy_bytes": 3858,
+      "mode": "obsidian_navigation"
+    },
     "课程讲义/08_MATLAB线性代数.md": {
-      "source_sha256": "0756eebd8a766ad530c5e44387fb024127d6647fea49b7cee514a0a0a45931c4",
-      "copy_sha256": "d8387c502e4dc6809bc7c5d4533861b8e50f6ccbc6a90e0889dfb4d6f900ef61",
-      "source_bytes": 15055,
-      "copy_bytes": 15741,
+      "source_sha256": "4970413b34832b94a4c32fa85e38b6725f4255141fc8b5a5398034aded208fa8",
+      "copy_sha256": "573c16367c6805186c9c3f77a8ca68ac9c879049050826895fd194e909d5db85",
+      "source_bytes": 15208,
+      "copy_bytes": 15912,
       "mode": "obsidian_navigation"
     },
     "课程讲义/09_MATLAB进阶程序设计与问题求解.md": {
-      "source_sha256": "406b38a7519fdcd28dbf69d8d8e2fbde4e3001441b34e2e68341bb3404288a08",
-      "copy_sha256": "bc33172b17dc0b144cfe718f7b3e59fca7245ae87bd568164d997bd2e824d10d",
-      "source_bytes": 19151,
-      "copy_bytes": 20008,
+      "source_sha256": "b4096b796c54e34e119bd37585364011f5fd93d362e9cfaccb306f9a433a7e6f",
+      "copy_sha256": "19304a025c203f8ed686bd6fc8c15a9a74d3c47edc03d9f98597c98259870b59",
+      "source_bytes": 19263,
+      "copy_bytes": 20138,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/10_MATLAB概率统计与曲线拟合.md": {
+      "source_sha256": "ce2db362e33cbfbeda622b0b91f4512a6126840d65f12811f46f4086cb7a3b06",
+      "copy_sha256": "d7af0c6c00356065bee864391651c51da484f893c949a3ef705567d857075fbb",
+      "source_bytes": 7547,
+      "copy_bytes": 8086,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -222,6 +236,13 @@
       "copy_bytes": 1547614,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第九课 MATLAB进阶程序设计与问题求解（2026-11-04修订）.pdf": {
+      "source_sha256": "4dfa08b8fb18a71f0f2d5a6a04d80ea4493c4e105d2439a62d9bce56a293909b",
+      "copy_sha256": "4dfa08b8fb18a71f0f2d5a6a04d80ea4493c4e105d2439a62d9bce56a293909b",
+      "source_bytes": 1547092,
+      "copy_bytes": 1547092,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第二周.pdf": {
       "source_sha256": "0f4aad18e39425fb559134667e310bac12ed95be4f699263da72c55b44e0930c",
       "copy_sha256": "0f4aad18e39425fb559134667e310bac12ed95be4f699263da72c55b44e0930c",
@@ -297,6 +318,13 @@
       "copy_sha256": "f80f8add2b7003ac1f9c2546ccfb210603ab81324930f9c71666f7ec5dc943f0",
       "source_bytes": 1145016,
       "copy_bytes": 1145016,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十课 MATLAB概率统计与曲线拟合.pdf": {
+      "source_sha256": "5ee478ed9710d414bf6909826cb2210e310ab49aae223ff7f2fd8f143651effd",
+      "copy_sha256": "5ee478ed9710d414bf6909826cb2210e310ab49aae223ff7f2fd8f143651effd",
+      "source_bytes": 3205699,
+      "copy_bytes": 3205699,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第四周.pdf": {
@@ -431,16 +459,30 @@
       "source_bytes": 2063360,
       "copy_bytes": 2063360,
       "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week8线性代数/Week8_Gauss_Seidel_Iteration(1).m": {
+      "source_sha256": "2f0a63a41aea4e6d5f740b3113afe99016895a96245c0a99506454c562e1d7c7",
+      "copy_sha256": "2f0a63a41aea4e6d5f740b3113afe99016895a96245c0a99506454c562e1d7c7",
+      "source_bytes": 743,
+      "copy_bytes": 743,
+      "mode": "byte_identical"
+    },
+    "课程资料/补充资料/Week8线性代数/Week8变分-梯度下降法最优步长的推导.pdf": {
+      "source_sha256": "5510081d0e31b68bd3929ba2fa984a88a17b3fe13402834435810d802df49118",
+      "copy_sha256": "5510081d0e31b68bd3929ba2fa984a88a17b3fe13402834435810d802df49118",
+      "source_bytes": 53464,
+      "copy_bytes": 53464,
+      "mode": "byte_identical"
     }
   },
   "generated": {
-    "README.md": "25f803310d731c89fc7e171966a19e443fc7e598a7f517d5cb0d3c8ca79ffd9d",
+    "README.md": "3fb6a156b1c2fb829ecb7dcfa427352db227ad78766ccdc0cc8c40985ea5bb5f",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 223,
-    "wikilinks": 64,
-    "file_links": 159
+    "local_targets_checked": 238,
+    "wikilinks": 73,
+    "file_links": 165
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

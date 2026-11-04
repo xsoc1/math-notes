@@ -25,7 +25,7 @@ properties:
 views:
   - type: table
     name: 单元式笔记
-    filters: /^0[1-8]_/.matches(file.basename)
+    filters: /^(0[1-9]|1[0-5])_/.matches(file.basename)
     order:
       - file.name
       - source_chapter
@@ -61,6 +61,13 @@ views:
       - file.name
       - note_type
       - source_check
+      - status
+  - type: table
+    name: 测验
+    filters: file.hasTag("quiz") && file.inFolder("数学物理方程/作业")
+    order:
+      - file.name
+      - source_date
       - status
   - type: table
     name: 全部资料

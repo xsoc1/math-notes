@@ -78,3 +78,7 @@ aliases: ["Baire Spaces", "48_Baire_Spaces"]
 ## 相关链接
 - 上一章：[[46_Ascolis_Theorem|§46 Ascoli's Theorem]]
 - 返回总览：[[00_Chapter_08_Overview|Chapter 8 Overview]]
+
+## 跨主题参照
+
+- [[泛函分析/09_Baire纲与基本定理/01_Baire纲定理#3. Baire 定理的套球证明|Baire纲定理]]。沿套球证明进入泛函分析中的基本定理。

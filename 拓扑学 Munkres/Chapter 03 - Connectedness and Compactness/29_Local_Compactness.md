@@ -89,3 +89,7 @@ aliases:
 - 上一节：[[28_Limit_Point_Compactness|§28 Limit Point Compactness]]
 - 下一章：[[00_Chapter_04_Overview|Chapter 4: Countability and Separation Axioms]]
 - 返回总览：[[00_Chapter_03_Overview|Chapter 3 Overview]]
+
+## 跨主题参照
+
+- [[高等概率论/笔记/01_上册_测度论基础/11_局部紧空间上的测度与Riesz表示#11.1.1 局部紧性与紧支撑函数|局部紧空间上的测度与Riesz表示]]。看局部紧 Hausdorff 假设如何进入紧支撑函数与 Radon 测度的理论。

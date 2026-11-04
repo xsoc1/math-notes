@@ -1,244 +1,36 @@
 # Math Notes
 
-个人数学学习笔记仓库，使用 Obsidian 管理，内容以中文为主。本地仓库根目录为 `F:\Obsidian Storage\数学`，与 GitHub 仓库 [xsoc1/math-notes](https://github.com/xsoc1/math-notes) 保持同步。
+个人数学学习笔记，以中文为主。在 Obsidian 中可沿双链阅读，在 GitHub 中可从下方目录直接打开各课程入口。
 
 ## 目录结构
 
-```
-math-notes/
-├── README.md
-├── AGENTS.md
-├── Obsidian技能与Agent调用指南.md
-├── AI教学工程/
-│   ├── OpenMAIC课程与教材规划调研.md
-│   └── Obsidian_Codex侧栏插件开发调研.md
-├── MATLAB/
-│   ├── README.md
-│   ├── AGENTS.md
-│   ├── 课程资料/
-│   ├── 课程讲义/
-│   ├── MATLAB课程笔记.base
-│   └── 同步清单.json
-├── 高等概率论/
-│   ├── 01_测度论基础与高等概率论上册习题集.md
-│   ├── 02_测度论基础与高等概率论下册习题集.md
-│   ├── 学业辅导讲义/
-│   │   ├── 00_讲义总览.md
-│   │   ├── 01_课程总导入.md
-│   │   ├── 02_第一篇_集类与测度.md
-│   │   ├── 03_第一篇_例题与练习解答.md
-│   │   ├── 04_第一篇_授课安排与来源核对.md
-│   │   ├── 05_外测度与Lebesgue外测度_综合题与解析.md
-│   │   └── 概率论学业辅导讲义.base
-│   └── 笔记/
-│       ├── 00_高等概率论总览.md
-│       ├── 01_上册_测度论基础/
-│       │   ├── 00_上册总览.md
-│       │   ├── 01_集合论初步.md
-│       │   ├── 02_点集拓扑学初步.md
-│       │   ├── 03_集类.md
-│       │   ├── 04_测度与概率测度.md
-│       │   ├── 05_可测映射与随机变量.md
-│       │   ├── 06_几乎处处收敛与依测度收敛.md
-│       │   ├── 07_Lebesgue积分与数学期望.md
-│       │   ├── 08_符号测度与Radon-Nikodym定理.md
-│       │   ├── 09_Lebesgue空间与一致可积性.md
-│       │   ├── 10_乘积空间上的测度与积分.md
-│       │   ├── 11_局部紧空间上的测度与Riesz表示.md
-│       │   └── 12_弱收敛.md
-│       └── 高等概率论笔记.base
-├── 泛函分析/
-│   ├── 00_泛函分析学习总览.md
-│   ├── 01_资料索引与编写约定.md
-│   ├── 01_度量空间及其完备化/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_度量空间基本概念.md
-│   │   ├── 02_序列收敛与连续性.md
-│   │   ├── 03_Cauchy序列与完备性.md
-│   │   ├── 04_闭子空间与完备性判别.md
-│   │   ├── 05_完备化的构造.md
-│   │   ├── 06_完备化的唯一性与泛性质.md
-│   │   ├── 07_典型完备化例子.md
-│   │   ├── 08_度量空间的反例与辨析.md
-│   │   └── 01_度量空间及其完备化.base
-│   ├── 02_压缩映象原理/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_Banach不动点定理.md
-│   │   ├── 02_压缩映射证明隐函数定理.md
-│   │   ├── 03_压缩映射的应用与反例.md
-│   │   ├── 04_微分方程与参数不动点.md
-│   │   └── 02_压缩映象原理.base
-│   ├── 03_紧性与函数族/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_列紧与完全有界.md
-│   │   ├── 02_Ascoli定理与紧性判别.md
-│   │   ├── 03_紧性反例与习题方法.md
-│   │   └── 03_紧性与函数族.base
-│   ├── 04_赋范空间与Banach空间/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_线性结构与范数.md
-│   │   ├── 02_典型Banach空间与完备性.md
-│   │   ├── 03_范数等价与有限维性.md
-│   │   ├── 04_商空间与最佳逼近.md
-│   │   └── 04_赋范空间与Banach空间.base
-│   ├── 05_凸集与不动点/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_凸集与Minkowski泛函.md
-│   │   ├── 02_Brouwer与Schauder不动点定理.md
-│   │   └── 05_凸集与不动点.base
-│   ├── 06_Hilbert空间与正交方法/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_内积与Hilbert空间.md
-│   │   ├── 02_正交展开与可分性.md
-│   │   ├── 03_投影定理与最小二乘.md
-│   │   └── 06_Hilbert空间与正交方法.base
-│   ├── 07_有界算子与对偶空间/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_连续线性算子与算子范数.md
-│   │   ├── 02_对偶空间与算子反例.md
-│   │   └── 07_有界算子与对偶空间.base
-│   ├── 08_Riesz表示与变分问题/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_Riesz表示定理.md
-│   │   ├── 02_弱解与变分不等式.md
-│   │   ├── 03_Radon-Nikodym定理的Hilbert空间证明.md
-│   │   └── 08_Riesz表示与变分问题.base
-│   ├── 09_Baire纲与基本定理/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_Baire纲定理.md
-│   │   ├── 02_开映射与闭图像定理.md
-│   │   ├── 03_一致有界原理与极限交换.md
-│   │   ├── 04_Lax-Milgram与稳定性.md
-│   │   └── 09_Baire纲与基本定理.base
-│   ├── 10_Hahn-Banach与凸分离/
-│   │   ├── 00_专题总览.md
-│   │   ├── 01_Hahn-Banach延拓定理.md
-│   │   ├── 02_凸集分离与支撑泛函.md
-│   │   ├── 03_中值不等式与凸优化.md
-│   │   └── 10_Hahn-Banach与凸分离.base
-│   ├── 作业/
-│   │   ├── 第一, 二周作业.pdf
-│   │   ├── 第三周作业.pdf
-│   │   └── 第四周作业.pdf
-│   ├── 泛函分析笔记.base
-│   └── 泛函分析讲义上册习题册.md
-├── 李代数/
-│   ├── 00_李代数课程总览.md
-│   ├── 01_李代数基础课程记录.md
-│   ├── 02_李代数第二讲课程记录.md
-│   ├── 03_李代数第三讲课程记录.md
-│   ├── 04_李代数第四讲课程记录.md
-│   ├── 05_李代数第五讲课程记录.md
-│   ├── 06_李代数第六讲课程记录.md
-│   ├── 07_李代数第七讲课程记录.md
-│   ├── 08_李代数第八讲课程记录.md
-│   ├── 李代数入门整合讲义.md
-│   ├── 03_当代数学园地1 Kac-Moody代数导引习题集.md
-│   ├── 作业/
-│   │   ├── 作业1.md
-│   │   ├── 作业2.md
-│   │   ├── 作业3.md
-│   │   ├── 作业4.md
-│   │   ├── 作业5.md
-│   │   ├── 作业6.md
-│   │   ├── 作业7.md
-│   │   └── 作业8.md
-│   └── 李代数课程笔记.base
-├── 数学物理方程/
-│   ├── 00_课程笔记总览.md
-│   ├── 01_绪论.md
-│   ├── 02_调和方程.md
-│   ├── 03_格林公式及其应用.md
-│   ├── 04_格林函数.md
-│   ├── 05_强极值原理与第二边值问题的唯一性.md
-│   ├── 06_热传导方程及其定解问题.md
-│   ├── 07_初边值问题的分离变量法.md
-│   ├── 08_Duhamel原理与非齐次热方程.md
-│   ├── 09_热方程的柯西问题.md
-│   ├── 10_热方程的极值原理与稳定性.md
-│   ├── 11_热方程解的渐近性态.md
-│   ├── 12_波动方程的导出与定解条件.md
-│   ├── 13_达朗贝尔公式与波的传播.md
-│   ├── 14_波动方程的分离变量法.md
-│   ├── 15_高维波动方程的柯西问题.md
-│   ├── 数学推导主线快速入门讲义.md
-│   ├── 数学物理方程课程笔记.base
-│   ├── 作业/
-│   │   ├── 作业一.md
-│   │   ├── 作业二.md
-│   │   ├── 作业三.md
-│   │   ├── 作业四.md
-│   │   ├── 作业六.md
-│   │   ├── 作业七.md
-│   │   ├── 作业八.md
-│   │   ├── 测验一.md
-│   │   └── 测验二.md
-│   └── 偏微分方程习题集.md
-├── 实变函数/
-│   └── 实变函数简明教程重点与数学思想.md
-├── 变分法/
-│   └── 变分法基本引理.md
-├── 拓扑学 Munkres/
-│   ├── Chapter 01 - Set Theory and Logic/
-│   ├── Chapter 02 - Topological Spaces and Continuous Functions/
-│   ├── Chapter 03 - Connectedness and Compactness/
-│   ├── Chapter 04 - Countability and Separation Axioms/
-│   ├── Chapter 05 - The Tychonoff Theorem/
-│   ├── Chapter 06 - Metrization Theorems and Paracompactness/
-│   ├── Chapter 07 - Complete Metric Spaces and Function Spaces/
-│   └── Chapter 08 - Baire Spaces and Dimension Theory/
-├── 2026浙大暑期学校/
-│   ├── 00_课程总结.md
-│   ├── AGENTS.md
-│   ├── 代数几何课程记录/
-│   └── 黎曼几何课程记录/
-├── 代数几何初步/
-│   └── Undergraduate Algebraic Geometry/
-├── SL谱理论/
-│   ├── SL边值问题研究入门计划.md
-│   ├── 讲义书写计划.md
-│   └── 讲义/
-│       ├── 00_SL谱理论讲义总览.md
-│       ├── Zettl参考映射.md
-│       ├── 物理模型索引.md
-│       ├── 01_杆的弯曲问题与Euler-Bernoulli梁.md
-│       ├── 02_正则Sturm-Liouville问题.md
-│       ├── 03_Liouville标准形.md
-│       ├── 04_Pruefer变换与特征值存在性.md
-│       ├── 05_Sturm比较定理与零点交错.md
-│       ├── 06_特征函数正交性与广义Fourier级数.md
-│       ├── 07_自伴边界条件与Hilbert空间框架.md
-│       ├── 08_特征值的变分刻画与单调性.md
-│       ├── 09_Green函数预解式与紧性.md
-│       ├── 10_完备性与Fourier收敛.md
-│       └── SL谱理论讲义.base
-└── 未命名.base
-```
+首页登记各课程和专题的主入口。章节顺序、习题、作业和 Base 视图由各课程总览维护。
+
+- [跨主题阅读索引](00_%E8%B7%A8%E4%B8%BB%E9%A2%98%E9%98%85%E8%AF%BB%E7%B4%A2%E5%BC%95.md)按定义、证明方法和应用组织跨课程阅读路线。
+- [Obsidian 技能与 Agent 调用指南](Obsidian%E6%8A%80%E8%83%BD%E4%B8%8EAgent%E8%B0%83%E7%94%A8%E6%8C%87%E5%8D%97.md)介绍本库的工具和笔记格式。
 
 ## 笔记登记
 
-| 位置 | 内容 | 文件数 |
-|---|---|---|
-| [[MATLAB/README\|MATLAB/]] | 课程仓库的资料与讲义阅读副本；后续课程维护同时同步，不改变学习状态 | 22 讲义 md + 2 导航/维护 md + 1 base + 25 pdf + 6 zip + 2 mlx + 4 ppt + 6 m + 1 mat + 1 docx + 1 清单 json |
-| Obsidian技能与Agent调用指南.md | Obsidian Skills 规范、安装配置与 Agent CLI / REST / MCP 调用指南 | 1 md |
-| AI教学工程/ | OpenMAIC 课程/教材规划调研; Obsidian Codex 侧栏开发调研及 0.1.0 初版使用说明（左侧开关、本机 Codex、选区 prompt、阅读源块与真实验收） | 2 md |
-| 高等概率论/ | 袁书上、下册共 763 道习题及上册第 1–12 章第一版笔记，原题面和作答区保留；另设[[高等概率论/学业辅导讲义/00_讲义总览\|任书主导的学业辅导讲义]]，已完成总导入、第一篇“集类与测度”、17组完整题解及两次120分钟授课安排，含好集原理、测度构造与来源覆盖/校勘表；另增[[高等概率论/学业辅导讲义/05_外测度与Lebesgue外测度_综合题与解析\|外测度综合题与解析]]，含三部分8问、完整答案和性质对照表 | 22 md + 2 base |
-| 泛函分析/ | 第一章 1.1–1.6、第二章 2.1–2.4 的 10 个专题，综合十二份解读讲义并用已核对的汪林反例辨析条件，含总览、来源索引、完整主干证明和理论—习题双向导航；208 道题保留已有作答、草稿和空白区，含 1.4.1–1.4.7 的简要思路；作业仅存 PDF 副本 | 48 理论/导航 md + 1 习题册 md + 11 base + 3 pdf |
-| 李代数/ | 八讲课程记录与整合讲义（第 1—14 节；2.4 版续写中心、左核计算、连通性与理想二择一；原正文及附录 C 的 16 道重编练习与解答保留）；作业1、2答案已填，作业3板书题已填、3道助手题留空，作业4—7各板书1题，作业8板书2题，作答区留空；参考书6处练习独立维护 | 19 md + 1 base |
-| 数学物理方程/ | 15 篇课件单元（1.1—1.5、2.1—2.6、3.1—3.4）、独立整体讲义及教材习题册；整体第 24—27 节串联行波、驻波、能量、球面/圆盘公式和推迟势，第 23.5 节补 Robin 数据估计。7 份周作业共 35 题、两份测验共 7 题，均附答案；周蜀林习题册留白和既有作答保留。Base 提供单元、讲义、作业/测验及独立测验视图 | 27 md + 1 base |
-| 实变函数/ | 邓东皋《实变函数简明教程》重点、知识脉络与数学思想 | 1 md |
-| 拓扑学 Munkres/ | Munkres《Topology》第 1-8 章学习笔记 | 43 md + 2 base |
-| 变分法/ | 变分法基本引理 | 1 md |
-| SL谱理论/SL边值问题研究入门计划.md | SL 边值问题 12 周入门研究计划 | 1 md |
-| SL谱理论/讲义书写计划.md | 17章当前主线、教学校读、双轨维护与平行专题 | 1 md |
-| SL谱理论/讲义/ | SL谱理论17章正文与96题解答, 含总览、两页历史导航、索引、文献及项目映射; 按新版章号排序 | 26 md + 1 base + 11 svg |
-| 2026浙大暑期学校/ | 暑期学校代数几何、黎曼几何课程记录、作业及跨课程总结 | 23 md + 1 base + 359 jpg |
-| 2026浙大暑期学校/代数几何课程记录/ | 仿射簇与平面曲线等课程记录、作业 | 7 md + 359 jpg |
-| 2026浙大暑期学校/黎曼几何课程记录/ | 黎曼流形与曲率、单值化、高斯-博内等笔记与作业 | 14 md + 1 base |
-| 代数几何初步/ | Undergraduate Algebraic Geometry 原书笔记 | 2 md + 367 jpg |
-| 未命名.base | Obsidian 表格视图 | 1 base |
+文件数为 2026-11-05 公开版本的 Markdown 和 Base 数量。Markdown 计入各目录的维护文档。原始资料与附件按各课程索引查阅。
 
-注：`2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/` 与 `代数几何初步/Undergraduate Algebraic Geometry/` 存在重复内容。已从暑期学校副本移除 8 个经 SHA-256 确认重复的 JPG, `代数几何初步/` 保留完整图像副本。
+| 目录 | 阅读入口 | 内容 | Markdown / Base |
+| --- | --- | --- | --- |
+| 拓扑学 Munkres | [打开拓扑学 Munkres](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2001%20-%20Set%20Theory%20and%20Logic/00_Chapter_01_Overview.md) | Munkres 第 1–8 章；各章入口见下方章节表。 | 43 / 2 |
+| 实变函数 | [打开实变函数](%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B%E9%87%8D%E7%82%B9%E4%B8%8E%E6%95%B0%E5%AD%A6%E6%80%9D%E6%83%B3.md) | 实变函数概念、证明方法与学习脉络。 | 1 / 0 |
+| 高等概率论 | [打开高等概率论](%E9%AB%98%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA/%E7%AC%94%E8%AE%B0/00_%E9%AB%98%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA%E6%80%BB%E8%A7%88.md) | 测度论基础、上下册习题与学业辅导讲义。 | 22 / 2 |
+| 泛函分析 | [打开泛函分析](%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/00_%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E6%80%BB%E8%A7%88.md) | 十个理论专题、原书习题与作业副本。 | 49 / 11 |
+| 数学物理方程 | [打开数学物理方程](%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E7%A8%8B/00_%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E8%A7%88.md) | 调和、热与波动方程的单元笔记、整体讲义和作业。 | 27 / 1 |
+| SL 谱理论 | [打开SL 谱理论](SL%E8%B0%B1%E7%90%86%E8%AE%BA/%E8%AE%B2%E4%B9%89/00_SL%E8%B0%B1%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89%E6%80%BB%E8%A7%88.md) | Sturm–Liouville 讲义、习题分类、符号与物理模型索引。 | 28 / 1 |
+| 变分法 | [打开变分法](%E5%8F%98%E5%88%86%E6%B3%95/%E5%8F%98%E5%88%86%E6%B3%95%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%90%86.md) | 测试函数与变分法基本引理。 | 1 / 0 |
+| 李代数 | [打开李代数](%E6%9D%8E%E4%BB%A3%E6%95%B0/00_%E6%9D%8E%E4%BB%A3%E6%95%B0%E8%AF%BE%E7%A8%8B%E6%80%BB%E8%A7%88.md) | 编号课记、整合讲义、作业与参考书练习。 | 19 / 1 |
+| 2026 浙大暑期学校 | [打开2026 浙大暑期学校](2026%E6%B5%99%E5%A4%A7%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1/00_%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93.md) | 代数几何、黎曼几何及其课程作业。 | 23 / 1 |
+| 代数几何初步 | [打开代数几何初步](%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95%E5%88%9D%E6%AD%A5/Undergraduate%20Algebraic%20Geometry/Undergraduate%20Algebraic%20Geometry.md) | Reid 教材阅读副本。 | 2 / 0 |
+| MATLAB | [打开MATLAB](MATLAB/README.md) | 课程资料与讲义阅读副本，课程总览说明来源和同步边界。 | 24 / 1 |
+| AI 教学工程 | [打开AI 教学工程](AI%E6%95%99%E5%AD%A6%E5%B7%A5%E7%A8%8B/Obsidian_Codex%E4%BE%A7%E6%A0%8F%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%B0%83%E7%A0%94.md) | Codex 侧栏与 OpenMAIC 教学工程调研。 | 2 / 0 |
+
+- 概率论专题：[学业辅导讲义](%E9%AB%98%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%AD%A6%E4%B8%9A%E8%BE%85%E5%AF%BC%E8%AE%B2%E4%B9%89/00_%E8%AE%B2%E4%B9%89%E6%80%BB%E8%A7%88.md)。
+- PDE 贯通阅读：[数学推导主线快速入门讲义](%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E7%A8%8B/%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%E4%B8%BB%E7%BA%BF%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E8%AE%B2%E4%B9%89.md)。
+- MATLAB 附件清单见 [同步清单](MATLAB/%E5%90%8C%E6%AD%A5%E6%B8%85%E5%8D%95.json)。
 
 ## MATLAB
 
@@ -325,14 +117,14 @@ math-notes/
 
 | 章节 | 内容 | 笔记数 |
 |---|---|---|
-| Chapter 1 | Set Theory and Logic（集合论与逻辑） | 1 |
-| Chapter 2 | Topological Spaces and Continuous Functions（拓扑空间与连续函数） | 12 |
-| Chapter 3 | Connectedness and Compactness（连通性与紧致性） | 8 |
-| Chapter 4 | Countability and Separation Axioms（可数性与分离性公理） | 8 |
-| Chapter 5 | The Tychonoff Theorem（Tychonoff 定理） | 2 |
-| Chapter 6 | Metrization Theorems and Paracompactness（度量化定理与仿紧性） | 4 |
-| Chapter 7 | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 5 |
-| Chapter 8 | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 3 |
+| [Chapter 1](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2001%20-%20Set%20Theory%20and%20Logic/00_Chapter_01_Overview.md) | Set Theory and Logic（集合论与逻辑） | 1 |
+| [Chapter 2](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2002%20-%20Topological%20Spaces%20and%20Continuous%20Functions/00_Chapter_02_Overview.md) | Topological Spaces and Continuous Functions（拓扑空间与连续函数） | 12 |
+| [Chapter 3](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2003%20-%20Connectedness%20and%20Compactness/00_Chapter_03_Overview.md) | Connectedness and Compactness（连通性与紧致性） | 8 |
+| [Chapter 4](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2004%20-%20Countability%20and%20Separation%20Axioms/00_Chapter_04_Overview.md) | Countability and Separation Axioms（可数性与分离性公理） | 8 |
+| [Chapter 5](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2005%20-%20The%20Tychonoff%20Theorem/00_Chapter_05_Overview.md) | The Tychonoff Theorem（Tychonoff 定理） | 2 |
+| [Chapter 6](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2006%20-%20Metrization%20Theorems%20and%20Paracompactness/00_Chapter_06_Overview.md) | Metrization Theorems and Paracompactness（度量化定理与仿紧性） | 4 |
+| [Chapter 7](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2007%20-%20Complete%20Metric%20Spaces%20and%20Function%20Spaces/00_Chapter_07_Overview.md) | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 5 |
+| [Chapter 8](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2008%20-%20Baire%20Spaces%20and%20Dimension%20Theory/00_Chapter_08_Overview.md) | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 3 |
 | 合计 | | 43 md + 2 base |
 
 ## SL 谱理论
@@ -457,8 +249,8 @@ math-notes/
 
 - Codex Sidebar 0.6.0 安装包位于本地 `AI教学工程/插件安装包/codex-sidebar-0.6.0.zip`，已通过 Obsidian Sync 上传，iPad 接收尚待确认。该目录是本地传输附件，不计入笔记数量，并由本地 Git 排除规则排除；公开下载见 [0.6.0 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.0)。iPad 端需开启“同步所有其他类型”。
 
-- 2026-10-14 更新：[[AI教学工程/插件安装包/codex-sidebar-0.6.1.zip|Codex Sidebar 0.6.1 安装包]] 已通过 Obsidian Sync 上传，云端哈希与本地包相同；公开下载见 [0.6.1 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.1)。此前 0.6.0 包已由用户在 iPad 解压，0.6.1 的真机连接复测仍待完成。构建附件不计入笔记数量，继续排除在数学笔记 Git 镜像之外。
+- 2026-10-14 更新：Codex Sidebar 0.6.1 安装包 已通过 Obsidian Sync 上传，云端哈希与本地包相同；公开下载见 [0.6.1 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.1)。此前 0.6.0 包已由用户在 iPad 解压，0.6.1 的真机连接复测仍待完成。构建附件不计入笔记数量，继续排除在数学笔记 Git 镜像之外。
 
-- 2026-10-14 后续：用户已确认 iPad 模型列表出现，发送仍停在准备阶段；[[AI教学工程/插件安装包/codex-sidebar-0.6.2.zip|Codex Sidebar 0.6.2 安装包]] 已完成 vault Sync 上传，云端哈希与本地包相同，公开下载见 [0.6.2 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。此版更换移动 HTTP 传输并增加准备步骤和超时提示，41 项测试与 Windows 浏览器检查通过；iPad 真机发送复测仍待完成。附件继续排除在数学笔记 Git 镜像及笔记数量之外。
+- 2026-10-14 后续：用户已确认 iPad 模型列表出现，发送仍停在准备阶段；Codex Sidebar 0.6.2 安装包 已完成 vault Sync 上传，云端哈希与本地包相同，公开下载见 [0.6.2 预发布版](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。此版更换移动 HTTP 传输并增加准备步骤和超时提示，41 项测试与 Windows 浏览器检查通过；iPad 真机发送复测仍待完成。附件继续排除在数学笔记 Git 镜像及笔记数量之外。
 
 - 2026-10-14 真机复测结果：用户通过 GitHub/BRAT 更新后，已在 iPad 显示模型列表并收到实际短问题的完整回答，0.6.2 前台基础对话通过。临时诊断已撤除，独立远程桥恢复正常运行，问答记录保留；触控选区、中文键盘、补全及后台/网络切换仍待实测。详见 [0.6.2 发布与验收说明](https://github.com/xsoc1/obsidian-codex-sidebar/releases/tag/0.6.2)。

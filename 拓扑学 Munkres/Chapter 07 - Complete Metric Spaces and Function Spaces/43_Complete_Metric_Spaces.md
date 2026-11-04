@@ -45,3 +45,7 @@ aliases: ["Complete Metric Spaces"]
 ## 相关链接
 - 下一节：[[44_Compactness_in_Metric_Spaces|§44 Compactness in Metric Spaces]]
 - 返回总览：[[00_Chapter_07_Overview|Chapter 7 Overview]]
+
+## 跨主题参照
+
+- [[泛函分析/01_度量空间及其完备化/05_完备化的构造#5.2 Cauchy 序列的等价关系|完备化的构造]]。查看 Cauchy 列的等价类构造，补足从完备性定义到完备化的步骤。

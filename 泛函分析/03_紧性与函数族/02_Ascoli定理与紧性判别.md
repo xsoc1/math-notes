@@ -89,3 +89,8 @@ $f_n(t)=t^n$ 在 $[0,1]$ 上一致有界，但在 1 附近不等度连续。若�
 - [[03_紧性反例与习题方法|反例与习题方法]]
 - [[泛函分析/05_凸集与不动点/02_Brouwer与Schauder不动点定理|紧性如何用于存在性]]
 - [[泛函分析讲义上册习题册#1.3 紧性|原书 1.3 节]]
+
+## 跨主题参照
+
+- [[拓扑学 Munkres/Chapter 07 - Complete Metric Spaces and Function Spaces/46_Ascolis_Theorem#46.1 等度连续性|Ascolis Theorem]]。对照紧开拓扑的表述，留意定义域与函数空间拓扑的假设。
+- [[SL谱理论/讲义/09_Green函数预解式与紧性#从核的对称性到紧性|Green函数预解式与紧性]]。将连续核紧性的判据与正则 Sturm–Liouville 的 Green 预解式对照。

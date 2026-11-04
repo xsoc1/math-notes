@@ -129,3 +129,8 @@ $$
 - [[10_乘积空间上的测度与积分|第 10 章 乘积空间上的测度与积分]]
 - [[12_弱收敛|第 12 章 弱收敛]]
 - [[00_上册总览|高等概率论上册总览]]
+
+## 跨主题参照
+
+- [[拓扑学 Munkres/Chapter 03 - Connectedness and Compactness/29_Local_Compactness#29.1 局部紧致性|Local Compactness]]。补读局部紧性的定义、例子和 Hausdorff 假设。
+- [[泛函分析/08_Riesz表示与变分问题/01_Riesz表示定理|Riesz表示定理]]。比较 Hilbert 空间的内积表示，区分两条定理的泛函空间与表示对象。

@@ -51,6 +51,7 @@ views:
       - status
       - source_chapter
       - source_check
+      - exercise_range
       - file.mtime
   - type: table
     name: 第四讲讲义与作业

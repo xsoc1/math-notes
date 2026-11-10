@@ -109,3 +109,15 @@ views:
       - exercise_range
       - writing_skill
       - file.mtime
+  - type: table
+    name: 第九讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 9
+    order:
+      - file.name
+      - note_type
+      - source_chapter
+      - source_check
+      - exercise_range
+      - writing_skill

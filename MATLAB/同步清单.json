@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-12",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 45,
-  "lectures": 22,
+  "materials": 56,
+  "lectures": 26,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "10545a356c69b0f5fd6d37ccc2c2efaec7ecdf6f7a5b7dacead537fcef29d6ce",
@@ -62,10 +62,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/07_MATLAB微分方程数值解法.md": {
-      "source_sha256": "ccc4b27e7af0c0cb892a4e528fbfa4dceb7ab1db1fe00241eb3809b07b3abb58",
-      "copy_sha256": "6412c2578ed70abe023f21d400b364a20c52f98e5f7e5f887d267e8b123d1e5b",
-      "source_bytes": 11024,
-      "copy_bytes": 11710,
+      "source_sha256": "dcc21006f825184442086110d9cb41538c3f87309b5520a3b9adcaa975dc14fa",
+      "copy_sha256": "2e6877e72fe2ffaeaf3de84e623cc173726ca8cba3aef7c4d36f68c6af58881c",
+      "source_bytes": 11193,
+      "copy_bytes": 11897,
       "mode": "obsidian_navigation"
     },
     "课程讲义/08B_第八周实验课.md": {
@@ -90,10 +90,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/08_MATLAB线性代数.md": {
-      "source_sha256": "4970413b34832b94a4c32fa85e38b6725f4255141fc8b5a5398034aded208fa8",
-      "copy_sha256": "573c16367c6805186c9c3f77a8ca68ac9c879049050826895fd194e909d5db85",
-      "source_bytes": 15208,
-      "copy_bytes": 15912,
+      "source_sha256": "9f5cb855feb0f53a7647fd1c767a633153d1c4ef15c679ea3db530e6f0eb90b6",
+      "copy_sha256": "8a78b659b5aa5a60122c977030e46e4b94d5267ed5880bc0f005065398224334",
+      "source_bytes": 15377,
+      "copy_bytes": 16099,
       "mode": "obsidian_navigation"
     },
     "课程讲义/09_MATLAB进阶程序设计与问题求解.md": {
@@ -103,11 +103,25 @@
       "copy_bytes": 20138,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/10B_第十周实验课.md": {
+      "source_sha256": "4ee95ffec41c7219ed5d0be223b9101d483a9425e29a23e05e4f1266d99b07ce",
+      "copy_sha256": "0e11eeb86826548262fbe3aa26e10dd95abe4a919d11463c49f5d69fc18c92b1",
+      "source_bytes": 4768,
+      "copy_bytes": 5319,
+      "mode": "obsidian_navigation"
+    },
     "课程讲义/10_MATLAB概率统计与曲线拟合.md": {
-      "source_sha256": "ce2db362e33cbfbeda622b0b91f4512a6126840d65f12811f46f4086cb7a3b06",
-      "copy_sha256": "d7af0c6c00356065bee864391651c51da484f893c949a3ef705567d857075fbb",
-      "source_bytes": 7547,
-      "copy_bytes": 8086,
+      "source_sha256": "510a259c09f173ac53e40344f462684849346e2027d004776fdc6048e4e1b9f8",
+      "copy_sha256": "c5973ae18555f71eb36f88b236b9645254bb8bbca81b9c81499540cd3d078885",
+      "source_bytes": 7717,
+      "copy_bytes": 8310,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/11_MATLAB多项式运算与动态规划.md": {
+      "source_sha256": "b98e0913a6bcfea5a6c60ff9ecf829d01f06b1bb59720c3837c20e2be99488a9",
+      "copy_sha256": "873099f8749edbd4b5cd61c547abaf0722cd8d008c17bf4ea2b153efadf4580e",
+      "source_bytes": 8475,
+      "copy_bytes": 9041,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -122,6 +136,13 @@
       "copy_sha256": "164dc6d120439aa590dae223f838aba3c5c9b9d5682ee7a4d9b82021782b5df6",
       "source_bytes": 2644,
       "copy_bytes": 3030,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/补充_第七周与第八周作业参考解读.md": {
+      "source_sha256": "7c27219f647d312ef5a755aa955ddfe8128d658fa5f7243e13dbed4932b13c0f",
+      "copy_sha256": "e6a9e7580b6c2e8dc98f084e5cd24df187b05ebc4d1ec658aa120f03fd69ba84",
+      "source_bytes": 3520,
+      "copy_bytes": 3940,
       "mode": "obsidian_navigation"
     },
     "课程讲义/补充_第七周微分方程数值解法参考资料.md": {
@@ -159,6 +180,13 @@
       "copy_bytes": 6239,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/补充_第十周参考作业解读.md": {
+      "source_sha256": "8ea2180e571e58ded8b90c44959dad458e881425bd607215bbcf36742269459a",
+      "copy_sha256": "a7395b761502f89f2a9d77e09e7cbe1be0a1bde32b834684579acdd16e140738",
+      "source_bytes": 4487,
+      "copy_bytes": 5510,
+      "mode": "obsidian_navigation"
+    },
     "课程资料/原始课件/W6实验课代码.zip": {
       "source_sha256": "0c17eb42b5e0b57875246cd834e1cde4db2c7370a2a8b8c4dfc945661c6d3199",
       "copy_sha256": "0c17eb42b5e0b57875246cd834e1cde4db2c7370a2a8b8c4dfc945661c6d3199",
@@ -171,6 +199,20 @@
       "copy_sha256": "d916a50405381471783a974b011ff04bb288c88b42851f2ddaffdcaf2c0b218a",
       "source_bytes": 51663,
       "copy_bytes": 51663,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/Week10参考作业数据.zip": {
+      "source_sha256": "01b12a421f5062e9dbe4942262678244445f0646535c85bc01b08cd48b8edf4a",
+      "copy_sha256": "01b12a421f5062e9dbe4942262678244445f0646535c85bc01b08cd48b8edf4a",
+      "source_bytes": 7661700,
+      "copy_bytes": 7661700,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/Week10推荐题数据.zip": {
+      "source_sha256": "b2c7fb8c4312a71d8d107487c7d7ef82f1132a92ad4d86f86055ed53c0cd612b",
+      "copy_sha256": "b2c7fb8c4312a71d8d107487c7d7ef82f1132a92ad4d86f86055ed53c0cd612b",
+      "source_bytes": 154784,
+      "copy_bytes": 154784,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/Week3傅里叶变换.zip": {
@@ -206,6 +248,13 @@
       "copy_sha256": "6d0db134e3acf339fbf2a32737a5086a7ee9bb8206885aded0a9db5d6ed216f1",
       "source_bytes": 4338300,
       "copy_bytes": 4338300,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第七周.pdf": {
+      "source_sha256": "b32dd8ab4935fccc0d2adab6c7b4121485630ecf7fcc7a100ef0309d512aa787",
+      "copy_sha256": "b32dd8ab4935fccc0d2adab6c7b4121485630ecf7fcc7a100ef0309d512aa787",
+      "source_bytes": 395163,
+      "copy_bytes": 395163,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第七课 MATLAB微分方程数值解法.pdf": {
@@ -285,6 +334,13 @@
       "copy_bytes": 1667359,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第八周(1).pdf": {
+      "source_sha256": "7ec3c889a272ca31734f88b959a6a3ed3ef6a7c54a07420553d044fb1e100ca5",
+      "copy_sha256": "7ec3c889a272ca31734f88b959a6a3ed3ef6a7c54a07420553d044fb1e100ca5",
+      "source_bytes": 318852,
+      "copy_bytes": 318852,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第八周实验课.pdf": {
       "source_sha256": "4bf0959f16d6aefaff0b1feb37716680b8f9d51bbe852de757112f993ad0b172",
       "copy_sha256": "4bf0959f16d6aefaff0b1feb37716680b8f9d51bbe852de757112f993ad0b172",
@@ -318,6 +374,27 @@
       "copy_sha256": "f80f8add2b7003ac1f9c2546ccfb210603ab81324930f9c71666f7ec5dc943f0",
       "source_bytes": 1145016,
       "copy_bytes": 1145016,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十一课 MATLAB多项式运算与动态规划.pdf": {
+      "source_sha256": "b95636796572112811aabc8c048f3fe6bbb0e3e78c30d882156bb2ce46868cf1",
+      "copy_sha256": "b95636796572112811aabc8c048f3fe6bbb0e3e78c30d882156bb2ce46868cf1",
+      "source_bytes": 757049,
+      "copy_bytes": 757049,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十周参考作业(1).pdf": {
+      "source_sha256": "5c3af1dbff0b009734ae6e5b8357ec17cd593dc70d4a9350c706358484d06276",
+      "copy_sha256": "5c3af1dbff0b009734ae6e5b8357ec17cd593dc70d4a9350c706358484d06276",
+      "source_bytes": 604797,
+      "copy_bytes": 604797,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十周实验课.pdf": {
+      "source_sha256": "253e3132f2c27d6079df26c6f645d880c3f155d07264a516e5554232b87ec199",
+      "copy_sha256": "253e3132f2c27d6079df26c6f645d880c3f155d07264a516e5554232b87ec199",
+      "source_bytes": 139265,
+      "copy_bytes": 139265,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第十课 MATLAB概率统计与曲线拟合.pdf": {
@@ -425,6 +502,34 @@
       "copy_bytes": 23988,
       "mode": "byte_identical"
     },
+    "课程资料/数据/Week10参考作业数据/Week11作业数据/Q1.mat": {
+      "source_sha256": "e75985cffe0731b0add7fa61a07315a8ebd75efa3981ab0871b160840c70fc38",
+      "copy_sha256": "e75985cffe0731b0add7fa61a07315a8ebd75efa3981ab0871b160840c70fc38",
+      "source_bytes": 7656039,
+      "copy_bytes": 7656039,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week10参考作业数据/Week11作业数据/Q2.mat": {
+      "source_sha256": "69befa928400a27d6a160293be5029b4a7a2d7ee31c60bd1bb695940ea660c82",
+      "copy_sha256": "69befa928400a27d6a160293be5029b4a7a2d7ee31c60bd1bb695940ea660c82",
+      "source_bytes": 3628,
+      "copy_bytes": 3628,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week10参考作业数据/Week11作业数据/Q3.mat": {
+      "source_sha256": "e8cba97aa917e89a42c127f159391eed21fd53e1a4015f21eed35f4d8168d5b2",
+      "copy_sha256": "e8cba97aa917e89a42c127f159391eed21fd53e1a4015f21eed35f4d8168d5b2",
+      "source_bytes": 328,
+      "copy_bytes": 328,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week10推荐题数据/week10推荐题数据/Q22.mat": {
+      "source_sha256": "cc9b4901157c00374e5df8c42560b21e6c86e54461fa2bc5529c3407b4446642",
+      "copy_sha256": "cc9b4901157c00374e5df8c42560b21e6c86e54461fa2bc5529c3407b4446642",
+      "source_bytes": 154339,
+      "copy_bytes": 154339,
+      "mode": "byte_identical"
+    },
     "课程资料/补充资料/Week7微分方程数值解法/《有限元法及应用》总结--ppt课件.ppt": {
       "source_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
       "copy_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
@@ -476,13 +581,13 @@
     }
   },
   "generated": {
-    "README.md": "3fb6a156b1c2fb829ecb7dcfa427352db227ad78766ccdc0cc8c40985ea5bb5f",
+    "README.md": "73b337ee3133d5f42846a4724f6d0ac868bec9ad969b3b1cc85d543479bbffc9",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 238,
-    "wikilinks": 73,
-    "file_links": 165
+    "local_targets_checked": 272,
+    "wikilinks": 91,
+    "file_links": 181
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

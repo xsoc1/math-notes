@@ -7,7 +7,7 @@ tags:
   - matlab/curve-fitting
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/10_MATLAB概率统计与曲线拟合.md"
-matlab_source_sha256: ce2db362e33cbfbeda622b0b91f4512a6126840d65f12811f46f4086cb7a3b06
+matlab_source_sha256: 510a259c09f173ac53e40344f462684849346e2027d004776fdc6048e4e1b9f8
 ---
 
 # 第十课：MATLAB 概率统计与曲线拟合
@@ -55,7 +55,7 @@ matlab_source_sha256: ce2db362e33cbfbeda622b0b91f4512a6126840d65f12811f46f4086cb
 | W10.3 | 设计矩阵、左除与 `polyfit/polyval`；运行[拟合示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w10_curve_fit_demo.m)，改一次次数 | 对齐两种实现的预测值；区别 2-范数、SSE 与最大绝对残差 |
 | W10.4 | 权重、模型选择和离群诊断；用同一示范与 Curve Fitter 比较拟合 | 改变一个权重或插入异常点，说明哪条曲线更贴近未受污染的数据及依据 |
 
-第 43 页的[三道第十周参考自测](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E5%8D%81%E5%91%A8%E5%8F%82%E8%80%83%E4%BD%9C%E4%B8%9A/README.md)不用交；第 44–45 页的[新麦穗推荐题](file:///F:/MATLAB%20course/%E4%BD%9C%E4%B8%9A/%E6%8E%A8%E8%8D%90%E9%A2%98_%E6%96%B0%E9%BA%A6%E7%A9%97/README.md)独立选做，不作必经关卡。第 46 页的课后反馈同样标为不用交。指定的 `Q1.mat`、`Q2.mat`、`Q3.mat` 和 `Q22.mat` 本批未附；学习示范的数据不冒充题目数据。
+第 43 页的[三道第十周参考自测](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E5%8D%81%E5%91%A8%E5%8F%82%E8%80%83%E4%BD%9C%E4%B8%9A/README.md)不用交；第 44–45 页的[新麦穗推荐题](file:///F:/MATLAB%20course/%E4%BD%9C%E4%B8%9A/%E6%8E%A8%E8%8D%90%E9%A2%98_%E6%96%B0%E9%BA%A6%E7%A9%97/README.md)独立选做，不作必经关卡。第 46 页的课后反馈同样标为不用交。2026-11-12 四份指定 MAT 已补齐，路径和参考解核对见[[MATLAB/课程讲义/补充_第十周参考作业解读|第十周参考解读]]。此后接[[MATLAB/课程讲义/10B_第十周实验课|第十周实验课]]及[[MATLAB/课程讲义/11_MATLAB多项式运算与动态规划|第十一课]]；新资料不推进学习指针。
 
 接口依据：[rng](https://www.mathworks.com/help/matlab/ref/rng.html)、[makedist](https://www.mathworks.com/help/stats/makedist.html)、[polyfit](https://www.mathworks.com/help/matlab/ref/polyfit.html)、[MathWorks 加权与稳健最小二乘](https://www.mathworks.com/help/curvefit/least-squares-fitting.html)。
 

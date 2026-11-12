@@ -6,7 +6,7 @@ tags:
   - matlab/linear-algebra
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/08_MATLAB线性代数.md"
-matlab_source_sha256: 4970413b34832b94a4c32fa85e38b6725f4255141fc8b5a5398034aded208fa8
+matlab_source_sha256: 9f5cb855feb0f53a7647fd1c767a633153d1c4ef15c679ea3db530e6f0eb90b6
 ---
 
 # 第八课：MATLAB 线性代数
@@ -169,5 +169,7 @@ Q2 的条件数图必须考虑高阶 Hilbert 矩阵的浮点病态；普通 doub
 返回：[[MATLAB/课程讲义/07_MATLAB微分方程数值解法|第七课]]、[[MATLAB/课程讲义/补充_第七周微分方程数值解法参考资料|第七课补充阅读]]、[课程内容队列](file:///F:/MATLAB%20course/%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E7%8A%B6%E6%80%81.md)。
 
 2026-11-04 补充：见[[MATLAB/课程讲义/08D_第八课迭代补充|Gauss–Seidel 与最速下降步长]]，含两份教师原件及带注释的一轮对照示范。
+
+2026-11-12 回顾：[[MATLAB/课程讲义/补充_第七周与第八周作业参考解读|第七/八周教师参考]]与已完成的对应报告分开保存，不重新安排旧作业。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

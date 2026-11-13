@@ -199,4 +199,4 @@ $$
 
 ## 跨主题参照
 
-- [[泛函分析/08_Riesz表示与变分问题/03_Radon-Nikodym定理的Hilbert空间证明#1. 先处理两测度都有限|Radon-Nikodym定理的Hilbert空间证明]]。沿 Hilbert 空间表示构造密度，再对照有限分块推广的条件。
+- [[泛函分析/08_Riesz表示与变分问题/03_Radon-Nikodym定理的Hilbert空间证明#1. 有限测度情形：在 $L^2(\mu+\nu)$ 上应用 Riesz 表示定理|Radon-Nikodym定理的Hilbert空间证明]]。沿 Hilbert 空间表示构造密度，再对照有限分块推广的条件。

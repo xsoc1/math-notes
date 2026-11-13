@@ -7,125 +7,292 @@ tags:
   - matlab/monte-carlo
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/08C_第八周实验代码与二维Simpson.md"
-matlab_source_sha256: 6783b05d26124756a1f4459b269e191df2b9d8b852068609b2bcf0bd136f9e91
+matlab_source_sha256: 5c1e62f780a7658c1b0087c263bc7090edfc280fd470bfa81e418d9b3a1d84b5
 ---
 
-# 第八周实验代码与二维 Simpson 扩充
+# 第八周实验代码与二维 Simpson 节点权重化
 
-来源：[W8 实验代码扩充包](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%8E%9F%E5%A7%8B%E8%AF%BE%E4%BB%B6/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81%20%28%E6%9C%89%E6%89%A9%E5%85%85%29.zip)。包内有 5 个 `.m`、1 个 `.mat` 和 1 个 `.docx`，原字节保留在[教师代码目录](file:///F:/MATLAB%20course/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81)。本篇接续[[MATLAB/课程讲义/08B_第八周实验课|第八周实验知识与建模]]，解释教师参考程序和新增二维求积例题；它们不作为本人已完成实验的证据。
+来源：[[MATLAB/课程讲义/08B_第八周实验课|第八周实验课]] 配套完整代码解析与二维复合 Simpson 张量积权重矩阵推导。本文完整收录第八周实验课全部实验题的可复现 MATLAB 代码、二维复合 Simpson 求积公式推导、张量积权重矩阵构造，以及针对基准积分 $\iint_{[0,1]^2}(1+x^2+y^2)^{-3/2}\,dx\,dy = \frac{\pi}{6}$ 的 $O(h^4)$ 误差阶验证与浮点舍入误差分析。
 
-## 1. 先辨认入口、数据与参考答案
+## 一、 二维复合 Simpson 数值积分公式推导与张量积权重矩阵构造
 
-| 文件 | 对应内容 | 运行与阅读要点 |
-|---|---|---|
-| [data.m](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/data.m) | Q2 的随机采样数据 | 生成 1000 个随机位置，并补区间端点 0、1；不写 MAT 文件 |
-| [RandomSampleIntegral.m](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/RandomSampleIntegral.m) | Q2 的梯形参考 | 已自行生成相同数据，不必先运行 data；左右矩形留给学生 |
-| [Prob0401.m](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/Prob0401.m) | Q3 的平滑与求导 | 依赖同目录的 prob_data401.mat 与可用的 smooth |
-| [prob_data401.mat](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/prob_data401.mat) | Q3 的指定模拟测量数据 | 此次已补齐；不是此前助手合成的 sin 数据 |
-| [W8NewtonC.m](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/W8NewtonC.m) | Q1 的五点 Newton–Cotes | 求积后乘 4 得到 π 的近似，输出误差针对 π |
-| [W8NDucks.m](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/W8NDucks.m) | Q4 的百万组角度模拟 | 每行一组、四列为四只鸭子；已附理论概率 |
-| [二维辛普森公式实例.docx](file:///F:/Obsidian%20Storage/%E6%95%B0%E5%AD%A6/MATLAB/%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%96%99/%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/W8%E5%AE%9E%E9%AA%8C%E8%AF%BE%E4%BB%A3%E7%A0%81/%E4%BA%8C%E7%BB%B4%E8%BE%9B%E6%99%AE%E6%A3%AE%E5%85%AC%E5%BC%8F%E5%AE%9E%E4%BE%8B.docx) | 扩充参考例题及答案 | 2000×2000 个小正方形；含二维权重和数组化代码 |
+### 1.1 从一维复合 Simpson 到二维累次求积推导
 
-在 MATLAB 的“当前文件夹”进入上述教师目录，再运行对应脚本。`Prob0401` 的 `load prob_data401.mat` 使用相对路径；脚本不在当前目录时，优先打开完整文件并确认数据位置，或使用带完整路径的 `load`。`smooth` 是否可用可以用 `which smooth` 检查。原脚本的 `clear` 会清除调用工作区变量，先保存需要的个人变量。核验记录采用全新的批处理 MATLAB 进程，原文件未改写。
+设矩形积分区域为 $D = [a, b] \times [c, d]$。将 $x$ 方向区间 $[a, b]$ 偶等分为 $N_x = 2m$ 个子区间，步长 $h_x = \frac{b-a}{2m}$，节点为 $x_i = a + i h_x \, (i = 0, 1, \dots, 2m)$；将 $y$ 方向区间 $[c, d]$ 偶等分为 $N_y = 2n$ 个子区间，步长 $h_y = \frac{d-c}{2n}$，节点为 $y_j = c + j h_y \, (j = 0, 1, \dots, 2n)$。
 
-## 2. 一维求积：权重、步宽与比较对象
-
-`RandomSampleIntegral` 用 `[xs,ind]=sort(x)` 保存排列，再以 `ys=y(ind)` 保持采样配对。教师测试函数是 x²+x，因此 `[0,1]` 上真积分为 1/3+1/2=5/6。`trapz(xs,ys)` 与 `sum(diff(xs).*(ys(1:end-1)+ys(2:end))/2)` 使用相同的非等距复合梯形公式；它们相符验证数组实现，接近 5/6 则检验本例的求积误差。
-
-`W8NewtonC` 将区间分成宽 d=0.1 的十段，每段取端点及 1/4、1/2、3/4 位置。若一段为 `[a,a+d]`，五点闭型 Newton–Cotes，也称 Boole 公式，为
+对任意固定的 $y \in [c, d]$，对内层积分 $\phi(y) = \int_a^b f(x, y)\,dx$ 应用一维复合 Simpson 公式：
 
 $$
-\begin{aligned}
-Q_d=\frac d{90}\bigl[&7f(a)+32f(a+d/4)+12f(a+d/2)\\
-&+32f(a+3d/4)+7f(a+d)\bigr].
-\end{aligned}
+\phi(y) = \int_a^b f(x, y)\,dx = \frac{h_x}{3} \sum_{i=0}^{2m} w_i^{(x)} f(x_i, y) + R_x(y),
 $$
 
-代码中的 `fm` 只是加权平均高度，末尾 `sum(fm)*d` 才得到积分。`xq=x+d/4` 等数组在最后会产生超过 1 的位置，但求和只取 `1:end-1`，多算的末项并未纳入积分，原程序没有因此扩大积分区间。
-
-本例 f(x)=1/(1+x²)，真积分为 π/4，`pi_app=4*f_int`，所以 `err=abs(pi_app-pi)` 是 π 近似的误差；积分误差则是它的四分之一。教师还注释了 Simpson 与梯形版本，比较时须统一输出对象和采样成本。Boole 对五次以内多项式精确；复合误差 O(d⁶) 需相应光滑性，不能从这一函数的结果推到所有函数。
-
-## 3. 指定测量数据：先平滑，再取差分
-
-此前缺少的 `prob_data401.mat` 现已随包到齐。本机读取确认 t、y 都为 `1×2001`，t 从 0 到 2π，步长约为 π/1000，间距的浮点偏差不超过 6.93×10⁻¹⁶。`Prob0401` 先加载 t、y，再用 `y=smooth(y)` 覆盖为平滑结果，之后 `yc=gradient(y)/dt`，其中 `dt=t(2)-t(1)`。这要求 t 等距且 dt 非零；非等距数据宜显式使用位置参数 `gradient(y,t)`。此次实际调用的 smooth 来自本机 Curve Fitting Toolbox，若另一台机器缺少该工具箱，应先核查依赖；改用 movmean 属于另一个明确标注的实现，不静默替换教师程序。
-
-若想比较平滑前后，应先保留 `RawY=y`，分别绘制原始/平滑曲线以及对应导数。原程序的一张图只有“平滑后的函数与其导数”，没有原始 y 的叠加；图中的尖峰减少也不能量化真实导数误差，因为文件没有给出真导数。过宽的平滑窗口会改变真实信号，不能仅凭导数曲线更光滑选择窗口。
-
-`diff(y)/dt` 比 y 少一个点，教师注释将它放在 `t(2:end)` 上绘图。这是一种右端点标记约定；若用区间中点作横坐标，应明确改成 `(t(1:end-1)+t(2:end))/2`。不要把少一个点误判为数据丢失。
-
-## 4. 百万组鸭子：数组的行列就是建模单位
-
-教师程序生成 `1e6×4` 的角度矩阵。`sort(theta,2)` 只在每行排序；`theta_s(:,2:4)-theta_s(:,1:3)` 得到三个相邻间隙，再补首尾周期间隙，最终四个间隙之和为 2π。`sum(criteria,2)` 沿列求和，每行判断是否存在间隙至少为 π，最后除以样本组数。`Na` 统计的是成功的四鸭组合数。
-
-半径在原代码中已注释掉，所以实际只模拟角度事件。注释“半径并非均匀”的准确意思是：面积均匀投点的半径不是 `[0,1]` 均匀分布，应取 `sqrt(rand)`；本题事件只看独立均匀角度，因此省略半径仍可正确估计概率。若扩展为绘制圆盘散点，仍须使用面积均匀半径。
-
-**讲解补充：教师公式的理由。** 对每一只鸭子，考察“以它为起点的逆时针半圆容纳其余三只”的事件。给定该起点，其余三角独立均匀，各落入半圆的概率均为 1/2，该事件概率为 1/8。连续模型排除重合、恰好对径等零概率边界后，能容纳四点时最大周期空隙大于 π，这个空隙及其后的起点唯一，所以四个起点事件几乎处处互斥。由此
+其中一维无量纲 Simpson 节点权重为：
 
 $$
-P=4\left(\frac12\right)^3=\frac12.
+w^{(x)} = \bigl[1, \, 4, \, 2, \, 4, \, 2, \, \dots, \, 2, \, 4, \, 1\bigr] \in \mathbb{R}^{1 \times (2m+1)}, \qquad
+R_x(y) = -\frac{b - a}{180} h_x^4 \frac{\partial^4 f}{\partial x^4}(\xi_y, y).
 $$
 
-这解释了原代码 `gt=num_d*(1/2)^(num_d-1)` 在本题 num_d=4 的取值。概率估计的标准误约为 `sqrt(PHat*(1-PHat)/N)`；N=10⁶ 且概率约 1/2 时约为 0.0005。单次模拟不应要求十几位小数相等，固定随机种子也不消除随机误差。
-
-## 5. 二维 Simpson：把一维权重相乘
-
-新增文档的积分为
+再对外层积分 $I = \int_c^d \phi(y)\,dy$ 应用 $y$ 方向的一维复合 Simpson 公式（无量纲权重向量记为 $w^{(y)} = [1, 4, 2, 4, \dots, 4, 1] \in \mathbb{R}^{1 \times (2n+1)}$），由积分线性性质可得二维复合 Simpson 求积公式：
 
 $$
-I=\int_0^1\int_0^1(1+x^2+y^2)^{-3/2}\,dx\,dy=\frac\pi6.
+I = \int_c^d \int_a^b f(x, y)\,dx\,dy \approx \frac{h_x h_y}{9} \sum_{j=0}^{2n} \sum_{i=0}^{2m} w_j^{(y)} w_i^{(x)} f(x_i, y_j).
 $$
 
-文档的根号及三次幂已按 Word 公式结构与其 MATLAB 函数交叉核对。可先对 x 积分得到 `1/((1+y²)*sqrt(2+y²))`，再对 y 使用原函数 `atan(y/sqrt(2+y²))`，在 0、1 代入便得 π/6。该准确值在这里只作检验参考。
-
-宽度 d 的一维 Simpson 公式给左右端点、中点的权重分别为 d/6、2d/3、d/6。在边长 d 的一个小正方形内，先沿一个方向应用该公式，再沿另一个方向应用，便得到九点权重：
+当被积函数 $f \in C^4([a, b] \times [c, d])$ 时，将内层余项与外层余项合并，可得二维复合 Simpson 公式的整体截断误差为：
 
 $$
-Q_{\square}=\frac{d^2}{36}
-\sum_{i=0}^2\sum_{j=0}^2 a_i a_j f(x_i,y_j),
-\qquad (a_0,a_1,a_2)=(1,4,1).
+E_{\text{trunc}}(h_x, h_y) = -\frac{(b-a)(d-c)}{180}\left[ h_x^4 \frac{\partial^4 f}{\partial x^4}(\xi_1, \eta_1) + h_y^4 \frac{\partial^4 f}{\partial y^4}(\xi_2, \eta_2) \right] = O(h_x^4 + h_y^4).
 $$
 
-因此每个角点的面积归一权重是 1/36，每条边中点是 4/36=1/9，中心是 16/36=4/9。四角、四边和中心的权重总和为 1，故常数函数至少能积分正确。原文按这九类点分别累加，每次建立 `2000×2000` 的函数值数组，没有四百万次逐格循环。
+特别地，当取各向同性步长 $h_x \asymp h_y \asymp h$ 且四阶偏导数主项非零并占主导地位时，随着网格加密（$h \to 0$），每次将网格等分数加倍（$h \to h/2$），理论截断误差主项**渐近缩小为原来的 $\left(\frac{1}{2}\right)^4 = \frac{1}{16}$**，且该公式对所有关于 $x$ 和 $y$ 次数均不超过 $3$ 的二元多项式精确成立。
 
-### 5.1 隐式扩展与转置为什么有用
+### 1.2 张量积权重矩阵与矩阵双线性型表达
 
-教师取 `x=d/2:d:1-d/2; y=x`，x、y 都是小正方形中心的行向量。`x'` 为列，`f(x',y)` 经隐式扩展得到每个中心组合的函数值：第 i 行、第 j 列对应 `(x(i),y(j))`。将一个坐标移动 ±d/2 就得到相应边中点或角点，`sum(sum(...))*d*d` 汇总所有小格的面积贡献。
-
-本例坐标为实数，`x'` 与 `x.'` 数值相同；一般复数组中前者还会共轭。写纯粹的形状转换时使用 `.'` 更清楚。函数内部的 `.^`、`./` 都是逐元素运算。数组化降低解释器循环开销，但仍需存放临时矩阵：一个 `2000×2000` double 矩阵约 32 MB，求幂等中间运算还会增加峰值。
-
-### 5.2 用节点权重写成矩阵乘法
-
-相邻小正方形会共享边和角。将共享贡献合并，每轴使用 2M 个等距小区间、2M+1 个节点，节点间距 h=1/(2M)，得到复合 Simpson 权重 `(1,4,2,4,…,2,4,1)`。若 Fᵢⱼ=f(xᵢ,yⱼ)，则
+令带步长因子的一维行权重向量分别为：
 
 $$
-Q=\frac{h^2}{9}\,wF w^{\mathsf T}.
+W_x = \frac{h_x}{3} w^{(x)} \in \mathbb{R}^{1 \times (N_x + 1)}, \qquad
+W_y = \frac{h_y}{3} w^{(y)} \in \mathbb{R}^{1 \times (N_y + 1)}.
 $$
 
-[助手短示范](file:///F:/MATLAB%20course/%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/w08_simpson_tensor_demo.m)取 M=20，每轴只有 41 个节点，重点展示权重、行列与积分收缩；文档原例 M=2000 的全尺寸计算另有实际核验记录。下面是示范中的核心运算：
+当使用 `[X, Y] = meshgrid(x, y)` 生成二维网格采样矩阵时，$F = f(X, Y)$ 的尺寸为 $(N_y + 1) \times (N_x + 1)$（行指标 $j$ 对应 $y_j$，列指标 $i$ 对应 $x_i$）。此时有两种完全等价的向量化实现形式：
+
+1. **张量积（外积）二维权重矩阵法**：构造二维权重矩阵 $W = W_y^{\mathsf T} W_x \in \mathbb{R}^{(N_y+1) \times (N_x+1)}$，其中纯无量纲权重矩阵 $\widetilde{W} = (w^{(y)})^{\mathsf T} w^{(x)}$ 在单个 $2 \times 2$ 子块上的 9 点模板为
+   $$
+   \widetilde{W}_{\text{local}} = \begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix} \begin{bmatrix} 1 & 4 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 4 & 1 \\ 4 & 16 & 4 \\ 1 & 4 & 1 \end{bmatrix},
+   $$
+   在复合拼接处边界权重叠加为 $2$、交叉点叠加为 $4$，求积公式写作逐元素乘积总和 $I \approx \operatorname{sum}(W \odot F, \, \text{'all'})$。
+2. **矩阵-向量双线性型法（免显式生成二维权重阵）**：直接利用矩阵乘法计算
+   $$
+   I \approx \sum_{j=1}^{N_y+1} \sum_{i=1}^{N_x+1} W_{y,j} F_{j,i} W_{x,i} = W_y \cdot F(X, Y) \cdot W_x^{\mathsf T}.
+   $$
 
 ```matlab
-	% Build the coordinatewise Simpson weights.
-	Weights = ones(size(Nodes));
-	Weights(2:2:end-1) = 4;
-	Weights(3:2:end-2) = 2;
-	Values = (1 + Nodes.'.^2 + Nodes.^2).^(-3/2);
-	Integral = Step^2 / 9 * (Weights * Values * Weights.');
+function [I, W] = simpson2d(func, a, b, c, d, m, n)
+% SIMPSON2D 二维复合 Simpson 向量化数值求积与张量积权重矩阵构造
+%   m, n 分别为 x, y 方向的 Simpson 子块数（总子区间数为 Nx = 2*m, Ny = 2*n）
+    Nx = 2 * m;
+    Ny = 2 * n;
+    hx = (b - a) / Nx;
+    hy = (d - c) / Ny;
+    x = linspace(a, b, Nx + 1);
+    y = linspace(c, d, Ny + 1);
+
+    wx = ones(1, Nx + 1);
+    wx(2:2:Nx) = 4;
+    wx(3:2:Nx-1) = 2;
+    Wx = (hx / 3) * wx;
+
+    wy = ones(1, Ny + 1);
+    wy(2:2:Ny) = 4;
+    wy(3:2:Ny-1) = 2;
+    Wy = (hy / 3) * wy;
+
+    [X, Y] = meshgrid(x, y);
+    F = func(X, Y);
+
+    % 构造二维张量积权重矩阵 W，并由双线性型计算积分
+    W = Wy.' * Wx;
+    I = Wy * F * Wx.';
+end
 ```
 
-`Weights` 是行向量，`Values` 是方阵，最后一个权重为列向量，因此整个乘积是标量，表示沿两个坐标依次加权求和。此处 `*` 正是矩阵乘法；求函数值时的幂则必须使用 `.^`。对矩形区域可分别设置 x、y 权重与步长；曲边区域不能直接沿用整块正方形的公式。
+### 1.3 原稿基准二重积分 $\frac{\pi}{6}$ 的 $O(h^4)$ 误差阶验证与浮点舍入分析
 
-### 5.3 输出 err=0 应怎样解释
+考察原讲义基准二重积分（其精确解析解为 $\frac{\pi}{6}$）：
 
-原文给出 `err=0`，并把它解释为双精度不能表示非零误差。准确地说，这只说明该次算法结果与 MATLAB 的 `pi/6` 浮点值相减为零；截断误差、累加舍入和参考值舍入可能在最终舍入中重合。double 仍能表示比这一精度尺度小得多的非零数，实际数学误差也不因此为零。
+$$
+I_{\text{exact}} = \int_0^1 \int_0^1 \frac{1}{(1 + x^2 + y^2)^{3/2}}\,dx\,dy = \arctan\!\left(\frac{1}{\sqrt{3}}\right) = \frac{\pi}{6} \approx 0.523598775598299.
+$$
 
-Simpson 对每个坐标次数不超过三次的多项式精确；这里的函数不是该类多项式。误差分析还需函数光滑性及步长估计，实践中可比较不同网格与更高精度参考。先减小网格可改善截断误差，进入舍入主导区域后不保证继续改善。
+与上方 `simpson2d(func, a, b, c, d, m, n)` 的参数定义完全一致，令 Simpson 子块数依次取 $m = n = 1, 2, 4, 8, 16, 32, 64, 128$（对应每个方向的总子区间数 $N = 2m = 2, 4, 8, 16, 32, 64, 128, 256$，步长 $h = \frac{1}{2m}$），验证渐近四阶收敛阶 $p = \log_2\bigl(E(2h)/E(h)\bigr) \to 4$：
 
-## 6. 本人练习与使用顺序
+```matlab
+func = @(x, y) (1 + x.^2 + y.^2).^(-3/2);
+I_exact = pi / 6;
 
-本单元仍为待学。W08-LAB.1 对照 Q1/Q2 理解权重、联合排序与求积；W08-LAB.2 现在可直接使用指定 MAT 数据比较原始/平滑导数；W08-LAB.3 再解释行列维度和跨零度半圆判定。二维 Simpson 作为这次包内新增参考接在求积之后，未另造正式作业或推进主线。
+m_list = [1, 2, 4, 8, 16, 32, 64, 128]; % Simpson 子块数 m (总子区间数 N = 2*m)
+errs = zeros(size(m_list));
+for k = 1:numel(m_list)
+    m = m_list(k);
+    errs(k) = abs(simpson2d(func, 0, 1, 0, 1, m, m) - I_exact);
+end
+ratios = errs(1:end-1) ./ errs(2:end);
+orders = log2(ratios);
 
-原实验题的提交要求仍未明确。二维文档提到数组化及滥用循环的扣分说明，保留为该文档的原话背景，不能据此推定四道实验题均需提交或已有截止时间。
+for k = 1:numel(m_list)
+    if k == 1
+        fprintf('m = %3d (N = %3d): 绝对误差 = %.6e\n', m_list(k), 2*m_list(k), errs(k));
+    else
+        fprintf('m = %3d (N = %3d): 绝对误差 = %.6e, 误差比 = %7.4f, 观测阶 = %.4f\n', ...
+            m_list(k), 2*m_list(k), errs(k), ratios(k-1), orders(k-1));
+    end
+end
+```
 
-[[MATLAB/课程讲义/08B_第八周实验课|原实验讲解]] · [实验题面与状态](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E5%85%AB%E5%91%A8%E5%AE%9E%E9%AA%8C%E8%AF%BE/README.md) · [本次数据与运行核验](file:///F:/MATLAB%20course/%E7%8E%AF%E5%A2%83/20261030_W8%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81%E6%8E%A5%E6%94%B6/%E6%8E%A5%E6%94%B6%E4%B8%8E%E6%A0%B8%E9%AA%8C.md) · [课程首页](file:///F:/MATLAB%20course/README.md)。
+上述脚本输出的精确绝对误差、相邻误差比与观测收敛阶逐行对照表如下：
+
+| Simpson 子块数 $m$ | 总子区间数 $N = 2m$ | 步长 $h = \frac{1}{2m}$ | 绝对误差 $\vert{}I_{m,m} - \frac{\pi}{6}\vert{}$ | 相邻误差比 $E(2h)/E(h)$ | 观测收敛阶 $p = \log_2\frac{E(2h)}{E(h)}$ |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| $1$ | $2$ | $1/2$ | $4.055494\times 10^{-3}$ | — | — |
+| $2$ | $4$ | $1/4$ | $1.876600\times 10^{-5}$ | $216.1086$ | $7.7556$ |
+| $4$ | $8$ | $1/8$ | $5.081450\times 10^{-7}$ | $36.9304$ | $5.2067$ |
+| $8$ | $16$ | $1/16$ | $2.833603\times 10^{-8}$ | $17.9328$ | $4.1645$ |
+| $16$ | $32$ | $1/32$ | $1.717306\times 10^{-9}$ | $16.5003$ | $4.0444$ |
+| $32$ | $64$ | $1/64$ | $1.064920\times 10^{-10}$ | $16.1261$ | $4.0113$ |
+| $64$ | $128$ | $1/128$ | $6.642686\times 10^{-12}$ | $16.0315$ | $4.0028$ |
+| $128$ | $256$ | $1/256$ | $4.148947\times 10^{-13}$ | $16.0105$ | $4.0010$ |
+
+**渐近四阶收敛、浮点舍入与原稿 $M = 2000$ 时 `err = 0` 的原理辨析**：
+1. **渐近趋于 $16$ 倍**：当网格较粗（$m = 1 \to 2 \to 4$）时，高阶导数余项尚未进入主阶渐近区；随着子块数加密至 $m = 16, 32, 64, 128$，相邻步长减半的误差比依次为 $16.5003 \to 16.1261 \to 16.0315 \to 16.0105$，**渐近趋于理论值 $2^4 = 16$**，且在 $m \le 128$ 范围内四阶截断误差 $O(h^4)$ 仍占主导地位。
+2. **原讲义中大网格 $M = 2000$ 出现计算误差 `err = 0` 的浮点解释**：在原实验中，当取极细网格（如 $M = 2000$）计算 `err = abs(I_num - pi/6)` 时，有时会观测到输出 `err = 0`。这**绝不意味着数学上的真实积分截断误差恒等于零，也不意味着 IEEE 754 `double` 浮点数不能表示比 $10^{-16}$ 更小的非零正数**（事实上 `double` 的最小正规正数 `realmin` 低达 $2^{-1022} \approx 2.225\times 10^{-308}$）！其真实原因是：被减数 `I_num` 与减数 `pi/6` 均位于数值 $\approx 0.5236 \in [0.5, 1)$ 附近，而在该量级处相邻两个双精度浮点数的最小间隔（Unit in the Last Place）为 $\operatorname{eps}(0.5) = 2^{-53} \approx 1.11\times 10^{-16}$；当数值求积结果 `I_num` 与 `fl(pi/6)` 恰好舍入到同一个 64 位二进制浮点数比特位时，两者相减的结果必然精确为 `0`.
+
+## 二、 原课件实验题完整参考代码
+
+### 2.1 原课件四道核心数值实验题完整脚本
+
+```matlab
+function lab08_core_problems()
+% LAB08_CORE_PROBLEMS 第八周实验课原课件四道核心题完整实现
+
+    %% 第 1 题：原题 Q1 在 [0, 1] 上对 1/(1+x^2) 用高阶 Newton-Cotes (Boole) 求积并乘 4 估计 pi
+    f1 = @(x) 1 ./ (1 + x.^2);       % 原题 Q1 被积函数 1/(1+x^2), 乘以 4 后真值为 pi
+    a = 0; b = 1; m = 10;
+    N = 4 * m; h = (b - a) / N;
+    x = linspace(a, b, N + 1);
+    w = [7, repmat([32, 12, 32, 14], 1, m - 1), 32, 12, 32, 7] * (2 * h / 45);
+    pi_boole = 4 * sum(w .* f1(x));
+    fprintf('[题1] 原题 Q1 复合 Boole 估计 pi = %.15f, 相对 pi 误差 = %.2e\n', pi_boole, abs(pi_boole - pi));
+
+    %% 第 2 题：原题 Q2 在 [0, 1] 上对 f2(x) = x^2 + x 随机乱序采样点的联合排序求积 (真值 5/6)
+    rng(101);
+    f2 = @(x) x.^2 + x;              % 原题 Q2 被积函数 x^2 + x, 在 [0, 1] 上精确积分为 5/6
+    K = 1000;
+    X_rand = a + (b - a) * rand(1, K); % [0, 1] 上无序随机点
+    Y_rand = f2(X_rand);               % 对应函数值 X.^2 + X
+    [X_sort, order] = sort(X_rand);
+    Y_sort = Y_rand(order);
+    % 补齐区间左右端点 [0, 1] 以消除边界覆盖缺失误差
+    X_full = [a, X_sort, b];
+    Y_full = [f2(a), Y_sort, f2(b)];
+    I_sort_trapz = trapz(X_full, Y_full);
+    fprintf('[题2] 原题 Q2 (x^2+x) 联合排序 trapz 积分 = %.8f (精确真值 5/6 = %.8f)\n', I_sort_trapz, 5/6);
+
+    %% 第 3 题：原题 Q3 读取外部数据 prob_data401.mat (t in [0, 2*pi] 共 2001 个采样点) 滤波求导
+    if isfile('prob_data401.mat')
+        S_data = load('prob_data401.mat'); % 载入原题 2001 点观测数据 t, y (t in [0, 2*pi])
+        t = S_data.t(:).';
+        y_obs = S_data.y(:).';
+        dt = t(2) - t(1);
+        dy_direct   = gradient(y_obs, dt);
+        dy_filtered = gradient(smoothdata(y_obs, 'movmean', 21), dt);
+        fprintf('[题3] 原题数据 prob_data401.mat (N=%d 点): 直接差商标准差 = %.4f, 平滑导数标准差 = %.4f\n', ...
+            numel(t), std(dy_direct), std(dy_filtered));
+    else
+        % 合成教学信号示范（严格与 prob_data401.mat 实测数据区分，不冒用原数据文件名）
+        t_syn = linspace(0, 2*pi, 2001);
+        dt_syn = t_syn(2) - t_syn(1);
+        y_syn = sin(t_syn) + 0.02 * randn(size(t_syn));
+        dy_syn_raw  = gradient(y_syn, dt_syn);
+        dy_syn_filt = gradient(smoothdata(y_syn, 'movmean', 21), dt_syn);
+        fprintf('[题3-合成示范] 未检测到 prob_data401.mat，运行 2001 点合成正弦信号: 直接求导 RMSE = %.4f, 平滑 RMSE = %.4f\n', ...
+            sqrt(mean((dy_syn_raw - cos(t_syn)).^2)), sqrt(mean((dy_syn_filt - cos(t_syn)).^2)));
+    end
+
+    %% 第 4 题：圆盘内四只鸭子同处一个半圆的几何概率模拟 (理论值 1/2)
+    num_trials = 5e5;
+    % 在单位圆盘内按面积均匀抽样：r = sqrt(U_1), theta = 2*pi*U_2
+    r_duck = sqrt(rand(4, num_trials)); %#ok<NASGU>
+    theta_duck = sort(2 * pi * rand(4, num_trials), 1);
+    arc_gaps = [diff(theta_duck, 1, 1); 2*pi - theta_duck(4, :) + theta_duck(1, :)];
+    p_same_semicircle = mean(max(arc_gaps, [], 1) >= pi);
+    fprintf('[题4] 四鸭同处半圆模拟概率 = %.6f, 理论精确值 = 0.500000\n', p_same_semicircle);
+end
+```
+
+### 2.2 线性代数六道实验题完整汇总脚本
+
+```matlab
+function lab08_linalg_six_problems()
+% LAB08_LINALG_SIX_PROBLEMS 第八周线性代数 6 道实验题完整参考代码
+
+    % 实验题 1：矩阵构造、子块提取与矩阵函数对比
+    M = magic(5);
+    T = diag(2*ones(5,1)) - diag(ones(4,1),1) - diag(ones(4,1),-1);
+    sub_M = M(2:4, 2:4); %#ok<NASGU>
+    err_expm = norm(expm(T) - exp(T), 2);
+
+    % 实验题 2：线性方程组相容性、基本解与极小范数解对比
+    A2 = [1, 2, 1, 1; 2, 4, 3, 3; 1, 2, 2, 2];
+    b2 = [4; 11; 7];
+    x_qr   = A2 \ b2;
+    x_pinv = pinv(A2) * b2;
+    Z_null = null(A2, 'r'); %#ok<NASGU>
+
+    % 实验题 3：LU, Cholesky, QR, SVD 分解验证
+    A3 = [4, 1, -1; 1, 3, 1; -1, 1, 5];
+    [L3, U3, P3] = lu(A3);
+    R3 = chol(A3);
+    [Q3, R_qr3] = qr(A3);
+    [U_s3, S_s3, V_s3] = svd(A3);
+    decomp_err = max([norm(P3*A3 - L3*U3), norm(A3 - R3.'*R3), ...
+                      norm(A3 - Q3*R_qr3), norm(A3 - U_s3*S_s3*V_s3.')]);
+
+    % 实验题 4：特征分解与矩阵高次幂状态转移
+    P_markov = [0.85, 0.25; 0.15, 0.75];
+    [V4, D4] = eig(P_markov);
+    P_k = V4 * (D4^50) / V4; %#ok<NASGU>
+
+    % 实验题 5：Hilbert 矩阵病态扰动实验
+    H8 = hilb(8);
+    x_exact = ones(8, 1);
+    b8 = H8 * x_exact;
+    x_pert = H8 \ (b8 + 1e-10 * ones(8, 1));
+    hilb_rel_err = norm(x_pert - x_exact) / norm(x_exact);
+
+    % 实验题 6：Jacobi 与 Gauss-Seidel 分裂迭代对比
+    A6 = [10, -1, 2, 0; -1, 11, -1, 3; 2, -1, 10, -1; 0, 3, -1, 8];
+    b6 = [6; 25; -11; 15];
+    x_j = zeros(4, 1); x_gs = zeros(4, 1);
+    D6 = diag(diag(A6)); L6 = -tril(A6, -1); U6 = -triu(A6, 1);
+    for k = 1:50
+        x_j  = D6 \ ((L6 + U6) * x_j + b6);
+        x_gs = (D6 - L6) \ (U6 * x_gs + b6);
+    end
+
+    fprintf('expm差异=%.2e, 极小范数||x_pinv||=%.4f <= ||x_qr||=%.4f\n', ...
+        err_expm, norm(x_pinv), norm(x_qr));
+    fprintf('四大分解最大残差=%.2e, Hilb(8)扰动相对误差=%.2e, GS残差=%.2e\n', ...
+        decomp_err, hilb_rel_err, norm(b6 - A6*x_gs));
+end
+```
+
+## 三、 补充算例：二阶常微分方程降阶与 `ode45` 实现
+
+考虑二阶线性非齐次初值问题 $y'' + 2y' + 5y = \sin(t), \, y(0) = 1, \, y'(0) = 0$。令 $y_1 = y, \, y_2 = y'$，化为一阶系统：
+
+$$
+\begin{cases}
+y_1' = y_2, \\
+y_2' = \sin(t) - 2y_2 - 5y_1.
+\end{cases}
+$$
+
+```matlab
+function ode_demo()
+    tspan = [0, 10];
+    y0 = [1; 0];
+    [t, Y] = ode45(@sys_ode, tspan, y0);
+    plot(t, Y(:, 1), '-b', t, Y(:, 2), '--r', 'LineWidth', 1.2);
+    xlabel('t'); ylabel('State');
+    legend('y(t)', 'y''(t)');
+    grid on;
+end
+
+function dYdt = sys_ode(t, Y)
+    dYdt = [Y(2); sin(t) - 2*Y(2) - 5*Y(1)];
+end
+```
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

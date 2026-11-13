@@ -81,4 +81,4 @@ aliases: ["Baire Spaces", "48_Baire_Spaces"]
 
 ## 跨主题参照
 
-- [[泛函分析/09_Baire纲与基本定理/01_Baire纲定理#3. Baire 定理的套球证明|Baire纲定理]]。沿套球证明进入泛函分析中的基本定理。
+- [[泛函分析/09_Baire纲与基本定理/01_Baire纲定理#3. Baire 纲定理的完整证明|Baire纲定理]]。沿套球证明进入泛函分析中的基本定理。

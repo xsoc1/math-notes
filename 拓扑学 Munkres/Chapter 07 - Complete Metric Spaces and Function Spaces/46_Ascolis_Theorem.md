@@ -50,4 +50,4 @@ aliases: ["Ascoli's Theorem", "46_Ascolis_Theorem"]
 
 ## 跨主题参照
 
-- [[泛函分析/03_紧性与函数族/02_Ascoli定理与紧性判别#2. Ascoli–Arzelà 定理|Ascoli定理与紧性判别]]。对照紧度量空间上一致范数的序列判据及积分算子应用。
+- [[泛函分析/03_紧性与函数族/02_Ascoli定理与紧性判别#2. Ascoli-Arzelà 定理|Ascoli定理与紧性判别]]。对照紧度量空间上一致范数的序列判据及积分算子应用。

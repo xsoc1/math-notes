@@ -94,7 +94,7 @@ aliases:
 
 ### 泛函分析当前状态与校核
 
-- 当前为 48 篇理论/导航 Markdown、1 本 208 题习题册、11 个 Base 和 6 份 PDF 作业副本；03–10 的详细文件名登记于 README。
+- 当前为 48 篇理论/导航 Markdown、1 本 208 题习题册、11 个 Base 和 7 份 PDF 作业副本；03–10 的详细文件名登记于 README。
 - 已补出紧性等价条件、Ascoli、典型空间完备性、Riesz 引理与商空间、Brouwer–Schauder、投影/Riesz 表示、Hilbert 空间证明 Radon–Nikodym、Baire 三定理、Lax–Milgram、Hahn–Banach、分离与有限约束凸优化等主干证明。复内积统一第一变量线性。
 - 已纠正“完备化可直接删去原问题完备假设”“全空间内积一致连续”“Hilbert 空间所有幂等投影范数为 1”等表述, 并区分 F-范数与现代 quasi-norm、绝对值强制性与实部强制性。
 - 已核对汪林指定反例页面与十二份解读讲义的相关段落；不是对 492 页讲义和汪林全书逐字审定。原始资料清单、SHA-256、文本提取及验证脚本留在仓库外临时目录 `C:/Users/HuangZY/AppData/Local/Temp/fa-notes-20261006-00c54d304f1b4e93be2535b0706b7673`。
@@ -622,3 +622,9 @@ aliases:
 - Base 原生查询：MATLAB 课程讲义 26、泛函分析理论与导航 48、PDE 全部资料 28、概率论学业辅导全部材料 6、李代数按文件查看 21。全库链接缺失目标为 0；标题锚点的 125 处剩余问题全部属于未改动的暑期学校原教材副本，逐项均出现在本轮起始缓存中。该旧副本保留，不把它列为本轮已修复或全库零错误。
 - 目视检查当前深色主题下 MATLAB 求积公式/弧长表、变分法 callout、Reid 27 条直线、正则 SL 算例的原生阅读页，以及 MATLAB 实时预览。实时预览切换时出现一次 `Measure loop restarted more than 5 times` 警告；未开展插件修复或全书逐页、多主题、移动端验收。临时页签已关闭，原 PDF 第 48 页及已有弹窗恢复。
 - 合并前副本、计划、链接修复清单、原生报告及截图在库外 `C:/Users/HuangZY/AppData/Local/Temp/math-notes-merge-r6-20261113-3ugkaf_b`。`before/`、`course-before/` 为恢复输入；`plan.json`、`link-repairs.json`、`return-link-repairs.json`、`math-final.json`、`links-current.json` 记录实际范围和证据。公式检查可通过 Obsidian CLI `eval` 加载该目录的 `validate-math.js`，链接检查加载 `check-links.js`；课程同步沿用既有工具。Git 只纳入本轮正文、依赖导航、生成清单与根维护记录；PDF、空白 Base 和 Obsidian 本地配置继续留在本地。
+
+## 泛函分析第十周作业（2026-11-15）
+
+- 用户指定 2.3.1—2.3.4，沿用最小修改、原证明路线和姓名学号约定；源题册已有本地修改，本轮读取后不改写。LaTeX 目录生成第十周 TeX、两页 PDF 和逐题整理说明；本库仅新增 `泛函分析/作业/第十周作业.pdf`，作业副本共 7 份，README 同步登记。
+- 修补内容：开映射定理的条件检查；2.3.2 的严格大于笔误改为大于等于；2.3.3 的基本列极限、值域稠密性；2.3.4 的定义域、诱导范数、闭图像环境及极限空间说明。四题原路线均保留，无实质重建。
+- XeLaTeX 编译无警告/溢出/缺字/未定义引用，两页实际渲染和全部题号、每页身份已核对；源题册与本轮基线、三份 PDF 均逐字节比较通过。复现与证据在 `F:/LaTeX/Functional Analysis Homework/build/week10/`，本轮不开展其他题目或理论笔记修改。

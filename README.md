@@ -11,11 +11,11 @@
 
 ## 笔记登记
 
-文件数为 2026-11-13 公开版本的 Markdown 和 Base 数量。Markdown 计入各目录的维护文档。原始资料与附件按各课程索引查阅。
+文件数为 2026-11-15 公开版本的 Markdown 和 Base 数量。Markdown 计入各目录的维护文档。原始资料与附件按各课程索引查阅。
 
 | 目录 | 阅读入口 | 内容 | Markdown / Base |
 | --- | --- | --- | --- |
-| 拓扑学 Munkres | [打开拓扑学 Munkres](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2001%20-%20Set%20Theory%20and%20Logic/00_Chapter_01_Overview.md) | Munkres 第 1–8 章；各章入口见下方章节表。 | 43 / 2 |
+| 拓扑学 Munkres | [打开拓扑学 Munkres](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/00_%E6%8B%93%E6%89%91%E5%AD%A6%E6%80%BB%E8%A7%88.md) | Munkres 第 1–8 章；各章入口见下方章节表。 | 44 / 2 |
 | 实变函数 | [打开实变函数](%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0/%E5%AE%9E%E5%8F%98%E5%87%BD%E6%95%B0%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B%E9%87%8D%E7%82%B9%E4%B8%8E%E6%95%B0%E5%AD%A6%E6%80%9D%E6%83%B3.md) | 实变函数概念、证明方法与学习脉络。 | 1 / 0 |
 | 高等概率论 | [打开高等概率论](%E9%AB%98%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA/%E7%AC%94%E8%AE%B0/00_%E9%AB%98%E7%AD%89%E6%A6%82%E7%8E%87%E8%AE%BA%E6%80%BB%E8%A7%88.md) | 测度论基础、上下册习题与学业辅导讲义。 | 22 / 2 |
 | 泛函分析 | [打开泛函分析](%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/00_%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E6%80%BB%E8%A7%88.md) | 十个理论专题、原书习题与作业副本。 | 49 / 11 |
@@ -23,8 +23,8 @@
 | SL 谱理论 | [打开SL 谱理论](SL%E8%B0%B1%E7%90%86%E8%AE%BA/%E8%AE%B2%E4%B9%89/00_SL%E8%B0%B1%E7%90%86%E8%AE%BA%E8%AE%B2%E4%B9%89%E6%80%BB%E8%A7%88.md) | Sturm–Liouville 讲义、习题分类、符号与物理模型索引。 | 28 / 1 |
 | 变分法 | [打开变分法](%E5%8F%98%E5%88%86%E6%B3%95/%E5%8F%98%E5%88%86%E6%B3%95%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%90%86.md) | 测试函数与变分法基本引理。 | 1 / 0 |
 | 李代数 | [打开李代数](%E6%9D%8E%E4%BB%A3%E6%95%B0/00_%E6%9D%8E%E4%BB%A3%E6%95%B0%E8%AF%BE%E7%A8%8B%E6%80%BB%E8%A7%88.md) | 九讲课记、整合讲义、作业与参考书练习；主线从标准商、中心与理想推进到 Vinberg 三型。 | 21 / 1 |
-| 2026 浙大暑期学校 | [打开2026 浙大暑期学校](2026%E6%B5%99%E5%A4%A7%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1/00_%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93.md) | 代数几何、黎曼几何及其课程作业。 | 23 / 1 |
-| 代数几何初步 | [打开代数几何初步](%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95%E5%88%9D%E6%AD%A5/Undergraduate%20Algebraic%20Geometry/Undergraduate%20Algebraic%20Geometry.md) | Reid 教材阅读副本。 | 2 / 0 |
+| 2026 浙大暑期学校 | [打开2026 浙大暑期学校](2026%E6%B5%99%E5%A4%A7%E6%9A%91%E6%9C%9F%E5%AD%A6%E6%A0%A1/00_%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93.md) | 代数几何、黎曼几何及其课程作业。 | 24 / 1 |
+| 代数几何初步 | [打开代数几何初步](%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95%E5%88%9D%E6%AD%A5/Undergraduate%20Algebraic%20Geometry/Undergraduate%20Algebraic%20Geometry.md) | Reid 专题讲义与习题解析；原书原文另存暑校目录。 | 2 / 0 |
 | MATLAB | [打开MATLAB](MATLAB/README.md) | 课程资料与讲义阅读副本，课程总览说明来源和同步边界。 | 28 / 1 |
 | AI 教学工程 | [打开AI 教学工程](AI%E6%95%99%E5%AD%A6%E5%B7%A5%E7%A8%8B/Obsidian_Codex%E4%BE%A7%E6%A0%8F%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%B0%83%E7%A0%94.md) | Codex 侧栏与 OpenMAIC 教学工程调研。 | 2 / 0 |
 | 数学前沿研究资料 | [Barreto 三页稿阅读指导](数学前沿研究资料/Barreto三页稿_阅读指导.md) | 三页稿的行列式构造、素数整除与 Dirichlet L 函数论证阅读。 | 1 / 0 |
@@ -89,6 +89,7 @@
 
 ## 2026 浙大暑期学校
 
+- Reid 专题讲义：[[2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/Undergraduate Algebraic Geometry_专题重编与习题解析|专题重编与习题解析]]；[[2026浙大暑期学校/代数几何课程记录/Undergraduate Algebraic Geometry/Undergraduate Algebraic Geometry|原书原文]]保留独立入口。
 - [[2026浙大暑期学校/00_课程总结|2026 浙大暑期学校课程总结]]
 - [[2026浙大暑期学校/代数几何课程记录/课程记录/第一讲：仿射簇与平面曲线|代数几何课程记录]]
 - [[2026浙大暑期学校/黎曼几何课程记录/单值化定理|黎曼几何课程总览]]
@@ -130,7 +131,7 @@
 | [Chapter 6](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2006%20-%20Metrization%20Theorems%20and%20Paracompactness/00_Chapter_06_Overview.md) | Metrization Theorems and Paracompactness（度量化定理与仿紧性） | 4 |
 | [Chapter 7](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2007%20-%20Complete%20Metric%20Spaces%20and%20Function%20Spaces/00_Chapter_07_Overview.md) | Complete Metric Spaces and Function Spaces（完备度量空间与函数空间） | 5 |
 | [Chapter 8](%E6%8B%93%E6%89%91%E5%AD%A6%20Munkres/Chapter%2008%20-%20Baire%20Spaces%20and%20Dimension%20Theory/00_Chapter_08_Overview.md) | Baire Spaces and Dimension Theory（Baire 空间与维数论） | 3 |
-| 合计 | | 43 md + 2 base |
+| 合计 | 含课程总览 1 篇 | 44 md + 2 base |
 
 ## SL 谱理论
 
@@ -165,6 +166,9 @@
    - 协议集成：Model Context Protocol (MCP) 与 `obsidian-agent-memory-skills`
 
 ## 维护说明
+
+- 2026-11-15 合并第（10）版经内容复审的讲义与解释性修订，新增拓扑课程总览和独立Reid专题入口；题集、教材原文及未作答作业的原题与留白保留本地版本。第9版的三项问题已修正，另订正两处李代数文献错录。
+- 本轮相关讲义及依赖导航的38,056个公式片段经Obsidian MathJax 4.1.3解析无错误，700px行间式无超宽；相关链接和双向回链通过，原书原有125处目录锚点不在本轮处理范围。阅读、实时预览、依赖图和Base表格已代表性目视抽查。
 
 - 2026-11-13 合并第（6）版内容审核通过的 119 篇修缮正文；其中 MATLAB 26 篇先回写课程源，再由原同步工具生成阅读副本。保留现有目录、分类属性、学习进度、作业与无关本地文件，课程与专题数量不变。
 - 本轮修复导航与跨主题回链、转义及长公式排版。Obsidian 1.15.1 / MathJax 4.1.3 检查 28,254 个公式片段（2,150 个行间式）零解析错误，700px 无超宽报告；代表性阅读与实时预览已目视检查。全库无缺失链接目标；暑期学校旧教材副本原有的 125 处目录标题锚点保持原样，未计作本轮修复。

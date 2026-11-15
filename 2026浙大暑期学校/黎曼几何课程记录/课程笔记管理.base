@@ -1,3 +1,5 @@
+filters:
+  and:
     - file.inFolder("2026浙大暑期学校/黎曼几何课程记录")
 formulas:
   size_kb: (file.size / 1024).round(1)

@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate Algebraic Geometry"
-author: "Miles Reid"
-institution: "Math Inst., University of Warwick"
+author: "Miles Reid (Notes & Bilingual Exposition)"
+institution: "Math Inst., University of Warwick / math-notes"
 date: "2013-10-20"
 tags:
   - algebraic-geometry
@@ -439,7 +439,7 @@ $$F(U, V) = \prod_{i=1}^d (\beta_i U - \alpha_i V),$$
 **Proof.**
 在射影平面上任取不与 $P_1, \dots, P_4$ 中任何三点共线的第五点 $P_5$，由 **Proposition 1.4.4** 知过 $P_1, \dots, P_4, P_5$ 有唯一二次曲线，这说明 $4$ 个线性条件 $L_{P_1}, \dots, L_{P_4}$ 线性无关，解空间维数为 $6 - 4 = 2$，射影化后即为 $\mathbb{P}^1_k$。任何退化二次曲线是两条直线的并 $L \cup L'$；因无三点共线，$4$ 个点必须两两分布在 $L$ 和 $L'$ 上，把 $\{P_1, P_2, P_3, P_4\}$ 划分为两个二元子集共有 $\frac{1}{2}\binom{4}{2} = 3$ 种分法，故束中恰有 $3$ 条退化二次曲线。同时，在适当选取射影坐标系使三对对边的对角三角形（Diagonal Triangle）成为坐标三角形 $[1:0:0], [0:1:0], [0:0:1]$，且 $P_1, \dots, P_4$ 为 $[1:\pm 1:\pm 1]$ 时，$Q_1, Q_2$ 均可对角化：
 $$Q_1 = X^2 - Z^2, \qquad Q_2 = Y^2 - Z^2, \qquad \lambda Q_1 + \mu Q_2 = \lambda X^2 + \mu Y^2 - (\lambda + \mu) Z^2,$$
-其行列式为 $-\lambda \mu (\lambda + \mu) = 0$，三个单根 $[\lambda:\mu] = [1:0], [0:1], [1:-1]$ 恰好对应三对相交直线。这也给出了在代数闭域上同步求解两个二次方程 $Q_1 = Q_2 = 0$ 的通用算法：先解三次方程 $\det(\lambda A_1 + \mu A_2) = 0$ 找到一个根 $(\lambda_0, \mu_0)$，将退化二次式 $\lambda_0 Q_1 + \mu_0 Q_2 = L \cdot L'$ 分解为两条直线，再分别将 $L = 0$ 与 $L' = 0$ 代入 $Q_1 = 0$ 解两个一元二次方程即可求出全部 $4$ 个交点。 **Q.E.D.**
+其行列式为 $-\lambda \mu (\lambda + \mu) = 0$，三个单根 $[\lambda:\mu] = [1:0], [0:1], [1:-1]$ 恰好对应三对相交直线。这也给出了在代数闭域上同步求解两个二次方程 $Q_1 = Q_2 = 0$ 的通用算法：先解三次方程 $\det(\lambda A_1 + \mu A_2) = 0$ 找到一个根 $[\lambda_0 : \mu_0] \in \mathbb{P}^1_k$，将对应的退化二次式 $\lambda_0 Q_1 + \mu_0 Q_2 = L \cdot L'$ 分解为两条一次直线；若 $\mu_0 \neq 0$（即退化元不是 $Q_1$ 本身），则将 $L = 0$ 与 $L' = 0$ 分别与 $Q_1 = 0$ 联立；若 $\mu_0 = 0$（即 $[\lambda_0 : \mu_0] = [1 : 0]$，$Q_1 = L \cdot L'$ 本身已退化为直线对，避免代入 $Q_1$ 退化为恒等式），则将 $L = 0$ 与 $L' = 0$ 分别与 $Q_2 = 0$ 联立（因四个基点无三点共线，所选二次曲线与 $L, L'$ 无公共直线分支），解两个一元二次方程即可求出全部 $4$ 个交点。 **Q.E.D.**
 
 #### 1.5 Cubics and the inflection points
 
@@ -462,15 +462,18 @@ $$r^2 = p(p - q)(p - \lambda q).$$
 因为 $\gcd(p, q) = 1$ 且 $\lambda \notin \{0, 1\}$，容易验证四个多项式 $p, \; q, \; p - q, \; p - \lambda q$ 在 $\bar{k}[t]$ 中**两两互素**！既然两两互素的三个多项式 $p, p - q, p - \lambda q$ 的乘积是一个完全平方 $r^2$，且 $q = q_0^2$ 本身也是完全平方，故这四个两两互素的多项式必须各自都是 $\bar{k}[t]$ 中的完全平方：
 $$p = u_1^2, \qquad q = u_2^2, \qquad p - q = u_3^2, \qquad p - \lambda q = u_4^2,$$
 其中 $u_1, u_2, u_3, u_4 \in \bar{k}[t]$ 两两互素，且 $\max(\deg u_1, \deg u_2) = \frac{1}{2}\max(\deg p, \deg q) \ge 1$。
-我们证明：在 $\bar{k}[t]$（$\operatorname{char} k \neq 2$）中，不存在两两互素且不全为常数的多项式 $u_1, u_2, u_3, u_4$ 满足：
-$$u_1^2 - u_2^2 = u_3^2, \qquad u_1^2 - \lambda u_2^2 = u_4^2.$$
-若不然，选取使得 $M = \max(\deg u_1, \deg u_2, \deg u_3, \deg u_4) \ge 1$ **最小**的一组反例（无穷递降法，Fermat's Method of Infinite Descent）。由于 $\operatorname{char} k \neq 2$，将第一式分解为：
-$$(u_1 - u_2)(u_1 + u_2) = u_3^2.$$
-由 $\gcd(u_1, u_2) = 1$ 及 $u_1 = \frac{1}{2}[(u_1+u_2)+(u_1-u_2)], \; u_2 = \frac{1}{2}[(u_1+u_2)-(u_1-u_2)]$，可知 $\gcd(u_1 - u_2, u_1 + u_2) = 1$。同理，对第二式 $(u_1 - \sqrt{\lambda} u_2)(u_1 + \sqrt{\lambda} u_2) = u_4^2$，也有 $\gcd(u_1 - \sqrt{\lambda} u_2, u_1 + \sqrt{\lambda} u_2) = 1$。因此这四个线性组合也都是完全平方：
-$$u_1 + u_2 = v_1^2, \quad u_1 - u_2 = v_2^2, \quad u_1 + \sqrt{\lambda} u_2 = v_3^2, \quad u_1 - \sqrt{\lambda} u_2 = v_4^2.$$
-由此可解出 $u_1 = \frac{1}{2}(v_1^2 + v_2^2)$ 与 $u_2 = \frac{1}{2}(v_1^2 - v_2^2)$，代入后两式知 $v_3^2, v_4^2$ 是 $v_1^2, v_2^2$ 的两个独立线性组合。经简单的线性重标定后，$(v_1, v_2, v_3, v_4)$ 构成了另一组两两互素的非平凡多项式解，但其最大次数满足：
-$$\max_i (\deg v_i) = \frac{1}{2} \max_i (\deg u_i) = \frac{M}{2} < M,$$
-这与 $M \ge 1$ 的极小性矛盾！ **Q.E.D.**
+我们调用 **Miles Reid 原书 Lemma 2.3（四平方线性组合的无穷递降引理，p. 37）**：在 $\bar{k}[t]$（$\operatorname{char} k \neq 2$）中，**不存在互素且不全为常数的多项式对 $(P, Q) \in \bar{k}[t]^2$，使得它们的四个两两不成比例的线性组合 $\alpha_i P + \beta_i Q$（$i=1,2,3,4$，即射影比值 $[\alpha_i : \beta_i] \in \mathbb{P}^1_{\bar{k}}$ 两两互异）同时为 $\bar{k}[t]$ 中的完全平方**！
+**Lemma 2.3 的证明（无穷递降法，Fermat's Method of Infinite Descent）**：反设存在满足上述条件的非平凡互素多项式对 $(P, Q)$，我们在**所有满足“存在四个两两不成比例的线性组合皆为完全平方”的非平凡互素多项式对 $(P, Q)$** 中（注意极小性是对任意互异射影比值组选取的，**不固定**交比参数 $\lambda$！），选取使得最大次数
+$$M = \max(\deg P, \deg Q) \ge 1$$
+**最小**的一对 $(P, Q)$。首先，通过对二元线性组合施以可逆线性代换（将前三个互异线性组合重标定为 $P, Q, P-Q$，第四个化为 $P - \mu Q$，其中 $\mu \in \bar{k} \setminus \{0, 1\}$），可设
+$$P = u_1^2, \qquad Q = u_2^2, \qquad P - Q = u_1^2 - u_2^2 = u_3^2, \qquad P - \mu Q = u_1^2 - \mu u_2^2 = u_4^2,$$
+其中 $u_1, u_2 \in \bar{k}[t]$ 互素，且 $\max(\deg u_1, \deg u_2) = \frac{1}{2}\max(\deg P, \deg Q) = \frac{M}{2}$。由于 $\operatorname{char} k \neq 2$，将后两式在 $\bar{k}[t]$ 中因式分解为：
+$$(u_1 - u_2)(u_1 + u_2) = u_3^2, \qquad (u_1 - \sqrt{\mu} u_2)(u_1 + \sqrt{\mu} u_2) = u_4^2.$$
+由 $\gcd(u_1, u_2) = 1$ 及 $u_1 = \frac{1}{2}[(u_1+u_2)+(u_1-u_2)], \; u_2 = \frac{1}{2}[(u_1+u_2)-(u_1-u_2)]$，可知 $\gcd(u_1 - u_2, u_1 + u_2) = 1$；同理因 $\mu \neq 0$，亦有 $\gcd(u_1 - \sqrt{\mu} u_2, u_1 + \sqrt{\mu} u_2) = 1$。因此，互素多项式对 $(u_1, u_2)$ 的四个线性组合
+$$u_1 + u_2 = v_1^2, \quad u_1 - u_2 = v_2^2, \quad u_1 + \sqrt{\mu} u_2 = v_3^2, \quad u_1 - \sqrt{\mu} u_2 = v_4^2$$
+在 $\bar{k}[t]$ 中也全都是完全平方！又因 $\mu \notin \{0, 1\}$（故 $\sqrt{\mu} \notin \{0, 1, -1\}$），系数比 $[1:1], [1:-1], [1:\sqrt{\mu}], [1:-\sqrt{\mu}] \in \mathbb{P}^1_{\bar{k}}$ 两两互异（若将 $v_1^2, v_2^2$ 重标定回标准形式，新的交比参数变为 $\mu' = \bigl(\frac{1-\sqrt{\mu}}{1+\sqrt{\mu}}\bigr)^2 \in \bar{k} \setminus \{0, 1\}$，一般不再等于原 $\mu$，这正是递降假设必须对全体四平方线性组合而非固定 $\lambda$ 进行归纳的原因）。于是 $(u_1, u_2)$ 构成了满足 Lemma 2.3 条件的另一对互素非平凡多项式，但其最大次数仅为：
+$$\max(\deg u_1, \deg u_2) = \frac{M}{2} < M,$$
+这与 $M \ge 1$ 的极小性矛盾！将 Lemma 2.3 直接应用于 (463) 式的 $(p, q)$，即证得光滑三次曲线不存在非常数有理参数化。 **Q.E.D.**
 
 接下来我们讨论光滑三次曲线上的特殊几何点——**拐点（Inflection Points / Flexes）**及其代数判据。
 
@@ -639,7 +642,13 @@ $$C_3 := Q \cup L_{AB}.$$
    用过原点的直线束 $y = t x$ 截曲线 $C$，代入得 $x^2 \bigl(f_2(1, t) + x f_3(1, t)\bigr) = 0$。约去原点处的二重根 $x^2$，立即解出第三个移动交点的有理参数坐标：
    $$x(t) = -\frac{f_2(1, t)}{f_3(1, t)}, \qquad y(t) = -\frac{t f_2(1, t)}{f_3(1, t)}.$$
 3. 二次型 $f_2(x, y) = 0$ 定义了 $C$ 在原点处的**切锥（Tangent Cone，即两条切线）**。
-   - 当 $f_2(x, y)$ 有两个不同线性因式（结点情形）时，作线性坐标变换使两条切线为 $y - x = 0$ 与 $y + x = 0$，并在无穷远处取拐点 $O = [0 : 1 : 0]$（拐切线为 $Z = 0$）。对参数化 $x = t^2 - 1, y = t(t^2 - 1)$，也可直接令两条结点切线为坐标轴，在パラメータ $u \in k^\times$ 下将曲线写为 $[u : u^{-2} : 1]$（即 $X^2 Y = Z^3$），此时三点 $[u_1 : u_1^{-2} : 1], [u_2 : u_2^{-2} : 1], [u_3 : u_3^{-2} : 1]$ 共线 $a X + b Y + c Z = 0 \iff u_1, u_2, u_3$ 是三次方程 $a u^3 + c u^2 + b = 0$ 的三个根。由 Vieta 定理，其中 $u$ 的一次项系数为 $0 \iff u_1 u_2 + u_2 u_3 + u_3 u_1 = 0 \iff u_1^{-1} + u_2^{-1} + u_3^{-1} = 0$；而在将两个切方向变换到斜率 $\pm 1$ 的乘法参数 $s = \frac{t-1}{t+1} \in k^\times$ 下，三点共线条件恰简化为 $s_1 s_2 s_3 = 1$！于是以 $s = 1$ 为零元时，群运算恰为乘法 $(s_1, s_2) \mapsto s_1 s_2 \in k^\times$。
+   - 当 $f_2(x, y)$ 有两个不同线性因式（结点情形，$\operatorname{char} k \neq 2$）时，作线性坐标变换使标准方程为 $y^2 = x^2(x + 1)$（齐次形式 $Y^2 Z = X^2(X + Z)$），原点 $(0,0)$ 处的两条结点切线为 $y = x$ 与 $y = -x$（对应斜率参数 $t = y/x = \pm 1$），无穷远拐点为 $O = [0 : 1 : 0]$（对应 $t = \infty$，拐切线为 $Z = 0$）。在斜率参数化 $x = t^2 - 1, \, y = t(t^2 - 1)$ 下，引入分式线性乘法参数（将两条结点切线方向 $t = 1, -1$ 分别映为 $s = 0, \infty$，将无穷远拐点 $t = \infty$ 映为单位元 $s = 1$）：
+     $$s = \frac{t - 1}{t + 1} \in k^\times \qquad \left(\text{逆变换为 } t = \frac{1 + s}{1 - s},\; x = \frac{4s}{(1 - s)^2},\; y = \frac{4s(1 + s)}{(1 - s)^3}\right).$$
+     由此可得光滑点 $P(s) \in (C_{\mathrm{node}})_{\mathrm{reg}}$ 的齐次射影坐标为 $P(s) = \bigl[4s(1 - s) : 4s(1 + s) : (1 - s)^3\bigr]$（其中 $s = 1$ 恰给出 $O = [0 : 8 : 0] = [0 : 1 : 0]$）。将 $P(s)$ 代入任意直线方程 $a X + b Y + c Z = 0$，得关于 $s$ 的三次方程：
+     $$c(1 - s)^3 + 4a s(1 - s) + 4b s(1 + s) = -c s^3 + (3c - 4a + 4b)s^2 + (-3c + 4a + 4b)s + c = 0.$$
+     对于与光滑轨迹 $(C_{\mathrm{node}})_{\mathrm{reg}}$ 相交于三个光滑点（计重数）的任意直线 $aX + bY + cZ = 0$，该直线不经过结点 $[0:0:1]$，故必有 $c \neq 0$！注意到上述三次方程的 $s^3$ 项系数为 $-c \neq 0$，常数项为 $+c$，直接由 Vieta 定理知三根之积等于 $\frac{-c}{-c} = 1$（特别地，若直线经过无穷远零元 $O = [0:1:0]$，代入直线方程得 $b = 0$，此时 $s_3 = 1$ 为一根，其余两交点满足 $t_2 = -t_1 \implies s_2 = s_1^{-1}$，同样满足 $s_1 s_2 \cdot 1 = 1$），从而光滑点三点共线的充要条件恒简化为：
+     $$s_1 s_2 s_3 = 1!$$
+     于是以无穷远拐点 $O$（$s = 1$）为群零元时，$P(s_1)$ 与 $P(s_2)$ 的第三交点参数为 $(s_1 s_2)^{-1}$，再与 $O(s=1)$ 连线取逆即得群加法对应参数乘积 $s_1 s_2$，从而给出群同构 $(C_{\mathrm{node}})_{\mathrm{reg}} \xrightarrow{\sim} (k^\times, \times)$！
    - 当 $f_2(x, y)$ 为完全平方（尖点情形 $Y^2 Z = X^3$）时，在参数化 $P(t) = [t : 1 : t^3]$（其中 $t = X/Y$，$O = [0:1:0]$ 对应 $t = 0$，尖点 $[0:0:1]$ 对应 $t = \infty$）下，直线 $a X + b Y + c Z = 0$ 与 $C_{\mathrm{cusp}}$ 的交点满足三次方程：
      $$c t^3 + a t + b = 0.$$
      因为该三次方程缺少 $t^2$ 项，由 Vieta 定理知三个交点的参数之和恒满足：
@@ -1129,14 +1138,11 @@ $$A \text{ 是域} \iff B \text{ 是域}.$$
    $$y_2 = x_2 - c_2 x_1, \quad y_3 = x_3 - c_3 x_1, \quad \dots, \quad y_n = x_n - c_n x_1, \qquad (c_2, \dots, c_n \in k).$$
    将 $x_i = y_i + c_i x_1$（$i \ge 2$）代入 $f(x_1, \dots, x_n) = 0$ 并按 $x_1$ 的降幂整理：
    $$
-   \begin{aligned}
-   f(x_1, y_2 + c_2 x_1, \dots, y_n + c_n x_1)
-   &= f_m(1, c_2, \dots, c_n) x_1^m\\
-   &\quad+\text{(关于 }x_1\text{ 次数 }\le m-1\text{、}\\
-   &\qquad\text{系数在 }k[y_2,\dots,y_n]\text{ 中的项)}\\
-   &=0.
-   \end{aligned}
-   $$
+\begin{aligned}
+f(x_1, y_2 + c_2 x_1, \dots, y_n + c_n x_1) &= f_m(1, c_2, \dots, c_n) x_1^m \\
+&\quad + \text{(关于 } x_1 \text{ 次数 } \le m-1 \text{、系数在 } k[y_2,\dots,y_n] \text{ 中的项)} = 0.
+\end{aligned}
+$$
    因为 $k$ 是无限域，而非零多项式 $f_m(1, C_2, \dots, C_n) \in k[C_2, \dots, C_n]$ 不可能在 $k^{n-1}$ 上恒为零（**Exercise 0.1**），故存在标量 $(c_2, \dots, c_n) \in k^{n-1}$ 使得常数 $\lambda := f_m(1, c_2, \dots, c_n) \in k^\times$ 非零！两边同乘 $\lambda^{-1}$，即得 $x_1$ 在 $k[y_2, \dots, y_n]$ 上的首一整方程。
 2. **方法 B（对任意域 $k$ 均适用的 Nagata 幂次代换法）**：
    写出 $f(X_1, \dots, X_n) = \sum_{\alpha = (\alpha_1, \dots, \alpha_n)} a_\alpha X_1^{\alpha_1} X_2^{\alpha_2} \cdots X_n^{\alpha_n}$（其中 $a_\alpha \in k^\times$）。选取一个严格大于 $f$ 中所有单项式各变元指数的正整数 $r > \max_{\alpha, i} (\alpha_i)$，并作非线性多项式代换：
@@ -1686,7 +1692,7 @@ $$S(V) := k[X_0, X_1, \dots, X_n] / I_{\mathbb{P}}(V) = \bigoplus_{d=0}^\infty S
 **Example 3.5.3 (为什么射影态射需要局部有多组不同齐次代表式？光滑二次曲线投影).**
 考虑平面光滑二次曲线 $Q = V(X Z - Y^2) \subset \mathbb{P}^2_k$ 到射影直线 $\mathbb{P}^1_k$ 的同构投影 $f: Q \to \mathbb{P}^1_k$。在 $Q$ 上恒有 $X Z = Y^2 \iff \frac{X}{Y} = \frac{Y}{Z}$。因此映射 $f$ 可由**两组**一次齐次多项式对局部定义：
 $$f([X : Y : Z]) = \begin{cases} [X : Y], & \text{在开集 } U_1 = Q \setminus \{[0:0:1]\} \text{（即 } (X,Y) \neq (0,0)\text{）上}, \\[6pt] [Y : Z], & \text{在开集 } U_2 = Q \setminus \{[1:0:0]\} \text{（即 } (Y,Z) \neq (0,0)\text{）上}. \end{cases}$$
-在交集 $U_1 \cap U_2$（即 $Y \neq 0$）上，由 $X Z = Y^2$ 知 $[X : Y] = [X Z : Y Z] = [Y^2 : Y Z] = [Y : Z]$，两组表达式完全吻合！但是，在 $Q$ 上**不存在单一的一组**一次齐次式 $[L_0 : L_1]$ 能在整个 $Q$ 上同时不全为零地给出 $f$（因为两条直线 $L_0 = L_1 = 0$ 与二次曲线 $Q$ 必有交点）。这生动说明了在 Definition 3.5.2 中允许随点 $P$ 更换局部齐次多项式组 $(F_0, \dots, F_m)$ 的必要性。
+在交集 $U_1 \cap U_2$（即 $Y \neq 0$）上，由 $X Z = Y^2$ 知 $[X : Y] = [X Z : Y Z] = [Y^2 : Y Z] = [Y : Z]$，两组表达式完全吻合！但是，在 $Q$ 上**不存在单一的一组**一次齐次式 $[L_0(X,Y,Z) : L_1(X,Y,Z)]$ 能在整个 $Q$ 上处处无基点地表示该逆同构 $f: Q \to \mathbb{P}^1_k$！**严格证明**：若存在一次齐次式 $L_0, L_1$ 在 $Q$ 的某个非空开集上表示 $f$，将其沿二次 Veronese 同构 $[u : v] \mapsto [u^2 : u v : v^2] \in Q$ 拉回至 $\mathbb{P}^1_k$，由 $f([u^2 : u v : v^2]) = [u : v]$ 可知，对所有 $[u : v] \in \mathbb{P}^1_k$ 恒有比例恒等式 $[L_0(u^2, u v, v^2) : L_1(u^2, u v, v^2)] = [u : v]$，即多项式环 $k[u, v]$ 中恒有 $v \, L_0(u^2, u v, v^2) = u \, L_1(u^2, u v, v^2)$。由于 $\gcd(u, v) = 1$ 且 $L_0(u^2, u v, v^2), L_1(u^2, u v, v^2)$ 是关于 $(u, v)$ 的二次齐次多项式，必存在同一个非零一次齐次式 $L(u, v) = \alpha u + \beta v \neq 0$ 使得 $L_0(u^2, u v, v^2) = u \cdot L(u, v)$ 且 $L_1(u^2, u v, v^2) = v \cdot L(u, v)$。然而，非零一次式 $L(u, v)$ 在 $\mathbb{P}^1_k$ 上必有唯一零点 $[u_0 : v_0] = [-\beta : \alpha]$，在该点对应的二次曲线点 $P_0 = [u_0^2 : u_0 v_0 : v_0^2] \in Q$ 处必同时有 $L_0(P_0) = L_1(P_0) = 0$（出现未定义基点 $[0:0]$）！（注：不能简单用“任意两条直线 $L_0=L_1=0$ 的交点必在 $Q$ 上”来论证，因为例如 $L_0=X, L_1=Z$ 的公共交点 $[0:1:0] \notin Q$；上述拉回因式分解才精准证明了**能够表示逆同构 $f$** 的任何一次式对 $[L_0:L_1]$ 必在 $Q$ 上恰有一个公共零点。）这生动说明了在 Definition 3.5.2 中允许随点 $P$ 更换局部齐次多项式组 $(F_0, \dots, F_m)$ 的必要性。
 
 **Example 3.5.4 ($d$ 次 Veronese 嵌入 $v_{n, d}: \mathbb{P}^n_k \hookrightarrow \mathbb{P}^N_k$).**
 给定正整数 $n, d \ge 1$。在 $n + 1$ 个变元 $X_0, \dots, X_n$ 中，全部次数为 $d$ 的单项式 $M_I = X_0^{i_0} X_1^{i_1} \cdots X_n^{i_n}$（其中 $I = (i_0, \dots, i_n) \in \mathbb{Z}_{\ge 0}^{n+1}, \sum_{j=0}^n i_j = d$）共有 $N + 1 := \binom{n + d}{d}$ 个。定义 **$d$ 次 Veronese 映射**：
@@ -1823,7 +1829,7 @@ $$V_{\ge m} = V \cap V\bigl( \{ D_\alpha \}_{\alpha} \bigr)$$
 
 #### 3.8 Blowups and resolution of curve singularities
 
-在 **Chapter 1** 中我们看到，结点三次曲线 $y^2 = x^2(x + 1)$ 在原点 $(0, 0)$ 处有两条不同的切线 $y = \pm x$，当我们引入斜率参数 $t = y/x$ 时，原本在平面 $\mathbb{A}^2_k$ 中重合于原点 $(0, 0)$ 的两个分支在参数空间中被拆分为两个不同的点 $t = 1$ 与 $t = -1$。将这一“引入过原点的所有直线斜率以拆开奇点”的操作几何化，便得到了代数几何中最强大的双有理手术工具——**爆破（Blowup / $\sigma$-Process）**。
+在 **Chapter 1** 中我们看到，当 $\operatorname{char} k \neq 2$ 时，结点三次曲线 $y^2 = x^2(x + 1)$ 在原点 $(0, 0)$ 处有两条不同的切线 $y = \pm x$，当我们引入斜率参数 $t = y/x$ 时，原本在平面 $\mathbb{A}^2_k$ 中重合于原点 $(0, 0)$ 的两个分支在参数空间中被拆分为两个不同的点 $t = 1$ 与 $t = -1$（注：若 $\operatorname{char} k = 2$，则 $t = 1 = -1$ 重合，且令 $Y = y + x$ 后方程化为尖点三次曲线 $Y^2 = x^3$）。将这一“引入过原点的所有直线斜率以拆开奇点”的操作几何化，便得到了代数几何中最强大的双有理手术工具——**爆破（Blowup / $\sigma$-Process）**。
 
 **Definition 3.8.1 (在原点处爆破仿射空间 $\operatorname{Bl}_0 \mathbb{A}^n_k$).**
 设 $n \ge 2$，记仿射空间 $\mathbb{A}^n_k$ 的坐标为 $(x_1, \dots, x_n)$，记射影空间 $\mathbb{P}^{n-1}_k$（参数化 $\mathbb{A}^n_k$ 中所有过原点 $O = (0, \dots, 0)$ 的直线方向）的齐次坐标为 $[Y_1 : \dots : Y_n]$。
@@ -1859,9 +1865,9 @@ $$f(x, y) = f_m(x, y) + f_{m+1}(x, y) + \dots + f_d(x, y), \qquad f_m(x, y) \neq
    $$\tilde{f}(x, u) := x^{-m} f(x, x u) = f_m(1, u) + x f_{m+1}(1, u) + \dots + x^{d-m} f_d(1, u) = 0!$$
    令 $x = 0$，立即看到严格变换 $\widetilde{C}$ 与例外曲线 $E = \{x = 0\}$ 的交点由方程 $f_m(1, u) = 0$（在齐次形式下即 $f_m(U, V) = 0$）给出——**严格变换 $\widetilde{C}$ 与例外曲线 $E$ 的交点恰好一一对应于原曲线 $C$ 在原点 $O$ 处切锥的主切线方向**！
 
-**Example 3.8.4 (平面曲线奇点消解的三大典型算例).**
-在坐标卡 $W_1: (x, y) = (x, x u)$ 下，我们显式检验爆破如何消解平面奇点：
-1. **结点三次曲线（Nodal Cubic）$C_1: y^2 - x^2(x + 1) = 0$**：
+**Example 3.8.4 (平面曲线奇点消解的三大典型算例，以下结点与触点算例设 $\operatorname{char} k \neq 2$).**
+在坐标卡 $W_1: (x, y) = (x, x u)$ 下，我们显式检验爆破如何消解平面奇点（注：本节一般爆破定义、坐标卡与严格变换公式对任意特征域均成立；但下方第 1、3 例中的结点 $y^2 - x^2(x+1) = 0$ 与不可约触点 $y^2 - x^4 - y^4 = 0$ 需设 $\operatorname{char} k \neq 2$，因为在特征 $2$ 下 $1 = -1$ 会使 $u = \pm 1$ 重合为二重相切，且 $y^2 - x^4 - y^4 = (y - x^2 - y^2)^2$ 在特征 $2$ 下可约、导数 $2w = 0$）：
+1. **结点三次曲线（Nodal Cubic，$\operatorname{char} k \neq 2$）$C_1: y^2 - x^2(x + 1) = 0$**：
    代入 $y = x u$ 得 $x^2 u^2 - x^2(x + 1) = x^2(u^2 - x - 1) = 0$。除掉例外曲线因子 $x^2$，严格变换 $\widetilde{C}_1$ 的方程为：
    $$\widetilde{C}_1: x = u^2 - 1 \quad (\text{即 } u^2 - x - 1 = 0).$$
    这是一条光滑抛物线（同构于 $\mathbb{A}^1_k$），处处满足 $\frac{\partial \tilde{f}}{\partial x} = -1 \neq 0$，故 **$\widetilde{C}_1$ 完全光滑**！它与例外曲线 $E: x = 0$ 横截相交于两个不同的点 $(x, u) = (0, 1)$ 与 $(0, -1)$（对应原结点处的两条切线 $y = \pm x$）。一次爆破即完成奇点消解！
@@ -1900,8 +1906,8 @@ $$f(x, y) = f_m(x, y) + f_{m+1}(x, y) + \dots + f_d(x, y), \qquad f_m(x, y) \neq
    既然 $X$ 与 $Y$ 是两个互不相关的不可约元，$g$ 只能是**非零常数** $g \in k^\times$！故 $\varphi \in k[X, Y]$，即 $\mathcal{O}_{\mathbb{A}^2}(U) = k[X, Y]$。
 2. 用反证法。假设 $U$ 同构于某个仿射簇 $V$，则嵌入态射 $\iota: U \hookrightarrow \mathbb{A}^2_k$ 在全局正则函数环上诱导的拉回同态 $\iota^*: k[\mathbb{A}^2] = k[X, Y] \to \mathcal{O}(U) = k[X, Y]$ 恰为恒等映射 $\mathrm{id}_{k[X,Y]}$（特别地是同构）。由仿射簇范畴的反等价定理（**Theorem 3.1.4(3)**），若 $U$ 是仿射簇，则 $\iota^*$ 是同构蕴含 $\iota: U \hookrightarrow \mathbb{A}^2_k$ 必须是双射（同构），但这与 $(0, 0) \notin U$ 矛盾！ **Q.E.D.**
 
-##### Exercise 3.2 (结点三次曲线坐标环的整闭包与正规化 Normalisation)
-设 $C = V(Y^2 - X^2(X + 1)) \subset \mathbb{A}^2_k$ 为结点三次曲线，记其坐标环为 $A = k[C] = k[x, y]$（满足 $y^2 = x^2(x + 1)$）。
+##### Exercise 3.2 (奇异三次曲线 $Y^2 = X^2(X+1)$ 坐标环的整闭包与正规化 Normalisation)
+设 $C = V(Y^2 - X^2(X + 1)) \subset \mathbb{A}^2_k$（当 $\operatorname{char} k \neq 2$ 时为结点三次曲线；当 $\operatorname{char} k = 2$ 时经 $Y' = Y + X$ 化为尖点三次曲线 $Y'^2 = X^3$，以下整闭包与正规化计算对任意特征域均成立），记其坐标环为 $A = k[C] = k[x, y]$（满足 $y^2 = x^2(x + 1)$）。
 1. 令 $t := y / x \in k(C)$。证明 $t$ 在坐标环 $A = k[C]$ 上是**整元（Integral over $A$）**，但 $t \notin A$（因此 $A$ 不是整闭整环 / 非正规环 Non-normal Domain）；
 2. 证明 $A$ 在其分式域 $k(C) = k(t)$ 中的整闭包（Integral Closure）恰好是一元多项式环 $\widetilde{A} = A[t] = k[t]$，且包含映射 $A \hookrightarrow k[t]$ 对应的几何态射 $\pi: \mathbb{A}^1_k \to C, \; t \mapsto (t^2 - 1, t(t^2 - 1))$ 恰为结点三次曲线的奇点消解（正规化态射）！
 
@@ -2022,17 +2028,19 @@ $$S_d \subseteq J_\varphi \implies S_d \cdot \varphi \subseteq S_d!$$
    从而任何包含两条异面直线的不可约三次曲面 $S \subset \mathbb{P}^3_k$ 都是有理曲面（Rational Surface，$k(S) \cong k(u, v)$）！ **Q.E.D.**
 
 ##### Exercise 3.10 (高阶尖点曲线 $y^p = x^q$ 的连续爆破与 Euclid 辗转相除法)
-设 $p < q$ 为两个互素的正整数（$\gcd(p, q) = 1$），考虑仿射平面中的不可约高阶尖点曲线 $C: y^p - x^q = 0 \subset \mathbb{A}^2_k$。
-1. 证明 $C$ 在原点 $O(0, 0)$ 处的重数为 $m_O(C) = p$，且 $O(0,0)$ 是 $C$ 的唯一奇点；
-2. 证明在原点处对 $\mathbb{A}^2_k$ 执行一次爆破（令 $y = x u$）后，严格变换 $\widetilde{C}$ 的方程化为：
+设 $p < q$ 为两个互素的正整数（$\gcd(p, q) = 1$），考虑仿射平面中的不可约曲线 $C: y^p - x^q = 0 \subset \mathbb{A}^2_k$。
+1. 证明 $C$ 在原点 $O(0, 0)$ 处的重数为 $m_O(C) = p$：当 $p = 1$ 时 $C: y = x^q$ 处处光滑（无奇点）；当 $2 \le p < q$ 时，$O(0,0)$ 是 $C$ 的唯一奇点；
+2. 证明当 $2 \le p < q$ 时，在原点处对 $\mathbb{A}^2_k$ 执行一次爆破（令 $y = x u$）后，严格变换 $\widetilde{C}$ 的方程化为：
    $$\widetilde{C}: u^p - x^{q - p} = 0!$$
-3. 由此证明：通过连续单点爆破消解曲线 $y^p = x^q$ 的奇点的过程，在指数 $(p, q) \mapsto (\min(p, q-p), \max(p, q-p))$ 上**完全等同于求 $\gcd(p, q) = 1$ 的 Euclid 辗转相减（辗转相除）算法**，并具体写出消解曲线 $y^3 = x^5$ 所需的每一步爆破方程！
+3. 由此证明：通过连续单点爆破消解高阶尖点曲线 $y^p = x^q$（$2 \le p < q, \, \gcd(p,q)=1$）奇点的过程，在指数 $(p, q) \mapsto (\min(p, q-p), \max(p, q-p))$ 上**完全等同于求 $\gcd(p, q) = 1$ 的 Euclid 辗转相减（辗转相除）算法**（一旦某步后 $\min(p, q-p) = 1$ 即已光滑并终止），并具体写出消解曲线 $y^3 = x^5$ 所需的每一步爆破方程！
 
 **Proof.**
-1. 多项式 $f(x, y) = y^p - x^q$ 中，因为 $p < q$，最低次齐次项是 $p$ 次项 $y^p$，故 $m_O(C) = p$，切锥为 $p$ 重切线 $y^p = 0$。在原点之外，由 $\gcd(p, q) = 1$ 及参数化 $(x, y) = (t^p, t^q)$（其逆映射在 $t \neq 0$ 上由 Bézout 整系数恒等式 $a p + b q = 1 \implies t = x^a y^b$ 正则给出）可知 $C \setminus \{O\} \cong \mathbb{A}^1_k \setminus \{0\}$ 处处光滑。
-2. 在第一爆破坐标卡 $W_1: y = x u$ 中，代入 $y^p - x^q = 0$ 得：
+1. 多项式 $f(x, y) = y^p - x^q$ 中，因为 $p < q$，最低次齐次项是 $p$ 次项 $y^p$，故原点处的重数为 $m_O(C) = p$（切锥为 $y^p = 0$）。
+   - **光滑边界情形（$p = 1$）**：此时曲线方程为 $y - x^q = 0$，偏导数 $\frac{\partial f}{\partial y} \equiv 1 \neq 0$ 在整个 $\mathbb{A}^2_k$ 上处处非零，故当 $p = 1$ 时 $C \cong \mathbb{A}^1_k$ 已经处处光滑，原点 $O(0,0)$ 不是奇点；
+   - **真正奇异情形（$2 \le p < q$）**：此时在原点处 $m_O(C) = p \ge 2$，故原点 $O(0,0)$ 是奇点；而在原点之外，由 $\gcd(p, q) = 1$ 及有理双射参数化 $(x, y) = (t^p, t^q)$（其逆映射在 $C \setminus \{O\} \to \mathbb{A}^1_k \setminus \{0\}$ 上由 Bézout 整系数恒等式 $a p + b q = 1 \implies t = x^a y^b$ 正则给出，且该同构不依赖底域特征）可知 $C \setminus \{O\} \cong \mathbb{A}^1_k \setminus \{0\}$ 处处光滑，故当 $2 \le p < q$ 时 $O(0,0)$ 是 $C$ 的**唯一奇点**。
+2. 设 $2 \le p < q$。在第一爆破坐标卡 $W_1: y = x u$ 中，代入 $y^p - x^q = 0$ 得：
    $$x^p u^p - x^q = x^p \bigl(u^p - x^{q - p}\bigr) = 0.$$
-   除掉例外曲线因子 $x^p$，即得严格变换 $\widetilde{C}: u^p - x^{q - p} = 0$（而在第二坐标卡 $W_2: x = y v$ 中，严格变换 $1 - y^{q-p} v^q = 0$ 与例外曲线 $y = 0$ 无交点，故唯一的奇点落在了第一坐标卡的原点 $(x, u) = (0, 0)$ 处）。
+   除掉例外曲线因子 $x^p$，即得严格变换 $\widetilde{C}: u^p - x^{q - p} = 0$。而在第二坐标卡 $W_2: x = y v$ 中，严格变换 $1 - y^{q-p} v^q = 0$ 与例外曲线 $y = 0$ 无交点，故 $\widetilde{C}$ 与例外曲线 $E$ 的唯一交点落在了第一坐标卡的原点 $(x, u) = (0, 0)$ 处，其重数为 $m_{(0,0)}(\widetilde{C}) = \min(p, q - p)$：若 $\min(p, q - p) = 1$（例如 $p = 2, q = 3$ 时 $\widetilde{C}: u^2 - x = 0$），则第一次爆破后 $\widetilde{C}$ 已在 $(0,0)$ 处完全光滑，奇点消解立即终止；若 $\min(p, q - p) \ge 2$，则 $(x, u) = (0,0)$ 仍是 $\widetilde{C}$ 的唯一奇点，继续在该点执行下一次爆破。
 3. 因为 $\gcd(p, q) = 1$，每做一次爆破，指数对 $(p, q)$ 就变成 $(p, q - p)$（若 $q - p < p$ 则交换两个坐标角色）。由辗转相除法，经过有限步后，必有较小指数变为 **$1$**，即方程变为 $w^1 - z^r = 0$，此时曲线在原点处的一次项系数为 $1 \neq 0$，彻底化为光滑曲线！
    以 $C: y^3 - x^5 = 0$（即 $(p, q) = (3, 5)$）为例：
    - **第 1 次爆破**（令 $y = x u_1$）：$x^3 u_1^3 - x^5 = 0 \implies \widetilde{C}_1: u_1^3 - x^2 = 0$（指数由 $(3, 5)$ 变为 $(2, 3)$，在原点处变为普通三次尖点）；

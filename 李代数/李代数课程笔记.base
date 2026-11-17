@@ -121,3 +121,15 @@ views:
       - source_check
       - exercise_range
       - writing_skill
+  - type: table
+    name: 第十讲讲义与作业
+    filters:
+      and:
+        - lecture_number == 10
+    order:
+      - file.name
+      - note_type
+      - source_chapter
+      - source_check
+      - exercise_range
+      - writing_skill

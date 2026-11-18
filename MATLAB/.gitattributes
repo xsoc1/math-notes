@@ -1,3 +1,4 @@
 # Preserve the original bytes of the mirrored teacher scripts.
 课程资料/实验代码/W8实验课代码/*.m -text -whitespace
 课程资料/补充资料/Week8线性代数/*.m -text -whitespace
+课程资料/原始课件/poly2str*.m -text -whitespace

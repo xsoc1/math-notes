@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-19",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 56,
-  "lectures": 26,
+  "materials": 65,
+  "lectures": 27,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "dc5f9f4b8f2f625dfc3655d015c3230fde02f505ba8ccd100d0446ce4e6d4c9c",
@@ -118,10 +118,17 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/11_MATLAB多项式运算与动态规划.md": {
-      "source_sha256": "e9ede8c0d70e7bfe59a4eda964babf0ac7c3c0a416d9e864e37783bc85679201",
-      "copy_sha256": "b34481d4706182c4727e3c152e450de4b320b3329850bddfac65b4cd8507ea55",
-      "source_bytes": 21438,
-      "copy_bytes": 21482,
+      "source_sha256": "8dfbd0baf7632de86cda6df138b9df6ef690f8fdef474daf502f8ff6cacc9d98",
+      "copy_sha256": "38fcbf3d8766a6e848367bf773c12ce782489985bb26128be9602f4d50225a6c",
+      "source_bytes": 24365,
+      "copy_bytes": 24579,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/12_MATLAB数据可视化一.md": {
+      "source_sha256": "28cd8f9c4e2be0473ebbbdf8424abda5fb326c74b8109b835c8c8ed2dfb3f596",
+      "copy_sha256": "c945a05ccca1b9528feb193daa772b1bae53ebf4c6c49c42123d38d2b45f9ac2",
+      "source_bytes": 14005,
+      "copy_bytes": 14474,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -215,6 +222,13 @@
       "copy_bytes": 154784,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/Week11作业Q3数据.zip": {
+      "source_sha256": "1b639c20432dbaa8674b9d747541aa34370e64c6c2c73fe505b28a90a3ac5880",
+      "copy_sha256": "1b639c20432dbaa8674b9d747541aa34370e64c6c2c73fe505b28a90a3ac5880",
+      "source_bytes": 1699,
+      "copy_bytes": 1699,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/Week3傅里叶变换.zip": {
       "source_sha256": "683dc38e87c258e4278649a3aa99f005297603c233da9edc365a6d474ccfe798",
       "copy_sha256": "683dc38e87c258e4278649a3aa99f005297603c233da9edc365a6d474ccfe798",
@@ -227,6 +241,13 @@
       "copy_sha256": "7363ca1da4d32e4fc91c6bad2d06ea2ffcc922159e1aeb6752c7efa60cacb742",
       "source_bytes": 31361406,
       "copy_bytes": 31361406,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/poly2str(1).m": {
+      "source_sha256": "9afa03b6af6c9e3f13e073afd037c7ba55aa378273c0c483ba38c913d51ede7f",
+      "copy_sha256": "9afa03b6af6c9e3f13e073afd037c7ba55aa378273c0c483ba38c913d51ede7f",
+      "source_bytes": 1328,
+      "copy_bytes": 1328,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/week2实时脚本资料更新版.zip": {
@@ -376,11 +397,25 @@
       "copy_bytes": 1145016,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第十一课 MATLAB多项式运算与动态规划(1).pdf": {
+      "source_sha256": "afa20091996f45d28f7215dba984229dbe69585cf5aee55581c4bd2a57349433",
+      "copy_sha256": "afa20091996f45d28f7215dba984229dbe69585cf5aee55581c4bd2a57349433",
+      "source_bytes": 756905,
+      "copy_bytes": 756905,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第十一课 MATLAB多项式运算与动态规划.pdf": {
       "source_sha256": "b95636796572112811aabc8c048f3fe6bbb0e3e78c30d882156bb2ce46868cf1",
       "copy_sha256": "b95636796572112811aabc8c048f3fe6bbb0e3e78c30d882156bb2ce46868cf1",
       "source_bytes": 757049,
       "copy_bytes": 757049,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十二课 MATLAB数据可视化（一）(1).pdf": {
+      "source_sha256": "2ad131c3eaa315a2dd9168040a0642e1e7c20adfa51d4128dee0618bed1e2e93",
+      "copy_sha256": "2ad131c3eaa315a2dd9168040a0642e1e7c20adfa51d4128dee0618bed1e2e93",
+      "source_bytes": 3513417,
+      "copy_bytes": 3513417,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第十周参考作业(1).pdf": {
@@ -530,6 +565,41 @@
       "copy_bytes": 154339,
       "mode": "byte_identical"
     },
+    "课程资料/数据/Week11作业Q3数据/Q31.mat": {
+      "source_sha256": "dd168f0a072e972d387fc854cd6550227d9c9700b21642bb97e3a3c6f1aedbd6",
+      "copy_sha256": "dd168f0a072e972d387fc854cd6550227d9c9700b21642bb97e3a3c6f1aedbd6",
+      "source_bytes": 357,
+      "copy_bytes": 357,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week11作业Q3数据/Q32.mat": {
+      "source_sha256": "ba2a3935fcb3c5a5f07174c49398e68fad97995fe15fd2358e8d91a70e6e4b4c",
+      "copy_sha256": "ba2a3935fcb3c5a5f07174c49398e68fad97995fe15fd2358e8d91a70e6e4b4c",
+      "source_bytes": 363,
+      "copy_bytes": 363,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week11作业Q3数据/Q33.mat": {
+      "source_sha256": "35235c2439869705bc9dbd75357c9192d3ac136d21703129c0cb397d60dbbdc5",
+      "copy_sha256": "35235c2439869705bc9dbd75357c9192d3ac136d21703129c0cb397d60dbbdc5",
+      "source_bytes": 371,
+      "copy_bytes": 371,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week11作业Q3数据/Q34.mat": {
+      "source_sha256": "8d99944ed0d43987b48341e967c4f4bab3930c99a9aaca1656a08b9df6084d07",
+      "copy_sha256": "8d99944ed0d43987b48341e967c4f4bab3930c99a9aaca1656a08b9df6084d07",
+      "source_bytes": 751,
+      "copy_bytes": 751,
+      "mode": "byte_identical"
+    },
+    "课程资料/数据/Week11作业Q3数据/README.md": {
+      "source_sha256": "a4642af790324f647f0791059fa14bce5590eee25de7211c03d48b4695476e10",
+      "copy_sha256": "a4642af790324f647f0791059fa14bce5590eee25de7211c03d48b4695476e10",
+      "source_bytes": 1277,
+      "copy_bytes": 1277,
+      "mode": "byte_identical"
+    },
     "课程资料/补充资料/Week7微分方程数值解法/《有限元法及应用》总结--ppt课件.ppt": {
       "source_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
       "copy_sha256": "b2853b89e460ed25ef7fc15a1939e40012f5f2c3066630d4b32d5ad09f6ad497",
@@ -581,13 +651,13 @@
     }
   },
   "generated": {
-    "README.md": "9aff089d0a2ab2b142a07184edd390166bf22df3456343e942bd0b78d14a11db",
+    "README.md": "b9200537096619a44db68713b375d50f2311d31a99d1a90573882b658112a800",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 68,
-    "wikilinks": 68,
-    "file_links": 0
+    "local_targets_checked": 87,
+    "wikilinks": 76,
+    "file_links": 11
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

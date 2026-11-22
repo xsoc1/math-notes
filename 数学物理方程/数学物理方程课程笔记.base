@@ -71,6 +71,14 @@ views:
       - source_check
       - status
   - type: table
+    name: 第十一周作业
+    filters: file.hasTag("week-11") && file.inFolder("数学物理方程/作业")
+    order:
+      - file.name
+      - note_type
+      - source_check
+      - status
+  - type: table
     name: 测验
     filters: file.hasTag("quiz") && file.inFolder("数学物理方程/作业")
     order:

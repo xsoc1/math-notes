@@ -7,7 +7,7 @@ tags:
   - matlab/optimization
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/09_MATLAB进阶程序设计与问题求解.md"
-matlab_source_sha256: 9511d232195edaf9b23b00cb8dacd28cf6745824b6126c2b82938afc6b1bbe45
+matlab_source_sha256: 819e3bac4a8c80ebdb09d21a7b839e28a80e395745e75fbeaee58855eb80db01
 ---
 
 # 第九课：MATLAB 进阶程序设计与问题求解
@@ -246,5 +246,7 @@ function Out = w09_functions_optimization_demo()
     Out.Rosenbrock_f = f_rosen_val;
 end
 ```
+
+教师参考另见[[MATLAB/课程讲义/补充_第九周作业参考解读|第九周参考解读]]：区间法名称与实际内点比例、线性不等式参数和初值的差异已标注，不改既有作业。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。

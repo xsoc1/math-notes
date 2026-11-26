@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-27",
   "source": "F:\\MATLAB course",
   "target": "F:\\Obsidian Storage\\数学\\MATLAB",
-  "materials": 65,
-  "lectures": 27,
+  "materials": 69,
+  "lectures": 31,
   "files": {
     "课程讲义/01_MATLAB软件入门.md": {
       "source_sha256": "dc5f9f4b8f2f625dfc3655d015c3230fde02f505ba8ccd100d0446ce4e6d4c9c",
@@ -97,10 +97,10 @@
       "mode": "obsidian_navigation"
     },
     "课程讲义/09_MATLAB进阶程序设计与问题求解.md": {
-      "source_sha256": "9511d232195edaf9b23b00cb8dacd28cf6745824b6126c2b82938afc6b1bbe45",
-      "copy_sha256": "a1bbba50382457069eb11f8e376c213d9bd696561183a1ca23188e96f67732b8",
-      "source_bytes": 19901,
-      "copy_bytes": 19954,
+      "source_sha256": "819e3bac4a8c80ebdb09d21a7b839e28a80e395745e75fbeaee58855eb80db01",
+      "copy_sha256": "56445deb854bd23672a0311c3f234bb3d1c09bda785bcaf642d3e750a467e7c5",
+      "source_bytes": 20097,
+      "copy_bytes": 20168,
       "mode": "obsidian_navigation"
     },
     "课程讲义/10B_第十周实验课.md": {
@@ -124,11 +124,25 @@
       "copy_bytes": 24579,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/12B_第十二周实验课.md": {
+      "source_sha256": "4967b1c2b274699492fae9764e3d35f224f99dbec013778fae5ad1ad580ace78",
+      "copy_sha256": "5bb43472d07f2d55236593f0bafcb5a1635b7c264ca67a7269e2c3e362721093",
+      "source_bytes": 2809,
+      "copy_bytes": 3257,
+      "mode": "obsidian_navigation"
+    },
     "课程讲义/12_MATLAB数据可视化一.md": {
-      "source_sha256": "28cd8f9c4e2be0473ebbbdf8424abda5fb326c74b8109b835c8c8ed2dfb3f596",
-      "copy_sha256": "c945a05ccca1b9528feb193daa772b1bae53ebf4c6c49c42123d38d2b45f9ac2",
-      "source_bytes": 14005,
-      "copy_bytes": 14474,
+      "source_sha256": "11ac3ff418e3b188d30afb4281aa791ef84ee36458dabfcf0c707478292b72cb",
+      "copy_sha256": "a71c848780e2dd70c2ea8d0f809addadcfcb1ad4d9e08dc2c792c791cd56f38b",
+      "source_bytes": 14226,
+      "copy_bytes": 14731,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/13_MATLAB数据可视化二.md": {
+      "source_sha256": "0165158b630b9da644d8c73f41bc6d61bc25001399afdefecfb8b0a3e3b17329",
+      "copy_sha256": "279c252994d8c180e2fca531e644aef59e158ff71322e636630549e8e890165e",
+      "source_bytes": 7230,
+      "copy_bytes": 7736,
       "mode": "obsidian_navigation"
     },
     "课程讲义/工具_实时脚本mlx.md": {
@@ -166,6 +180,13 @@
       "copy_bytes": 12029,
       "mode": "obsidian_navigation"
     },
+    "课程讲义/补充_第九周作业参考解读.md": {
+      "source_sha256": "46f53b4a5d51c4b2f430d8d6b268cad2bfc5c1f57f88ed937d20c0ada9e4597d",
+      "copy_sha256": "5381da681c2c07a517eae3aecda59ac35317703312379b6ce91f116f9cfd96db",
+      "source_bytes": 2027,
+      "copy_bytes": 2368,
+      "mode": "obsidian_navigation"
+    },
     "课程讲义/补充_第二周与第四周作业参考解读.md": {
       "source_sha256": "4880b4504553bc800272dc8882dd638e434e6f5ef1676e9224bb2edb492b2faa",
       "copy_sha256": "3b9ebbb1a3429f243a823d8d3d00bf22f41e1b000e9a85044deae1cef9b353fa",
@@ -185,6 +206,13 @@
       "copy_sha256": "2ada71bfa6fbc9a43625ff673587f53b1514c22b21e7abbcdd03e04e12e29e74",
       "source_bytes": 16321,
       "copy_bytes": 16476,
+      "mode": "obsidian_navigation"
+    },
+    "课程讲义/补充_第十二周参考作业解读.md": {
+      "source_sha256": "906e873e5e851eb25b2f2455c7738a26271a43c2dfcbfe30431621b2d5125f9f",
+      "copy_sha256": "ab2759932d10a1eaa1f04e8d20d596af1060fb8355ac490c4af3e2c0249444f3",
+      "source_bytes": 1918,
+      "copy_bytes": 2294,
       "mode": "obsidian_navigation"
     },
     "课程讲义/补充_第十周参考作业解读.md": {
@@ -299,6 +327,13 @@
       "copy_bytes": 1259052,
       "mode": "byte_identical"
     },
+    "课程资料/原始课件/第九周.pdf": {
+      "source_sha256": "48c7d4dfef7dc85b6fbd3c122b091a6343d479fee896ac81cbce9c1fdbe756d8",
+      "copy_sha256": "48c7d4dfef7dc85b6fbd3c122b091a6343d479fee896ac81cbce9c1fdbe756d8",
+      "source_bytes": 393256,
+      "copy_bytes": 393256,
+      "mode": "byte_identical"
+    },
     "课程资料/原始课件/第九课 MATLAB进阶程序设计与问题求解.pdf": {
       "source_sha256": "c67b5ed5472d99a4e780050a4a98ebbbaea334a7e4a0d377666c2a987de87c69",
       "copy_sha256": "c67b5ed5472d99a4e780050a4a98ebbbaea334a7e4a0d377666c2a987de87c69",
@@ -409,6 +444,27 @@
       "copy_sha256": "b95636796572112811aabc8c048f3fe6bbb0e3e78c30d882156bb2ce46868cf1",
       "source_bytes": 757049,
       "copy_bytes": 757049,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十三课 MATLAB数据可视化（二）.pdf": {
+      "source_sha256": "69816df1dba44c1b1a70abfc0459dc7fb78c49e78a6b59f5e27826062c473c16",
+      "copy_sha256": "69816df1dba44c1b1a70abfc0459dc7fb78c49e78a6b59f5e27826062c473c16",
+      "source_bytes": 2713609,
+      "copy_bytes": 2713609,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十二周参考作业(1).pdf": {
+      "source_sha256": "0d1b1b85378f65d10742ee754974191e6b299b0e145aae4649131d6c2aae1717",
+      "copy_sha256": "0d1b1b85378f65d10742ee754974191e6b299b0e145aae4649131d6c2aae1717",
+      "source_bytes": 962670,
+      "copy_bytes": 962670,
+      "mode": "byte_identical"
+    },
+    "课程资料/原始课件/第十二周实验课.pdf": {
+      "source_sha256": "b4d7149549e2570f4dc72c3f92c0cb15c081ec9ee0179f7b284928df1ec23c78",
+      "copy_sha256": "b4d7149549e2570f4dc72c3f92c0cb15c081ec9ee0179f7b284928df1ec23c78",
+      "source_bytes": 147109,
+      "copy_bytes": 147109,
       "mode": "byte_identical"
     },
     "课程资料/原始课件/第十二课 MATLAB数据可视化（一）(1).pdf": {
@@ -651,13 +707,13 @@
     }
   },
   "generated": {
-    "README.md": "b9200537096619a44db68713b375d50f2311d31a99d1a90573882b658112a800",
+    "README.md": "c5a2539f5766e602b377f0b4dfa1cfacc79df849b77052f63856e7ac1cc663ff",
     "MATLAB课程笔记.base": "f23dbf49dffcbf7e4c8b312df7eb998e6ab6ff8023cf1c0d76957c225fb745f0"
   },
   "links": {
-    "local_targets_checked": 87,
-    "wikilinks": 76,
-    "file_links": 11
+    "local_targets_checked": 109,
+    "wikilinks": 90,
+    "file_links": 19
   },
   "stale_copies_retained": [],
   "progress_policy": "No learner or course state files are copied or changed."

@@ -6,7 +6,7 @@ tags:
   - matlab/visualization
 matlab_mirror: true
 matlab_source: "F:/MATLAB course/课程讲义/12_MATLAB数据可视化一.md"
-matlab_source_sha256: 28cd8f9c4e2be0473ebbbdf8424abda5fb326c74b8109b835c8c8ed2dfb3f596
+matlab_source_sha256: 11ac3ff418e3b188d30afb4281aa791ef84ee36458dabfcf0c707478292b72cb
 ---
 
 # 第十二课：MATLAB 数据可视化（一）
@@ -172,5 +172,7 @@ $y(t)=\sin t\sin9t$ 在 $[0,\pi]$ 振荡。12、51、401 个点可能画出差�
 下一节点：[两道不用交的参考题](file:///F:/MATLAB%20course/%E8%87%AA%E6%B5%8B/%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E5%8F%82%E8%80%83%E4%BD%9C%E4%B8%9A/README.md)。只保留题面和检查要点，未代写六曲面或城市数据的完整解答。
 
 返回：[[MATLAB/课程讲义/11_MATLAB多项式运算与动态规划|第十一课]] · [课程内容队列](file:///F:/MATLAB%20course/%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9%E7%8A%B6%E6%80%81.md)。
+
+课后入口：[[MATLAB/课程讲义/补充_第十二周参考作业解读|第十二周教师参考解读]]供自测后读；[[MATLAB/课程讲义/13_MATLAB数据可视化二|第十三课：数据可视化（二）]]接续双轴、颜色映射与动画。
 
 Obsidian 导航：[[MATLAB/README|MATLAB 课程总览]]。
